@@ -1,45 +1,36 @@
 *{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-family: Lato;
+    font-family: "Lato", sans-serif;
+    color: #505050;
+    font-weight: 300;
 }
 
+.logo{
+    padding: 20px 0 0 20px;
+}
 header h1{    
-    font-weight: 300;
     font-size: 50px;
     margin: 20px 0 0 0;
 }
 header h3{
     font-size: 20px;
-    font-weight: 300;
-    text-align: right;
 }
 
 #title{
     float:right;
+    padding-right: 30px;
 }
 
-#flex-wrap{
-    display: -webkit-flex;
-    display: flex;
-}
-
-.work{
-    width: 33.3%;
-    height: auto;
-    margin: 0 10px 0 10px
-}
-.work img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 .work figcaption{
     text-align: center;
 }
-.address{
+.text-light{
     color: grey;
+}
+.text-400{
+    font-weight: 400;
 }

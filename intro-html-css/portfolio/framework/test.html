@@ -1,47 +1,79 @@
 <!doctype html>
-<html>  
+<html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UV-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Framework</title>
         <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="css/normalize.css" />
         <link href='https://fonts.googleapis.com/css?family=Lato:400,300italic,300' rel='stylesheet' />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+        <script type="text/javascript" src="js/bootstrap.min.js" ></script> 
     </head>
     <body>
         <header>
-            <img  src="http://placehold.it/150X150" />
-            <hgroup id="title">
-                <h1>JANE DOETTE</h1>
-                <h3>FRONT-END NINJA</h2>
-            </hgroup>
+            <section class="row">
+                <div class="col-sm-6 logo">
+                    <img src="http://placehold.it/150X150" alt="logo" />
+                </div>
+                <div id="title" class="col-sm-6 text-right">
+                    <h1>JANE DOETTE</h1>
+                    <h3>FRONT-END NINJA</h2>
+                </div>
+            </section>
+            <section class="row">
+                <div class="col-sm-12">
+                    <hr>
+                </div>
+            </section>
         </header>
         <section id="main">
-            <img  src="http://placehold.it/960x300" />
+            <img  src="http://placehold.it/1140x350" class="img-responsive center-block" alt="main image"/>
             <section id="feature">
                 <h2>Featured Work</h2>
-                <section id="flex-wrap">
-                    <figure class="work">
-                        <img  src="http://placehold.it/200x200"/>
-                        <figcaption>
+                <section class="row">
+                    <section class="work col-sm-4" >
+                        <img src="http://placehold.it/300x200" class="img-responsive center-block" alt="feature image" data-toggle="modal" data-target="#project1"/>
+                        <figcaption class="text-400">
                             APPIFY
                         </figcaption>
-                        <figcaption class="address">https://github.com/udacity/Appify/</figcaption>  
-                    </figure>
-                    <figure class="work">
-                        <img  src="http://placehold.it/200x200"/>
-                        <figcaption>
+                        <figcaption class="text-light">https://github.com/udacity/Appify/</figcaption>  
+                    </section>
+                    <section class="work col-sm-4">
+                        <img  src="http://placehold.it/300x200" class="img-responsive center-block" alt="feature image"/>
+                        <figcaption class="text-400">
                             SUNFLOWER
                         </figcaption>
-                        <figcaption class="address">https://github.com/udacity/Sunflower/</figcaption>
-                    </figure>
-                    <figure class="work">
-                        <img  src="http://placehold.it/200x200"/>
-                        <figcaption>
+                        <figcaption class="text-light">https://github.com/udacity/Sunflower/</figcaption>
+                    </section>
+                    <section class="work col-sm-4">
+                        <img  src="http://placehold.it/300x200" class="img-responsive center-block" alt="feature image"/>
+                        <figcaption class="text-400">
                             BOKEH
                         </figcaption>  
-                        <figcaption class="address">https://github.com/udacity/Bokeh/</figcaption>  
-                    </figure>
+                        <figcaption class="text-light">https://github.com/udacity/Bokeh/</figcaption>  
+                    </section>
                 </section>
             </section>
         </section>
+         <!-- Modal -->
+        <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Favorite App Page</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="img-responsive center-block" src="http://placehold.it/300x200" alt="feature image"/>
+                        This was my first project in this class. I learned a lot about HTML and CSS.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

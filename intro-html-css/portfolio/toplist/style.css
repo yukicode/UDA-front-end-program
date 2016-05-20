@@ -1,0 +1,25 @@
+.description{
+    color:red;
+    max-width: 705px;
+    margin: 0 25px 0 25px;
+}
+
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+*{
+    outline: 1px solid red !important; /*useful for seeing the boxes!*/
+}
+
+.screenshot{
+    max-width: 460px;
+}
+
+.app{
+    display: flex;
+    display: -webkit-flex;
+}

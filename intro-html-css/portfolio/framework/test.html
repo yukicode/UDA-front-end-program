@@ -2,72 +2,94 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UV-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Framework</title>
-        <link rel="stylesheet" href="css/main.css" />
-        <link rel="stylesheet" href="css/normalize.css" />
-        <link href='https://fonts.googleapis.com/css?family=Lato:400,300italic,300' rel='stylesheet' />
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
-        <script type="text/javascript" src="js/bootstrap.min.js" ></script> 
+        <title>Mock Up</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/jquery-1.12.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script> 
     </head>
     <body>
-        <header>
-            <section class="row">
-                <div class="col-sm-6 logo">
-                    <img src="http://placehold.it/150X150" alt="logo" />
-                </div>
-                <div id="title" class="col-sm-6 text-right">
-                    <h1>JANE DOETTE</h1>
-                    <h3>FRONT-END NINJA</h2>
-                </div>
-            </section>
-            <section class="row">
-                <div class="col-sm-12">
-                    <hr>
-                </div>
+        <header class="row">
+            <div class="col-sm-6 logo">
+                <img src="http://placehold.it/150X150" alt="logo">
+            </div>
+            <section id="title" class="col-sm-6 text-right">
+                <h1>JANE DOETTE</h1>
+                <h3>FRONT-END NINJA</h3>
             </section>
         </header>
+        <div class="row">
+            <div class="col-sm-12 divide"></div>
+        </div>
         <section id="main">
-            <img  src="http://placehold.it/1140x350" class="img-responsive center-block" alt="main image"/>
-            <section id="feature">
-                <h2>Featured Work</h2>
-                <section class="row">
-                    <section class="work col-sm-4" >
-                        <img src="http://placehold.it/300x200" class="img-responsive center-block" alt="feature image" data-toggle="modal" data-target="#project1"/>
-                        <figcaption class="text-400">
-                            APPIFY
-                        </figcaption>
-                        <figcaption class="text-light">https://github.com/udacity/Appify/</figcaption>  
-                    </section>
-                    <section class="work col-sm-4">
-                        <img  src="http://placehold.it/300x200" class="img-responsive center-block" alt="feature image"/>
-                        <figcaption class="text-400">
-                            SUNFLOWER
-                        </figcaption>
-                        <figcaption class="text-light">https://github.com/udacity/Sunflower/</figcaption>
-                    </section>
-                    <section class="work col-sm-4">
-                        <img  src="http://placehold.it/300x200" class="img-responsive center-block" alt="feature image"/>
-                        <figcaption class="text-400">
-                            BOKEH
-                        </figcaption>  
-                        <figcaption class="text-light">https://github.com/udacity/Bokeh/</figcaption>  
-                    </section>
-                </section>
+            <img id="main-img" src="http://placehold.it/1140x350" class="img-responsive center-block" alt="main image">
+            <section id="feature-work" class="row">
+                <div >
+                    <h2 class="col-sm-12 text-400">Featured Work</h2>
+                </div>
+                <div class="row">
+                    <figure class="work col-sm-4" >
+                        <img src="http://placehold.it/300x200" class="img-responsive center-block" alt="project 1" data-toggle="modal" data-target="#project1">
+                        <p class="text-400 text-center">APPIFY</p>
+                        <p class="text-light text-center">https://github.com/udacity/Appify/</p>  
+                    </figure>
+                    <figure class="work col-sm-4">
+                        <img src="http://placehold.it/300x200" class="img-responsive center-block" alt="project 2" data-toggle="modal" data-target="#project2">
+                        <p class="text-400 text-center">SUNFLOWER</p>
+                        <p class="text-light text-center">https://github.com/udacity/Sunflower/</p>
+                    </figure>
+                    <figure class="work col-sm-4">
+                        <img src="http://placehold.it/300x200" class="img-responsive center-block" alt="project 3" data-toggle="modal" data-target="#project3">
+                        <p class="text-400 text-center">BOKEH</p>
+                        <p class="text-light text-center">https://github.com/udacity/Bokeh/</p>  
+                    </figure>
+                </div>
             </section>
         </section>
-         <!-- Modal -->
-        <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!-- Modal -->
+        <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Favorite App Page</h4>
+                        <h4 class="modal-title" id="myModalLabel1">Project 1</h4>
                     </div>
                     <div class="modal-body">
-                        <img class="img-responsive center-block" src="http://placehold.it/300x200" alt="feature image"/>
-                        This was my first project in this class. I learned a lot about HTML and CSS.
+                        <img class="img-responsive center-block" src="http://placehold.it/300x200" alt="feature image">
+                        This is Project 1, description goes here.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="project2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel2">Project 2</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="img-responsive center-block" src="http://placehold.it/300x200" alt="feature image">
+                        This is Project 2, description goes here.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="project3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel3">Project 3</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img class="img-responsive center-block" src="http://placehold.it/300x200" alt="feature image">
+                        This is Project 3, description goes here.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

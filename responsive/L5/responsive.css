@@ -11,6 +11,14 @@
   order: 10;
 }
 
+@media screen and (max-width: 405px){
+  .scores{
+    overflow: auto;
+    text-overflow: ellipsis;
+  }
+}
+
+
 @media screen and (max-width: 549px) {
   .header__logo {
     height: 48px;
@@ -79,6 +87,12 @@
   }
   .weather {
     order: 3;
+  }
+  body{
+    font-size: 14px;
+  }
+  .description, .scores{
+    font-size: 12px;
   }
 }
 

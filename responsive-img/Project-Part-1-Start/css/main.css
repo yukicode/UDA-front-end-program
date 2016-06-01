@@ -11,19 +11,28 @@ Hint! You'll probably want to start by styling:
 I've left some boilerplate below for you.
 
 */
-
+*{
+  border: 1px solid red;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
 body {
-
 }
 
-article {
-
+article, footer {
+  width: 50em;
+  margin: auto;
 }
-
+figure{
+  margin: 0;
+  width: 100%;
+}
+img {
+  max-width: 100%;
+}
 h1 {
 
 }
 
-img {
-
-}

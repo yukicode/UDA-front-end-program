@@ -7,3 +7,15 @@ You've learned a lot about web development so far. I want you to take a moment t
 ---
 
 Your response goes here!
+
+* What new skills have you learned?
+  I have learnt HTML and how to mock up the content of a page.
+
+* What has been easy?
+  HTML is comparatively easy, it's all about contents.
+
+* What has been difficult?
+  Choosing the best HTML tags for user experience and search engine result.
+
+* How have you used the problem solving strategies from the first project to overcome challenges so far?
+  I have looked up unknown tags from online resources.

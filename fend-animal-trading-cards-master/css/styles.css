@@ -1,4 +1,4 @@
-*{
+* {
     /*border: 1px solid red;*/
     font-family: Arial, sans-serif;
     box-sizing: border-box;
@@ -7,7 +7,7 @@
     -ms-box-sizing: border-box;
 }
 
-.card{
+.card {
     width: 332px;
     margin: auto;
     padding: 0 15px;
@@ -28,8 +28,8 @@
 }
 
 img {
-    display:block;
-    width:100%;
+    display: block;
+    width: 100%;
     max-width: 300px;
     margin: auto;
 }
@@ -41,7 +41,7 @@ img {
     padding: 0 10px;
 }
 
-ul{
-    list-style-type:none;
+ul {
+    list-style-type: none;
     padding-left: 0;
 }

@@ -15,7 +15,7 @@ Your response goes here!
   HTML is comparatively easy, it's all about contents.
 
 * What has been difficult?
-  Choosing the best HTML tags for user experience and search engine result.
+  Choosing the best HTML tags for search engine result.
 
 * How have you used the problem solving strategies from the first project to overcome challenges so far?
   I have looked up unknown tags from online resources.

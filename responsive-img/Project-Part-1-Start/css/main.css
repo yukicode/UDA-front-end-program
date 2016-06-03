@@ -11,8 +11,9 @@ Hint! You'll probably want to start by styling:
 I've left some boilerplate below for you.
 
 */
+@import url(http://weloveiconfonts.com/api/?family=zocial);
 *{
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -32,7 +33,20 @@ figure{
 img {
   max-width: 100%;
 }
-h1 {
 
+.footer{
+  border: 2px solid black;
+}
+.circle{
+  border-radius: 50%;
+  width:20px;
+  height:20px;
+  background-color: #333333;
+  position: relative;
+  margin-left: calc(50% - 10px);
 }
 
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}

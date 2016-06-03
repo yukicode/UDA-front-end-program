@@ -17,14 +17,16 @@
     box-shadow: 0px 7px 11px -1px rgba(0,0,0,0.41);
 }
 
-.name {
+.large {
     font-size: 32px;
+}
+.normal {
+    font-style: normal;
+}
+.bold {
     font-weight: bold;
 }
 
-figure {
-  margin:0;  
-}
 img {
     display:block;
     width:100%;
@@ -42,11 +44,4 @@ img {
 ul{
     list-style-type:none;
     padding-left: 0;
-}
-.list-item-name {
-    font-style: normal;
-    font-weight: bold; 
-}
-#bottom {
-    font-style: normal;
 }

@@ -7,7 +7,8 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
         <script src="js/jquery-1.12.4.min.js"></script>
-        <script src="js/bootstrap.min.js"></script> 
+        <script src="js/bootstrap.min.js"></script>
+        <script src="./js/picturefill.min.js"></script>
     </head>
     <body>
         <header class="container">
@@ -27,32 +28,34 @@
             </div>
         </div>
         <main class="container">
-            <figure class="row">
+            <picture class="row">
+                <source media ="(max-width: 640px)" srcset="http://placehold.it/640x350">
+                <source media ="(max-width: 800px)" srcset="http://placehold.it/800x350">
                 <img id="main-img" src="http://placehold.it/1170x350" class="img-responsive center-block" alt="main image">
-            </figure>
+            </picture>
             <div class="row">
-                <h2 class="col-sm-12 text-400">Featured Work</h2>
+                <h2 class="col-sm-12 text-400 text-light-color">Featured Work</h2>
             </div>
             <div class="row">
-                <figure class="work col-sm-4" >
-                    <img src="http://placehold.it/500x200" class="img-responsive center-block" alt="project 1" data-toggle="modal" data-target="#project1">
+                <figure class="project-description col-sm-6 col-lg-4" >
+                    <img src="http://placehold.it/400x200" class="img-responsive center-block project-pop" alt="project 1" data-toggle="modal" data-target="#project1">
                     <figcaption>
                         <p class="text-400 text-center">APPIFY</p>
-                        <p class="text-light text-center">https://github.com/udacity/Appify/</p>
+                        <p class="text-center project-link">https://github.com/udacity/Appify/</p>
                     </figcaption>
                 </figure>
-                <figure class="work col-sm-4">
-                    <img src="http://placehold.it/500x200" class="img-responsive center-block" alt="project 2" data-toggle="modal" data-target="#project2">
+                <figure class="project-description col-sm-6 col-lg-4">
+                    <img src="http://placehold.it/400x200" class="img-responsive center-block project-pop" alt="project 2" data-toggle="modal" data-target="#project2">
                     <figcaption>
                         <p class="text-400 text-center">SUNFLOWER</p>
-                        <p class="text-light text-center">https://github.com/udacity/Sunflower/</p>
+                        <p class="text-center project-link">https://github.com/udacity/Sunflower/</p>
                     </figcaption>
                 </figure>
-                <figure class="work col-sm-4">
-                    <img src="http://placehold.it/500x200" class="img-responsive center-block" alt="project 3" data-toggle="modal" data-target="#project3">
+                <figure class="project-description col-sm-6 col-lg-4">
+                    <img src="http://placehold.it/400x200" class="img-responsive center-block project-pop" alt="project 3" data-toggle="modal" data-target="#project3">
                     <figcaption>
                         <p class="text-400 text-center">BOKEH</p>
-                        <p class="text-light text-center">https://github.com/udacity/Bokeh/</p>
+                        <p class="text-center project-link">https://github.com/udacity/Bokeh/</p>
                     </figcaption>
                 </figure>
             </div>
@@ -65,7 +68,7 @@
                         <h4 class="modal-title" id="myModalLabel1">Project 1</h4>
                     </div>
                     <div class="modal-body">
-                        <img class="img-responsive center-block" src="http://placehold.it/300x200" alt="feature image">
+                        <img class="img-responsive center-block" src="http://placehold.it/400x200" alt="feature image">
                         This is Project 1, description goes here.
                     </div>
                     <div class="modal-footer">
@@ -81,7 +84,7 @@
                         <h4 class="modal-title" id="myModalLabel2">Project 2</h4>
                     </div>
                     <div class="modal-body">
-                        <img class="img-responsive center-block" src="http://placehold.it/300x200" alt="feature image">
+                        <img class="img-responsive center-block" src="http://placehold.it/400x200" alt="feature image">
                         This is Project 2, description goes here.
                     </div>
                     <div class="modal-footer">
@@ -97,7 +100,7 @@
                         <h4 class="modal-title" id="myModalLabel3">Project 3</h4>
                     </div>
                     <div class="modal-body">
-                        <img class="img-responsive center-block" src="http://placehold.it/300x200" alt="feature image">
+                        <img class="img-responsive center-block" src="http://placehold.it/400x200" alt="feature image">
                         This is Project 3, description goes here.
                     </div>
                     <div class="modal-footer">

@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300);
 
 * {
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -17,7 +17,7 @@
 .logo img {
     max-width: 80px;
     margin-left: 0;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 #title h1, #title h3{
@@ -39,12 +39,17 @@
     margin: 20px auto;
 }
 
-.text-light {
-    font-weight: 100;
-}
 .text-400 {
     font-weight: 400;
     font-size: 30px;
+}
+
+.text-light-color {
+    color: #7d97ad;
+}
+
+.project-pop, .project-link {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 767px) {

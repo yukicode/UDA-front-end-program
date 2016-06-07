@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300);
+
+* {
+    border: 1px solid red;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: Lato, sans-serif;
+    color: #2d3c49;
+}
+
+.logo {
+    padding: 10px 0 10px 20px;
+}
+
+.logo img {
+    max-width: 80px;
+    margin-left: 0;
+    margin-top: 20px;
+}
+
+#title h1, #title h3{
+    padding-right: 10px;
+    font-weight: 300;
+    margin: 15px 0 0 0;
+}
+
+#title h1 {
+    font-size: 50px;
+}
+
+#title h3 {
+    font-size: 20px;
+}
+
+.divide {
+    border: 2px solid #7d97ad;
+    margin: 20px auto;
+}
+
+.text-light {
+    font-weight: 100;
+}
+.text-400 {
+    font-weight: 400;
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+    .logo img {
+        height: 40px;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    #title {
+        text-align: center;
+    }
+    
+    #title h1 {
+        font-size: 40px;
+    }
+    
+    #title h3 {
+        font-size: 15px;
+    }
+    
+    .text-400 {
+        font-size: 25px;
+    }
+}
+

@@ -1,89 +1,88 @@
- var bio_contactMapToHTML = [
-     bio.contacts,
-     ["properties", ["email", "github", "location"], "#contact", [myHTML.contactEmail, myHTML.contactGithub, myHTML.contactLocation]],
- ];
-
-var bioMapToHTML = [
-    bio,
-    ["properties", ["biopic"], "#header", [myHTML.logo]],
-    ["start", "", "#header", myHTML.title],
-    ["properties", ["name", "role"], "#title", [myHTML.titleName, myHTML.titleRole]],
-    ["obj|objArray", bio_contactMapToHTML],
-];
-
-var pro_projectsMapToHTML = [
-    projects.projects,
-    ["start", "", "#project", myHTML.projectStart],
-    ["start", "", ".project-description:last", myHTML.projectImage],
-    ["properties", ["title", "url"], ".project-description:last", [myHTML.projectTitle, myHTML.projectUrl]],
-];
-var projectsMapToHTML = [
-    projects,
-    ["obj|objArray", pro_projectsMapToHTML],
-]
-
-
-var loadObjectToHTML = function(objMapToHTML){
-    var obj = objMapToHTML[0],
-        objCount;
-    if(obj instanceof Array){ //obj is an array of objects
-        objCount = obj.length;
-        for(var index=0; index < objCount; index++){
-            loadPropertyToHTML(objMapToHTML, obj[index]);
-        }
-    }else{
-        loadPropertyToHTML(objMapToHTML, obj);
+var appendToHTML = function(property, targetTag, targetHTML, placeholder){
+    var _placeholder = placeholder || "%data%";
+    if(property){
+        $(targetTag).append(targetHTML.replace(_placeholder, property));
     }
 };
 
-var loadPropertyToHTML = function(objMapToHTML, obj){
-    var flag,
-        property,
-        propertyName,
-        targetTag,
-        propertyHTML,
-        propertyCount,
-        objMapToHTMLLength = objMapToHTML.length;
+var prependToHTML = function(property, targetTag, targetHTML, placeholder){
+    var _placeholder = placeholder || "%data%";
+    if(property){
+        $(targetTag).prepend(targetHTML.replace(_placeholder, property));
+    }
+};
 
-    if(objMapToHTMLLength < 1) return;
-    for(var index1 = 1; index1 < objMapToHTMLLength; index1++){
-        flag = objMapToHTML[index1][0];
-        propertyName = objMapToHTML[index1][1];
-        //if key-->an object or object array
-        if(flag == "obj|objArray"){
-            loadObjectToHTML(propertyName);
-        }else{
-            if(objMapToHTML[index1].length !== 4) {
-                console.log("The length of the schema is incorrect " + objMapToHTML[index1]);
-                return;
-            }
-            targetTag = objMapToHTML[index1][2];
-            propertyHTML = objMapToHTML[index1][3];
-            if(flag === "properties"){ // keys --> values
-                propertyCount = propertyName.length;
-                for(var index2 = 0; index2 < propertyCount; index2++){
-                    property = obj[propertyName[index2]];
-                    if(property){
-                        $(targetTag).append(propertyHTML[index2].replace("%data%", property));
-                    }
-                }
-            }else if(flag === "start"){ //if this is the start of a new sectiion
-                $(targetTag).append(propertyHTML);
-            }else if(flag === "array"){ //if it is an array of values
-                propertyCount = obj[propertyName].length;
-                for(var index3 = 0; index3 < propertyCount; index3++){
-                    property = obj[propertyName][index3];
-                    if(property){
-                        $(targetTag).append(propertyHTML.replace("%data%", property));
-                    }
-                }
-            }else{
-                console.log("incorrect schema!" + objMapToHTML[index1]);
-                return;
-            }
+var initToHTML = function(targetTag, targetHTML){
+    $(targetTag).append(targetHTML);
+};
+
+bio.display = function(){
+    var index,
+        length;
+    appendToHTML(this.biopic, "#header", HTMLbioPic);
+    initToHTML("#header", HTMLtitleStart);
+    appendToHTML(this.name, "#title", HTMLtitleName);
+    appendToHTML(this.role, "#title", HTMLtitleRole);
+    appendToHTML(this.contacts.mobile, "#contact", HTMLmobile);
+    appendToHTML(this.contacts.email, "#contact", HTMLemail);
+    appendToHTML(this.contacts.github, "#contact", HTMLgithub);
+    appendToHTML(this.contacts.location, "#contact", HTMLlocation);
+    appendToHTML(this.contacts.mobile, "#footerContacts", HTMLmobile);
+    appendToHTML(this.contacts.email, "#footerContacts", HTMLemail);
+    appendToHTML(this.contacts.github, "#footerContacts", HTMLgithub);
+    appendToHTML(this.contacts.location, "#footerContacts", HTMLlocation);
+};
+
+projects.display = function(){
+    var index, index2,
+        length, length2;
+    for(index=0, length = this.projects.length; index < length; index++){
+        initToHTML("#project", HTMLprojectStart);
+        for(index2=0, length2 = this.projects[index].images.length; index2 < length2; index2++){
+            appendToHTML(this.projects[index].images[index2], ".project-entry:last", HTMLprojectImage);
         }
+    appendToHTML(this.projects[index].title, ".project-entry:last", HTMLprojectTitle);
+    appendToHTML(this.projects[index].url, ".project-entry:last", HTMLprojectUrl);
+    appendToHTML(this.projects[index].url, ".project-link:last", HTMLprojectUrlTitle)
+    }
+};
+
+education.display = function(){
+    var index,
+        length;
+    for(index=0, length = this.schools.length; index < length; index++){
+        initToHTML("#education", HTMLschoolStart);
+        appendToHTML(this.schools[index].name, ".education-entry:last", HTMLschoolName);
+        appendToHTML(this.schools[index].degree, ".school-name:last", HTMLschoolDegree);
+        appendToHTML(this.schools[index].dates, ".education-entry:last", HTMLschoolDates);
+        appendToHTML(this.schools[index].location, ".education-entry:last", HTMLschoolLocation);
+        appendToHTML(this.schools[index].majors[0], ".education-entry:last", HTMLschoolMajor);
+        $(".education-entry:last a").attr("href", this.schools[index].url);
+    }
+    for(index=0, length = this.onlineCourses.length; index < length; index++){
+        initToHTML("#education", HTMLonlineClasses);
+        initToHTML("#education", HTMLschoolStart);
+        appendToHTML(this.onlineCourses[index].title, ".education-entry:last", HTMLonlineTitle);
+        appendToHTML(this.onlineCourses[index].school, ".online-title:last", HTMLonlineSchool);
+        appendToHTML(this.onlineCourses[index].date, ".education-entry:last", HTMLonlineDates);
+        $(".education-entry:last a").attr("href", this.onlineCourses[index].url);
+    }
+};
+
+work.display = function(){
+    var index,
+        length;
+    for(index=0, length = this.jobs.length; index < length; index++){
+        initToHTML("#workExperience", HTMLworkStart);
+        appendToHTML(this.jobs[index].employer, ".work-entry:last", HTMLworkEmployer);
+        appendToHTML(this.jobs[index].title, ".employer:last", HTMLworkTitle);
+        appendToHTML(this.jobs[index].dates, ".work-entry:last", HTMLworkDates);
+        appendToHTML(this.jobs[index].location, ".work-entry:last", HTMLworkLocation);
+        appendToHTML(this.jobs[index].description, ".work-entry:last", HTMLworkDescription);
     }
 };
 
 bio.display();
+education.display();
+work.display();
 projects.display();

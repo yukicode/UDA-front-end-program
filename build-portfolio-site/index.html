@@ -19,29 +19,24 @@
         
         <main class="container">
             <picture class="row">
-                <source media ="(max-width: 640px)" srcset="http://placehold.it/640x350">
-                <source media ="(max-width: 800px)" srcset="http://placehold.it/800x350">
                 <img id="main-img" src="http://placehold.it/1170x350" class="img-responsive center-block" alt="main image">
             </picture>
-                <h2 class="row text-400 text-light-color">Featured Work</h2>
-            <div class="row" id="project">
-                <figure class="project-description col-sm-6 col-lg-4" >
-                    <img src="http://placehold.it/400x200" class="img-responsive center-block project-pop" alt="project 1" data-toggle="modal" data-target="#project1">
-                    <p class="text-400 text-center">APPIFY</p>
-                    <p class="text-center project-link">https://github.com/udacity/Appify/</p>
-                </figure>
-                <figure class="project-description col-sm-6 col-lg-4">
-                    <img src="http://placehold.it/400x200" class="img-responsive center-block project-pop" alt="project 2" data-toggle="modal" data-target="#project2">
-                    <p class="text-400 text-center">SUNFLOWER</p>
-                    <p class="text-center project-link">https://github.com/udacity/Sunflower/</p>
-                </figure>
-                <figure class="project-description col-sm-6 col-lg-4">
-                    <img src="http://placehold.it/400x200" class="img-responsive center-block project-pop" alt="project 3" data-toggle="modal" data-target="#project3">
-                    <p class="text-400 text-center">BOKEH</p>
-                    <p class="text-center project-link">https://github.com/udacity/Bokeh/</p>
-                </figure>
-            </div>
+            <section class="row" id="project">
+                <h2 class="col-sm-12 text-400 text-light-color">Featured Work</h2>
+            </section>
+            <section class="row gray" id="education" >
+                <h2 class="col-sm-12 text-400 text-light-color">Education</h2>
+            </section>
+            <section id="workExperience" class="row">
+                <h2 class="col-sm-12 text-400 text-light-color">Work Experience</h2>
+            </section>
         </main>
+
+        <footer class="container" id="lets-connect">
+            <h2 class="blue text-center row">LET US CONNECT</h2>
+            <ul id="footerContacts" class="row"></ul>
+        </footer>
+
         <!-- Modal -->
         <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
             <div class="modal-dialog">

@@ -1,13 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300);
 
 * {
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
     font-family: Lato, sans-serif;
     color: #2d3c49;
+}
+
+ul {
+  list-style-type: none;
+}
+
+span {
+  padding: 5px;
 }
 
 .logo {
@@ -39,6 +47,25 @@
     margin: 20px auto;
 }
 
+.gray {
+  background-color: #f3f3f3;
+  padding-bottom: 10px;
+  clear:both;
+}
+
+.blue {
+  background-color: #02b3e4;
+}
+
+.blue-text {
+  color: #02b3e4;
+}
+
+.dark-text {
+  font-weight: bold;
+  color: #2d3c49;
+}
+
 .text-400 {
     font-weight: 400;
     font-size: 30px;
@@ -48,8 +75,29 @@
     color: #7d97ad;
 }
 
-.project-pop, .project-link {
+.project-entry {
+    margin: 15px auto;
+}
+
+.project-pop {
     cursor: pointer;
+}
+
+a {
+  color: #1199c3;
+  text-decoration: none;
+  display: block;
+}
+
+.date-text, .location-text {
+  font-style: italic;
+  color: #7d97ad;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 767px) {

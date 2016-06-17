@@ -41,9 +41,23 @@ projects.display = function(){
         for(index2=0, length2 = this.projects[index].images.length; index2 < length2; index2++){
             appendToHTML(this.projects[index].images[index2], ".project-entry:last", HTMLprojectImage);
         }
-    appendToHTML(this.projects[index].title, ".project-entry:last", HTMLprojectTitle);
-    appendToHTML(this.projects[index].url, ".project-entry:last", HTMLprojectUrl);
-    appendToHTML(this.projects[index].url, ".project-link:last", HTMLprojectUrlTitle)
+        appendToHTML(this.projects[index].title, ".project-entry:last", HTMLprojectTitle);
+        appendToHTML(this.projects[index].url, ".project-entry:last", HTMLprojectUrl);
+        appendToHTML(this.projects[index].url, ".project-link:last", HTMLprojectUrlTitle)
+
+        $(".project-pop:last").attr("data-target", "#project"+index);
+        appendToHTML("project"+index, "body", ModalEntry);
+        initToHTML(".modal:last", ModalDialogContent);
+        initToHTML(".modal-content:last", ModalHeaderStart);
+        appendToHTML(this.projects[index].title, ".modal-header:last", ModalHeaderTitle);
+        initToHTML(".modal-content:last",ModalBodyStart);
+        for(index2=0, length2 = this.projects[index].images.length; index2 < length2; index2++){
+            appendToHTML(this.projects[index].images[index2], ".modal-body:last", ModalBodyImage);
+        }
+        appendToHTML(this.projects[index].description, ".modal-body:last", ModalBodyDescription);
+        initToHTML(".modal-content:last",ModalFooterStart);
+        initToHTML(".modal-footer:last",ModalFooterBtnClose);
+        appendToHTML(this.projects[index].url, ".modal-footer:last", ModalFooterBtnLink);
     }
 };
 

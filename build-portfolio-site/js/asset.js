@@ -8,7 +8,7 @@ var HTMLgithub = '<li class="col-md-3 col-sm-6 text-center"><span class="blue-te
 var HTMLblog = '<li class="col-md-3 col-sm-6 text-center"><span class="blue-text">Blog</span><span class="dark-text">%data%</span></li>';
 var HTMLlocation = '<li class="col-md-3 col-sm-6 text-center"><span class="blue-text">Location</span><span class="dark-text">%data%</span></li>';
 
-var HTMLbioPic = '<figure class="col-sm-6 logo"><img src="%data%" alt="uda-logo"></figure>';
+var HTMLbioPic = '<figure class="col-sm-6 logo"><img src="%data%" alt="logo"></figure>';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
@@ -27,7 +27,7 @@ var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectUrl = '<a href="%data%" class="text-center project-link ellipsis"></a>';
 var HTMLprojectUrlTitle = '%data%';
 var HTMLprojectDescription = '';
-var HTMLprojectImage = '<img src="%data%" class="img-responsive center-block project-pop" alt="%alt%">';
+var HTMLprojectImage = '<img src="%data%" class="img-responsive center-block project-pop" alt="%alt%" data-toggle="modal" data-target="%modal%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#" class="col-sm-12 school-name">%data%</a>';
@@ -43,6 +43,17 @@ var HTMLonlineDates = '<div class="date-text col-sm-12">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var googleMap = '<div id="map"></div>';
+
+var ModalEntry = '<div class="modal fade" id="%data%" tabindex="-1" role="dialog"></div>';
+var ModalDialogContent = '<div class="modal-dialog"><div class="modal-content"></div></div>';
+var ModalHeaderStart = '<div class="modal-header"></div>';
+var ModalHeaderTitle = '<h4 class="modal-title">%data%</h4>';
+var ModalBodyStart = '<div class="modal-body"></div>';
+var ModalBodyImage = '<img class="img-responsive center-block" src="%data%" alt="%alt%">';
+var ModalBodyDescription = '<p>%data%</p>';
+var ModalFooterStart = '<div class="modal-footer"></div>';
+var ModalFooterBtnClose = '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+var ModalFooterBtnLink = '<a href="%data%" class="btn btn-primary" role="button">Go to Project</button>';
 
 var bio = {
     "name": "XUERU MCMULLAN",
@@ -109,7 +120,7 @@ var projects = {
             "dates": "",
             "description": 'This is a C# reference loader for glTF. It is as simple to use as Interface.LoadModel("PathToModel.gltf"). You can use this loader in your project by importing the "glTF Loader" NuGet package. Additional examples can be found in the gltfLoaderUnitTests project.',
             "images": ["http://placehold.it/400x200"],
-            "url": "https://github.com/KhronosGroup/glTF/tree/master/loaders/CSharp",
+            "url": "https://github.com/yukicode/glTF",
         },
         {
             "title": "Factorio Mod",

@@ -1,0 +1,17 @@
+{
+  "name": "build-portfolio-site",
+  "version": "1.0.0",
+  "description": "- Add objects bio, work, education and projects.\r     - Add function to append content to HTML",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^1.4.0",
+    "d3-cloud": "^1.2.1",
+    "express": "^4.14.0",
+    "jsdom": "^9.2.1"
+  }
+}

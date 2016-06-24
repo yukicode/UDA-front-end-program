@@ -50,6 +50,7 @@ projects.display = function(){
         initToHTML(".modal:last", ModalDialogContent);
         initToHTML(".modal-content:last", ModalHeaderStart);
         appendToHTML(this.projects[index].title, ".modal-header:last", ModalHeaderTitle);
+        appendToHTML(this.projects[index].dates, ".modal-header:last", ModalHeaderDates);
         initToHTML(".modal-content:last",ModalBodyStart);
         for(index2=0, length2 = this.projects[index].images.length; index2 < length2; index2++){
             appendToHTML(this.projects[index].images[index2], ".modal-body:last", ModalBodyImage);

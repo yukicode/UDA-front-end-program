@@ -47,7 +47,8 @@ var googleMap = '<div id="map"></div>';
 var ModalEntry = '<div class="modal fade" id="%data%" tabindex="-1" role="dialog"></div>';
 var ModalDialogContent = '<div class="modal-dialog"><div class="modal-content"></div></div>';
 var ModalHeaderStart = '<div class="modal-header"></div>';
-var ModalHeaderTitle = '<h4 class="modal-title">%data%</h4>';
+var ModalHeaderTitle = '<h4 class="modal-title col-xs-8">%data%</h4>';
+var ModalHeaderDates = '<span class="col-xs-4 text-right date-text"> -- %data%</span>';
 var ModalBodyStart = '<div class="modal-body"></div>';
 var ModalBodyImage = '<img class="img-responsive center-block" src="%data%" alt="%alt%">';
 var ModalBodyDescription = '<p>%data%</p>';
@@ -66,9 +67,14 @@ var bio = {
     },
     "welcomeMessage": "Hello",
     "skills": [
-        "Web Development",
+        "JavaScript",
         "C#",
         ".net",
+        "HTML",
+        "CSS",
+        "NodeJS",
+        "C++",
+        "Git",
     ],
     "biopic": "./images/logo-s.svg",
 };
@@ -117,25 +123,29 @@ var projects = {
     "projects": [
         {
             "title": "C# Loader for glTF",
-            "dates": "",
+            "dates": "2015",
             "description": 'This is a C# reference loader for glTF. It is as simple to use as Interface.LoadModel("PathToModel.gltf"). You can use this loader in your project by importing the "glTF Loader" NuGet package. Additional examples can be found in the gltfLoaderUnitTests project.',
             "images": ["http://placehold.it/400x200"],
             "url": "https://github.com/yukicode/glTF",
         },
         {
             "title": "Factorio Mod",
-            "dates": "",
+            "dates": "2016",
             "description": "Mod for the game Factorio. Created new items in the game. Added backward compatability for the mod.",
             "images": ["http://placehold.it/400x200"],
             "url": "https://github.com/MattMcMullan/BeltUtils", 
         },
         {
             "title": "Build Portfolio Site",
-            "dates": "",
+            "dates": "2016",
             "description": "Mockup a page. Used responsive layouts and images. Added modals to the pages",
             "images": ["http://placehold.it/400x200"],
             "url": "https://github.com/yukicode/u-frontend/tree/master/build-portfolio-site"
         },
     ],
+};
+
+module.exports = {
+    skills: function(){return bio.skills;},
 };
 

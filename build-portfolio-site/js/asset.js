@@ -67,8 +67,8 @@ var bio = {
     },
     "welcomeMessage": "Hello",
     "skills": [
-        "JavaScript",
         "C#",
+        "JavaScript",
         ".net",
         "HTML",
         "CSS",

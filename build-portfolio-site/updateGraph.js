@@ -1,11 +1,24 @@
+// Generates a word-cloud with skills from bio.skills
+// export to a svg file
 var jsdom = require("jsdom").jsdom;
 var document = jsdom();
 var cloud = require("d3-cloud");
 var fs = require("fs");
-var skills = require("./js/asset.js").skills();
 var decorationArray;
 var index = 0;
 var colors = ["#1199c3","#2d3c49"];
+//TODO: load skills from the bio object
+//module.export works only when bio is in a separated file
+var skills = [
+    "C#",
+    "JavaScript",
+    ".net",
+    "HTML",
+    "CSS",
+    "NodeJS",
+    "C++",
+    "Git",
+];
 
 fs.readFile("file.txt", "utf8", function(err, data){
     decorationArray = data.toString().split(">\r\n<");

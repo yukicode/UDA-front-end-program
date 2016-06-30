@@ -9,7 +9,7 @@ var bio = {
         "location": "Bellevue, WA",
     },
     "welcomeMessage": "I'm the welcome message I'll disappear in 5s",
-    //skills are rendered in graph.svg and displayed in the html
+    //skills are generated in graph.svg and displayed as image in the html
     //generate graph.svg in the terminal using
     //node updateGraph.js
     //due to current file placement the skills array in updateGraph.js has to be mannually updated when skills change
@@ -70,7 +70,7 @@ var projects = {
         "title": "Factorio Mod",
         "dates": "2016",
         "description": "Mod for the game Factorio. Created new items in the game. Added backward compatability for the mod.",
-        "images": ["http://placehold.it/400x200"],
+        "images": ["http://placehold.it/400x200", "http://placehold.it/400x200", "http://placehold.it/400x200"],
         "url": "https://github.com/MattMcMullan/BeltUtils",
     }, {
         "title": "Build Portfolio Site",

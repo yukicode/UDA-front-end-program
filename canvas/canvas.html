@@ -7,14 +7,48 @@
     <body>
         <canvas height="400"" width="400" id="my-canvas" style="border:1px solid #000000;"></canvas>
         <script>
+            function addSomeGreen(){
+
+            }
             var c = document.getElementById("my-canvas");
             var ctx = c.getContext("2d");
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0, 0, c.width, c.height);
             ctx.strokeRect(50, 50, 100, 100);
             ctx.beginPath();
             ctx.moveTo(75, 75);
             ctx.lineTo(125, 75);
             ctx.lineTo(125,125);
             ctx.fill();
+
+            //change every 10 pixels to green
+            function addGreen(imageData){
+                var length = imageData.data.length;
+                for(var i=37; i<length; i = i+36){
+                    imageData.data[i]=255;
+                }
+            }
+            //simple to gray scale
+            function toGrayScale(imageData){
+                var pixelLength = imageData.data.length/4;
+                for(var i=0; i<pixelLength; i++){
+                    var avg = (imageData.data[i*4] + imageData.data[i*4+1] + imageData.data[i*4+2])/3;
+                    imageData.data[i*4] = avg;
+                    imageData.data[i*4 +1] = avg;
+                    imageData.data[i*4 +2] = avg;
+                }
+            }
+
+            //better to gray scale
+            function betterGray(r, g, b, a){
+                var y = 0.3 * r + 0.59 * g + 0.11 * b;
+                return {r:y, g:y, b:y, a:y};
+            }
+            
+            var imageData = ctx.getImageData(0, 0, c.width, c.height);
+            //addGreen(imageData);
+            toGrayScale(imageData);
+            ctx.putImageData(imageData, 0, 0);
         </script>
     </body>
 </html>

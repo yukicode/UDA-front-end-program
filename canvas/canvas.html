@@ -7,9 +7,6 @@
     <body>
         <canvas height="400"" width="400" id="my-canvas" style="border:1px solid #000000;"></canvas>
         <script>
-            function addSomeGreen(){
-
-            }
             var c = document.getElementById("my-canvas");
             var ctx = c.getContext("2d");
             ctx.fillStyle = "blue";
@@ -28,6 +25,7 @@
                     imageData.data[i]=255;
                 }
             }
+            
             //simple to gray scale
             function toGrayScale(imageData){
                 var pixelLength = imageData.data.length/4;
@@ -44,7 +42,7 @@
                 var y = 0.3 * r + 0.59 * g + 0.11 * b;
                 return {r:y, g:y, b:y, a:y};
             }
-            
+
             var imageData = ctx.getImageData(0, 0, c.width, c.height);
             //addGreen(imageData);
             toGrayScale(imageData);

@@ -66,6 +66,36 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+var Player = function () {
+    this.sprite = "images/char-boy.png";
+    this.x = (Map.col / 2 - 0.5) * Map.colWidth;
+    this.y = Map.grassRow.lowerLimit * Map.rowHeight - 110;
+}
+
+Player.prototype.update = function () {
+
+}
+
+Player.prototype.render = function () {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+Player.prototype.handleInput = function (move) {
+    switch (move) {
+        case 'up':
+            this.y = this.y - Map.rowHeight < 0 ? this.y : this.y - Map.rowHeight;
+            break;
+        case 'down':
+            this.y = this.y + Map.rowHeight > Map.row * Map.rowHeight - 110 ? this.y : this.y + Map.rowHeight;
+            break;
+        case 'left':
+            this.x = this.x - Map.colWidth < 0 ? this.x : this.x - Map.colWidth;
+            break;
+        case 'right':
+            this.x = this.x + Map.colWidth > (Map.col-1) * Map.colWidth ? this.x : this.x + Map.colWidth;
+            break;
+    }
+}
 
 
 // Now instantiate your objects.
@@ -75,6 +105,8 @@ var allEnemies = [];
 for (var i = 0; i < 4; i++){
     allEnemies.push(new Enemy());
 }
+
+var player = new Player();
 
 
 // This listens for key presses and sends the keys to your
@@ -87,5 +119,5 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    //player.handleInput(allowedKeys[e.keyCode]);
+    player.handleInput(allowedKeys[e.keyCode]);
 });

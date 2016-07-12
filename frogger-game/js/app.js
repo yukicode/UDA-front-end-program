@@ -120,6 +120,7 @@ Player.prototype.reset = function () {
 }
 
 Player.prototype.handleInput = function (move) {
+    if (!move) { return;}
     if (this.collided) { return; }
     switch (move) {
         case 'up':
@@ -160,12 +161,12 @@ var player = new Player();
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+    var playingKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
         40: 'down'
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+    player.handleInput(playingKeys[e.keyCode]);
 });

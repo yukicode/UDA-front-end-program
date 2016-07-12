@@ -14,7 +14,7 @@
  * a little simpler to work with.
  */
 
-var Engine = (function(global) {
+var Engine = (function (global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
@@ -88,7 +88,7 @@ var Engine = (function(global) {
         for (var e of allEnemies) {
             if (e.getRow() !== playerRow) { continue; }
             if (player.x - e.x < 81 && player.x - e.x > -81) {
-                player.reset();
+                player.collided = true;
             }
         }
     }
@@ -101,7 +101,7 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
-        allEnemies.forEach(function(enemy) {
+        allEnemies.forEach(function (enemy) {
             enemy.update(dt);
         });
         player.update();
@@ -117,17 +117,22 @@ var Engine = (function(global) {
         /* This array holds the relative URL to the image used
          * for that particular row of the game level.
          */
+        renderMap();
+        renderEntities();
+    }
+
+    function renderMap() {
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
-            ],
-            numRows = 6,
-            numCols = 5,
-            row, col;
+               'images/water-block.png',   // Top row is water
+               'images/stone-block.png',   // Row 1 of 3 of stone
+               'images/stone-block.png',   // Row 2 of 3 of stone
+               'images/stone-block.png',   // Row 3 of 3 of stone
+               'images/grass-block.png',   // Row 1 of 2 of grass
+               'images/grass-block.png'    // Row 2 of 2 of grass
+        ],
+           numRows = 6,
+           numCols = 5,
+           row, col;
 
         /* Loop through the number of rows and columns we've defined above
          * and, using the rowImages array, draw the correct image for that
@@ -145,8 +150,6 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
-
-        renderEntities();
     }
 
     /* This function is called by the render function and is called on each game
@@ -157,7 +160,7 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-        allEnemies.forEach(function(enemy) {
+        allEnemies.forEach(function (enemy) {
             enemy.render();
         });
 
@@ -169,7 +172,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+
     }
 
     /* Go ahead and load all of the images we know we're going to need to

@@ -85,22 +85,42 @@ var Player = function () {
     this.sprite = "images/char-boy.png";
     this.x = (Map.col / 2 - 0.5) * Map.colWidth;
     this.y = Map.grassRow.lowerLimit * Map.rowHeight - 110;
+    this.collided = false;
+    this.countDown = 60;
 }
 
 Player.prototype.update = function () {
-    //console.log(helper.getCol(this.x), helper.getRow(this.y));
 }
 
 Player.prototype.render = function () {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    if (this.collided) {
+        this.collisionRender();
+    } else {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
 }
 
+//renders the "pausing" effect when player dies
+Player.prototype.collisionRender = function () {
+    if (this.countDown-- === 0) {
+        this.reset();
+        return;
+    }
+    if (this.countDown % 10 > 4) {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
+
+//reset player's position to initional location
 Player.prototype.reset = function () {
+    this.collided = false;
+    this.countDown = 60;
     this.x = (Map.col / 2 - 0.5) * Map.colWidth;
     this.y = Map.grassRow.lowerLimit * Map.rowHeight - 110;
 }
 
 Player.prototype.handleInput = function (move) {
+    if (this.collided) { return; }
     switch (move) {
         case 'up':
             this.y = this.y - Map.rowHeight < 0 ? this.y : this.y - Map.rowHeight;

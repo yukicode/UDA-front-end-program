@@ -19,14 +19,20 @@ var Map = {
 };
 
 var helper = {
-    "randomCol": function() {
+    "randomColCoor": function () {
         return Math.floor(Math.random() * Map.col) * Map.colWidth;
     },
-    "randomRow": function() {
-        return Math.floor((Math.random() * (Map.pavedRow.upperLimit - Map.pavedRow.lowerLimit + 1)) + Map.pavedRow.lowerLimit) * Map.rowHeight - 110;
+    "randomRowCoor": function () {
+        return Math.floor((Math.random() * (Map.pavedRow.upperLimit - Map.pavedRow.lowerLimit + 1)) + Map.pavedRow.lowerLimit) * Map.rowHeight -110;
     },
     "randomSpeed": function() {
         return Math.floor((Math.random() * 15) + 5) * 20;
+    },
+    "getRow": function (y) {
+        return (y + 110) / Map.rowHeight;
+    },
+    "getCol": function (x) {
+        return Math.ceil((x + Map.colWidth / 2) / Map.colWidth);
     },
 }
 
@@ -39,8 +45,8 @@ var Enemy = function () {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = helper.randomCol();
-    this.y = helper.randomRow();
+    this.x = helper.randomColCoor();
+    this.y = helper.randomRowCoor();
     this.speed = helper.randomSpeed();
 };
 
@@ -51,9 +57,10 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += dt * this.speed;
+    //reset enemy if it is out of the canvas
     if (this.x > 101 * 5) {
         this.x = -Map.colWidth * 1.5;
-        this.y = helper.randomRow();
+        this.y = helper.randomRowCoor();
         this.speed = helper.randomSpeed();
     }
 };
@@ -62,6 +69,14 @@ Enemy.prototype.update = function(dt) {
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
+Enemy.prototype.getRow = function () {
+    return helper.getRow(this.y);
+}
+
+Enemy.prototype.getCol = function () {
+    return helper.getCol(this.x);
+}
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -73,11 +88,16 @@ var Player = function () {
 }
 
 Player.prototype.update = function () {
-
+    //console.log(helper.getCol(this.x), helper.getRow(this.y));
 }
 
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
+Player.prototype.reset = function () {
+    this.x = (Map.col / 2 - 0.5) * Map.colWidth;
+    this.y = Map.grassRow.lowerLimit * Map.rowHeight - 110;
 }
 
 Player.prototype.handleInput = function (move) {
@@ -95,6 +115,14 @@ Player.prototype.handleInput = function (move) {
             this.x = this.x + Map.colWidth > (Map.col-1) * Map.colWidth ? this.x : this.x + Map.colWidth;
             break;
     }
+}
+
+Player.prototype.getRow = function () {
+    return helper.getRow(this.y);
+}
+
+Player.prototype.getCol = function () {
+    return helper.getCol(this.x);
 }
 
 

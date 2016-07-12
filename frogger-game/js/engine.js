@@ -21,7 +21,13 @@ var Engine = (function (global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime,
-        gameManager;
+        gameManager,
+        playerImages = [
+            'images/char-boy.png',
+            'images/char-cat-girl.png',
+            'images/char-horn-girl.png',
+            'images/char-pink-girl.png',
+        ];
 
     canvas.width = 505;
     canvas.height = 606;
@@ -32,26 +38,47 @@ var Engine = (function (global) {
             this.state = "title";
         },
         title: function () {
-            renderTitlePage();
+            renderMap();
+            renderTitleText();
+        },
+        selectCharactor: function () {
+            renderMap();
+            renderCharactor(this.selectedPlayer);
         },
         start: function (dt) {
             update(dt);
             render();
         },
+        playerDie: function () {
+
+        },
+        endGame: function () {
+
+        },
         handleInput: function (key) {
-            if (key === "space" && this.state === "title") {
+            if (key === "enter" && this.state === "title") {
+                this.state = "selectCharactor";
+            }else if (key === "enter" && this.state === "selectCharactor") {
+                player.sprite = playerImages[this.selectedPlayer];
+                addListenerForControl();
                 this.state = "start";
-                console.log(this.state);
+            }else if (key === "left" && this.state === "selectCharactor") {
+                if (this.selectedPlayer === 0) { return;}
+                this.selectedPlayer--;
+            }else if (key === "right" && this.state === "selectCharactor") {
+                if (this.selectedPlayer === 3) { return; }
+                this.selectedPlayer++;
             }
         },
-        execute: function(dt){
+        execute: function (dt) {
             this[this.state](dt);
         },
         state: "boot",
+        selectedPlayer: 0,
     };
 
     function main() {
-        
+
         var now = Date.now(),
             dt = (now - lastTime) / 1000.0;
         gameManager.execute(dt);
@@ -77,7 +104,9 @@ var Engine = (function (global) {
     function checkCollisions() {
         var playerRow = player.getRow();
         for (var e of allEnemies) {
-            if (e.getRow() !== playerRow) { continue; }
+            if (e.getRow() !== playerRow) {
+                continue;
+            }
             if (player.x - e.x < 81 && player.x - e.x > -81) {
                 player.collided = true;
             }
@@ -127,8 +156,7 @@ var Engine = (function (global) {
         player.render();
     }
 
-    function renderTitlePage() {
-        renderMap();
+    function renderTitleText() {
         ctx.font = "60pt Impact";
         ctx.textAlign = "center";
         ctx.fillStyle = "white";
@@ -137,8 +165,20 @@ var Engine = (function (global) {
         ctx.lineWidth = 2;
         ctx.strokeText("FROGGER", 250, 250);
         ctx.font = "30pt Impact";
-        ctx.fillText("Press Space to Start", 250, 450);
-        ctx.strokeText("Press Space to Start", 250, 450);
+        ctx.fillText("Press Enter to Start", 250, 450);
+        ctx.strokeText("Press Enter to Start", 250, 450);
+    }
+
+    function renderCharactor(selected) {
+        var length = playerImages.length,
+        centerX = Math.floor(canvas.width / 2);
+
+        for (var i = 0; i < length; i++) {
+            ctx.drawImage(Resources.get(playerImages[i]), centerX + 101 * (i - 2), 200);
+        }
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(centerX + 101 * (selected - 2), 200, 101, 171);
     }
 
     /* This function does nothing but it could have been a good place to
@@ -153,19 +193,40 @@ var Engine = (function (global) {
      * all of these images are properly loaded our game will start.
      */
     Resources.load([
+        'images/char-boy.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-pink-girl.png',
         'images/stone-block.png',
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
     ]);
     Resources.onReady(init);
 
     document.addEventListener('keyup', function (e) {
-        if (e.keyCode === 32) {
-            gameManager.handleInput("space");
+        handleKeys = {
+            13: 'enter',
+            37: 'left',
+            39: 'right',
         }
+        gameManager.handleInput(handleKeys[e.keyCode]);
     })
+
+    function addListenerForControl() {
+        // This listens for key presses and sends the keys to your
+        // Player.handleInput() method. You don't need to modify this.
+        document.addEventListener('keyup', function (e) {
+            var playingKeys = {
+                37: 'left',
+                38: 'up',
+                39: 'right',
+                40: 'down'
+            };
+
+            player.handleInput(playingKeys[e.keyCode]);
+        });
+    }
 
     global.ctx = ctx;
 })(this);

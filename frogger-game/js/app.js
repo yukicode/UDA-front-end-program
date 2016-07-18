@@ -7,7 +7,7 @@ var helper = {
         return Math.floor(Math.random() * Map.col) * Map.colWidth;
     },
     "randomRowCoor": function () {
-        return Math.floor((Math.random() * (Map.pavedRow.upperLimit - Map.pavedRow.lowerLimit + 1)) + Map.pavedRow.lowerLimit) * Map.rowHeight -110;
+        return Math.floor((Math.random() * Map.pavedRows.length) + Map.pavedRows[0]) * Map.rowHeight -110;
     },
     "randomSpeed": function() {
         return Math.floor((Math.random() * 15) + 5) * 20;
@@ -54,10 +54,12 @@ Enemy.prototype.getCol = function () {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function () {
+var Player = function (row, col) {
+    this.startX = (col-1) * Map.colWidth;
+    this.startY = row * Map.rowHeight - 110;
     this.sprite = "images/char-boy.png";
-    this.x = (Map.col / 2 - 0.5) * Map.colWidth;
-    this.y = Map.grassRow.lowerLimit * Map.rowHeight - 110;
+    this.x = this.startX;
+    this.y = this.startY;
     this.countDown = 40;
 }
 
@@ -82,8 +84,8 @@ Player.prototype.collisionRender = function () {
 //reset player's position to initional location
 Player.prototype.reset = function () {
     this.countDown = 40;
-    this.x = (Map.col / 2 - 0.5) * Map.colWidth;
-    this.y = Map.grassRow.lowerLimit * Map.rowHeight - 110;
+    this.x = this.startX;
+    this.y = this.startY;
 }
 
 Player.prototype.handleInput = function (move) {
@@ -114,8 +116,8 @@ Player.prototype.getCol = function () {
 
 var Star = function (col, row) {
     this.sprite = "images/Star.png";
-    this.x =  (col-1) * Map.colWidth || helper.randomColCoor();
-    this.y = row ? row : Map.pavedRow.lowerLimit * Map.rowHeight - 110;
+    this.x =  col ? (col-1) * Map.colWidth : helper.randomColCoor();
+    this.y = row ? row : Map.pavedRows[0] * Map.rowHeight - 110;
 }
 
 Star.prototype.render = function () {

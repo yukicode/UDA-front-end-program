@@ -42,13 +42,15 @@ var Engine = (function (global) {
         var number = level.enemies.number;
 
         Map = level.map;
+        levelTitle = new LevelTitle(level.title.number, level.title.content);
         allEnemies = [];
         for (var i = 0; i < number; i++) {
             allEnemies.push(new Enemy());
         }
-        player = new Player();
+        console.log(level.player.initRow, level.player.initCol);
+        player = player || new Player(level.player.initRow, level.player.initCol);
+        console.log(player);
         star = new Star();
-        levelTitle = new LevelTitle(level.title.number, level.title.content);
         levelTimer = level.countDownTime;
     }
 
@@ -64,7 +66,7 @@ var Engine = (function (global) {
         },
         selectCharactor: function () {
             renderMap();
-            renderCharactor(selectedPlayer);
+            renderAllCharactors(selectedPlayer);
         },
         start: function (dt) {
             document.addEventListener('keyup', keyListener, false);
@@ -81,7 +83,7 @@ var Engine = (function (global) {
             star.render();
             player.render();
             renderEnemies();
-            if (checkCollisions()) {
+            if (hasCollisions()) {
                 document.removeEventListener('keyup', keyListener, false);
                 this.state = "playerDie";
             } else if (playerHasWon()) {
@@ -92,7 +94,8 @@ var Engine = (function (global) {
         playerDie: function () {
             renderMap();
             renderEnemies();
-            if (!player.collisionRender()) {
+            if (!player.collisionRender()) {//end of rendering collision
+                loadLevel(level1);
                 this.state = "start";
             }
         },
@@ -141,7 +144,7 @@ var Engine = (function (global) {
         updateEntities(dt);
     }
 
-    function checkCollisions() {
+    function hasCollisions() {
         var playerRow = player.getRow();
         for (var e of allEnemies) {
             if (e.getRow() !== playerRow) {
@@ -169,21 +172,18 @@ var Engine = (function (global) {
     }
 
     function renderMap() {
-        var rowImages = [
-               'images/water-block.png',   // Top row is water
-               'images/stone-block.png',   // Row 1 of 3 of stone
-               'images/stone-block.png',   // Row 2 of 3 of stone
-               'images/stone-block.png',   // Row 3 of 3 of stone
-               'images/grass-block.png',   // Row 1 of 2 of grass
-               'images/grass-block.png'    // Row 2 of 2 of grass
-        ],
-           numRows = 6,
-           numCols = 5,
+        var rowImages = {
+            "water": "images/water-block.png",   // a row of water
+            "paved": "images/stone-block.png",   // a row of stone
+            "grass": "images/grass-block.png",   // a row of grass
+        },
+           numRows = Map.row,
+           numCols = Map.col,
            row, col;
 
         for (row = 0; row < numRows; row++) {
             for (col = 0; col < numCols; col++) {
-                ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+                ctx.drawImage(Resources.get(rowImages[Map.rowContent[row]]), col * 101, row * 83);
             }
         }
     }
@@ -212,13 +212,14 @@ var Engine = (function (global) {
         ctx.fillText(Math.floor(timer), 250 , 100);
     }
 
-    function renderCharactor(selected) {
+    function renderAllCharactors(selected) {
         var length = playerImages.length,
         centerX = Math.floor(canvas.width / 2);
 
         for (var i = 0; i < length; i++) {
             ctx.drawImage(Resources.get(playerImages[i]), centerX + 101 * (i - 2), 200);
         }
+        //highlight selected charactor
         ctx.strokeStyle = 'white';
         ctx.lineWidth = 2;
         ctx.strokeRect(centerX + 101 * (selected - 2), 200, 101, 171);

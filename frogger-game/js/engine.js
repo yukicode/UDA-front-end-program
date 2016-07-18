@@ -21,20 +21,41 @@ var Engine = (function (global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime,
-        gameManager,
         playerImages = [
             'images/char-boy.png',
             'images/char-cat-girl.png',
             'images/char-horn-girl.png',
             'images/char-pink-girl.png',
-        ];
+        ],
+        allEnemies,
+        player,
+        star,
+        levelTitle,
+        levelTimer = 0,
+        selectedPlayer = 0;
 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
+    function loadLevel(level) {
+        var number = level.enemies.number;
+
+        Map = level.map;
+        allEnemies = [];
+        for (var i = 0; i < number; i++) {
+            allEnemies.push(new Enemy());
+        }
+        player = new Player();
+        star = new Star();
+        levelTitle = new LevelTitle(level.title.number, level.title.content);
+        levelTimer = level.countDownTime;
+    }
+
+    //game manager handles different stages of the game
     gameManager = {
         boot: function () {
+            loadLevel(level1);
             this.state = "title";
         },
         title: function () {
@@ -43,42 +64,62 @@ var Engine = (function (global) {
         },
         selectCharactor: function () {
             renderMap();
-            renderCharactor(this.selectedPlayer);
+            renderCharactor(selectedPlayer);
         },
         start: function (dt) {
+            document.addEventListener('keyup', keyListener, false);
+            levelTitle.render(canvas.width, canvas.height);
+            if (levelTitle.renderEnds(dt)) {
+                this.state = "inGame";
+            }
+        },
+        inGame: function (dt) {
+            levelTimer -= dt;
             update(dt);
-            render();
+            renderMap();
+            renderTimer(levelTimer);
+            star.render();
+            player.render();
+            renderEnemies();
+            if (checkCollisions()) {
+                document.removeEventListener('keyup', keyListener, false);
+                this.state = "playerDie";
+            } else if (playerHasWon()) {
+                document.removeEventListener('keyup', keyListener, false);
+                this.state = "endGame";
+            }
         },
         playerDie: function () {
-
+            renderMap();
+            renderEnemies();
+            if (!player.collisionRender()) {
+                this.state = "start";
+            }
         },
         endGame: function () {
-
+            renderMap();
         },
         handleInput: function (key) {
             if (key === "enter" && this.state === "title") {
                 this.state = "selectCharactor";
             }else if (key === "enter" && this.state === "selectCharactor") {
-                player.sprite = playerImages[this.selectedPlayer];
-                addListenerForControl();
+                player.sprite = playerImages[selectedPlayer];
                 this.state = "start";
             }else if (key === "left" && this.state === "selectCharactor") {
-                if (this.selectedPlayer === 0) { return;}
-                this.selectedPlayer--;
+                if (selectedPlayer === 0) { return;}
+                selectedPlayer--;
             }else if (key === "right" && this.state === "selectCharactor") {
-                if (this.selectedPlayer === 3) { return; }
-                this.selectedPlayer++;
+                if (selectedPlayer === 3) { return; }
+                selectedPlayer++;
             }
         },
         execute: function (dt) {
             this[this.state](dt);
         },
         state: "boot",
-        selectedPlayer: 0,
     };
 
     function main() {
-
         var now = Date.now(),
             dt = (now - lastTime) / 1000.0;
         gameManager.execute(dt);
@@ -98,7 +139,6 @@ var Engine = (function (global) {
 
     function update(dt) {
         updateEntities(dt);
-        checkCollisions();
     }
 
     function checkCollisions() {
@@ -108,9 +148,17 @@ var Engine = (function (global) {
                 continue;
             }
             if (player.x - e.x < 81 && player.x - e.x > -81) {
-                player.collided = true;
+                return true;
             }
         }
+        return false;
+    }
+
+    function playerHasWon() {
+        if (player.getRow() === star.getRow() && player.getCol() === star.getCol()) {
+            return true;
+        }
+        return false;
     }
 
     function updateEntities(dt) {
@@ -118,11 +166,6 @@ var Engine = (function (global) {
             enemy.update(dt);
         });
         player.update();
-    }
-
-    function render() {
-        renderMap();
-        renderEntities();
     }
 
     function renderMap() {
@@ -145,15 +188,10 @@ var Engine = (function (global) {
         }
     }
 
-    function renderEntities() {
-        /* Loop through all of the objects within the allEnemies array and call
-         * the render function you have defined.
-         */
+    function renderEnemies() {
         allEnemies.forEach(function (enemy) {
             enemy.render();
         });
-
-        player.render();
     }
 
     function renderTitleText() {
@@ -167,6 +205,11 @@ var Engine = (function (global) {
         ctx.font = "30pt Impact";
         ctx.fillText("Press Enter to Start", 250, 450);
         ctx.strokeText("Press Enter to Start", 250, 450);
+    }
+
+    function renderTimer(timer) {
+        ctx.font = "20pt Impact";
+        ctx.fillText(Math.floor(timer), 250 , 100);
     }
 
     function renderCharactor(selected) {
@@ -201,6 +244,7 @@ var Engine = (function (global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
+        'images/Star.png',
     ]);
     Resources.onReady(init);
 
@@ -213,19 +257,15 @@ var Engine = (function (global) {
         gameManager.handleInput(handleKeys[e.keyCode]);
     })
 
-    function addListenerForControl() {
-        // This listens for key presses and sends the keys to your
-        // Player.handleInput() method. You don't need to modify this.
-        document.addEventListener('keyup', function (e) {
-            var playingKeys = {
-                37: 'left',
-                38: 'up',
-                39: 'right',
-                40: 'down'
-            };
+    function keyListener(e) {
+        var playingKeys = {
+            37: 'left',
+            38: 'up',
+            39: 'right',
+            40: 'down'
+        };
 
-            player.handleInput(playingKeys[e.keyCode]);
-        });
+        player.handleInput(playingKeys[e.keyCode]);
     }
 
     global.ctx = ctx;

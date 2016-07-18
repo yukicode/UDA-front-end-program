@@ -1,22 +1,6 @@
 //store the set up of the map
-var Map = {
-    "col": 5,
-    "row": 6,
-    "colWidth": 101,
-    "rowHeight": 83,
-    "waterRow": {
-        "lowerLimit": 1,
-        "upperLimit": 1,
-    },
-    "pavedRow": {
-        "lowerLimit": 2,
-        "upperLimit": 4,
-    },
-    "grassRow": {
-        "lowerLimit": 5,
-        "upperLimit": 6,
-    },
-};
+//initialize in loadLevel
+var Map = {};
 
 var helper = {
     "randomColCoor": function () {
@@ -38,24 +22,13 @@ var helper = {
 
 // Enemies our player must avoid
 var Enemy = function () {
-
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = helper.randomColCoor();
     this.y = helper.randomRowCoor();
     this.speed = helper.randomSpeed();
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
     this.x += dt * this.speed;
     //reset enemy if it is out of the canvas
     if (this.x > 101 * 5) {
@@ -85,43 +58,36 @@ var Player = function () {
     this.sprite = "images/char-boy.png";
     this.x = (Map.col / 2 - 0.5) * Map.colWidth;
     this.y = Map.grassRow.lowerLimit * Map.rowHeight - 110;
-    this.collided = false;
-    this.countDown = 60;
+    this.countDown = 40;
 }
 
 Player.prototype.update = function () {
 }
 
 Player.prototype.render = function () {
-    if (this.collided) {
-        this.collisionRender();
-    } else {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 //renders the "pausing" effect when player dies
 Player.prototype.collisionRender = function () {
-    if (this.countDown-- === 0) {
+    if (this.countDown === 0) {
         this.reset();
-        return;
-    }
-    if (this.countDown % 10 > 4) {
+        return 0;
+    }else if (this.countDown % 10 > 4) {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+    return this.countDown--;
 }
 
 //reset player's position to initional location
 Player.prototype.reset = function () {
-    this.collided = false;
-    this.countDown = 60;
+    this.countDown = 40;
     this.x = (Map.col / 2 - 0.5) * Map.colWidth;
     this.y = Map.grassRow.lowerLimit * Map.rowHeight - 110;
 }
 
 Player.prototype.handleInput = function (move) {
     if (!move) { return;}
-    if (this.collided) { return; }
     switch (move) {
         case 'up':
             this.y = this.y - Map.rowHeight < 0 ? this.y : this.y - Map.rowHeight;
@@ -146,16 +112,47 @@ Player.prototype.getCol = function () {
     return helper.getCol(this.x);
 }
 
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-var allEnemies = [];
-for (var i = 0; i < 4; i++){
-    allEnemies.push(new Enemy());
+var Star = function (col, row) {
+    this.sprite = "images/Star.png";
+    this.x =  (col-1) * Map.colWidth || helper.randomColCoor();
+    this.y = row ? row : Map.pavedRow.lowerLimit * Map.rowHeight - 110;
 }
 
-var player = new Player();
+Star.prototype.render = function () {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
 
+Star.prototype.getRow = function () {
+    return helper.getRow(this.y);
+}
 
+Star.prototype.getCol = function () {
+    return helper.getCol(this.x);
+}
 
+var LevelTitle = function (number, content) {
+    this.number = number;
+    this.content = content;
+    this.timecount = 0;
+    this.x = Map.col * Map.colWidth / 2;
+    this.y = Map.row * Map.rowHeight / 2;
+}
+
+LevelTitle.prototype.render = function (width, height) {
+    var title = this.number + " " + this.content;
+    ctx.fillStyle = "white";
+    ctx.fillRect(0,0, width, height);
+    ctx.textAlign = "center";
+    ctx.fillStyle = "black";
+    ctx.font = "30pt Impact";
+    ctx.fillText(title, this.x, this.y);
+}
+
+LevelTitle.prototype.renderEnds = function (dt) {
+    this.timecount += dt;
+    if (this.timecount > 2) {
+        this.timecount = 0;
+        return true;
+    }
+    return false;
+}

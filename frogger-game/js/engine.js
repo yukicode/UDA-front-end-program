@@ -47,9 +47,7 @@ var Engine = (function (global) {
         for (var i = 0; i < number; i++) {
             allEnemies.push(new Enemy());
         }
-        console.log(level.player.initRow, level.player.initCol);
         player = player || new Player(level.player.initRow, level.player.initCol);
-        console.log(player);
         star = new Star();
         levelTimer = level.countDownTime;
     }
@@ -83,7 +81,7 @@ var Engine = (function (global) {
             star.render();
             player.render();
             renderEnemies();
-            if (hasCollisions()) {
+            if (hasCollisions() || levelTimer <=0) {
                 document.removeEventListener('keyup', keyListener, false);
                 this.state = "playerDie";
             } else if (playerHasWon()) {

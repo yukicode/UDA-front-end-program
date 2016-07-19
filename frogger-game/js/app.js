@@ -13,7 +13,7 @@ var helper = {
         return Math.floor(Math.random() * Map.col) * Map.colWidth;
     },
     "randomRowCoor": function () {
-        return Math.floor((Math.random() * Map.pavedRows.length) + Map.pavedRows[0]) * Map.rowHeight -110;
+        return Map.enemySpawningRows[Math.floor(Math.random() * Map.enemySpawningRows.length)] * Map.rowHeight -110;
     },
     "randomSpeed": function() {
         return Math.floor((Math.random() * 15) + 5) * 20;
@@ -152,7 +152,7 @@ Player.prototype.getCol = function () {
 var Star = function (col, row) {
     this.sprite = "images/Star.png";
     this.x =  col ? (col-1) * Map.colWidth : helper.randomColCoor();
-    this.y = row ? row * Map.rowHeight - 110 : Map.pavedRows[0] * Map.rowHeight - 110;
+    this.y = row * Map.rowHeight - 110;
 }
 
 Star.prototype.render = function () {

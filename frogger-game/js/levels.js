@@ -45,8 +45,8 @@ level2.map = {
     "row": 6,
     "colWidth": 101,
     "rowHeight": 83,
-    "rowContent": ["water", "paved", "paved", "paved", "paved", "grass", ],
-    "pavedRows": [2,3,4,5,],
+    "rowContent": ["water", "paved", "paved", "paved", "paved", "grass"],
+    "enemySpawningRows": [2,4,5],
 };
 
 level2.enemies = {
@@ -67,7 +67,7 @@ level2.star = {
 //rocks stores the coordinations of each rock
 //if a rock is the left most one of a row, it needs to check against enemies in the game
 //format of rock: [col, row, isLeftMostOfRow]
-level2.rocks = [[1, 3, true], [3, 3], [4, 3], [5, 3],];
+level2.rocks = [[1, 3, true], [3, 3], [4, 3], [5, 3]];
 
 level2.title = {
     "number": 2,

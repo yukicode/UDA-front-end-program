@@ -73,6 +73,7 @@ var Engine = (function (global) {
         for (var i = 0; i < enemyNumber; i++) {
             allEnemies.push(new Enemy());
         }
+        player.reset();
         star = new Star(level.star.initCol, level.star.initRow);
         levelTimer = level.countDownTime;
     }
@@ -92,9 +93,9 @@ var Engine = (function (global) {
             renderAllCharactors(selectedPlayer);
         },
         start: function (dt) {
-            document.addEventListener('keyup', keyListener, false);
             levelTitle.render(canvas.width, canvas.height);
             if (levelTitle.renderEnds(dt)) {
+                document.addEventListener('keyup', keyListener, false);
                 this.state = "inGame";
             }
         },

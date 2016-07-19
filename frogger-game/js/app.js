@@ -1,6 +1,12 @@
-//store the set up of the map
 //initialize in loadLevel
-var Map = {};
+var Map = {},
+    allRocks,
+    allEdgeRocks,
+    allEnemies,
+    player,
+    star,
+    levelTitle = "",
+    levelTimer = 0;
 
 var helper = {
     "randomColCoor": function () {
@@ -22,7 +28,7 @@ var helper = {
 
 // Enemies our player must avoid
 var Enemy = function () {
-    this.sprite = 'images/enemy-bug.png';
+    this.sprite = "images/enemy-bug.png";
     this.x = helper.randomColCoor();
     this.y = helper.randomRowCoor();
     this.speed = helper.randomSpeed();
@@ -31,8 +37,9 @@ var Enemy = function () {
 Enemy.prototype.update = function(dt) {
     this.x += dt * this.speed;
     //reset enemy if it is out of the canvas
-    if (this.x > 101 * 5) {
-        this.x = -Map.colWidth * 1.5;
+    if (this.x > 101 * 5 || this.x < -Map.colWidth * 1.2) {
+        this.sprite = "images/enemy-bug.png";
+        this.x = -Map.colWidth * 1.2;
         this.y = helper.randomRowCoor();
         this.speed = helper.randomSpeed();
     }
@@ -92,18 +99,46 @@ Player.prototype.handleInput = function (move) {
     if (!move) { return;}
     switch (move) {
         case 'up':
-            this.y = this.y - Map.rowHeight < 0 ? this.y : this.y - Map.rowHeight;
+            this.y = this.y - Map.rowHeight;
+            if(this.outOfBoundary() || this.hitRock()){
+                this.y = this.y + Map.rowHeight;
+            }
             break;
         case 'down':
-            this.y = this.y + Map.rowHeight > Map.row * Map.rowHeight - 110 ? this.y : this.y + Map.rowHeight;
+            this.y = this.y + Map.rowHeight;
+            if(this.outOfBoundary() || this.hitRock()){
+                this.y = this.y - Map.rowHeight;
+            }
             break;
         case 'left':
-            this.x = this.x - Map.colWidth < 0 ? this.x : this.x - Map.colWidth;
+            this.x = this.x - Map.colWidth;
+            if(this.outOfBoundary() || this.hitRock()){
+                this.x = this.x + Map.colWidth;
+            }
             break;
         case 'right':
-            this.x = this.x + Map.colWidth > (Map.col-1) * Map.colWidth ? this.x : this.x + Map.colWidth;
+            this.x = this.x + Map.colWidth;
+            if(this.outOfBoundary() || this.hitRock()){
+                this.x = this.x - Map.colWidth;
+            }
             break;
     }
+}
+
+Player.prototype.hitRock = function(){
+    for(rock of allRocks){
+        if(rock.x === this.x && rock.y === this.y){
+            return true;
+        }
+    }
+    return false;
+}
+
+Player.prototype.outOfBoundary = function(){
+    if(this.y < 0 || this.x < 0 || this.getRow() > Map.row || this.getCol() > Map.col){
+        return true;
+    }
+    return false;
 }
 
 Player.prototype.getRow = function () {
@@ -117,7 +152,7 @@ Player.prototype.getCol = function () {
 var Star = function (col, row) {
     this.sprite = "images/Star.png";
     this.x =  col ? (col-1) * Map.colWidth : helper.randomColCoor();
-    this.y = row ? row : Map.pavedRows[0] * Map.rowHeight - 110;
+    this.y = row ? row * Map.rowHeight - 110 : Map.pavedRows[0] * Map.rowHeight - 110;
 }
 
 Star.prototype.render = function () {
@@ -157,4 +192,14 @@ LevelTitle.prototype.renderEnds = function (dt) {
         return true;
     }
     return false;
+}
+
+var Rock = function(col, row){
+    this.sprite = "images/Rock.png";
+    this.x = (col-1) * Map.colWidth;
+    this.y = row * Map.rowHeight - 110;
+}
+
+Rock.prototype.render = function () {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }

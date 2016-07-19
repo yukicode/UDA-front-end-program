@@ -27,11 +27,8 @@ var Engine = (function (global) {
             'images/char-horn-girl.png',
             'images/char-pink-girl.png',
         ],
-        allEnemies,
-        player,
-        star,
-        levelTitle,
-        levelTimer = 0,
+        levels = [level1, level2],
+        currentLevelNumber = 2;
         selectedPlayer = 0;
 
     canvas.width = 505;
@@ -39,23 +36,34 @@ var Engine = (function (global) {
     doc.body.appendChild(canvas);
 
     function loadLevel(level) {
-        var number = level.enemies.number;
+        var enemyNumber = level.enemies.number,
+            rockNumber = level.rocks.length,
+            rock;
 
         Map = level.map;
         levelTitle = new LevelTitle(level.title.number, level.title.content);
+        allRocks = [];
+        allEdgeRocks = [];
+        for (var i = 0; i < rockNumber; i++) {
+            rock = new Rock(level.rocks[i][0], level.rocks[i][1])
+            allRocks.push(rock);
+            if(level.rocks[i][2]){
+                allEdgeRocks.push(rock);
+            }
+        }
         allEnemies = [];
-        for (var i = 0; i < number; i++) {
+        for (var i = 0; i < enemyNumber; i++) {
             allEnemies.push(new Enemy());
         }
         player = player || new Player(level.player.initRow, level.player.initCol);
-        star = new Star();
+        star = new Star(level.star.initCol, level.star.initRow);
         levelTimer = level.countDownTime;
     }
 
     //game manager handles different stages of the game
     gameManager = {
         boot: function () {
-            loadLevel(level1);
+            loadLevel(levels[currentLevelNumber-1]);
             this.state = "title";
         },
         title: function () {
@@ -77,6 +85,7 @@ var Engine = (function (global) {
             levelTimer -= dt;
             update(dt);
             renderMap();
+            renderRocks();
             renderTimer(levelTimer);
             star.render();
             player.render();
@@ -93,7 +102,7 @@ var Engine = (function (global) {
             renderMap();
             renderEnemies();
             if (!player.collisionRender()) {//end of rendering collision
-                loadLevel(level1);
+                loadLevel(levels[currentLevelNumber-1]);
                 this.state = "start";
             }
         },
@@ -142,13 +151,26 @@ var Engine = (function (global) {
         updateEntities(dt);
     }
 
+    //return true if an enemy hits player
+    //reverse direction of an enemy if it hits a stone
     function hasCollisions() {
         var playerRow = player.getRow();
-        for (var e of allEnemies) {
-            if (e.getRow() !== playerRow) {
+        for (var enemy of allEnemies) {
+            //check collision with stone
+            for(var rock of allEdgeRocks){
+                if(enemy.speed < 0 || enemy.y !== rock.y){
+                    continue;
+                }
+                if(rock.x - enemy.x < 85 && rock.x - enemy.x > -85){
+                    enemy.sprite = "images/enemy-bug-reverse.png";
+                    enemy.speed *= -1;
+                }
+            }
+            //check collision with player
+            if (enemy.getRow() !== playerRow) {
                 continue;
             }
-            if (player.x - e.x < 81 && player.x - e.x > -81) {
+            if (player.x - enemy.x < 81 && player.x - enemy.x > -81) {
                 return true;
             }
         }
@@ -189,6 +211,12 @@ var Engine = (function (global) {
     function renderEnemies() {
         allEnemies.forEach(function (enemy) {
             enemy.render();
+        });
+    }
+
+    function renderRocks() {
+        allRocks.forEach(function (rock) {
+            rock.render();
         });
     }
 
@@ -244,6 +272,8 @@ var Engine = (function (global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/Star.png',
+        'images/Rock.png',
+        'images/enemy-bug-reverse.png',
     ]);
     Resources.onReady(init);
 

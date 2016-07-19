@@ -70,7 +70,14 @@ var Player = function (row, col) {
     this.countDown = 40;
 }
 
-Player.prototype.update = function () {
+Player.prototype.update = function(){
+}
+
+Player.prototype.set = function (row, col) {
+    this.startX = (col-1) * Map.colWidth;
+    this.startY = row * Map.rowHeight - 110;
+    this.x = this.startX;
+    this.y = this.startY;
 }
 
 Player.prototype.render = function () {

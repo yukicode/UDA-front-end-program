@@ -28,7 +28,7 @@ var Engine = (function (global) {
             'images/char-pink-girl.png',
         ],
         levels = [level1, level2],
-        currentLevelNumber = 2;
+        currentLevel = 1;
         selectedPlayer = 0;
 
     canvas.width = 505;
@@ -37,25 +37,42 @@ var Engine = (function (global) {
 
     function loadLevel(level) {
         var enemyNumber = level.enemies.number,
-            rockNumber = level.rocks.length,
+            rockNumber,
             rock;
 
         Map = level.map;
         levelTitle = new LevelTitle(level.title.number, level.title.content);
         allRocks = [];
         allEdgeRocks = [];
-        for (var i = 0; i < rockNumber; i++) {
-            rock = new Rock(level.rocks[i][0], level.rocks[i][1])
-            allRocks.push(rock);
-            if(level.rocks[i][2]){
-                allEdgeRocks.push(rock);
+        if(level.rocks){//if there are rocks in this level
+            rockNumber = level.rocks.length;
+            for (var i = 0; i < rockNumber; i++) {
+                rock = new Rock(level.rocks[i][0], level.rocks[i][1])
+                allRocks.push(rock);
+                if(level.rocks[i][2]){
+                    allEdgeRocks.push(rock);
+                }
             }
         }
         allEnemies = [];
         for (var i = 0; i < enemyNumber; i++) {
             allEnemies.push(new Enemy());
         }
-        player = player || new Player(level.player.initRow, level.player.initCol);
+        if(player){
+            player.set(level.player.initRow, level.player.initCol);
+        }else{
+            player = new Player(level.player.initRow, level.player.initCol);
+        }
+        star = new Star(level.star.initCol, level.star.initRow);
+        levelTimer = level.countDownTime;
+    }
+
+    function resetLevel(level) {
+        var enemyNumber = level.enemies.number;
+        allEnemies = [];
+        for (var i = 0; i < enemyNumber; i++) {
+            allEnemies.push(new Enemy());
+        }
         star = new Star(level.star.initCol, level.star.initRow);
         levelTimer = level.countDownTime;
     }
@@ -63,7 +80,7 @@ var Engine = (function (global) {
     //game manager handles different stages of the game
     gameManager = {
         boot: function () {
-            loadLevel(levels[currentLevelNumber-1]);
+            loadLevel(levels[currentLevel-1]);
             this.state = "title";
         },
         title: function () {
@@ -95,14 +112,21 @@ var Engine = (function (global) {
                 this.state = "playerDie";
             } else if (playerHasWon()) {
                 document.removeEventListener('keyup', keyListener, false);
-                this.state = "endGame";
+                if(currentLevel < levels.length){
+                    currentLevel++;
+                    loadLevel(levels[currentLevel-1]);
+                    this.state = "start";
+                }else{
+                    this.state = "endGame";
+                }
             }
         },
         playerDie: function () {
             renderMap();
+            renderRocks();
             renderEnemies();
             if (!player.collisionRender()) {//end of rendering collision
-                loadLevel(levels[currentLevelNumber-1]);
+                resetLevel(levels[currentLevel-1]);
                 this.state = "start";
             }
         },

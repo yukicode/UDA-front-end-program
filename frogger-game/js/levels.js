@@ -14,7 +14,7 @@ level1.map = {
     "colWidth": 101,
     "rowHeight": 83,
     "rowContent": ["water", "paved", "paved", "paved", "grass", "grass", ],
-    "pavedRows": [2,3,4],
+    "enemySpawningRows": [2,3,4],
 };
 
 level1.enemies = {

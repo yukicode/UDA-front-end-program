@@ -59,7 +59,7 @@ var Engine = (function (global) {
             allEnemies.push(new Enemy());
         }
         if(player){
-            player.set(level.player.initRow, level.player.initCol);
+            player.setStartingLocation(level.player.initRow, level.player.initCol);
         }else{
             player = new Player(level.player.initRow, level.player.initCol);
         }
@@ -213,7 +213,6 @@ var Engine = (function (global) {
         allEnemies.forEach(function (enemy) {
             enemy.update(dt);
         });
-        player.update();
     }
 
     function renderMap() {

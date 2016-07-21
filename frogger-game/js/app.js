@@ -1,5 +1,7 @@
 //initialize in loadLevel
 var Map = {},
+    colWidth = 101,
+    rowHeight = 83,
     allRocks,
     allEdgeRocks,
     allEnemies,
@@ -8,30 +10,42 @@ var Map = {},
     levelTitle = "",
     levelTimer = 0;
 
-var helper = {
-    "randomColCoor": function () {
-        return Math.floor(Math.random() * Map.col) * Map.colWidth;
-    },
-    "randomRowCoor": function () {
-        return Map.enemySpawningRows[Math.floor(Math.random() * Map.enemySpawningRows.length)] * Map.rowHeight -110;
-    },
-    "randomSpeed": function() {
-        return Math.floor((Math.random() * 15) + 5) * 20;
-    },
-    "getRow": function (y) {
-        return (y + 110) / Map.rowHeight;
-    },
-    "getCol": function (x) {
-        return Math.ceil((x + Map.colWidth / 2) / Map.colWidth);
-    },
-}
+var GameEntity = function(sprite, x, y){
+    this.sprite = sprite;
+    this.x = (x && (x === x >> 0)) ? x : 0; 
+    this.y = (y && (y === y >> 0)) ? y : 0;
+};
 
-// Enemies our player must avoid
-var Enemy = function () {
-    this.sprite = "images/enemy-bug.png";
-    this.x = helper.randomColCoor();
-    this.y = helper.randomRowCoor();
-    this.speed = helper.randomSpeed();
+GameEntity.prototype.render = function(){
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+GameEntity.prototype.getRow = function(){
+    return Math.floor((this.y + 110) / rowHeight);
+};
+
+GameEntity.prototype.getCol = function(){
+    return Math.ceil((this.x + colWidth / 2) / colWidth);
+};
+
+var Enemy = function() {
+    GameEntity.call(this, "images/enemy-bug.png", this.randomColCoor(), this.randomRowCoor());
+    this.speed = this.randomSpeed();
+};
+
+Enemy.prototype = Object.create(GameEntity.prototype);
+Enemy.prototype.constructor = Enemy;
+
+Enemy.prototype.randomColCoor = function () {
+    return Math.floor(Math.random() * Map.col) * colWidth;
+};
+
+Enemy.prototype.randomRowCoor = function () {
+    return Map.enemySpawningRows[Math.floor(Math.random() * Map.enemySpawningRows.length)] * rowHeight - 110;
+};
+
+Enemy.prototype.randomSpeed = function () {
+    return Math.floor((Math.random() * 15) + 5) * 20;
 };
 
 Enemy.prototype.update = function(dt) {
@@ -40,48 +54,27 @@ Enemy.prototype.update = function(dt) {
     if (this.x > 101 * 5 || this.x < -Map.colWidth * 1.2) {
         this.sprite = "images/enemy-bug.png";
         this.x = -Map.colWidth * 1.2;
-        this.y = helper.randomRowCoor();
-        this.speed = helper.randomSpeed();
+        this.y = this.randomRowCoor();
+        this.speed = this.randomSpeed();
     }
 };
 
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
-Enemy.prototype.getRow = function () {
-    return helper.getRow(this.y);
-}
-
-Enemy.prototype.getCol = function () {
-    return helper.getCol(this.x);
-}
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-var Player = function (row, col) {
+var Player = function(row, col){
     this.startX = (col-1) * Map.colWidth;
     this.startY = row * Map.rowHeight - 110;
-    this.sprite = "images/char-boy.png";
-    this.x = this.startX;
-    this.y = this.startY;
     this.countDown = 40;
+    GameEntity.call(this, "images/char-boy.png", this.startX, this.startY);
 }
 
-Player.prototype.update = function(){
-}
+Player.prototype = Object.create(GameEntity.prototype);
+Player.prototype.constructor = Player;
 
-Player.prototype.set = function (row, col) {
+//set player's starting location at the beginning of a new level
+Player.prototype.setStartingLocation = function (row, col) {
     this.startX = (col-1) * Map.colWidth;
     this.startY = row * Map.rowHeight - 110;
     this.x = this.startX;
     this.y = this.startY;
-}
-
-Player.prototype.render = function () {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 //renders the "pausing" effect when player dies
@@ -104,75 +97,76 @@ Player.prototype.reset = function () {
 
 Player.prototype.handleInput = function (move) {
     if (!move) { return;}
+
+    var _player = this;
+
+    function hitRock(){
+        for(rock of allRocks){
+            if(rock.x === _player.x && rock.y === _player.y){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function outOfBoundary(){
+        if(_player.y < 0 || _player.x < 0 || _player.getRow() > Map.row || _player.getCol() > Map.col){
+            return true;
+        }
+        return false;
+    }
+
     switch (move) {
         case 'up':
             this.y = this.y - Map.rowHeight;
-            if(this.outOfBoundary() || this.hitRock()){
+            if(outOfBoundary() || hitRock()){
                 this.y = this.y + Map.rowHeight;
             }
             break;
         case 'down':
             this.y = this.y + Map.rowHeight;
-            if(this.outOfBoundary() || this.hitRock()){
+            if(outOfBoundary() || hitRock()){
                 this.y = this.y - Map.rowHeight;
             }
             break;
         case 'left':
             this.x = this.x - Map.colWidth;
-            if(this.outOfBoundary() || this.hitRock()){
+            if(outOfBoundary() || hitRock()){
                 this.x = this.x + Map.colWidth;
             }
             break;
         case 'right':
             this.x = this.x + Map.colWidth;
-            if(this.outOfBoundary() || this.hitRock()){
+            if(outOfBoundary() || hitRock()){
                 this.x = this.x - Map.colWidth;
             }
             break;
     }
 }
 
-Player.prototype.hitRock = function(){
-    for(rock of allRocks){
-        if(rock.x === this.x && rock.y === this.y){
-            return true;
-        }
-    }
-    return false;
+//Star marks the goal of a level
+//star can either be set to a certain block or a random column in the second row.
+var Star = function(col, row){
+    GameEntity.call(this, "images/Star.png");
+    this.x = col ? (col-1) * Map.colWidth : this.randomColCoor();
+    this.y = row ? 56 : row * Map.rowHeight - 110;
 }
 
-Player.prototype.outOfBoundary = function(){
-    if(this.y < 0 || this.x < 0 || this.getRow() > Map.row || this.getCol() > Map.col){
-        return true;
-    }
-    return false;
+Star.prototype = Object.create(GameEntity.prototype);
+Star.prototype.constructor = Star;
+
+Star.prototype.randomColCoor = function () {
+    return Math.floor(Math.random() * Map.col) * colWidth;
+};
+
+//Rock are obstacles that can't be passed
+//Bug will turn around when hitting a rock
+var Rock = function(col, row){
+    GameEntity.call(this, "images/Rock.png", (col-1) * Map.colWidth, row * Map.rowHeight - 110);
 }
 
-Player.prototype.getRow = function () {
-    return helper.getRow(this.y);
-}
-
-Player.prototype.getCol = function () {
-    return helper.getCol(this.x);
-}
-
-var Star = function (col, row) {
-    this.sprite = "images/Star.png";
-    this.x =  col ? (col-1) * Map.colWidth : helper.randomColCoor();
-    this.y = row * Map.rowHeight - 110;
-}
-
-Star.prototype.render = function () {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
-
-Star.prototype.getRow = function () {
-    return helper.getRow(this.y);
-}
-
-Star.prototype.getCol = function () {
-    return helper.getCol(this.x);
-}
+Rock.prototype = Object.create(GameEntity.prototype);
+Rock.prototype.constructor = Rock;
 
 var LevelTitle = function (number, content) {
     this.number = number;
@@ -199,14 +193,4 @@ LevelTitle.prototype.renderEnds = function (dt) {
         return true;
     }
     return false;
-}
-
-var Rock = function(col, row){
-    this.sprite = "images/Rock.png";
-    this.x = (col-1) * Map.colWidth;
-    this.y = row * Map.rowHeight - 110;
-}
-
-Rock.prototype.render = function () {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }

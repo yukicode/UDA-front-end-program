@@ -27,7 +27,7 @@ var Engine = (function (global) {
             'images/char-horn-girl.png',
             'images/char-pink-girl.png',
         ],
-        levels = [level1, level2],
+        levels = [level1, level3],
         currentLevel = 1;
         selectedPlayer = 0;
 
@@ -36,12 +36,23 @@ var Engine = (function (global) {
     doc.body.appendChild(canvas);
 
     function loadLevel(level) {
+        Map = level.map;
+        canvas.width = Map.col * Map.colWidth;
+        canvas.height = Map.row * Map.rowHeight + 108;
+        levelTitle = new LevelTitle(level.title.number, level.title.content);
+        resetLevel(level);
+        if(player){
+            player.setStartingLocation(level.player.initRow, level.player.initCol);
+        }else{
+            player = new Player(level.player.initRow, level.player.initCol);
+        }
+    }
+
+    function resetLevel(level) {
         var enemyNumber = level.enemies.number,
             rockNumber,
             rock;
 
-        Map = level.map;
-        levelTitle = new LevelTitle(level.title.number, level.title.content);
         allRocks = [];
         allEdgeRocks = [];
         if(level.rocks){//if there are rocks in this level
@@ -58,22 +69,10 @@ var Engine = (function (global) {
         for (var i = 0; i < enemyNumber; i++) {
             allEnemies.push(new Enemy());
         }
-        if(player){
-            player.setStartingLocation(level.player.initRow, level.player.initCol);
-        }else{
-            player = new Player(level.player.initRow, level.player.initCol);
+        if(player) {player.reset();}
+        if(level.key){
+            key = new Key(level.key.initCol, level.key.initRow);
         }
-        star = new Star(level.star.initCol, level.star.initRow);
-        levelTimer = level.countDownTime;
-    }
-
-    function resetLevel(level) {
-        var enemyNumber = level.enemies.number;
-        allEnemies = [];
-        for (var i = 0; i < enemyNumber; i++) {
-            allEnemies.push(new Enemy());
-        }
-        player.reset();
         star = new Star(level.star.initCol, level.star.initRow);
         levelTimer = level.countDownTime;
     }
@@ -106,11 +105,16 @@ var Engine = (function (global) {
             renderRocks();
             renderTimer(levelTimer);
             star.render();
+            if(key) {key.render();}
             player.render();
             renderEnemies();
             if (hasCollisions() || levelTimer <=0) {
                 document.removeEventListener('keyup', keyListener, false);
                 this.state = "playerDie";
+            } else if (key && playerFoundKey()){
+                allRocks = [];
+                allEdgeRocks = [];
+                key = null;
             } else if (playerHasWon()) {
                 document.removeEventListener('keyup', keyListener, false);
                 if(currentLevel < levels.length){
@@ -209,6 +213,13 @@ var Engine = (function (global) {
         return false;
     }
 
+    function playerFoundKey(){
+        if (player.getRow() === key.getRow() && player.getCol() === key.getCol()) {
+            return true;
+        }
+        return false;
+    }
+
     function updateEntities(dt) {
         allEnemies.forEach(function (enemy) {
             enemy.update(dt);
@@ -259,7 +270,7 @@ var Engine = (function (global) {
 
     function renderTimer(timer) {
         ctx.font = "20pt Impact";
-        ctx.fillText(Math.floor(timer), 250 , 100);
+        ctx.fillText(Math.floor(timer), Map.col * Map.colWidth/2 , 100);
     }
 
     function renderAllCharactors(selected) {
@@ -297,16 +308,17 @@ var Engine = (function (global) {
         'images/enemy-bug.png',
         'images/Star.png',
         'images/Rock.png',
+        'images/Key.png',
         'images/enemy-bug-reverse.png',
     ]);
     Resources.onReady(init);
 
     document.addEventListener('keyup', function (e) {
-        handleKeys = {
+        var handleKeys = {
             13: 'enter',
             37: 'left',
             39: 'right',
-        }
+        };
         gameManager.handleInput(handleKeys[e.keyCode]);
     })
 
@@ -317,7 +329,6 @@ var Engine = (function (global) {
             39: 'right',
             40: 'down'
         };
-
         player.handleInput(playingKeys[e.keyCode]);
     }
 

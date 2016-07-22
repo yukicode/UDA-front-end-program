@@ -1,12 +1,11 @@
 //initialize in loadLevel
 var Map = {},
-    colWidth = 101,
-    rowHeight = 83,
     allRocks,
     allEdgeRocks,
     allEnemies,
     player,
     star,
+    key,
     levelTitle = "",
     levelTimer = 0;
 
@@ -21,11 +20,11 @@ GameEntity.prototype.render = function(){
 };
 
 GameEntity.prototype.getRow = function(){
-    return Math.floor((this.y + 110) / rowHeight);
+    return Math.floor((this.y + 110) / Map.rowHeight);
 };
 
 GameEntity.prototype.getCol = function(){
-    return Math.ceil((this.x + colWidth / 2) / colWidth);
+    return Math.ceil((this.x + Map.colWidth / 2) / Map.colWidth);
 };
 
 var Enemy = function() {
@@ -37,11 +36,11 @@ Enemy.prototype = Object.create(GameEntity.prototype);
 Enemy.prototype.constructor = Enemy;
 
 Enemy.prototype.randomColCoor = function () {
-    return Math.floor(Math.random() * Map.col) * colWidth;
+    return Math.floor(Math.random() * Map.col) * Map.colWidth;
 };
 
 Enemy.prototype.randomRowCoor = function () {
-    return Map.enemySpawningRows[Math.floor(Math.random() * Map.enemySpawningRows.length)] * rowHeight - 110;
+    return Map.enemySpawningRows[Math.floor(Math.random() * Map.enemySpawningRows.length)] * Map.rowHeight - 110;
 };
 
 Enemy.prototype.randomSpeed = function () {
@@ -51,7 +50,7 @@ Enemy.prototype.randomSpeed = function () {
 Enemy.prototype.update = function(dt) {
     this.x += dt * this.speed;
     //reset enemy if it is out of the canvas
-    if (this.x > 101 * 5 || this.x < -Map.colWidth * 1.2) {
+    if (this.x > Map.colWidth * Map.col || this.x < -Map.colWidth * 1.2) {
         this.sprite = "images/enemy-bug.png";
         this.x = -Map.colWidth * 1.2;
         this.y = this.randomRowCoor();
@@ -156,7 +155,7 @@ Star.prototype = Object.create(GameEntity.prototype);
 Star.prototype.constructor = Star;
 
 Star.prototype.randomColCoor = function () {
-    return Math.floor(Math.random() * Map.col) * colWidth;
+    return Math.floor(Math.random() * Map.col) * Map.colWidth;
 };
 
 //Rock are obstacles that can't be passed
@@ -167,6 +166,13 @@ var Rock = function(col, row){
 
 Rock.prototype = Object.create(GameEntity.prototype);
 Rock.prototype.constructor = Rock;
+
+var Key = function(col, row){
+    GameEntity.call(this, "images/Key.png", (col-1) * Map.colWidth, row * Map.rowHeight - 110);
+}
+
+Key.prototype = Object.create(GameEntity.prototype);
+Key.prototype.constructor = Key;
 
 var LevelTitle = function (number, content) {
     this.number = number;

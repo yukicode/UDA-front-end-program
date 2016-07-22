@@ -75,3 +75,42 @@ level2.title = {
 };
 
 level2.countDownTime = 30;
+
+var level3 = new Level();
+level3.map = {
+    "col": 7,
+    "row": 8,
+    "colWidth": 101,
+    "rowHeight": 83,
+    "rowContent": ["water", "paved", "paved", "paved", "paved", "paved", "paved", "grass", ],
+    "enemySpawningRows": [2,3,4,5,6,7],
+};
+level3.enemies = {
+    "type": "bug",
+    "number": 6,
+};
+
+level3.player = {
+    "initCol": 4,
+    "initRow": 8,
+};
+
+level3.star = {
+    "initCol": 3,
+    "initRow": 2,
+};
+
+level3.key = {
+    "initCol": 5,
+    "initRow": 5,
+};
+
+level3.rocks = [[2, 2, true], [4, 2], [3, 3, true], [5, 4, true], [2, 5, true], [4, 5], [5, 6, true],
+                [6, 7, true], [7, 8, true]];
+
+level3.title = {
+    "number": 3,
+    "content": "The Key",
+};
+
+level3.countDownTime = 30;

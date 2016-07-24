@@ -6,6 +6,7 @@ var Map = {},
     player,
     star,
     key,
+    allGems,
     levelTitle = "",
     levelTimer = 0;
 
@@ -148,7 +149,7 @@ Player.prototype.handleInput = function (move) {
 var Star = function(col, row){
     GameEntity.call(this, "images/Star.png");
     this.x = col ? (col-1) * Map.colWidth : this.randomColCoor();
-    this.y = row ? 56 : row * Map.rowHeight - 110;
+    this.y = row ? row * Map.rowHeight - 110 : 56;
 }
 
 Star.prototype = Object.create(GameEntity.prototype);
@@ -162,17 +163,51 @@ Star.prototype.randomColCoor = function () {
 //Bug will turn around when hitting a rock
 var Rock = function(col, row){
     GameEntity.call(this, "images/Rock.png", (col-1) * Map.colWidth, row * Map.rowHeight - 110);
-}
+};
 
 Rock.prototype = Object.create(GameEntity.prototype);
 Rock.prototype.constructor = Rock;
 
 var Key = function(col, row){
     GameEntity.call(this, "images/Key.png", (col-1) * Map.colWidth, row * Map.rowHeight - 110);
-}
+};
 
 Key.prototype = Object.create(GameEntity.prototype);
 Key.prototype.constructor = Key;
+
+var Gem = function(col, row){
+    GameEntity.call(this, this.randomColor(), (col-1) * Map.colWidth, row * Map.rowHeight - 110);
+    this.respawnTimer = 9;
+    this.needRespawn = false;
+};
+
+Gem.prototype = Object.create(GameEntity.prototype);
+Gem.prototype.constructor = Gem;
+
+Gem.prototype.randomColor = function(){
+    var images = [
+        "images/Gem-blue.png",
+        "images/Gem-green.png",
+        "images/Gem-orange.png",
+    ];
+    return images[Math.floor(Math.random() * 3)];
+};
+
+Gem.prototype.update = function(dt){
+    if(this.needRespawn){
+        this.respawnTimer -= dt;
+        if(this.respawnTimer <= 0){
+            this.needRespawn = false;
+            this.respawnTimer = 9;
+        }
+    }
+};
+
+Gem.prototype.render = function(){
+    if(!this.needRespawn){
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
 
 var LevelTitle = function (number, content) {
     this.number = number;
@@ -180,7 +215,7 @@ var LevelTitle = function (number, content) {
     this.timecount = 0;
     this.x = Map.col * Map.colWidth / 2;
     this.y = Map.row * Map.rowHeight / 2;
-}
+};
 
 LevelTitle.prototype.render = function (width, height) {
     var title = this.number + " " + this.content;
@@ -190,7 +225,7 @@ LevelTitle.prototype.render = function (width, height) {
     ctx.fillStyle = "black";
     ctx.font = "30pt Impact";
     ctx.fillText(title, this.x, this.y);
-}
+};
 
 LevelTitle.prototype.renderEnds = function (dt) {
     this.timecount += dt;
@@ -199,4 +234,4 @@ LevelTitle.prototype.renderEnds = function (dt) {
         return true;
     }
     return false;
-}
+};

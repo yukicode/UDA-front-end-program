@@ -37,7 +37,7 @@ level1.title = {
     "content": "The Star",
 };
 
-level1.countDownTime = 30;
+level1.countDownTime = 20;
 
 var level2 = new Level();
 level2.map = {
@@ -114,3 +114,52 @@ level3.title = {
 };
 
 level3.countDownTime = 30;
+
+var level4 = new Level();
+level4.map = {
+    "col": 7,
+    "row": 8,
+    "colWidth": 101,
+    "rowHeight": 83,
+    "rowContent": ["water", "paved", "paved", "paved", "paved", "paved", "paved", "grass", ],
+    "enemySpawningRows": [2,3,4,5,6],
+};
+level4.enemies = {
+    "type": "bug",
+    "number": 8,
+};
+
+level4.player = {
+    "initCol": 7,
+    "initRow": 8,
+};
+
+level4.star = {
+    "initCol": 1,
+    "initRow": 8,
+};
+level4.gems = [
+    {
+        "initCol": 2,
+        "initRow": 7,
+    },
+    {
+        "initCol": 3,
+        "initRow": 3,
+    },
+];
+
+level4.key = {
+    "initCol": 7,
+    "initRow": 2,
+};
+
+level4.rocks = [[6, 2, true], [2, 3, true],[4, 3], [6, 3], [4, 4, true], [6, 4], [4, 5, true], [6, 5],
+                [4, 6, true], [1, 7, true],　[4, 7],  [5, 7], [6, 7], [7, 7], [2, 8, true]];
+
+level4.title = {
+    "number": 4,
+    "content": "The Time Gem",
+};
+
+level4.countDownTime = 10;

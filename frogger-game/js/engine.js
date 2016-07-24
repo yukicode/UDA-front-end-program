@@ -27,9 +27,11 @@ var Engine = (function (global) {
             'images/char-horn-girl.png',
             'images/char-pink-girl.png',
         ],
-        levels = [level1, level3],
+        levels = [level1, level2, level3, level4],
         currentLevel = 1;
-        selectedPlayer = 0;
+        selectedPlayer = 0,
+        countDownFontSize = 20,
+        renderTimerMultiplier = 1;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -51,7 +53,8 @@ var Engine = (function (global) {
     function resetLevel(level) {
         var enemyNumber = level.enemies.number,
             rockNumber,
-            rock;
+            rock,
+            gemNumber = level.gems? level.gems.length : 0;
 
         allRocks = [];
         allEdgeRocks = [];
@@ -69,11 +72,17 @@ var Engine = (function (global) {
         for (var i = 0; i < enemyNumber; i++) {
             allEnemies.push(new Enemy());
         }
-        if(player) {player.reset();}
-        if(level.key){
-            key = new Key(level.key.initCol, level.key.initRow);
+        if(player) {
+            player.reset();
         }
+        key = level.key? new Key(level.key.initCol, level.key.initRow) : null;
         star = new Star(level.star.initCol, level.star.initRow);
+        allGems = [];
+        if(level.gems){
+            for(var i=0; i<gemNumber; i++){
+                allGems.push(new Gem(level.gems[i].initCol, level.gems[i].initRow));
+            }
+        }
         levelTimer = level.countDownTime;
     }
 
@@ -102,19 +111,11 @@ var Engine = (function (global) {
             levelTimer -= dt;
             update(dt);
             renderMap();
-            renderRocks();
             renderTimer(levelTimer);
-            star.render();
-            if(key) {key.render();}
-            player.render();
-            renderEnemies();
+            renderEntities([allRocks, allEnemies, player, star, key, allGems]);
             if (hasCollisions() || levelTimer <=0) {
                 document.removeEventListener('keyup', keyListener, false);
                 this.state = "playerDie";
-            } else if (key && playerFoundKey()){
-                allRocks = [];
-                allEdgeRocks = [];
-                key = null;
             } else if (playerHasWon()) {
                 document.removeEventListener('keyup', keyListener, false);
                 if(currentLevel < levels.length){
@@ -124,12 +125,23 @@ var Engine = (function (global) {
                 }else{
                     this.state = "endGame";
                 }
+            }else{
+                if (playerFoundKey()){
+                    allRocks = [];
+                    allEdgeRocks = [];
+                    key = null;
+                }
+                var gemNumber = allGems.length;
+                for(var i=0; i<gemNumber; i++){
+                    if(playerGotGem(allGems[i])){
+                        allGems[i].needRespawn = true;
+                    }
+                }
             }
         },
         playerDie: function () {
             renderMap();
-            renderRocks();
-            renderEnemies();
+            renderEntities([allRocks, allEnemies]);
             if (!player.collisionRender()) {//end of rendering collision
                 resetLevel(levels[currentLevel-1]);
                 this.state = "start";
@@ -178,6 +190,10 @@ var Engine = (function (global) {
 
     function update(dt) {
         updateEntities(dt);
+        var gemNumber = allGems.length;
+        for(var i=0; i<gemNumber; i++){
+            allGems[i].update(dt);
+        }
     }
 
     //return true if an enemy hits player
@@ -214,7 +230,16 @@ var Engine = (function (global) {
     }
 
     function playerFoundKey(){
-        if (player.getRow() === key.getRow() && player.getCol() === key.getCol()) {
+        if (key && player.getRow() === key.getRow() && player.getCol() === key.getCol()) {
+            return true;
+        }
+        return false;
+    }
+
+    function playerGotGem(gem){
+        if(gem && !gem.needRespawn && player.getRow() === gem.getRow() && player.getCol() === gem.getCol()){
+            gem.needRespawn = true;
+            levelTimer += 10;
             return true;
         }
         return false;
@@ -243,16 +268,20 @@ var Engine = (function (global) {
         }
     }
 
-    function renderEnemies() {
-        allEnemies.forEach(function (enemy) {
-            enemy.render();
-        });
-    }
-
-    function renderRocks() {
-        allRocks.forEach(function (rock) {
-            rock.render();
-        });
+    function renderEntities(entityArray){
+        if (entityArray instanceof Array){
+            var entityArrayLength = entityArray.length;
+            for(var i=0; i<entityArrayLength; i++){
+                if(entityArray[i] instanceof Array){
+                    var entityCount = entityArray[i].length;
+                    for(var j = 0; j <entityCount; j++){
+                        entityArray[i][j].render();
+                    }
+                }else if(entityArray[i]){
+                    entityArray[i].render();
+                }
+            }
+        }
     }
 
     function renderTitleText() {
@@ -269,8 +298,21 @@ var Engine = (function (global) {
     }
 
     function renderTimer(timer) {
-        ctx.font = "20pt Impact";
-        ctx.fillText(Math.floor(timer), Map.col * Map.colWidth/2 , 100);
+        if(timer < 5){
+            ctx.fillStyle = "yellow";
+            if(countDownFontSize < 20){
+                renderTimerMultiplier = 1;
+            }
+            if(countDownFontSize > 30){
+               renderTimerMultiplier = -1;
+            }
+            countDownFontSize += 0.2 * renderTimerMultiplier;
+        }else{
+            ctx.fillStyle = "black";
+            countDownFontSize = 20;
+        }
+        ctx.font = countDownFontSize.toString() + "pt Impact";
+        ctx.fillText(Math.ceil(timer), Map.col * Map.colWidth/2 , 100);
     }
 
     function renderAllCharactors(selected) {
@@ -310,6 +352,9 @@ var Engine = (function (global) {
         'images/Rock.png',
         'images/Key.png',
         'images/enemy-bug-reverse.png',
+        "images/Gem-blue.png",
+        "images/Gem-green.png",
+        "images/Gem-orange.png",
     ]);
     Resources.onReady(init);
 

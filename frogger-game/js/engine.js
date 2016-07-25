@@ -27,11 +27,12 @@ var Engine = (function (global) {
             'images/char-horn-girl.png',
             'images/char-pink-girl.png',
         ],
-        levels = [level1, level2, level3, level4],
-        currentLevel = 1;
+        levels = [level3],
+        currentLevel = 1,
         selectedPlayer = 0,
         countDownFontSize = 20,
-        renderTimerMultiplier = 1;
+        renderTimerMultiplier = 1,
+        endInited = false;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -41,53 +42,45 @@ var Engine = (function (global) {
         Map = level.map;
         canvas.width = Map.col * Map.colWidth;
         canvas.height = Map.row * Map.rowHeight + 108;
-        levelTitle = new LevelTitle(level.title.number, level.title.content);
         resetLevel(level);
-        if(player){
-            player.setStartingLocation(level.player.initRow, level.player.initCol);
-        }else{
-            player = new Player(level.player.initRow, level.player.initCol);
-        }
     }
 
     function resetLevel(level) {
-        var enemyNumber = level.enemies.number,
-            rockNumber,
+        var enemyNumber = level.enemies ? level.enemies.number : 0,
+            rockNumber = level.rocks ? level.rocks.length : 0,
             rock,
             gemNumber = level.gems? level.gems.length : 0;
 
         allRocks = [];
         allEdgeRocks = [];
-        if(level.rocks){//if there are rocks in this level
-            rockNumber = level.rocks.length;
-            for (var i = 0; i < rockNumber; i++) {
-                rock = new Rock(level.rocks[i][0], level.rocks[i][1])
-                allRocks.push(rock);
-                if(level.rocks[i][2]){
-                    allEdgeRocks.push(rock);
-                }
+        for (var i = 0; i < rockNumber; i++) {
+            rock = new Rock(level.rocks[i][0], level.rocks[i][1])
+            allRocks.push(rock);
+            if(level.rocks[i][2]){
+                allEdgeRocks.push(rock);
             }
         }
         allEnemies = [];
         for (var i = 0; i < enemyNumber; i++) {
             allEnemies.push(new Enemy());
         }
+        allGems = [];
+        for(var i=0; i<gemNumber; i++){
+            allGems.push(new Gem(level.gems[i].initCol, level.gems[i].initRow));
+        }
         if(player) {
-            player.reset();
+            player.reset(level.player.initCol, level.player.initRow);
+        }else{
+            player = new Player(level.player.initCol, level.player.initRow);
         }
         key = level.key? new Key(level.key.initCol, level.key.initRow) : null;
         star = new Star(level.star.initCol, level.star.initRow);
-        allGems = [];
-        if(level.gems){
-            for(var i=0; i<gemNumber; i++){
-                allGems.push(new Gem(level.gems[i].initCol, level.gems[i].initRow));
-            }
-        }
-        levelTimer = level.countDownTime;
+        levelTitle = new LevelTitle(level.title.number, level.title.content);
+        levelTimer = new LevelTimer(level.countDownTime);
     }
 
     //game manager handles different stages of the game
-    gameManager = {
+    var gameManager = {
         boot: function () {
             loadLevel(levels[currentLevel-1]);
             this.state = "title";
@@ -108,12 +101,12 @@ var Engine = (function (global) {
             }
         },
         inGame: function (dt) {
-            levelTimer -= dt;
             update(dt);
             renderMap();
-            renderTimer(levelTimer);
-            renderEntities([allRocks, allEnemies, player, star, key, allGems]);
-            if (hasCollisions() || levelTimer <=0) {
+            renderEntities([allGems, allRocks, star, key, player, allEnemies, levelTimer]);
+            checkCollisions();
+            checkTimer();
+            if (!player.isAlive) {
                 document.removeEventListener('keyup', keyListener, false);
                 this.state = "playerDie";
             } else if (playerHasWon()) {
@@ -125,7 +118,7 @@ var Engine = (function (global) {
                 }else{
                     this.state = "endGame";
                 }
-            }else{
+            } else {
                 if (playerFoundKey()){
                     allRocks = [];
                     allEdgeRocks = [];
@@ -141,14 +134,25 @@ var Engine = (function (global) {
         },
         playerDie: function () {
             renderMap();
-            renderEntities([allRocks, allEnemies]);
-            if (!player.collisionRender()) {//end of rendering collision
+            renderEntities([allRocks, allEnemies, player]);
+            if (player.deathRenderEnd()) {//end of rendering collision
                 resetLevel(levels[currentLevel-1]);
                 this.state = "start";
             }
         },
-        endGame: function () {
-            renderMap();
+        endGame: function (dt) {
+            if(!endInited){
+                initEnd();
+            }
+            renderPrincess();
+            allEndTexts.forEach(function(text){
+                text.update(dt);
+                text.render();
+            });
+            if(allEndTexts[allEndTexts.length - 1].y <= 200){
+                reset();
+                this.state = "boot";
+            }
         },
         handleInput: function (key) {
             if (key === "enter" && this.state === "title") {
@@ -189,19 +193,21 @@ var Engine = (function (global) {
     }
 
     function update(dt) {
-        updateEntities(dt);
-        var gemNumber = allGems.length;
-        for(var i=0; i<gemNumber; i++){
-            allGems[i].update(dt);
-        }
+        levelTimer.update(dt);
+        allEnemies.forEach(function (enemy) {
+            enemy.update(dt);
+        });
+        allGems.forEach(function (gem) {
+            gem.update(dt);
+        });
     }
 
     //return true if an enemy hits player
     //reverse direction of an enemy if it hits a stone
-    function hasCollisions() {
+    function checkCollisions() {
         var playerRow = player.getRow();
         for (var enemy of allEnemies) {
-            //check collision with stone
+            //check collision between enemies and stones
             for(var rock of allEdgeRocks){
                 if(enemy.speed < 0 || enemy.y !== rock.y){
                     continue;
@@ -211,15 +217,21 @@ var Engine = (function (global) {
                     enemy.speed *= -1;
                 }
             }
-            //check collision with player
+            //check collision between enemies and player
             if (enemy.getRow() !== playerRow) {
                 continue;
             }
             if (player.x - enemy.x < 81 && player.x - enemy.x > -81) {
-                return true;
+                player.isAlive = false;
             }
         }
-        return false;
+    }
+
+    //If there is no time left for the level, the player dies
+    function checkTimer() {
+        if (levelTimer.time <= 0){
+            player.isAlive = false;
+        }
     }
 
     function playerHasWon() {
@@ -239,16 +251,10 @@ var Engine = (function (global) {
     function playerGotGem(gem){
         if(gem && !gem.needRespawn && player.getRow() === gem.getRow() && player.getCol() === gem.getCol()){
             gem.needRespawn = true;
-            levelTimer += 10;
+            levelTimer.extend(10);
             return true;
         }
         return false;
-    }
-
-    function updateEntities(dt) {
-        allEnemies.forEach(function (enemy) {
-            enemy.update(dt);
-        });
     }
 
     function renderMap() {
@@ -285,40 +291,22 @@ var Engine = (function (global) {
     }
 
     function renderTitleText() {
+        var centerX = Math.floor(canvas.width / 2);
         ctx.font = "60pt Impact";
         ctx.textAlign = "center";
         ctx.fillStyle = "white";
-        ctx.fillText("FROGGER", 250, 250);
+        ctx.fillText("FROGGER", centerX, 250);
         ctx.strokeStyle = "gray";
         ctx.lineWidth = 2;
-        ctx.strokeText("FROGGER", 250, 250);
+        ctx.strokeText("FROGGER", centerX, 250);
         ctx.font = "30pt Impact";
-        ctx.fillText("Press Enter to Start", 250, 450);
-        ctx.strokeText("Press Enter to Start", 250, 450);
-    }
-
-    function renderTimer(timer) {
-        if(timer < 5){
-            ctx.fillStyle = "yellow";
-            if(countDownFontSize < 20){
-                renderTimerMultiplier = 1;
-            }
-            if(countDownFontSize > 30){
-               renderTimerMultiplier = -1;
-            }
-            countDownFontSize += 0.2 * renderTimerMultiplier;
-        }else{
-            ctx.fillStyle = "black";
-            countDownFontSize = 20;
-        }
-        ctx.font = countDownFontSize.toString() + "pt Impact";
-        ctx.fillText(Math.ceil(timer), Map.col * Map.colWidth/2 , 100);
+        ctx.fillText("Press Enter to Start", centerX, 450);
+        ctx.strokeText("Press Enter to Start", centerX, 450);
     }
 
     function renderAllCharactors(selected) {
         var length = playerImages.length,
-        centerX = Math.floor(canvas.width / 2);
-
+            centerX = Math.floor(canvas.width / 2);
         for (var i = 0; i < length; i++) {
             ctx.drawImage(Resources.get(playerImages[i]), centerX + 101 * (i - 2), 200);
         }
@@ -328,11 +316,43 @@ var Engine = (function (global) {
         ctx.strokeRect(centerX + 101 * (selected - 2), 200, 101, 171);
     }
 
+    function initEnd(){
+        var centerX = Math.floor(canvas.width / 2),
+            endTextContent = [
+                "You brought the stars to the princess",
+                "She thanked you",
+                "And used the stars",
+                "to open the gate to a new world",
+                "She handed you a pokeball",
+                "And said:",
+                "Now it's time to catch them all",
+                "The End !",
+            ],
+            length = endTextContent.length;
+
+        for(var i=0; i<length; i++){
+            allEndTexts.push(new EndText(centerX, 500 + 50 * i, endTextContent[i]));
+        }
+        endInited = true;
+    }
+
+    function renderPrincess(){
+        var centerX = Math.floor(canvas.width / 2);
+        ctx.fillStyle = "white";
+        ctx.fillRect(0,0, canvas.width, canvas.height);
+        ctx.drawImage(Resources.get("images/char-princess-girl.png"), centerX - 50, 0);
+    }
+
     /* This function does nothing but it could have been a good place to
      * handle game reset states - maybe a new game menu or a game over screen
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
+        currentLevel = 1;
+        selectedPlayer = 0;
+        countDownFontSize = 20;
+        renderTimerMultiplier = 1;
+        endInited = false;
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -355,6 +375,7 @@ var Engine = (function (global) {
         "images/Gem-blue.png",
         "images/Gem-green.png",
         "images/Gem-orange.png",
+        "images/char-princess-girl.png",
     ]);
     Resources.onReady(init);
 

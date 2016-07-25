@@ -8,7 +8,8 @@ var Map = {},
     key,
     allGems,
     levelTitle = "",
-    levelTimer = 0;
+    levelTimer = 0,
+    allEndTexts = [];
 
 var GameEntity = function(sprite, x, y){
     this.sprite = sprite;
@@ -59,41 +60,39 @@ Enemy.prototype.update = function(dt) {
     }
 };
 
-var Player = function(row, col){
-    this.startX = (col-1) * Map.colWidth;
-    this.startY = row * Map.rowHeight - 110;
+var Player = function(col, row){
     this.countDown = 40;
-    GameEntity.call(this, "images/char-boy.png", this.startX, this.startY);
-}
+    this.isAlive = true;
+    GameEntity.call(this, "images/char-boy.png", (col-1) * Map.colWidth, row * Map.rowHeight - 110);
+};
 
 Player.prototype = Object.create(GameEntity.prototype);
 Player.prototype.constructor = Player;
 
-//set player's starting location at the beginning of a new level
-Player.prototype.setStartingLocation = function (row, col) {
-    this.startX = (col-1) * Map.colWidth;
-    this.startY = row * Map.rowHeight - 110;
-    this.x = this.startX;
-    this.y = this.startY;
-}
-
-//renders the "pausing" effect when player dies
-Player.prototype.collisionRender = function () {
-    if (this.countDown === 0) {
-        this.reset();
-        return 0;
-    }else if (this.countDown % 10 > 4) {
+//renders player image
+//when player dies, render the "pausing" effect
+Player.prototype.render = function () {
+    if (this.isAlive) {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }else{
+        if (this.countDown % 10 > 4) {
+            ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        }
+        this.countDown --;
     }
-    return this.countDown--;
+};
+
+Player.prototype.deathRenderEnd = function(){
+    return this.countDown < 0;
 }
 
-//reset player's position to initional location
-Player.prototype.reset = function () {
+//reset player's position to initional location of the level
+Player.prototype.reset = function (col, row) {
     this.countDown = 40;
-    this.x = this.startX;
-    this.y = this.startY;
-}
+    this.isAlive = true;
+    this.x = (col-1) * Map.colWidth;
+    this.y = row * Map.rowHeight - 110;
+};
 
 Player.prototype.handleInput = function (move) {
     if (!move) { return;}
@@ -142,7 +141,7 @@ Player.prototype.handleInput = function (move) {
             }
             break;
     }
-}
+};
 
 //Star marks the goal of a level
 //star can either be set to a certain block or a random column in the second row.
@@ -150,7 +149,7 @@ var Star = function(col, row){
     GameEntity.call(this, "images/Star.png");
     this.x = col ? (col-1) * Map.colWidth : this.randomColCoor();
     this.y = row ? row * Map.rowHeight - 110 : 56;
-}
+};
 
 Star.prototype = Object.create(GameEntity.prototype);
 Star.prototype.constructor = Star;
@@ -207,7 +206,7 @@ Gem.prototype.render = function(){
     if(!this.needRespawn){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-}
+};
 
 var LevelTitle = function (number, content) {
     this.number = number;
@@ -235,3 +234,56 @@ LevelTitle.prototype.renderEnds = function (dt) {
     }
     return false;
 };
+
+var LevelTimer = function(countDownTime){
+    this.time = countDownTime;
+};
+
+LevelTimer.prototype.update = function(dt){
+    this.time -= dt;
+};
+
+LevelTimer.prototype.render = function(){
+    if(this.time < 5){
+        ctx.fillStyle = "yellow";
+        if(countDownFontSize < 20){
+            renderTimerMultiplier = 1;
+        }
+        if(countDownFontSize > 30){
+            renderTimerMultiplier = -1;
+        }
+        countDownFontSize += 0.2 * renderTimerMultiplier;
+    }else{
+        ctx.fillStyle = "black";
+        countDownFontSize = 20;
+    }
+    ctx.font = countDownFontSize.toString() + "pt Impact";
+    ctx.fillText(Math.ceil(this.time), Map.col * Map.colWidth/2 , 100);
+};
+
+LevelTimer.prototype.extend = function(extendTime){
+    this.time += extendTime;
+};
+
+var EndText = function(x, y, content){
+    this.x = x;
+    this.y = y;
+    this.content = content;
+    this.speed = 20;
+}
+
+EndText.prototype.update = function(dt) {
+    this.y -= dt * this.speed;
+}
+
+EndText.prototype.render = function(){
+    if(this.renderOnScreen()){
+        ctx.fillStyle = "black";
+        ctx.font = "20pt Impact";
+        ctx.fillText(this.content, this.x, this.y);
+    }
+}
+
+EndText.prototype.renderOnScreen = function() {
+    return this.y < 500 && this.y > 200;
+}

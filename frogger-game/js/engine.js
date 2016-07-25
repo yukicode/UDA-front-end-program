@@ -27,7 +27,7 @@ var Engine = (function (global) {
             'images/char-horn-girl.png',
             'images/char-pink-girl.png',
         ],
-        levels = [level3],
+        levels = [level1, level2, level3, level4],
         currentLevel = 1,
         selectedPlayer = 0,
         countDownFontSize = 20,
@@ -54,7 +54,7 @@ var Engine = (function (global) {
         allRocks = [];
         allEdgeRocks = [];
         for (var i = 0; i < rockNumber; i++) {
-            rock = new Rock(level.rocks[i][0], level.rocks[i][1])
+            rock = new Rock(level.rocks[i][0], level.rocks[i][1]);
             allRocks.push(rock);
             if(level.rocks[i][2]){
                 allEdgeRocks.push(rock);
@@ -353,6 +353,17 @@ var Engine = (function (global) {
         countDownFontSize = 20;
         renderTimerMultiplier = 1;
         endInited = false;
+        Map = {};
+        allRocks = [];
+        allEdgeRocks = [];
+        allEnemies = [];
+        player = null;
+        star = null;
+        key = null;
+        allGems = [];
+        levelTitle = "";
+        levelTimer = 0;
+        allEndTexts = [];
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -386,7 +397,7 @@ var Engine = (function (global) {
             39: 'right',
         };
         gameManager.handleInput(handleKeys[e.keyCode]);
-    })
+    });
 
     function keyListener(e) {
         var playingKeys = {

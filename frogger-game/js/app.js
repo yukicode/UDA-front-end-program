@@ -1,16 +1,16 @@
 //initialize in loadLevel
 var Map = {},
-    allRocks,
-    allEdgeRocks,
+    allRocks, //all of the rocks
+    allEdgeRocks, //all the rocks that need to check collision with enemies (the left most one of each row)
     allEnemies,
     player,
-    star,
-    key,
-    allGems,
+    star, //collectables of each level
+    key, //disable all of the rocks
+    allGems, //gems can extend the time of the level
     levelTitle = "",
     levelTimer = 0,
-    renderTimerMultiplier = 1,
     allEndTexts = [],
+    allIntroTexts = [],
     allLevelCompleteTiles = [],
     foundStar = false;
 
@@ -37,7 +37,6 @@ GameEntity.prototype.getCol = function(){
 };
 
 //enemies move from the left to the right of canvas
-//enemies kill player when they collide
 var Enemy = function() {
     GameEntity.call(this, "images/enemy-bug.png", this.randomColCoor(), this.randomRowCoor());
     this.speed = this.randomSpeed();
@@ -156,8 +155,7 @@ Player.prototype.handleInput = function (move) {
     }
 };
 
-//Star marks the goal of a level
-//star can either be set to a certain block or a random column in the second row.
+//Stars can be collected in each level
 var Star = function(col, row){
     GameEntity.call(this, "images/Star.png");
     this.x = col ? (col-1) * Map.colWidth : this.randomColCoor();
@@ -172,7 +170,6 @@ Star.prototype.randomColCoor = function () {
 };
 
 //Rock are obstacles that can't be passed
-//Bug will turn around when hitting a rock
 var Rock = function(col, row){
     GameEntity.call(this, "images/Rock.png", (col-1) * Map.colWidth, row * Map.rowHeight - 110);
 };
@@ -189,7 +186,6 @@ Key.prototype = Object.create(GameEntity.prototype);
 Key.prototype.constructor = Key;
 
 //Gem extend game time for 10 seconds
-//Gem respawns 10 seconds after player gets it
 var Gem = function(col, row){
     GameEntity.call(this, this.randomColor(), (col-1) * Map.colWidth, row * Map.rowHeight - 110);
     this.respawnTimer = 10;
@@ -208,12 +204,13 @@ Gem.prototype.randomColor = function(){
     return images[Math.floor(Math.random() * 3)];
 };
 
+//Gem respawns 10 seconds after player gets it
 Gem.prototype.update = function(dt){
     if(this.needRespawn){
         this.respawnTimer -= dt;
         if(this.respawnTimer <= 0){
             this.needRespawn = false;
-            this.respawnTimer = 9;
+            this.respawnTimer = 10;
         }
     }
 };
@@ -221,6 +218,30 @@ Gem.prototype.update = function(dt){
 Gem.prototype.render = function(){
     if(!this.needRespawn){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+};
+
+//The tiles that player must reach to complete the level
+var LevelCompleteTile = function(col, row){
+    this.isActive = false;
+    this.multiplier = 1;
+    this.deltaY = 0;
+    GameEntity.call(this, "images/arrow-gray.png", (col-1) * Map.colWidth, row * Map.rowHeight - 80);
+};
+
+LevelCompleteTile.prototype = Object.create(GameEntity.prototype);
+LevelCompleteTile.prototype.constructor = LevelCompleteTile;
+
+LevelCompleteTile.prototype.update = function(dt){
+    if(this.isActive){
+        this.deltaY -= this.multiplier * dt * 15;
+        this.y -= this.multiplier * dt * 15;
+        if(this.deltaY < -10){
+            this.multiplier = -1;
+        }
+        if(this.deltaY > 0 ){
+            this.multiplier = 1;
+        }
     }
 };
 
@@ -256,22 +277,25 @@ LevelTitle.prototype.renderEnds = function (dt) {
 //Player fails when timer goes to 0
 var LevelTimer = function(countDownTime){
     this.time = countDownTime;
+    this.renderTimerMultiplier = 1;
 };
 
 LevelTimer.prototype.update = function(dt){
     this.time -= dt;
 };
 
+//Renders the count down timer in seconds
+//Renders zoom in zoom out effect when there's les than 5 seconds left
 LevelTimer.prototype.render = function(){
     if(this.time < 5){
         ctx.fillStyle = "yellow";
         if(countDownFontSize < 20){
-            renderTimerMultiplier = 1;
+            this.renderTimerMultiplier = 1;
         }
         if(countDownFontSize > 30){
-            renderTimerMultiplier = -1;
+            this.renderTimerMultiplier = -1;
         }
-        countDownFontSize += 0.2 * renderTimerMultiplier;
+        countDownFontSize += 0.2 * this.renderTimerMultiplier;
     }else{
         ctx.fillStyle = "black";
         countDownFontSize = 20;
@@ -284,51 +308,29 @@ LevelTimer.prototype.extend = function(extendTime){
     this.time += extendTime;
 };
 
-//Text that moves up in the canvas
+//Text that move in the canvas
 var Text = function(x, y, content){
     this.x = x;
     this.y = y;
     this.content = content;
-    this.speed = 20;
-}
+    this.speed = 40;
+};
 
 Text.prototype.update = function(dt) {
     this.y -= dt * this.speed;
-}
+};
 
 Text.prototype.render = function(){
     if(this.renderOnScreen()){
         ctx.fillStyle = "black";
         ctx.font = "20pt Impact";
+        ctx.textAlign = "center";
         ctx.fillText(this.content, this.x, this.y);
     }
-}
+};
 
 Text.prototype.renderOnScreen = function() {
-    return this.y < 500 && this.y > 200;
-}
-
-var LevelCompleteTile = function(col, row){
-    this.isActive = false;
-    this.multiplier = 1;
-    this.deltaY = 0;
-    GameEntity.call(this, "images/arrow-gray.png", (col-1) * Map.colWidth, row * Map.rowHeight - 80);
-}
-
-LevelCompleteTile.prototype = Object.create(GameEntity.prototype);
-LevelCompleteTile.prototype.constructor = LevelCompleteTile;
-
-LevelCompleteTile.prototype.update = function(dt){
-    if(this.isActive){
-        this.deltaY -= this.multiplier * dt * 15;
-        this.y -= this.multiplier * dt * 15;
-        if(this.deltaY < -10){
-            this.multiplier = -1;
-        }
-        if(this.deltaY > 0 ){
-            this.multiplier = 1;
-        }
-    }
-}
+    return this.y < 450 && this.y > 200;
+};
 
 

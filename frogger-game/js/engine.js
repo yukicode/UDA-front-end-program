@@ -30,13 +30,13 @@ var Engine = (function (global) {
         levels = [level1, level2, level3, level4],
         currentLevel = 1,
         selectedPlayer = 0,
-        countDownFontSize = 20,
-        endInited = false;
+        countDownFontSize = 20;
 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
+    //load a certain level of the game
     function loadLevel(level) {
         Map = level.map;
         canvas.width = Map.col * Map.colWidth;
@@ -44,6 +44,7 @@ var Engine = (function (global) {
         resetLevel(level);
     }
 
+    //setup or reset the initial position of game entities
     function resetLevel(level) {
         var enemyNumber = level.enemies ? level.enemies.number : 0,
             rockNumber = level.rocks ? level.rocks.length : 0,
@@ -68,6 +69,10 @@ var Engine = (function (global) {
         for(var i=0; i<gemNumber; i++){
             allGems.push(new Gem(level.gems[i].initCol, level.gems[i].initRow));
         }
+        allLevelCompleteTiles = [];
+        for (var i=0; i < levelCompleteTileNumber; i++){
+            allLevelCompleteTiles.push(new LevelCompleteTile(level.levelCompleteTiles[i][0], level.levelCompleteTiles[i][1]));
+        }
         if(player) {
             player.reset(level.player.initCol, level.player.initRow);
         }else{
@@ -77,34 +82,48 @@ var Engine = (function (global) {
         star = new Star(level.star.initCol, level.star.initRow);
         levelTitle = new LevelTitle(level.title.number, level.title.content);
         levelTimer = new LevelTimer(level.countDownTime);
-        allLevelCompleteTiles = [];
-        for (var i=0; i < levelCompleteTileNumber; i++){
-            allLevelCompleteTiles.push(new LevelCompleteTile(level.levelCompleteTiles[i][0], level.levelCompleteTiles[i][1]));
-        }
         foundStar = false;
     }
 
     //game manager handles different stages of the game
     var gameManager = {
+        //load text and the first level of the game
         boot: function () {
+            initGameText();
             loadLevel(levels[currentLevel-1]);
             this.state = "title";
         },
+        //render title
         title: function () {
             renderMap();
             renderTitleText();
         },
+        //allow player to select a charactor
         selectCharactor: function () {
             renderMap();
             renderAllCharactors(selectedPlayer);
         },
-        start: function (dt) {
+        //Introduction to the story of the game
+        gameIntro: function(dt) {
+            renderPrincess();
+            allIntroTexts.forEach(function(text){
+                text.update(dt);
+                text.render();
+            });
+            if(allIntroTexts[allIntroTexts.length - 1].y <= 400){
+                this.state = "levelStart";
+            }
+        },
+        //Title of the level
+        levelStart: function (dt) {
             levelTitle.render(canvas.width, canvas.height);
             if (levelTitle.renderEnds(dt)) {
                 document.addEventListener('keyup', keyListener, false);
                 this.state = "inGame";
             }
         },
+        //Play a certain level
+        //On each frame, update all the game entities, check collision, timer, winning and losing conditions
         inGame: function (dt) {
             update(dt);
             renderMap();
@@ -119,8 +138,10 @@ var Engine = (function (global) {
                 if(currentLevel < levels.length){
                     currentLevel++;
                     loadLevel(levels[currentLevel-1]);
-                    this.state = "start";
+                    this.state = "levelStart";
                 }else{
+                    canvas.width = 505;
+                    canvas.height = 606;
                     this.state = "endGame";
                 }
             } else {
@@ -137,34 +158,37 @@ var Engine = (function (global) {
                 }
             }
         },
+        //render the pausing effect when player dies and reset level
         playerDie: function () {
             renderMap();
             renderEntities([allRocks, allEnemies, player]);
             if (player.deathRenderEnd()) {//end of rendering collision
                 resetLevel(levels[currentLevel-1]);
-                this.state = "start";
+                this.state = "levelStart";
             }
         },
+        //render the ending text when player completes all of the levels
         endGame: function (dt) {
-            if(!endInited){
-                initGameText();
-            }
             renderPrincess();
             allEndTexts.forEach(function(text){
                 text.update(dt);
                 text.render();
             });
-            if(allEndTexts[allEndTexts.length - 1].y <= 200){
+            if(allEndTexts[allEndTexts.length - 1].y <= 350){
                 reset();
                 this.state = "boot";
             }
         },
+        //handle keyboard inputs for entering game and selecting charactors
         handleInput: function (key) {
             if (key === "enter" && this.state === "title") {
                 this.state = "selectCharactor";
             }else if (key === "enter" && this.state === "selectCharactor") {
                 player.sprite = playerImages[selectedPlayer];
-                this.state = "start";
+                this.state = "gameIntro";
+            }else if (key === "enter" && this.state === "gameIntro") {
+                player.sprite = playerImages[selectedPlayer];
+                this.state = "levelStart";
             }else if (key === "left" && this.state === "selectCharactor") {
                 if (selectedPlayer === 0) { return;}
                 selectedPlayer--;
@@ -241,6 +265,7 @@ var Engine = (function (global) {
         }
     }
 
+    //If player find the star, activate the ending tiles
     function playerFoundStar() {
         if (star && player.getRow() === star.getRow() && player.getCol() === star.getCol()) {
             allLevelCompleteTiles.forEach(function(tile){
@@ -253,6 +278,7 @@ var Engine = (function (global) {
         return foundStar;
     }
 
+    //After player has found the star, check if player has reached the ending tile
     function playerHasWon() {
         if(playerFoundStar()){
             var i, length = allLevelCompleteTiles.length;
@@ -265,6 +291,7 @@ var Engine = (function (global) {
         return false;
     }
 
+    //Check if player has found the key
     function playerFoundKey(){
         if (key && player.getRow() === key.getRow() && player.getCol() === key.getCol()) {
             return true;
@@ -272,6 +299,7 @@ var Engine = (function (global) {
         return false;
     }
 
+    //Check if player has found the gem
     function playerGotGem(gem){
         if(gem && !gem.needRespawn && player.getRow() === gem.getRow() && player.getCol() === gem.getCol()){
             gem.needRespawn = true;
@@ -297,6 +325,7 @@ var Engine = (function (global) {
             }
         }
     }
+
     //render all the entities of the game
     //if passed in an array of entity, then render every entity of the array
     function renderEntities(entityArray){
@@ -334,35 +363,51 @@ var Engine = (function (global) {
     function renderAllCharactors(selected) {
         var length = playerImages.length,
             centerX = Math.floor(canvas.width / 2);
+        ctx.font = "30pt Impact";
+        ctx.textAlign = "center";
+        ctx.fillText("Select Charactor", centerX, 100);
+        //highlight selected charactor
+        ctx.drawImage(Resources.get("images/Selector.png"), centerX + 101 * (selected - 2), 200);
         for (var i = 0; i < length; i++) {
             ctx.drawImage(Resources.get(playerImages[i]), centerX + 101 * (i - 2), 200);
         }
-        //highlight selected charactor
-        ctx.strokeStyle = 'white';
-        ctx.lineWidth = 2;
-        ctx.strokeRect(centerX + 101 * (selected - 2), 200, 101, 171);
     }
 
+    //prepare all the texts for rendering
     function initGameText(){
         var centerX = Math.floor(canvas.width / 2),
+            introTextContent = [
+                "The princess summoned you",
+                "And assigned you an important task",
+                "There are four stars around the world",
+                "You need to collect all of them",
+            ],
+            introLength = introTextContent.length;
             endTextContent = [
-                "You brought the stars to the princess",
-                "She thanked you",
-                "And used the stars",
-                "to open the gate to a new world",
+                "You collected all of the stars",
+                "And brought them back to the princess",
+                "She used the stars",
+                "to open the gate to a secret world",
+                "",
                 "She handed you a pokeball",
                 "And said:",
                 "Now it's time to catch them all",
-                "The End !",
+                "",
+                "",
+                "",
+                "THE END",
             ],
-            length = endTextContent.length;
+            endLength = endTextContent.length;
 
-        for(var i=0; i<length; i++){
-            allEndTexts.push(new Text(centerX, 500 + 50 * i, endTextContent[i]));
+        for(var i=0; i<endLength; i++){
+            allEndTexts.push(new Text(centerX, 450 + 50 * i, endTextContent[i]));
         }
-        endInited = true;
+        for(var i=0; i<introLength; i++){
+            allIntroTexts.push(new Text(centerX, 450 + 50 * i, introTextContent[i]));
+        }
     }
 
+    //render the image of the princess
     function renderPrincess(){
         var centerX = Math.floor(canvas.width / 2);
         ctx.fillStyle = "white";
@@ -378,8 +423,6 @@ var Engine = (function (global) {
         currentLevel = 1;
         selectedPlayer = 0;
         countDownFontSize = 20;
-        renderTimerMultiplier = 1;
-        endInited = false;
         Map = {};
         allRocks = [];
         allEdgeRocks = [];
@@ -391,6 +434,7 @@ var Engine = (function (global) {
         levelTitle = "";
         levelTimer = 0;
         allEndTexts = [];
+        allIntroTexts = [];
         allLevelCompleteTiles = [];
         foundStar = false;
     }
@@ -418,6 +462,7 @@ var Engine = (function (global) {
         "images/Gem-green.png",
         "images/Gem-orange.png",
         "images/char-princess-girl.png",
+        "images/Selector.png",
     ]);
     Resources.onReady(init);
 

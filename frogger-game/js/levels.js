@@ -29,7 +29,7 @@ level1.player = {
 
 level1.star = {
     "initCol": 0,
-    "initRow": 2,
+    "initRow": 3,
 };
 
 level1.title = {
@@ -38,6 +38,8 @@ level1.title = {
 };
 
 level1.countDownTime = 20;
+
+level1.levelCompleteTiles = [[1,2], [2,2], [3,2], [4,2], [5,2]];
 
 var level2 = new Level();
 level2.map = {

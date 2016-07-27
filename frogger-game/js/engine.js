@@ -210,8 +210,7 @@ var Engine = (function (global) {
         });
     }
 
-    //return true if an enemy hits player
-    //reverse direction of an enemy if it hits a stone
+    //check collision among enemies, stones and player
     function checkCollisions() {
         var playerRow = player.getRow();
         for (var enemy of allEnemies) {

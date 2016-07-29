@@ -36,55 +36,6 @@ var Engine = (function (global) {
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
-    //load a certain level of the game
-    function loadLevel(level) {
-        Map = level.map;
-        canvas.width = Map.col * Map.colWidth;
-        canvas.height = Map.row * Map.rowHeight + 108;
-        resetLevel(level);
-    }
-
-    //setup or reset the initial position of game entities
-    function resetLevel(level) {
-        var enemyNumber = level.enemies ? level.enemies.number : 0,
-            rockNumber = level.rocks ? level.rocks.length : 0,
-            rock,
-            gemNumber = level.gems? level.gems.length : 0,
-            levelCompleteTileNumber = level.levelCompleteTiles? level.levelCompleteTiles.length : 0;
-
-        allRocks = [];
-        allEdgeRocks = [];
-        for (var i = 0; i < rockNumber; i++) {
-            rock = new Rock(level.rocks[i][0], level.rocks[i][1]);
-            allRocks.push(rock);
-            if(level.rocks[i][2]){
-                allEdgeRocks.push(rock);
-            }
-        }
-        allEnemies = [];
-        for (var i = 0; i < enemyNumber; i++) {
-            allEnemies.push(new Enemy());
-        }
-        allGems = [];
-        for(var i=0; i<gemNumber; i++){
-            allGems.push(new Gem(level.gems[i].initCol, level.gems[i].initRow));
-        }
-        allLevelCompleteTiles = [];
-        for (var i=0; i < levelCompleteTileNumber; i++){
-            allLevelCompleteTiles.push(new LevelCompleteTile(level.levelCompleteTiles[i][0], level.levelCompleteTiles[i][1]));
-        }
-        if(player) {
-            player.reset(level.player.initCol, level.player.initRow);
-        }else{
-            player = new Player(level.player.initCol, level.player.initRow);
-        }
-        key = level.key? new Key(level.key.initCol, level.key.initRow) : null;
-        star = new Star(level.star.initCol, level.star.initRow);
-        levelTitle = new LevelTitle(level.title.number, level.title.content);
-        levelTimer = new LevelTimer(level.countDownTime);
-        foundStar = false;
-    }
-
     //game manager handles different stages of the game
     var gameManager = {
         //load text and the first level of the game
@@ -133,7 +84,7 @@ var Engine = (function (global) {
             if (!player.isAlive) {
                 document.removeEventListener('keyup', keyListener, false);
                 this.state = "playerDie";
-            } else if (playerHasWon()) {
+            } else if (playerCompleteLevel()) {
                 document.removeEventListener('keyup', keyListener, false);
                 if(currentLevel < levels.length){
                     currentLevel++;
@@ -152,9 +103,7 @@ var Engine = (function (global) {
                 }
                 var gemNumber = allGems.length;
                 for(var i=0; i<gemNumber; i++){
-                    if(playerGotGem(allGems[i])){
-                        allGems[i].needRespawn = true;
-                    }
+                    checkPlayerGotGem(allGems[i]);
                 }
             }
         },
@@ -221,6 +170,55 @@ var Engine = (function (global) {
         main();
     }
 
+    //load a certain level of the game
+    function loadLevel(level) {
+        Map = level.map;
+        canvas.width = Map.col * Map.colWidth;
+        canvas.height = Map.row * Map.rowHeight + 108;
+        resetLevel(level);
+    }
+
+    //setup or reset the initial properties and positions of game entities
+    function resetLevel(level) {
+        var enemyNumber = level.enemies ? level.enemies.number : 0,
+            rockNumber = level.rocks ? level.rocks.length : 0,
+            rock,
+            gemNumber = level.gems? level.gems.length : 0,
+            levelCompleteTileNumber = level.levelCompleteTiles? level.levelCompleteTiles.length : 0;
+
+        allRocks = [];
+        allEdgeRocks = [];
+        for (var i_1 = 0; i_1 < rockNumber; i_1++) {
+            rock = new Rock(level.rocks[i_1][0], level.rocks[i_1][1]);
+            allRocks.push(rock);
+            if(level.rocks[i_1][2]){
+                allEdgeRocks.push(rock);
+            }
+        }
+        allEnemies = [];
+        for (var i_2 = 0; i_2 < enemyNumber; i_2++) {
+            allEnemies.push(new Enemy());
+        }
+        allGems = [];
+        for(var i_3=0; i_3<gemNumber; i_3++){
+            allGems.push(new Gem(level.gems[i_3].initCol, level.gems[i_3].initRow));
+        }
+        allLevelCompleteTiles = [];
+        for (var i_4=0; i_4 < levelCompleteTileNumber; i_4++){
+            allLevelCompleteTiles.push(new LevelCompleteTile(level.levelCompleteTiles[i_4][0], level.levelCompleteTiles[i_4][1]));
+        }
+        if(player) {
+            player.reset(level.player.initCol, level.player.initRow);
+        }else{
+            player = new Player(level.player.initCol, level.player.initRow);
+        }
+        key = level.key? new Key(level.key.initCol, level.key.initRow) : null;
+        star = new Star(level.star.initCol, level.star.initRow);
+        levelTitle = new LevelTitle(level.title.number, level.title.content);
+        levelTimer = new LevelTimer(level.countDownTime);
+        foundStar = false;
+    }
+
     function update(dt) {
         levelTimer.update(dt);
         allEnemies.forEach(function (enemy) {
@@ -236,10 +234,16 @@ var Engine = (function (global) {
 
     //check collision among enemies, stones and player
     function checkCollisions() {
-        var playerRow = player.getRow();
-        for (var enemy of allEnemies) {
+        var playerRow = player.getRow(),
+            enemyNumber = allEnemies.length,
+            edgeRockNumber = allEdgeRocks.length,
+            enemy,
+            rock;
+        for (var i_1 = 0; i_1 < enemyNumber; i_1++) {
+            enemy = allEnemies[i_1];
             //check collision between enemies and stones
-            for(var rock of allEdgeRocks){
+            for(var i_2 = 0; i_2 < edgeRockNumber; i_2++){
+                rock = allEdgeRocks[i_2];
                 if(enemy.speed < 0 || enemy.y !== rock.y){
                     continue;
                 }
@@ -279,7 +283,7 @@ var Engine = (function (global) {
     }
 
     //After player has found the star, check if player has reached the ending tile
-    function playerHasWon() {
+    function playerCompleteLevel() {
         if(playerFoundStar()){
             var i, length = allLevelCompleteTiles.length;
             for(i = 0 ; i < length; i++){
@@ -300,7 +304,8 @@ var Engine = (function (global) {
     }
 
     //Check if player has found the gem
-    function playerGotGem(gem){
+    //Add ten secounds to the timer and set respawn if the gem has been found
+    function checkPlayerGotGem(gem){
         if(gem && !gem.needRespawn && player.getRow() === gem.getRow() && player.getCol() === gem.getCol()){
             gem.needRespawn = true;
             levelTimer.extend(10);
@@ -382,13 +387,12 @@ var Engine = (function (global) {
                 "There are four stars around the world",
                 "You need to collect all of them",
             ],
-            introLength = introTextContent.length;
+            introLength = introTextContent.length,
             endTextContent = [
                 "You collected all of the stars",
                 "And brought them back to the princess",
                 "She used the stars",
                 "to open the gate to a secret world",
-                "",
                 "She handed you a pokeball",
                 "And said:",
                 "Now it's time to catch them all",
@@ -399,11 +403,11 @@ var Engine = (function (global) {
             ],
             endLength = endTextContent.length;
 
-        for(var i=0; i<endLength; i++){
-            allEndTexts.push(new Text(centerX, 450 + 50 * i, endTextContent[i]));
+        for(var i_1=0; i_1<endLength; i_1++){
+            allEndTexts.push(new GameText(centerX, 450 + 50 * i_1, endTextContent[i_1]));
         }
-        for(var i=0; i<introLength; i++){
-            allIntroTexts.push(new Text(centerX, 450 + 50 * i, introTextContent[i]));
+        for(var i_2=0; i_2<introLength; i_2++){
+            allIntroTexts.push(new GameText(centerX, 450 + 50 * i_2, introTextContent[i_2]));
         }
     }
 

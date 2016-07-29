@@ -92,7 +92,7 @@ Player.prototype.render = function () {
 
 Player.prototype.deathRenderEnd = function(){
     return this.countDown < 0;
-}
+};
 
 //Reset player's position to initional location of the level
 Player.prototype.reset = function (col, row) {
@@ -109,11 +109,12 @@ Player.prototype.reset = function (col, row) {
 Player.prototype.handleInput = function (move) {
     if (!move) { return;}
 
-    var _player = this;
+    var _player = this,
+        rockNumber = allRocks.length;
     //check if player is on a rock
     function hitRock(){
-        for(rock of allRocks){
-            if(rock.x === _player.x && rock.y === _player.y){
+        for(var i = 0; i<rockNumber; i++){
+            if(allRocks[i].x === _player.x && allRocks[i].y === _player.y){
                 return true;
             }
         }
@@ -278,6 +279,7 @@ LevelTitle.prototype.renderEnds = function (dt) {
 var LevelTimer = function(countDownTime){
     this.time = countDownTime;
     this.renderTimerMultiplier = 1;
+    this.countDownFontSize = 20;
 };
 
 LevelTimer.prototype.update = function(dt){
@@ -289,18 +291,18 @@ LevelTimer.prototype.update = function(dt){
 LevelTimer.prototype.render = function(){
     if(this.time < 5){
         ctx.fillStyle = "yellow";
-        if(countDownFontSize < 20){
+        if(this.countDownFontSize < 20){
             this.renderTimerMultiplier = 1;
         }
-        if(countDownFontSize > 30){
+        if(this.countDownFontSize > 30){
             this.renderTimerMultiplier = -1;
         }
-        countDownFontSize += 0.2 * this.renderTimerMultiplier;
+        this.countDownFontSize += 0.2 * this.renderTimerMultiplier;
     }else{
         ctx.fillStyle = "black";
-        countDownFontSize = 20;
+        this.countDownFontSize = 20;
     }
-    ctx.font = countDownFontSize.toString() + "pt Impact";
+    ctx.font = this.countDownFontSize.toString() + "pt Impact";
     ctx.fillText(Math.ceil(this.time), Map.col * Map.colWidth/2 , 100);
 };
 
@@ -309,18 +311,18 @@ LevelTimer.prototype.extend = function(extendTime){
 };
 
 //Text that move in the canvas
-var Text = function(x, y, content){
+var GameText = function(x, y, content){
     this.x = x;
     this.y = y;
     this.content = content;
     this.speed = 40;
 };
 
-Text.prototype.update = function(dt) {
+GameText.prototype.update = function(dt) {
     this.y -= dt * this.speed;
 };
 
-Text.prototype.render = function(){
+GameText.prototype.render = function(){
     if(this.renderOnScreen()){
         ctx.fillStyle = "black";
         ctx.font = "20pt Impact";
@@ -329,7 +331,7 @@ Text.prototype.render = function(){
     }
 };
 
-Text.prototype.renderOnScreen = function() {
+GameText.prototype.renderOnScreen = function() {
     return this.y < 450 && this.y > 200;
 };
 

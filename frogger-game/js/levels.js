@@ -1,4 +1,4 @@
-﻿level1 = {
+﻿var level1 = {
     map: {
         "col": 5,
         "row": 6,
@@ -27,7 +27,7 @@
     levelCompleteTiles: [[1,2], [2,2], [3,2], [4,2], [5,2]],
 };
 
-level2 = {
+var level2 = {
     map: {
         "col": 5,
         "row": 6,
@@ -57,7 +57,7 @@ level2 = {
     levelCompleteTiles: [[4,2]],
 };
 
-level3 = {
+var level3 = {
     map:{
         "col": 7,
         "row": 8,
@@ -92,7 +92,7 @@ level3 = {
     levelCompleteTiles: [[4,2]],
 };
 
-level4 = {
+var level4 = {
     map: {
         "col": 7,
         "row": 8,

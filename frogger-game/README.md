@@ -1,6 +1,30 @@
-frontend-nanodegree-arcade-game
-===============================
+#frontend-nanodegree-arcade-game
+===================================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+This is a frogger game written in HTML, CSS and Javascript.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## How to Open The Game
+
+Open the game by going to website https://yukicode.github.io/u-frontend/, or download the project and open u-frontend/frogger-game/index.html in the browser.
+
+## Compatibility
+
+IE 10 and above, Chrome 30 and above, Firefox 36 and above
+
+## How to Play
+
+* Press enter to start.
+* Press left and right arrow keys to select charactor, press enter to confirm selection.
+* User arrow keys to move player on the map.
+
+## Rules
+
+* There are four levels in the game. In each level, player needs to collect a star and then move to any of the exiting tiles on the upper edge of the map. The tiles are marked by moving yellow arrows. Level will be completed when player moves onto the exiting tiles.
+
+* Player can move up, down, left and right on the map. Player can't move off the map or move onto the rocks. If hit by a bug, player will die and respawn from the starting tile. 
+
+* Bugs move horizontally from the left to the right side of the map. Bugs will turn around if they hit rocks. At the beginning of the level, bugs will spawn randomly on the map.
+
+* There's a timer for each level and player has to complete the level before the timer hits zero. Gems exist in some levels and could extend the timer. Gems will respawn ten seconds after been consumed.
+
+* Sometimes stars are surrounded by stones and are not accessible at beginning of the level. Player will need to use a key to remove all the stones and expose the star. 

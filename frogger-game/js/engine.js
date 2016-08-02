@@ -13,19 +13,18 @@
  * the canvas' context (ctx) object globally available to make writing app.js
  * a little simpler to work with.
  */
-
-var Engine = (function (global) {
+var Engine = (function(global) {
 
     var doc = global.document,
         win = global.window,
-        canvas = doc.createElement('canvas'),
-        ctx = canvas.getContext('2d'),
+        canvas = doc.createElement("canvas"),
+        ctx = canvas.getContext("2d"),
         lastTime,
         playerImages = [
-            'images/char-boy.png',
-            'images/char-cat-girl.png',
-            'images/char-horn-girl.png',
-            'images/char-pink-girl.png',
+            "images/char-boy.png",
+            "images/char-cat-girl.png",
+            "images/char-horn-girl.png",
+            "images/char-pink-girl.png",
         ],
         levels = [level1, level2, level3, level4],
         currentLevel = 1,
@@ -39,114 +38,118 @@ var Engine = (function (global) {
     //game manager handles different stages of the game
     var gameManager = {
         //load text and the first level of the game
-        boot: function () {
+        boot: function() {
             initGameText();
-            loadLevel(levels[currentLevel-1]);
+            loadLevel(levels[currentLevel - 1]);
             this.state = "title";
         },
         //render title
-        title: function () {
+        title: function() {
             renderMap();
             renderTitleText();
         },
         //allow player to select a charactor
-        selectCharactor: function () {
+        selectCharactor: function() {
             renderMap();
             renderAllCharactors(selectedPlayer);
         },
         //Introduction to the story of the game
         gameIntro: function(dt) {
             renderPrincess();
-            allIntroTexts.forEach(function(text){
+            allIntroTexts.forEach(function(text) {
                 text.update(dt);
                 text.render();
             });
-            if(allIntroTexts[allIntroTexts.length - 1].y <= 400){
+            if (allIntroTexts[allIntroTexts.length - 1].y <= 400) {
                 this.state = "levelStart";
             }
         },
         //Title of the level
-        levelStart: function (dt) {
+        levelStart: function(dt) {
             levelTitle.render(canvas.width, canvas.height);
             if (levelTitle.renderEnds(dt)) {
-                document.addEventListener('keyup', keyListener, false);
+                document.addEventListener("keyup", keyListener, false);
                 this.state = "inGame";
             }
         },
         //Play a certain level
         //On each frame, update all the game entities, check collision, timer, winning and losing conditions
-        inGame: function (dt) {
+        inGame: function(dt) {
             update(dt);
             renderMap();
             renderEntities([allGems, allLevelCompleteTiles, allRocks, star, key, player, allEnemies, levelTimer]);
             checkCollisions();
             checkTimer();
             if (!player.isAlive) {
-                document.removeEventListener('keyup', keyListener, false);
+                document.removeEventListener("keyup", keyListener, false);
                 this.state = "playerDie";
             } else if (playerCompleteLevel()) {
-                document.removeEventListener('keyup', keyListener, false);
-                if(currentLevel < levels.length){
+                document.removeEventListener("keyup", keyListener, false);
+                if (currentLevel < levels.length) {
                     currentLevel++;
-                    loadLevel(levels[currentLevel-1]);
+                    loadLevel(levels[currentLevel - 1]);
                     this.state = "levelStart";
-                }else{
+                } else {
                     canvas.width = 505;
                     canvas.height = 606;
                     this.state = "endGame";
                 }
             } else {
-                if (playerFoundKey()){
+                if (playerFoundKey()) {
                     allRocks = [];
                     allEdgeRocks = [];
                     key = null;
                 }
                 var gemNumber = allGems.length;
-                for(var i=0; i<gemNumber; i++){
+                for (var i = 0; i < gemNumber; i++) {
                     checkPlayerGotGem(allGems[i]);
                 }
             }
         },
         //render the pausing effect when player dies and reset level
-        playerDie: function () {
+        playerDie: function() {
             renderMap();
             renderEntities([allRocks, allEnemies, player]);
-            if (player.deathRenderEnd()) {//end of rendering collision
-                resetLevel(levels[currentLevel-1]);
+            if (player.deathRenderEnd()) { //end of rendering collision
+                resetLevel(levels[currentLevel - 1]);
                 this.state = "levelStart";
             }
         },
         //render the ending text when player completes all of the levels
-        endGame: function (dt) {
+        endGame: function(dt) {
             renderPrincess();
-            allEndTexts.forEach(function(text){
+            allEndTexts.forEach(function(text) {
                 text.update(dt);
                 text.render();
             });
-            if(allEndTexts[allEndTexts.length - 1].y <= 350){
+            if (allEndTexts[allEndTexts.length - 1].y <= 350) {
                 reset();
                 this.state = "boot";
             }
         },
         //handle keyboard inputs for entering game and selecting charactors
-        handleInput: function (key) {
+        handleInput: function(key) {
             if (key === "enter" && this.state === "title") {
                 this.state = "selectCharactor";
-            }else if (key === "enter" && this.state === "selectCharactor") {
+            } else if (key === "enter" && this.state === "selectCharactor") {
                 player.sprite = playerImages[selectedPlayer];
                 this.state = "gameIntro";
-            }else if (key === "enter" && this.state === "gameIntro") {
+            } else if (key === "enter" && this.state === "gameIntro") {
                 player.sprite = playerImages[selectedPlayer];
                 this.state = "levelStart";
-            }else if (key === "left" && this.state === "selectCharactor") {
-                if (selectedPlayer === 0) { return;}
+            } else if (key === "left" && this.state === "selectCharactor") {
+                if (selectedPlayer === 0) {
+                    return;
+                }
                 selectedPlayer--;
-            }else if (key === "right" && this.state === "selectCharactor") {
-                if (selectedPlayer === 3) { return; }
+            } else if (key === "right" && this.state === "selectCharactor") {
+                if (selectedPlayer === 3) {
+                    return;
+                }
                 selectedPlayer++;
             }
         },
-        execute: function (dt) {
+        execute: function(dt) {
             this[this.state](dt);
         },
         state: "boot",
@@ -183,15 +186,15 @@ var Engine = (function (global) {
         var enemyNumber = level.enemies ? level.enemies.number : 0,
             rockNumber = level.rocks ? level.rocks.length : 0,
             rock,
-            gemNumber = level.gems? level.gems.length : 0,
-            levelCompleteTileNumber = level.levelCompleteTiles? level.levelCompleteTiles.length : 0;
+            gemNumber = level.gems ? level.gems.length : 0,
+            levelCompleteTileNumber = level.levelCompleteTiles ? level.levelCompleteTiles.length : 0;
 
         allRocks = [];
         allEdgeRocks = [];
         for (var i_1 = 0; i_1 < rockNumber; i_1++) {
             rock = new Rock(level.rocks[i_1][0], level.rocks[i_1][1]);
             allRocks.push(rock);
-            if(level.rocks[i_1][2]){
+            if (level.rocks[i_1][2]) {
                 allEdgeRocks.push(rock);
             }
         }
@@ -200,19 +203,19 @@ var Engine = (function (global) {
             allEnemies.push(new Enemy());
         }
         allGems = [];
-        for(var i_3=0; i_3<gemNumber; i_3++){
+        for (var i_3 = 0; i_3 < gemNumber; i_3++) {
             allGems.push(new Gem(level.gems[i_3].initCol, level.gems[i_3].initRow));
         }
         allLevelCompleteTiles = [];
-        for (var i_4=0; i_4 < levelCompleteTileNumber; i_4++){
+        for (var i_4 = 0; i_4 < levelCompleteTileNumber; i_4++) {
             allLevelCompleteTiles.push(new LevelCompleteTile(level.levelCompleteTiles[i_4][0], level.levelCompleteTiles[i_4][1]));
         }
-        if(player) {
+        if (player) {
             player.reset(level.player.initCol, level.player.initRow);
-        }else{
+        } else {
             player = new Player(level.player.initCol, level.player.initRow);
         }
-        key = level.key? new Key(level.key.initCol, level.key.initRow) : null;
+        key = level.key ? new Key(level.key.initCol, level.key.initRow) : null;
         star = new Star(level.star.initCol, level.star.initRow);
         levelTitle = new LevelTitle(level.title.number, level.title.content);
         levelTimer = new LevelTimer(level.countDownTime);
@@ -221,13 +224,13 @@ var Engine = (function (global) {
 
     function update(dt) {
         levelTimer.update(dt);
-        allEnemies.forEach(function (enemy) {
+        allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        allGems.forEach(function (gem) {
+        allGems.forEach(function(gem) {
             gem.update(dt);
         });
-        allLevelCompleteTiles.forEach(function(tile){
+        allLevelCompleteTiles.forEach(function(tile) {
             tile.update(dt);
         });
     }
@@ -242,12 +245,12 @@ var Engine = (function (global) {
         for (var i_1 = 0; i_1 < enemyNumber; i_1++) {
             enemy = allEnemies[i_1];
             //check collision between enemies and stones
-            for(var i_2 = 0; i_2 < edgeRockNumber; i_2++){
+            for (var i_2 = 0; i_2 < edgeRockNumber; i_2++) {
                 rock = allEdgeRocks[i_2];
-                if(enemy.speed < 0 || enemy.y !== rock.y){
+                if (enemy.speed < 0 || enemy.y !== rock.y) {
                     continue;
                 }
-                if(rock.x - enemy.x < 85 && rock.x - enemy.x > -85){
+                if (rock.x - enemy.x < 85 && rock.x - enemy.x > -85) {
                     enemy.sprite = "images/enemy-bug-reverse.png";
                     enemy.speed *= -1;
                 }
@@ -264,7 +267,7 @@ var Engine = (function (global) {
 
     //If there is no time left for the level, the player dies
     function checkTimer() {
-        if (levelTimer.time <= 0){
+        if (levelTimer.time <= 0) {
             player.isAlive = false;
         }
     }
@@ -272,7 +275,7 @@ var Engine = (function (global) {
     //If player find the star, activate the ending tiles
     function playerFoundStar() {
         if (star && player.getRow() === star.getRow() && player.getCol() === star.getCol()) {
-            allLevelCompleteTiles.forEach(function(tile){
+            allLevelCompleteTiles.forEach(function(tile) {
                 tile.isActive = true;
                 tile.sprite = "images/arrow.png";
             });
@@ -284,10 +287,10 @@ var Engine = (function (global) {
 
     //After player has found the star, check if player has reached the ending tile
     function playerCompleteLevel() {
-        if(playerFoundStar()){
+        if (playerFoundStar()) {
             var i, length = allLevelCompleteTiles.length;
-            for(i = 0 ; i < length; i++){
-                if(player.getRow() === allLevelCompleteTiles[i].getRow() && player.getCol() === allLevelCompleteTiles[i].getCol()){
+            for (i = 0; i < length; i++) {
+                if (player.getRow() === allLevelCompleteTiles[i].getRow() && player.getCol() === allLevelCompleteTiles[i].getCol()) {
                     return true;
                 }
             }
@@ -296,7 +299,7 @@ var Engine = (function (global) {
     }
 
     //Check if player has found the key
-    function playerFoundKey(){
+    function playerFoundKey() {
         if (key && player.getRow() === key.getRow() && player.getCol() === key.getCol()) {
             return true;
         }
@@ -305,8 +308,8 @@ var Engine = (function (global) {
 
     //Check if player has found the gem
     //Add ten secounds to the timer and set respawn if the gem has been found
-    function checkPlayerGotGem(gem){
-        if(gem && !gem.needRespawn && player.getRow() === gem.getRow() && player.getCol() === gem.getCol()){
+    function checkPlayerGotGem(gem) {
+        if (gem && !gem.needRespawn && player.getRow() === gem.getRow() && player.getCol() === gem.getCol()) {
             gem.needRespawn = true;
             levelTimer.extend(10);
             return true;
@@ -316,13 +319,13 @@ var Engine = (function (global) {
 
     function renderMap() {
         var rowImages = {
-            "water": "images/water-block.png",   // a row of water
-            "paved": "images/stone-block.png",   // a row of stone
-            "grass": "images/grass-block.png",   // a row of grass
-        },
-           numRows = Map.row,
-           numCols = Map.col,
-           row, col;
+                "water": "images/water-block.png", // a row of water
+                "paved": "images/stone-block.png", // a row of stone
+                "grass": "images/grass-block.png", // a row of grass
+            },
+            numRows = Map.row,
+            numCols = Map.col,
+            row, col;
 
         for (row = 0; row < numRows; row++) {
             for (col = 0; col < numCols; col++) {
@@ -333,16 +336,16 @@ var Engine = (function (global) {
 
     //render all the entities of the game
     //if passed in an array of entity, then render every entity of the array
-    function renderEntities(entityArray){
-        if (entityArray instanceof Array){
+    function renderEntities(entityArray) {
+        if (entityArray instanceof Array) {
             var entityArrayLength = entityArray.length;
-            for(var i=0; i<entityArrayLength; i++){
-                if(entityArray[i] instanceof Array){
+            for (var i = 0; i < entityArrayLength; i++) {
+                if (entityArray[i] instanceof Array) {
                     var entityCount = entityArray[i].length;
-                    for(var j = 0; j <entityCount; j++){
+                    for (var j = 0; j < entityCount; j++) {
                         entityArray[i][j].render();
                     }
-                }else if(entityArray[i]){
+                } else if (entityArray[i]) {
                     entityArray[i].render();
                 }
             }
@@ -379,7 +382,7 @@ var Engine = (function (global) {
     }
 
     //prepare all the texts for rendering
-    function initGameText(){
+    function initGameText() {
         var centerX = Math.floor(canvas.width / 2),
             introTextContent = [
                 "The princess summoned you",
@@ -403,19 +406,19 @@ var Engine = (function (global) {
             ],
             endLength = endTextContent.length;
 
-        for(var i_1=0; i_1<endLength; i_1++){
+        for (var i_1 = 0; i_1 < endLength; i_1++) {
             allEndTexts.push(new GameText(centerX, 450 + 50 * i_1, endTextContent[i_1]));
         }
-        for(var i_2=0; i_2<introLength; i_2++){
+        for (var i_2 = 0; i_2 < introLength; i_2++) {
             allIntroTexts.push(new GameText(centerX, 450 + 50 * i_2, introTextContent[i_2]));
         }
     }
 
     //render the image of the princess
-    function renderPrincess(){
+    function renderPrincess() {
         var centerX = Math.floor(canvas.width / 2);
         ctx.fillStyle = "white";
-        ctx.fillRect(0,0, canvas.width, canvas.height);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(Resources.get("images/char-princess-girl.png"), centerX - 50, 0);
     }
 
@@ -448,20 +451,20 @@ var Engine = (function (global) {
      * all of these images are properly loaded our game will start.
      */
     Resources.load([
-        'images/char-boy.png',
-        'images/char-cat-girl.png',
-        'images/char-horn-girl.png',
-        'images/char-pink-girl.png',
-        'images/stone-block.png',
-        'images/water-block.png',
-        'images/grass-block.png',
-        'images/enemy-bug.png',
-        'images/Star.png',
-        'images/Rock.png',
-        'images/Key.png',
-        'images/arrow.png',
-        'images/arrow-gray.png',
-        'images/enemy-bug-reverse.png',
+        "images/char-boy.png",
+        "images/char-cat-girl.png",
+        "images/char-horn-girl.png",
+        "images/char-pink-girl.png",
+        "images/stone-block.png",
+        "images/water-block.png",
+        "images/grass-block.png",
+        "images/enemy-bug.png",
+        "images/Star.png",
+        "images/Rock.png",
+        "images/Key.png",
+        "images/arrow.png",
+        "images/arrow-gray.png",
+        "images/enemy-bug-reverse.png",
         "images/Gem-blue.png",
         "images/Gem-green.png",
         "images/Gem-orange.png",
@@ -470,21 +473,21 @@ var Engine = (function (global) {
     ]);
     Resources.onReady(init);
 
-    document.addEventListener('keyup', function (e) {
+    document.addEventListener("keyup", function(e) {
         var handleKeys = {
-            13: 'enter',
-            37: 'left',
-            39: 'right',
+            13: "enter",
+            37: "left",
+            39: "right",
         };
         gameManager.handleInput(handleKeys[e.keyCode]);
     });
 
     function keyListener(e) {
         var playingKeys = {
-            37: 'left',
-            38: 'up',
-            39: 'right',
-            40: 'down'
+            37: "left",
+            38: "up",
+            39: "right",
+            40: "down"
         };
         player.handleInput(playingKeys[e.keyCode]);
     }

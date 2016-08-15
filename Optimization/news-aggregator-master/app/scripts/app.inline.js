@@ -21,7 +21,7 @@ APP.Main = (function() {
 
     var stories = null;
     var storyStart = 0;
-    var count = 100;
+    var count = 50;
     var main = $('main');
     var inDetails = false;
     var storyLoadCount = 0;
@@ -32,10 +32,12 @@ APP.Main = (function() {
             }
         }
     };
+    var height = document.body.clientHeight;
 
     var tmplStory = $('#tmpl-story').textContent;
     var tmplStoryDetails = $('#tmpl-story-details').textContent;
     var tmplStoryDetailsComment = $('#tmpl-story-details-comment').textContent;
+    var $storyDetails = $('.story-details');
 
     if (typeof HandlebarsIntl !== 'undefined') {
         HandlebarsIntl.registerWith(Handlebars);
@@ -74,26 +76,17 @@ APP.Main = (function() {
 
         // Tick down. When zero we can batch in the next load.
         storyLoadCount--;
-
-        // Colorize on complete.
-        if (storyLoadCount === 0)
-            colorizeAndScaleStories();
     }
 
     function onStoryClick(details) {
 
-        var storyDetails = $('sd-' + details.id);
-
-        // Wait a little time then show the story details.
-        setTimeout(showStory.bind(this, details.id), 60);
+       
 
         // Create and append the story. A visual change...
         // perhaps that should be in a requestAnimationFrame?
         // And maybe, since they're all the same, I don't
         // need to make a new element every single time? I mean,
         // it inflates the DOM and I can only see one at once.
-        if (!storyDetails) {
-
             if (details.url)
                 details.urlobj = new URL(details.url);
 
@@ -109,22 +102,16 @@ APP.Main = (function() {
                 text: 'Loading comment...'
             });
 
-            storyDetails = document.createElement('section');
-            storyDetails.setAttribute('id', 'sd-' + details.id);
-            storyDetails.classList.add('story-details');
-            storyDetails.innerHTML = storyDetailsHtml;
+            $storyDetails.setAttribute('id', 'sd-' + details.id);
+            requestAnimationFrame(showStory.bind(this, details.id));
+            $storyDetails.innerHTML = storyDetailsHtml;
 
-            document.body.appendChild(storyDetails);
+            commentsElement = $storyDetails.querySelector('.js-comments');
+            storyHeader = $storyDetails.querySelector('.js-header');
+            storyContent = $storyDetails.querySelector('.js-content');
 
-            commentsElement = storyDetails.querySelector('.js-comments');
-            storyHeader = storyDetails.querySelector('.js-header');
-            storyContent = storyDetails.querySelector('.js-content');
-
-            var closeButton = storyDetails.querySelector('.js-close');
+            var closeButton = $storyDetails.querySelector('.js-close');
             closeButton.addEventListener('click', hideStory.bind(this, details.id));
-
-            var headerHeight = storyHeader.getBoundingClientRect().height;
-            storyContent.style.paddingTop = headerHeight + 'px';
 
             if (typeof kids === 'undefined')
                 return;
@@ -149,12 +136,9 @@ APP.Main = (function() {
                         localeData);
                 });
             }
-        }
-
     }
 
     function showStory(id) {
-
         if (inDetails)
             return;
 
@@ -165,38 +149,8 @@ APP.Main = (function() {
 
         if (!storyDetails)
             return;
-
         document.body.classList.add('details-active');
-        storyDetails.style.opacity = 1;
-
-        function animate() {
-
-            // Find out where it currently is.
-            var storyDetailsPosition = storyDetails.getBoundingClientRect();
-
-            // Set the left value if we don't have one already.
-            if (left === null)
-                left = storyDetailsPosition.left;
-
-            // Now figure out where it needs to go.
-            left += (0 - storyDetailsPosition.left) * 0.1;
-
-            // Set up the next bit of the animation if there is more to do.
-            if (Math.abs(left) > 0.5)
-                setTimeout(animate, 4);
-            else
-                left = 0;
-
-            // And update the styles. Wait, is this a read-write cycle?
-            // I hope I don't trigger a forced synchronous layout!
-            storyDetails.style.left = left + 'px';
-        }
-
-        // We want slick, right, so let's do a setTimeout
-        // every few milliseconds. That's going to keep
-        // it all tight. Or maybe we're doing visual changes
-        // and they should be in a requestAnimationFrame
-        setTimeout(animate, 4);
+        storyDetails.classList.add('story-details-active');
     }
 
     function hideStory(id) {
@@ -206,75 +160,9 @@ APP.Main = (function() {
 
         var storyDetails = $('#sd-' + id);
         var left = 0;
-
+        inDetails = false;
         document.body.classList.remove('details-active');
-        storyDetails.style.opacity = 0;
-
-        function animate() {
-
-            // Find out where it currently is.
-            var mainPosition = main.getBoundingClientRect();
-            var storyDetailsPosition = storyDetails.getBoundingClientRect();
-            var target = mainPosition.width + 100;
-
-            // Now figure out where it needs to go.
-            left += (target - storyDetailsPosition.left) * 0.1;
-
-            // Set up the next bit of the animation if there is more to do.
-            if (Math.abs(left - target) > 0.5) {
-                setTimeout(animate, 4);
-            } else {
-                left = target;
-                inDetails = false;
-            }
-
-            // And update the styles. Wait, is this a read-write cycle?
-            // I hope I don't trigger a forced synchronous layout!
-            storyDetails.style.left = left + 'px';
-        }
-
-        // We want slick, right, so let's do a setTimeout
-        // every few milliseconds. That's going to keep
-        // it all tight. Or maybe we're doing visual changes
-        // and they should be in a requestAnimationFrame
-        setTimeout(animate, 4);
-    }
-
-    /**
-     * Does this really add anything? Can we do this kind
-     * of work in a cheaper way?
-     */
-    function colorizeAndScaleStories() {
-
-        var storyElements = document.querySelectorAll('.story');
-        var height = main.offsetHeight;
-        var mainPosition = main.getBoundingClientRect();
-        // It does seem awfully broad to change all the
-        // colors every time!
-        for (var s = 0; s < storyElements.length; s++) {
-
-            var story = storyElements[s];
-            var score = story.querySelector('.story__score');
-            var title = story.querySelector('.story__title');
-
-            // Base the scale on the y position of the score.
-            var scoreLocation = score.getBoundingClientRect().top -
-                document.body.getBoundingClientRect().top;
-            var scale = Math.min(1, 1 - (0.05 * ((scoreLocation - 170) / height)));
-            var opacity = Math.min(1, 1 - (0.5 * ((scoreLocation - 170) / height)));
-
-            score.style.width = (scale * 40) + 'px';
-            score.style.height = (scale * 40) + 'px';
-            score.style.lineHeight = (scale * 40) + 'px';
-
-            // Now figure out how wide it is and use that to saturate it.
-            scoreLocation = score.getBoundingClientRect();
-            console.log(storyElements[s], scoreLocation);
-            var saturation = (100 * ((scoreLocation.width - 38) / 2));
-
-            score.style.backgroundColor = 'hsl(42, ' + saturation + '%, 50%)';
-            title.style.opacity = opacity;
-        }
+        storyDetails.classList.remove('story-details-active');
     }
 
     main.addEventListener('touchstart', function(evt) {
@@ -291,26 +179,23 @@ APP.Main = (function() {
 
         var header = $('header');
         var headerTitles = header.querySelector('.header__title-wrapper');
-        var scrollTopCapped = Math.min(70, main.scrollTop);
-        var scaleString = 'scale(' + (1 - (scrollTopCapped / 300)) + ')';
-
-        colorizeAndScaleStories();
-
-        header.style.height = (156 - scrollTopCapped) + 'px';
-        headerTitles.style.webkitTransform = scaleString;
-        headerTitles.style.transform = scaleString;
-
-        // Add a shadow to the header.
-        if (main.scrollTop > 70)
-            document.body.classList.add('raised');
-        else
-            document.body.classList.remove('raised');
+        var scrollTop = main.scrollTop;
+        var totalHeight = main.scrollHeight;
+        var offsetHeight = main.offsetHeight;
+        var scrollTopCapped = Math.min(70, scrollTop);
 
         // Check if we need to load the next batch of stories.
-        var loadThreshold = (main.scrollHeight - main.offsetHeight -
-            LAZY_LOAD_THRESHOLD);
-        if (main.scrollTop > loadThreshold)
-            loadStoryBatch();
+        var loadThreshold = (totalHeight - offsetHeight - LAZY_LOAD_THRESHOLD);
+        if (scrollTop > loadThreshold)
+            setTimeout(loadStoryBatch(), 4);
+        //apply style after changing inner html
+        if (scrollTopCapped === 70){
+            document.body.classList.add('raised');
+            headerTitles.classList.add('decrease-size');
+        }else{
+            document.body.classList.remove('raised');
+            headerTitles.classList.remove('decrease-size');
+        }
     });
 
     function loadStoryBatch() {

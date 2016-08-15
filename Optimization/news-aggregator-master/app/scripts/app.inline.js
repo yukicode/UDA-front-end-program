@@ -32,7 +32,6 @@ APP.Main = (function() {
             }
         }
     };
-    var height = document.body.clientHeight;
 
     var tmplStory = $('#tmpl-story').textContent;
     var tmplStoryDetails = $('#tmpl-story-details').textContent;

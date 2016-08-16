@@ -42,8 +42,17 @@ footer {
 }
 footer span { float: right; font-style: italic; }
 
+.hidden {
+  display: none;
+}
+.return {
+  background-color:#f8f8f8;
+  border:1px solid #ccc;
+  width: 100%;
+}
 /* Smartphones (portrait) */
 @media only screen and (max-width: 480px) {
   body { font-size: 12px;}
   header p { padding-left: 4.5em;}
 }
+

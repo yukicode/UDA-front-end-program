@@ -539,21 +539,22 @@ window.addEventListener('scroll', onScroll);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 6;
-  var s = 256;
+  var cols = 6,
+      s = 256,
+      movingPizza = document.querySelector("#movingPizzas1"),
+      elem;
   for (var i = 0; i < 30; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizza.appendChild(elem);
   }
   items = document.querySelectorAll('.mover');
   itemLength = items.length;
   for (var j = 0; j < itemLength; j++) {
     phase = Math.sin(j % 5);
     items[j].style.left = items[j].basicLeft + 100 * phase + 'px';
-    console.log(items[j].style.left, items[j].style.top, j);
   }
 });

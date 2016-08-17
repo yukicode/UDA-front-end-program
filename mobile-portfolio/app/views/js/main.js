@@ -488,7 +488,9 @@ var frame = 0,
     itemLength,
     sum,
     numberOfEntries,
-    scrollTop;
+    scrollTop,
+    phase,
+    ticking = false;
 // Logs the average amount of time per 10 frames needed to move the sliding background pizzas on scroll.
 function logAverageFrame(times) {   // times is the array of User Timing measurements from updatePositions()
   numberOfEntries = times.length;
@@ -502,13 +504,21 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
+//add requestAnimationFrame to improve scrolling performance
+//source: http://www.html5rocks.com/en/tutorials/speed/animations/
+function onScroll(){
+  if(!ticking){
+    requestAnimationFrame(updatePositions);
+    ticking = true;
+  }
+}
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   scrollTop =document.body.scrollTop;
   window.performance.mark("mark_start_frame");
   for (var i = 0; i < itemLength; i++) {
-    var phase = Math.sin(( scrollTop / 1250) + (i % 5));
+    phase = Math.sin(( scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -520,16 +530,18 @@ function updatePositions() {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
+
+  ticking = false;
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
+window.addEventListener('scroll', onScroll);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
+  var cols = 6;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 30; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -540,7 +552,8 @@ document.addEventListener('DOMContentLoaded', function() {
   items = document.querySelectorAll('.mover');
   itemLength = items.length;
   for (var j = 0; j < itemLength; j++) {
-    var phase = Math.sin(j % 5);
+    phase = Math.sin(j % 5);
     items[j].style.left = items[j].basicLeft + 100 * phase + 'px';
+    console.log(items[j].style.left, items[j].style.top, j);
   }
 });

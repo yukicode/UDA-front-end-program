@@ -462,7 +462,7 @@ window.performance.mark("mark_start_generating"); // collect timing data
 // This for-loop actually creates and appends all of the pizzas when the page loads
 var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) { 
-  pizzasDiv.appendChild(pizzaElementGenerator(i));
+   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
@@ -529,11 +529,11 @@ window.addEventListener('scroll', onScroll);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 6,
+  var cols = 8,
       s = 256,
       movingPizza = document.querySelector("#movingPizzas1"),
       elem;
-  for (var i = 0; i < 30; i++) {
+  for (var i = 0; i < 40; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";

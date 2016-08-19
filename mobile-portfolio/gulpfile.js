@@ -6,6 +6,16 @@ var deleteEmpty = require("delete-empty");
 var jsMini= require("gulp-uglify");
 var cssMini = require("gulp-clean-css");
 
+var ngrok = require("ngrok");
+var psi = require("psi");
+var sequence = require("run-sequence");
+var site="";
+var browserSync = require("browser-sync");
+
+//////////////////////////////////////////////////////////
+//Public Build
+//////////////////////////////////////////////////////////
+
 //inline resources for index.html, and minify html
 gulp.task("build:index", ["clean"], function(){
     return gulp.src(["./app/index.html"])
@@ -33,7 +43,7 @@ gulp.task("build:js", ["clean"] , function(){
 //minify css files that are not inline
 gulp.task("build:css", ["clean"], function(){
     return gulp.src("./app/css/!(*.inline.css)")
-            .pipe(cssMini({compatibility: 'ie8'}))
+            .pipe(cssMini({compatibility: "ie8"}))
             .pipe(gulp.dest("./public/css"));
 });
 
@@ -46,18 +56,81 @@ gulp.task("delete", function(){
 
 //copy everything to the public folder
 gulp.task("copy", ["delete"], function(){
-    return gulp.src(['./app/**/*'])
-                .pipe(gulp.dest('./public'));
+    return gulp.src(["./app/**/*"])
+                .pipe(gulp.dest("./public"));
 });
 
 //delete unnecessary files and empty folders
 gulp.task("clean", ["copy"], function(){
     del.sync([
-        './public/**/*.js',
-        './public/**/*.css',
-        './public/**/*.html',
+        "./public/**/*.js",
+        "./public/**/*.css",
+        "./public/**/*.html",
     ]);
     deleteEmpty.sync("./public/");
 });
 
+//////////////////////////////////////////////////////////
+//Serve and Page Speed Test
+//////////////////////////////////////////////////////////
+//resource: http://una.im/gulp-local-psi/
+
+//Serve index.html with browserSync
+gulp.task("server", function(cb){
+    browserSync({
+        port: 8000,
+        open: false,
+        server: {
+            baseDir: "./public",
+        },
+    }, cb);
+});
+
+//Forward site using ngrok for speed test
+gulp.task("ngrok",function(cb){
+    return ngrok.connect(8000, function(err, url){
+        site = url;
+        console.log("serving from "+ site);
+        cb();
+    });
+});
+
+//Use page speed insight to test index.html for desktop
+//result is output to the console
+gulp.task("psi-desktop", function (cb) {
+    console.log("Testing site: ", site);
+    console.log("It will take about a minute");
+    psi.output(site, {nokey: "true", strategy: "desktop"})
+        .then(function() {cb();});
+});
+
+//Use page speed insight to test index.html for mobile
+//result is output to the console
+gulp.task("psi-mobile", function (cb) {
+    console.log("Testing site: ", site);
+    console.log("It will take about a minute");
+    psi.output(site, {nokey: "true", strategy: "mobile"})
+        .then(function() {cb();});
+});
+
+//sequencially run tasks
+gulp.task("psi-seq", function (cb) {
+  return sequence(
+    "server",
+    "ngrok",
+    "psi-desktop",
+    "psi-mobile",
+    cb
+  );
+});
+
+//////////////////////////////////////////////////////////
+//Tasks
+//////////////////////////////////////////////////////////
+
 gulp.task("build", ["build:js", "build:css", "build:index", "build:pizza"]);
+
+gulp.task("pageSpeedTest", ["psi-seq"], function() {
+  console.log("End of page speed test");
+  process.exit();
+});

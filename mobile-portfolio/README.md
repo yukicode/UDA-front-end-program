@@ -1,27 +1,24 @@
 #Website Optimization
 --------------------------------------------------------
-App folder is for development css and js are not inlined nor minified.
-Public folder contains the inlined and minified build.
+* App folder is for development css and js are not inlined nor minified.
+* Public folder contains the inlined and minified build.
 
 ## SpeedTestResult
 
 --------------------------------------------------------
-Strategy:  desktop
-Speed:     98
-Strategy:  mobile
-Speed:     98
-Stability: 100
+* Strategy:  desktop
+* Speed:     98
+* Strategy:  mobile
+* Speed:     98
+* Stability: 100
 
 --------------------------------------------------------
 
 ## Gulp Task
 In the command line go to the public folder and type:
-`gulp`
-  Serve index.html locally.
-`gulp build`
-  Build webpage in the public repo. All the resources are inlined and minified.
-`gulp pageSpeedTest`
-  Test page speed use page speed insights. Results are shown in the console.
+* `gulp` Serve index.html locally.
+* `gulp build` Build webpage in the public repo. All the resources are inlined and minified.
+* `gulp pageSpeedTest` Test page speed use page speed insights. Results are shown in the console.
 
 ##Changes to index.html
 ### Optimize critical render path

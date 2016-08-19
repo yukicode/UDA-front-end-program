@@ -16,11 +16,11 @@ Stability: 100
 
 ## Gulp Task
 In the command line go to the public folder and type:
-```gulp```
+`gulp`
   Serve index.html locally.
-```gulp build```
+`gulp build`
   Build webpage in the public repo. All the resources are inlined and minified.
-```gulp pageSpeedTest```
+`gulp pageSpeedTest`
   Test page speed use page speed insights. Results are shown in the console.
 
 ##Changes to index.html
@@ -50,7 +50,7 @@ In the command line go to the public folder and type:
 
 ## Change of main.js
 ### Pizza Resize
-* Run ```document.querySelector("#pizzaSize")``` and ```document.querySelectorAll(".randomPizzaContainer")``` once and store them in variables
+* Run `document.querySelector("#pizzaSize")` and `document.querySelectorAll(".randomPizzaContainer")` once and store them in variables
 * delete function determineDx and simplify the calculation of new width. Avoid using offsetWidth.
 
 ### Generate Random Pizza
@@ -58,11 +58,11 @@ In the command line go to the public folder and type:
 * Tried using web workers but it takes a long time to get response from web worker. Increasing the number of web workers will further delay the response.
 
 ### Generate pizza background
-* Move variable declarition out of for loops. Move all the variables before the function ```logAverageFrame()``` and declare at once.
+* Move variable declarition out of for loops. Move all the variables before the function `logAverageFrame()` and declare at once.
 * Move the assignment of queryselector and scrollTop out of the for loop
-* Use ```requestAnimationFrame(updatePositions)``` to optimize the scroll event
-* Composition takes extra long time due to useless background pizzas outside of the visiable window. In ```DOMContentLoaded```, reduce the number of for loop from 200 to 40.
-* Calling ```updatePositions()``` in ```DOMContentLoaded``` will cause forecd synchronous layout. Use a simplified for loop instead.
+* Use `requestAnimationFrame(updatePositions)` to optimize the scroll event
+* Composition takes extra long time due to useless background pizzas outside of the visiable window. In `DOMContentLoaded`, reduce the number of for loop from 200 to 40.
+* Calling `updatePositions()` in `DOMContentLoaded` will cause forecd synchronous layout. Use a simplified for loop instead.
 
 ## Style.css
-* Add ```will-change: left;``` for ```.mover``` , indicate that they need to be in separated layers.
+* Add `will-change: left;` for `.mover` , indicate that they need to be in separated layers.

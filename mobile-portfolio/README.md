@@ -15,7 +15,7 @@
 --------------------------------------------------------
 
 ## Gulp Task
-In the command line go to the public folder and type:
+In the command line go to the mobile-protofilio folder and type:
 * `gulp` Serve index.html locally.
 * `gulp build` Build webpage in the public repo. All the resources are inlined and minified.
 * `gulp pageSpeedTest` Test page speed use page speed insights. Results are shown in the console.

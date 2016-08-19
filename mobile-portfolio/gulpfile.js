@@ -77,13 +77,12 @@ gulp.task("build:css", ["clean"], function() {
 });
 
 //////////////////////////////////////////////////////////
-//Serve and Page Speed Test
+//Page Speed Test
 //////////////////////////////////////////////////////////
 //resource: http://una.im/gulp-local-psi/
 
 //Serve index.html with browserSync
-gulp.task("server", function(cb) {
-    console.log("Start server and page speed test");
+gulp.task("test:server", function(cb) {
     browserSync({
         port: 8000,
         open: false,
@@ -94,7 +93,7 @@ gulp.task("server", function(cb) {
 });
 
 //Forward site using ngrok for speed test
-gulp.task("ngrok", function(cb) {
+gulp.task("test:ngrok", function(cb) {
     return ngrok.connect(8000, function(err, url) {
         site = url;
         console.log("serving from " + site);
@@ -104,7 +103,7 @@ gulp.task("ngrok", function(cb) {
 
 //Use page speed insight to test index.html for desktop
 //result is output to the console
-gulp.task("psi-desktop", function(cb) {
+gulp.task("test:psi-desktop", function(cb) {
     console.log("Testing site: ", site);
     console.log("It will take about a minute");
     psi.output(site, {
@@ -118,7 +117,7 @@ gulp.task("psi-desktop", function(cb) {
 
 //Use page speed insight to test index.html for mobile
 //result is output to the console
-gulp.task("psi-mobile", function(cb) {
+gulp.task("test:psi-mobile", function(cb) {
     console.log("Testing site: ", site);
     console.log("It will take about a minute");
     psi.output(site, {
@@ -131,25 +130,41 @@ gulp.task("psi-mobile", function(cb) {
 });
 
 //sequencially run tasks
-gulp.task("psi-seq", function(cb) {
+gulp.task("test:psi-seq", function(cb) {
+    console.log("Start server and page speed test");
     return sequence(
-        "server",
-        "ngrok",
-        "psi-desktop",
-        "psi-mobile",
+        "test:server",
+        "test:ngrok",
+        "test:psi-desktop",
+        "test:psi-mobile",
         cb
     );
+});
+
+//////////////////////////////////////////////////////////
+//Serve index.html locally
+//////////////////////////////////////////////////////////
+gulp.task("serve", function(cb) {
+    browserSync({
+        port: 8080,
+        server: {
+            baseDir: "./public",
+        },
+    }, cb);
 });
 
 //////////////////////////////////////////////////////////
 //Tasks
 //////////////////////////////////////////////////////////
 
+//build for public directory
 gulp.task("build", ["build:js", "build:css", "build:index", "build:pizza"]);
 
-gulp.task("pageSpeedTest", ["psi-seq"], function() {
+//page speed test of index.html
+gulp.task("pageSpeedTest", ["test:psi-seq"], function() {
     console.log("End of page speed test");
     process.exit();
 });
 
-gulp.task("default", ["pageSpeedTest"]);
+//serve index.html
+gulp.task("default", ["serve"]);

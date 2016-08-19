@@ -460,6 +460,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+//DOM query is expensive, should be moved outside of the loop
 var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) { 
    pizzasDiv.appendChild(pizzaElementGenerator(i));
@@ -498,7 +499,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 //source: http://www.html5rocks.com/en/tutorials/speed/animations/
 function onScroll(){
   if(!ticking){
-    requestAnimationFrame(updatePositions);
+    requestAnimationFrame(updatePositions);//if updatePositions is not actively running, run updatePositions in the next frame
     ticking = true;
   }
 }
@@ -533,6 +534,9 @@ document.addEventListener('DOMContentLoaded', function() {
       s = 256,
       movingPizza = document.querySelector("#movingPizzas1"),
       elem;
+   //generate 200 background pizza is crazy... 
+   //Any image outside of the visiable window is useless, bacause the background will not scroll 
+   //Reduced the number to 40
   for (var i = 0; i < 40; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';

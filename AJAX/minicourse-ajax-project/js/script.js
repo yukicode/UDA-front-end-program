@@ -31,7 +31,6 @@ function loadData() {
         'sort': "newest",
     });
     $.getJSON(url, function(data){
-        console.log(data.response.docs);
         $.each(data.response.docs,function(index, val){
             if(val.snippet){
                 fragment += temp.replace("%link%", val.web_url).replace("%title%", val.headline.main)
@@ -42,10 +41,37 @@ function loadData() {
             }
             
         });
-        fragment = "<ul>" + fragment + "</ul>";
-        $body.append(fragment);
+        $nytElem.append(fragment);
+    }).error(function() {
+        console.log( "error getting json from ny times" );
+    });
+
+    //get content from wikipedia
+    var wikiUrl =  "https://en.wikipedia.org/w/api.php";
+    wikiUrl += '?' + $.param({
+        action: "opensearch",
+        search: city,
+        format: "json",
+        callback: "wikiCallback",
+    });
+    var names = [], abrs = [], links = [];
+    var tempWiki = '<li><a href="%link%">%name%</a></li>';
+    $.ajax({
+        "url": wikiUrl,
+        "dataType": "jsonp",
+    })
+    .done(function(data){
+        names = data[1];
+        abrs = data[2];
+        links = data[3];
+        for (var i=0; i<10; i++){
+            $wikiElem.append(tempWiki.replace("%link%", links[i]).replace("%name%", names[i]));
+        }
+    })
+    .fail(function(){
+        console.log("error getting jsonp from wikipedia" );
     });
     return false;
-};
+}
 
 $('#form-container').submit(loadData);

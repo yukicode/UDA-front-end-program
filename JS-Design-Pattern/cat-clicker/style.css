@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: #2d3c49;
+}
+
+h1, img, p {
+    display:block;
+    text-align: center;
+    margin: auto;
+}

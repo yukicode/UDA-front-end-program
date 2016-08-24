@@ -19,7 +19,7 @@ var cats = [
     },
     {
         index: 3,
-        img: "./img/cat-3.jpg",
+        img: "./img/cat-4.jpg",
         name: "cat-4",
         count: 0,
     },
@@ -31,66 +31,68 @@ var cats = [
     }
 ];
 
+var oct = {
+    init: function(){
+        selectView.init();
+        detailView.init();
+    },
+    getLength: function(){
+        return cats.length;
+    },
+    currentCatId: 0,
+    getCurrentCatDetail: function(){
+        return cats[this.currentCatId];
+    },
+    getCurrentCatCount: function(){
+        return cats[this.currentCatId].count;
+    },
+    addCount: function(){
+        cats[this.currentCatId].count++;
+    }
+};
+
+var selectView = {
+    init: function(){
+        var selection = document.getElementById("cat-select");
+        var length = oct.getLength();
+        var option;
+        for(var i=0; i<length; i++){
+            option = document.createElement("option");
+            option.value = i;
+            option.innerHTML = "cat " + i;
+            selection.appendChild(option);
+        }
+        selection.addEventListener('change', function(){
+            oct.currentCatId = selection.value;
+            detailView.render();
+        });
+    }
+};
+
+var detailView = {
+    init: function(){
+        var detail = document.getElementById("cat-detail");
+        this.name = document.getElementById("name");
+        this.img = detail.getElementsByClassName("cat-img")[0];
+        this.clickCount = detail.getElementsByClassName("click-count")[0];
+        //important pattern!
+        this.img.addEventListener('click', (function(ele){
+            return function(){
+                        oct.addCount();
+                        ele.innerHTML = oct.getCurrentCatCount();
+                    };
+        })(this.clickCount));
+        this.render();
+    },
+    render: function(){
+        var cat = oct.getCurrentCatDetail();
+        this.name.innerHTML = cat.name;
+        this.img.src = cat.img;
+        this.img.id = "cat"+oct.currentCatId;
+        this.clickCount.innerHTML= cat.count;
+    }
+};
+
 function load(){
-    var selection = document.getElementById("cat-select");
-    var length = cats.length;
-    var option;
-
-    var detail = document.getElementById("cat-detail");
-    var name = document.getElementById("name");
-    var img = detail.getElementsByClassName("cat-img")[0];
-    var clickCount = detail.getElementsByClassName("click-count")[0];
-
-    for(var i=0; i<length; i++){
-        option = document.createElement("option");
-        option.value = i;
-        option.innerHTML = cats[i].name;
-        selection.appendChild(option);
-    }
-    img.addEventListener('click', function(){
-        addCount(img.id[3]);
-        clickCount.innerHTML = cats[img.id[3]].count;
-    });
-    changeCat(0);
-    function changeCat(i){
-        name.innerHTML = cats[i].name;
-        img.src = cats[i].img;
-        img.id = "cat"+i;
-        clickCount.innerHTML= cats[i].count;
-    }
-
-    function addCount(i){
-        cats[i].count++;
-    }
-
-    selection.addEventListener('change', function(){
-        changeCat(selection.value);
-    });
+    oct.init();
 }
-
-//using template html
-// var clone, temp, tempImg, tempName, tempCount, img, name;
-// temp = document.getElementsByTagName("template")[0];
-// tempImg = temp.content.querySelector('img');
-// tempName = temp.content.querySelector(".name");
-// tempCount = temp.content.querySelector(".click-count");
-
-// cats.forEach(function(cat){
-//     tempImg.src = cat.img;
-//     tempImg.id = cat.name;
-//     tempName.innerHTML = cat.name;
-//     tempCount.id = "count" + cat.index;
-//     clone = document.importNode(temp.content, true);
-//     document.body.appendChild(clone);
-//     counts.push(0);
-//     img = document.getElementById(cat.name);
-//     img.addEventListener('click', function(){
-//         addCount(cat.index);
-//         count = document.getElementById("count" + cat.index);
-//         count.innerHTML = counts[cat.index];
-//     });
-// });
-
-// function addCount(i){
-//     counts[i] ++;
-// }

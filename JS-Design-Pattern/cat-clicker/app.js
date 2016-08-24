@@ -25,7 +25,7 @@ var cats = [
     },
     {
         index: 4,
-        img: "./img/cat-3.jpg",
+        img: "./img/cat-5.jpg",
         name: "cat-5",
         count: 0,
     }
@@ -35,6 +35,7 @@ var oct = {
     init: function(){
         selectView.init();
         detailView.init();
+        editView.init();
     },
     getLength: function(){
         return cats.length;
@@ -48,7 +49,21 @@ var oct = {
     },
     addCount: function(){
         cats[this.currentCatId].count++;
-    }
+        detailView.render();
+    },
+    setCurrentCat: function(name, img){
+        cats[this.currentCatId].name = editView.editName.value;
+        cats[this.currentCatId].img = editView.editImg.value;
+        detailView.render();
+    },
+    showDetail: function(){
+        editView.editDetail.classList.remove("hidden");
+        editView.render();
+    },
+    hideDetail: function(){
+        editView.editDetail.classList.add("hidden");
+        editView.render();
+    },
 };
 
 var selectView = {
@@ -75,13 +90,9 @@ var detailView = {
         this.name = document.getElementById("name");
         this.img = detail.getElementsByClassName("cat-img")[0];
         this.clickCount = detail.getElementsByClassName("click-count")[0];
-        //important pattern!
-        this.img.addEventListener('click', (function(ele){
-            return function(){
-                        oct.addCount();
-                        ele.innerHTML = oct.getCurrentCatCount();
-                    };
-        })(this.clickCount));
+        this.img.addEventListener('click', function(){
+            oct.addCount();
+        });
         this.render();
     },
     render: function(){
@@ -92,6 +103,35 @@ var detailView = {
         this.clickCount.innerHTML= cat.count;
     }
 };
+
+var editView = {
+    init: function(){
+        this.edit = document.getElementById("btn-edit");
+        this.editDetail = document.getElementById("edit-detail");
+        this.editImg = document.getElementById("edit-img");
+        this.editName = document.getElementById("edit-name");
+        this.cancel = document.getElementById("btn-cancel");
+        this.save = document.getElementById("btn-save");
+
+        this.edit.addEventListener('click', function(){
+            oct.showDetail();
+        });
+
+        this.save.addEventListener('click', function(){
+            oct.setCurrentCat();
+            oct.hideDetail();
+        });
+
+        this.cancel.addEventListener('click', function(){
+            oct.hideDetail();
+        });
+    },
+    render: function(){
+        this.cat = oct.getCurrentCatDetail();
+        this.editName.value = this.cat.name;
+        this.editImg.value = this.cat.img;
+    },
+}
 
 function load(){
     oct.init();

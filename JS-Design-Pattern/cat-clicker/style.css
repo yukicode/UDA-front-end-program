@@ -7,7 +7,7 @@
     color: #2d3c49;
 }
 
-h1, img, p {
+h1, h4, img, p {
     display:block;
     text-align: center;
     margin: auto;

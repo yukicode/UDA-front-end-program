@@ -12,3 +12,13 @@ h1, h4, img, p {
     text-align: center;
     margin: auto;
 }
+.container {
+    display: flex;
+}
+#cat-detail {
+    width: 65%;
+}
+#cat-select {
+    width: 35%;
+    height:20px;
+}

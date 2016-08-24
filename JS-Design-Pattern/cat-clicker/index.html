@@ -6,13 +6,17 @@
         <title>Cat Clicker</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body onload = "load()">
         <h1>Cat Clicker</h1>
-        <template>
-            <h4 class="name"></h4>
-            <img src="" class="cat-img">
-            <p>Cat has been clicked <span class="click-count">0</span> Times</p>
-        </template>
+        <div class="container">  
+            <div id="cat-detail">
+                <h4 id="name">CAT</h4>
+                <img src="" class="cat-img">
+                <p>Cat has been clicked <span class="click-count">0</span> Times</p>
+            </div>
+            <select name="cat-select" id="cat-select">
+            </select>
+        </div>
         <script src="./app.js"></script>
     </body>
 </html>

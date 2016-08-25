@@ -20,6 +20,8 @@ var app = app || {};
 			'click .toggle': 'toggleCompleted',
 			'dblclick label': 'edit',
 			'click .destroy': 'clear',
+			'click .edit-btn': 'edit',
+			'click .priority-btn': 'toggelPriority',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
 			'blur .edit': 'close'
@@ -57,6 +59,10 @@ var app = app || {};
 
 		toggleVisible: function () {
 			this.$el.toggleClass('hidden', this.isHidden());
+		},
+
+		toggelPriority: function (){
+			this.$el.toggleClass('priority');
 		},
 
 		isHidden: function () {

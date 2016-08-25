@@ -17,16 +17,31 @@ API Course, Lesson 1 -->
      function initMap() {
        map = new google.maps.Map(document.getElementById('map'), {
          center: {lat: 40.74135, lng: -73.99802},
-         zoom: 14
+         zoom: 10
        });
        // Create a single latLng literal object.
        var singleLatLng = {lat: 40.74135, lng: -73.99802};
        // TODO: Create a single marker appearing on initialize -
        // Create it with the position of the singleLatLng,
        // on the map, and give it your own title!
+       var marker = new google.maps.Marker({
+         position: singleLatLng,
+         map: map,
+         title: "My Location",
+         draggable: true,
+         animation: google.maps.Animation.DROP,
+       });
+
 
        // TODO: create a single infowindow, with your own content.
        // It must appear on the marker
+       var info = new google.maps.InfoWindow({
+         content: singleLatLng.lat.toString() +" " + singleLatLng.lng.toString(),
+       });
+
+       marker.addListener("click", function(){
+         info.open(map, marker);
+       });
 
        // TODO: create an EVENT LISTENER so that the infowindow opens when
        // the marker is clicked!
@@ -34,7 +49,7 @@ API Course, Lesson 1 -->
    </script>
    <!--TODO: Insert your API Key in the below call to load the API.-->
    <script async defer
-     src="https://maps.googleapis.com/maps/api/js?v=3&key=XXX&callback=initMap">
+     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyB-GSn-FrlOEQIwVeIhp6A2224jr6kTFoY&callback=initMap">
    </script>
  </body>
 </html>

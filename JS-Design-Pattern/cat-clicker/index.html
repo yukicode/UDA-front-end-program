@@ -9,23 +9,31 @@
     <body onload = "load()">
         <h1>Cat Clicker</h1>
         <div class="container">  
-            <div id="cat-detail">
-                <h4 id="name">CAT</h4>
-                <img src="" class="cat-img">
-                <p>Cat has been clicked <span class="click-count">0</span> Times</p>
+            <div id="cat-detail" data-bind="with:currentCat">
+                <h4 id="name" data-bind="text: catName()">CAT</h4>
+                <p>The level of the cat is <span data-bind="text: catLevel"></span></p>
+                <img data-bind="attr: {src: catImg}, click: $parent.addCount" class="cat-img">
+                <p>Cat has been clicked <span data-bind="text: catCount">0</span> Times</p>
+                <ul data-bind="foreach: nickname">
+                    <li>
+                        <span data-bind="text: $data"> </span>
+                    </li>
+                </ul>
             </div>
-            <select name="cat-select" id="cat-select">
+            <select name="cat-select" id="cat-select" data-bind="foreach: allOptions, value: selectedCat">
+                <option value="" data-bind="text: name, value: v"></option>
             </select>
         </div>
         <div id="edit-panel">
             <button name="edit" id="btn-edit">Edit</button>
             <div id="edit-detail" class="hidden">
-                Name: <input type="text" name="name" id="edit-name"><br>
-                Image: <input type="text" name="image" id="edit-img"><br>
+                Name: <input type="text" name="name" id="edit-name" ><br>
+                Image: <input type="text" name="image" id="edit-img" ><br>
                 <button name="cancel" id="btn-cancel">Cancel</button>
                 <button name="save" id="btn-save">Save</button>
             </div>
         </div>
-        <script src="./app.js"></script>
+        <script src="./js/knockout-3.4.0.js"></script>
+        <script src="./js/app.js"></script>
     </body>
 </html>

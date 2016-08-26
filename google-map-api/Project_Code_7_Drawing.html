@@ -255,6 +255,8 @@
           drawingManager.setDrawingMode(null);
           // Creating a new editable polygon from the overlay.
           polygon = event.overlay;
+          //compute area
+          console.log(google.maps.geometry.spherical.computeArea(polygon.getPath()));
           polygon.setEditable(true);
           // Searching within the polygon.
           searchWithinPolygon();
@@ -371,7 +373,7 @@
 
     <script async defer
         src=
-        "https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=MYAPIKEY&v=3&callback=initMap">
+        "https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=AIzaSyB-GSn-FrlOEQIwVeIhp6A2224jr6kTFoY&v=3&callback=initMap">
     </script>
 
   </body>

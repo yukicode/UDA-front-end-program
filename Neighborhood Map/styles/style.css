@@ -11,3 +11,7 @@
 div {
     min-height: 50px;
 }
+
+.container{
+    width: 100%;
+}

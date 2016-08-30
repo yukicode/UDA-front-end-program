@@ -442,8 +442,8 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
+    newwidth = sizeSwitcher(size);
     for (var i = 0; i < pizzaImgContainerLength; i++) {
-      newwidth = sizeSwitcher(size);
       pizzaImgContainer[i].style.width = newwidth + "%";
     }
   }

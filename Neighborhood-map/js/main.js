@@ -18,6 +18,13 @@ var view = {
             center: loc,
             zoom: locZoom,
         });
+        var marker = new google.maps.Marker({
+            position: loc,
+            map: map,
+            icon: {url: "./images/purple_MarkerW.png"},
+            title: "Work Location",
+        });
+        marker.setMap(map);
     }
 };
 

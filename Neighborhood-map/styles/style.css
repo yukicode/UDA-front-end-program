@@ -8,10 +8,24 @@
     color: #2d3c49;
 }
 
-div {
-    min-height: 50px;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.container{
+.container, .row {
     width: 100%;
+}
+
+#title {
+    height: 10%;
+}
+
+#main {
+    height: 90%;
+}
+
+#main>.row, #map {
+    height: 100%;
 }

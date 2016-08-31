@@ -2,6 +2,7 @@ var http = require("http");
 var cheerio = require("cheerio");
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
+var fs = require('fs');
 
 //entry point
 var entryUrl, pages, entries, url, finishCount = 0, apartments = [];
@@ -64,6 +65,28 @@ var countEntries = function () {
         console.log("total pages:", pages, "total apartments", entries);
         console.log("total entries:", count);
         closeDB();
+    });
+};
+
+//save entries to file
+var saveEntries = function () {
+    MongoClient.connect(dbUrl, function (err, db) {
+        assert.equal(null, err);
+        aptDB = db;
+        collection = aptDB.collection('ap-data');
+        collection.find({}).toArray(function (err, docs) {
+            assert.equal(err, null);
+            console.log("Found the following records");
+            console.log(docs);
+            docs = JSON.stringify(docs);
+            fs.writeFile("./js/aptData.json", docs, function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+                aptDB.close();
+            });
+        });
     });
 };
 
@@ -219,4 +242,5 @@ function init() {
     });
 }
 
-init();
+//init();
+saveEntries();

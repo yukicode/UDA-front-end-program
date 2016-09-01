@@ -9,19 +9,6 @@ var baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyB-GSn
 var street, city, state, address, secondUrl, finalUrl, loc, placeId, totalEntries, countUpdate = 0;
 var tempArray = [];
 
-// Use connect method to connect to the server
-var connectToDB = function (callback) {
-    MongoClient.connect(dbUrl, function (err, db) {
-        assert.equal(null, err);
-        aptDB = db;
-        collection = aptDB.collection('ap-data');
-        console.log("Connected successfully to server");
-        if (callback) {
-            callback();
-        }
-    });
-};
-
 // download a URL and invoke callback with the data.
 var download = function (url, callback) {
     https.get(url, function (res) {
@@ -37,6 +24,7 @@ var download = function (url, callback) {
     });
 };
 
+//get geometry of the apartment
 var getCoordination = function (apt, callback) {
     address = apt.fullAddress;
     secondUrl = address.split(" ").join("+");
@@ -55,6 +43,7 @@ var getCoordination = function (apt, callback) {
     });
 };
 
+//get total entries of apartments from the database
 var getTotalEntries = function (callback) {
     collection.count(function (err, count) {
         assert.equal(null, err);
@@ -63,6 +52,7 @@ var getTotalEntries = function (callback) {
     });
 };
 
+//update the geometry for each entry
 var updateGeoLocation = function () {
     MongoClient.connect(dbUrl, function (err, db) {
         assert.equal(null, err);
@@ -93,9 +83,10 @@ var updateGeoLocation = function () {
             });
         });
     });
-}
+};
 
 //save entries to file
+//select only entries with name and location
 var saveEntries = function () {
     MongoClient.connect(dbUrl, function (err, db) {
         assert.equal(null, err);

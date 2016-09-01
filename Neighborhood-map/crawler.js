@@ -68,28 +68,6 @@ var countEntries = function () {
     });
 };
 
-//save entries to file
-var saveEntries = function () {
-    MongoClient.connect(dbUrl, function (err, db) {
-        assert.equal(null, err);
-        aptDB = db;
-        collection = aptDB.collection('ap-data');
-        collection.find({}).toArray(function (err, docs) {
-            assert.equal(err, null);
-            console.log("Found the following records");
-            console.log(docs);
-            docs = JSON.stringify(docs);
-            fs.writeFile("./js/aptData.json", docs, function (err) {
-                if (err) {
-                    return console.log(err);
-                }
-                console.log("The file was saved!");
-                aptDB.close();
-            });
-        });
-    });
-};
-
 // download a URL and invoke callback with the data.
 function download(url, callback) {
     http.get(url, function (res) {
@@ -239,4 +217,3 @@ function init() {
 }
 
 //init();
-//saveEntries();

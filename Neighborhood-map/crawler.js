@@ -217,10 +217,6 @@ function getDetailOnThePage(apt, callback) {
     });
 }
 
-function logInfo() {
-    console.log(apartments);
-}
-
 function init() {
     connectToDB();
     entryUrl = "http://www.rent.com/washington/bellevue/apartments_condos_houses_townhouses";
@@ -243,4 +239,4 @@ function init() {
 }
 
 //init();
-saveEntries();
+//saveEntries();

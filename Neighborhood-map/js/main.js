@@ -16,6 +16,12 @@ var viewModel = {
         this.setWorkMarker();
         this.addAptMarkers(50);
         view.renderInfoWindow();
+        ko.applyBindings({
+            markList: model.aptMarkerList,
+            display: function (marker) {
+                view.renderInfoWindow(model.map, marker, model.aptInfo);
+            }
+        });
     },
     setWorkMarker: function () {
         if (!model.map) { return; }
@@ -49,11 +55,11 @@ var viewModel = {
         var i = marker.aptIndex,
             name = model.aptList[i].name || "",
             phone = model.aptList[i].phone || "",
-            priceRange = model.aptList[i].priceRange || "";
+            priceRange = model.aptList[i].priceRange || "Unknown";
         var contentString = '<div id="content">' +
-            '<h3>' + name + '</h3>' +
+            '<h4>' + name + '</h4>' +
             '<p>' + "Tel: " + phone + '</p>' +
-            '<p>' + priceRange + '</p>' +
+            '<p>' + "Price Range: " + priceRange + '</p>' +
             '</div>';
         return contentString;
     },

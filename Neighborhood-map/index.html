@@ -18,7 +18,17 @@
     </div>
     <div class="container" id="main">
         <div class="row">
-            <div id="list-view" class="col-sm-3"></div>
+            <div id="list-view" class="col-sm-3">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Filter">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </form>
+                <ul data-bind="foreach: markList">
+                    <li data-bind="text: title, click: $parent.display"></li>
+                </ul>
+            </div>
             <div id="map"></div>
         </div>
     </div>
@@ -26,7 +36,8 @@
     <script src="./js/knockout-3.4.0.js"></script>
     <script src="./js/aptData.js"></script>
     <script src="./js/main.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-GSn-FrlOEQIwVeIhp6A2224jr6kTFoY&v=3&callback=viewModel.init" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-GSn-FrlOEQIwVeIhp6A2224jr6kTFoY&v=3&callback=viewModel.init"
+        async defer></script>
 </body>
 
 </html>

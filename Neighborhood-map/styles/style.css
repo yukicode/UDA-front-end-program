@@ -26,6 +26,16 @@ html, body {
     height: 90%;
 }
 
-#main>.row, #map {
+#main>.row, #map, #list-view{
     height: 100%;
+}
+
+ul {
+    height: 95%;
+    margin-top: 10px;
+    overflow: scroll;
+}
+
+li {
+    width: 100%;
 }

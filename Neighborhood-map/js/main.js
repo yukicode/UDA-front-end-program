@@ -90,6 +90,7 @@ var viewModel = {
         }).done(function (data) {
             if (data.message) { //if the data comes with a message, then there is an error getting data from yelp
                 console.log("error needs to be handled", data.message);
+                view.renderYelpInfo({error: "Not Found"});
             } else {
                 view.renderYelpInfo(data);
             }
@@ -106,7 +107,7 @@ var view = {
             start: '<div id="content">',
             end: '</div>',
             basic: '',
-            yelp: '',
+            yelp: '<p>' + 'Yelp Review: Loading...' + '</p>',
             google: '',
         };
     },
@@ -119,7 +120,7 @@ var view = {
                 start: '<div id="content">',
                 end: '</div>',
                 basic: '',
-                yelp: '',
+                yelp: '<p>' + 'Yelp Review: Loading...' + '</p>',
                 google: '',
             };
             viewModel.currentMarker = marker;
@@ -154,6 +155,11 @@ var view = {
         this.renderInfoWindow();
     },
     renderYelpInfo: function (data) {
+        if(data.error){
+            this.formattedInfoContent.yelp = '<p>' + 'Yelp Review: Not Found' + '</p>';
+            this.renderInfoWindow();
+            return;
+        }
         var formattedString = '',
             rating, ratingImg, ratingCount, yelpLink, yelpImage, yelpSnippet;
 

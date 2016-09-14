@@ -43,7 +43,7 @@ app.get('/api/yelp/', function (req, res) {
                         res.send(r);
                     }
                 });
-                res.send({message: "Apartment not found", data: data.businesses[0], });
+                res.send({message: "Apartment not found", data: data.businesses[0],});
             }
             else{
                 res.send({message: "No result found"});

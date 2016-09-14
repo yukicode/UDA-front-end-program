@@ -1,83 +1,80 @@
+//TODO handle networkerror for yelp
+
 //property and map data
 var model = {
-    map: {},
-    workMarker: {},
     aptList: apts,
     aptMarkerList: [],
-    aptInfo: {},
     defaultLoc: { lat: 47.610377, lng: -122.200679 },
     defaultZoom: 12,
 };
 
 var viewModel = {
     init: function () {
+        var self = this;
         view.init();
         this.setMap();
-        this.initInfoWindow();
+        this.setInfoWindow();
         this.setWorkMarker();
-        this.addAptMarkers(50);
-        view.renderInfoWindow();
+        this.setAptMarkers(50);
+        this.currentMarker = null;
         ko.applyBindings({
             markList: model.aptMarkerList,
             display: function (marker) {
-                view.renderInfoWindow(model.map, marker, model.aptInfo);
+                self.currentMarker = marker;
+                view.updateInfoWindow();
             }
         });
     },
     setMap: function () {
-        model.map = new google.maps.Map(view.mapDiv, {
+        this.map = new google.maps.Map(view.mapDiv, {
             center: model.defaultLoc,
             zoom: model.defaultZoom,
         });
     },
     setWorkMarker: function () {
-        if (!model.map) { return; }
-        model.workMarker = new google.maps.Marker({
+        if (!this.map) { return; }
+        this.workMarker = new google.maps.Marker({
             position: model.defaultLoc,
-            map: model.map,
+            map: this.map,
             icon: { url: "./images/purple_MarkerW.png" },
             title: "Work Location",
         });
-        view.renderMarker(model.map, model.workMarker);
+        view.renderMarker(this.workMarker);
     },
-    addAptMarkers: function (count) {
-        if (!model.aptList || !model.map) { return; }
+    setAptMarkers: function (count) {
+        if (!model.aptList || !this.map) { return; }
         var length = count || aptList.length;
         for (var i = 0; i < length; i++) {
             if (!model.aptList[i]) { break; }
             var marker = new google.maps.Marker({
                 position: model.aptList[i].loc,
-                map: model.map,
+                map: this.map,
                 title: model.aptList[i].name,
                 aptIndex: i,
             });
             model.aptMarkerList.push(marker);
-            view.renderMarker(model.map, marker, model.aptInfo);
+            view.renderMarker(marker);
         }
     },
-    initInfoWindow: function () {
-        model.aptInfo = new google.maps.InfoWindow({ marker: null });
+    setInfoWindow: function () {
+        this.infoWin = new google.maps.InfoWindow({ marker: null });
     },
-    getInfoContent: function (marker) {
-        var i = marker.aptIndex,
+    updateInfoWindow: function () {
+        console.log("currentmarker in updateinfowindow", this.currentMarker);
+        this.updateBasicInfo();
+        this.updateYelpInfo();
+    },
+    updateBasicInfo: function () {
+        var i = this.currentMarker.aptIndex,
             name = model.aptList[i].name || "",
-            phone = model.aptList[i].phone || "",
-            priceRange = model.aptList[i].priceRange || "Unknown",
-            yelp = this.getYelp(marker);
-        var contentString = '<div id="content">' +
-            '<h4>' + name + '</h4>' +
-            '<p>' + "Tel: " + phone + '</p>' +
-            '<p>' + "Price Range: " + priceRange + '</p>';
+            phone = model.aptList[i].phone || "Unknown",
+            priceRange = model.aptList[i].priceRange || "Unknown";
 
-        if (yelp) {
-            contentString += yelp;
-        }
-        contentString += '</div>';
-        return contentString;
+        view.renderBasicInfo(name, phone, priceRange);
     },
-    getYelp: function (marker) {
-        var self = this;
-        var formattedString = '';
+    updateYelpInfo: function () {
+        var marker = this.currentMarker;
+        if (!marker) { return; }
         var i = marker.aptIndex,
             term = model.aptList[i].name || "",
             lat = model.aptList[i].loc.lat || 0;
@@ -90,19 +87,73 @@ var viewModel = {
                 lat: lat,
                 lng: lng,
             },
-            async: false,
         }).done(function (data) {
-            if (data.message) {
+            if (data.message) { //if the data comes with a message, then there is an error getting data from yelp
                 console.log("error needs to be handled", data.message);
-            }else{
-                formattedString = self.formatYelp(data);
+            } else {
+                view.renderYelpInfo(data);
             }
         }).fail(function (err) {
             console.log(err);
         });
-        return formattedString;
     },
-    formatYelp: function (data) {
+};
+
+var view = {
+    init: function () {
+        this.mapDiv = document.getElementById("map");
+        this.formattedInfoContent = {
+            start: '<div id="content">',
+            end: '</div>',
+            basic: '',
+            yelp: '',
+            google: '',
+        };
+    },
+    renderMarker: function (marker) {
+        var self = this;
+        if (!viewModel.map || !marker) { return; }
+        marker.setMap(viewModel.map);
+        marker.addListener('click', function () {
+            self.formattedInfoContent = {
+                start: '<div id="content">',
+                end: '</div>',
+                basic: '',
+                yelp: '',
+                google: '',
+            };
+            viewModel.currentMarker = marker;
+            viewModel.updateInfoWindow();
+        });
+    },
+    renderInfoWindow: function () {
+        var infoWindow = viewModel.infoWin,
+            marker = viewModel.currentMarker,
+            content = this.formattedInfoContent.start +
+                this.formattedInfoContent.basic +
+                this.formattedInfoContent.yelp +
+                this.formattedInfoContent.google +
+                this.formattedInfoContent.end;
+
+        if (infoWindow) {
+            infoWindow.setContent(content);
+            infoWindow.marker = marker;
+            infoWindow.addListener('closeclick', function () {
+                infoWindow.marker = null;
+            });
+            infoWindow.open(viewModel.map, marker);
+        }
+    },
+    renderBasicInfo: function (name, phone, priceRange) {
+        if (!viewModel.currentMarker) {
+            return;
+        }
+        this.formattedInfoContent.basic = '<h4>' + name + '</h4>' +
+            '<p>' + "Tel: " + phone + '</p>' +
+            '<p>' + "Price Range: " + priceRange + '</p>';
+        this.renderInfoWindow();
+    },
+    renderYelpInfo: function (data) {
         var formattedString = '',
             rating, ratingImg, ratingCount, yelpLink, yelpImage, yelpSnippet;
 
@@ -115,7 +166,8 @@ var viewModel = {
         yelpImage = data.image_url || "";
         yelpSnippet = data.snippet_text || "";
         formattedString = '<a href="' + yelpLink + '" target="_blank">' + '<p>' + "Yelp Review: " + ratingImg + '(' + ratingCount + ')' + '</p>' + '</a>';
-        return formattedString;
+        this.formattedInfoContent.yelp = formattedString;
+        this.renderInfoWindow();
     },
     getRatingImg: function (rating) {
         var fullStar = "&#9733;",
@@ -142,30 +194,6 @@ var viewModel = {
                 return fullStar + fullStar + fullStar + fullStar + fullStar;
             default:
                 return emptyStar + emptyStar + emptyStar + emptyStar + emptyStar;
-        }
-    },
-};
-
-var view = {
-    init: function () {
-        this.mapDiv = document.getElementById("map");
-    },
-    renderMarker: function (map, marker, infoWindow) {
-        var self = this;
-        if (!map || !marker) { return; }
-        marker.setMap(map);
-        marker.addListener('click', function () {
-            self.renderInfoWindow(map, marker, infoWindow);
-        });
-    },
-    renderInfoWindow: function (map, marker, infoWindow) {
-        if (infoWindow && infoWindow.marker != marker) {
-            infoWindow.setContent(viewModel.getInfoContent(marker));
-            infoWindow.marker = marker;
-            infoWindow.addListener('closeclick', function () {
-                infoWindow.marker = null;
-            });
-            infoWindow.open(map, marker);
         }
     },
 };

@@ -11,7 +11,8 @@ var model = {
 
 var viewModel = {
     init: function () {
-        view.renderMap();
+        view.init();
+        this.setMap();
         this.initInfoWindow();
         this.setWorkMarker();
         this.addAptMarkers(50);
@@ -21,6 +22,12 @@ var viewModel = {
             display: function (marker) {
                 view.renderInfoWindow(model.map, marker, model.aptInfo);
             }
+        });
+    },
+    setMap: function () {
+        model.map = new google.maps.Map(view.mapDiv, {
+            center: model.defaultLoc,
+            zoom: model.defaultZoom,
         });
     },
     setWorkMarker: function () {
@@ -55,22 +62,93 @@ var viewModel = {
         var i = marker.aptIndex,
             name = model.aptList[i].name || "",
             phone = model.aptList[i].phone || "",
-            priceRange = model.aptList[i].priceRange || "Unknown";
+            priceRange = model.aptList[i].priceRange || "Unknown",
+            yelp = this.getYelp(marker);
         var contentString = '<div id="content">' +
             '<h4>' + name + '</h4>' +
             '<p>' + "Tel: " + phone + '</p>' +
-            '<p>' + "Price Range: " + priceRange + '</p>' +
-            '</div>';
+            '<p>' + "Price Range: " + priceRange + '</p>';
+
+        if (yelp) {
+            contentString += yelp;
+        }
+        contentString += '</div>';
         return contentString;
+    },
+    getYelp: function (marker) {
+        var self = this;
+        var formattedString = '';
+        var i = marker.aptIndex,
+            term = model.aptList[i].name || "",
+            lat = model.aptList[i].loc.lat || 0;
+        lng = model.aptList[i].loc.lng || 0;
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:3000/api/yelp/",
+            data: {
+                term: term,
+                lat: lat,
+                lng: lng,
+            },
+            async: false,
+        }).done(function (data) {
+            if (data.message) {
+                console.log("error needs to be handled", data.message);
+            }else{
+                formattedString = self.formatYelp(data);
+            }
+        }).fail(function (err) {
+            console.log(err);
+        });
+        return formattedString;
+    },
+    formatYelp: function (data) {
+        var formattedString = '',
+            rating, ratingImg, ratingCount, yelpLink, yelpImage, yelpSnippet;
+
+        rating = data.rating || "";
+        if (rating) {
+            ratingImg = this.getRatingImg(rating);
+        }
+        ratingCount = data.review_count || 0;
+        yelpLink = data.url || "";
+        yelpImage = data.image_url || "";
+        yelpSnippet = data.snippet_text || "";
+        formattedString = '<a href="' + yelpLink + '" target="_blank">' + '<p>' + "Yelp Review: " + ratingImg + '(' + ratingCount + ')' + '</p>' + '</a>';
+        return formattedString;
+    },
+    getRatingImg: function (rating) {
+        var fullStar = "&#9733;",
+            halfStar = "&#10030;",
+            emptyStar = "&#9734;";
+        switch (rating) {
+            case 1:
+                return fullStar + emptyStar + emptyStar + emptyStar + emptyStar;
+            case 1.5:
+                return fullStar + halfStar + emptyStar + emptyStar + emptyStar;
+            case 2:
+                return fullStar + fullStar + emptyStar + emptyStar + emptyStar;
+            case 2.5:
+                return fullStar + fullStar + halfStar + emptyStar + emptyStar;
+            case 3:
+                return fullStar + fullStar + fullStar + emptyStar + emptyStar;
+            case 3.5:
+                return fullStar + fullStar + fullStar + halfStar + emptyStar;
+            case 4:
+                return fullStar + fullStar + fullStar + fullStar + emptyStar;
+            case 4.5:
+                return fullStar + fullStar + fullStar + fullStar + halfStar;
+            case 5:
+                return fullStar + fullStar + fullStar + fullStar + fullStar;
+            default:
+                return emptyStar + emptyStar + emptyStar + emptyStar + emptyStar;
+        }
     },
 };
 
 var view = {
-    renderMap: function () {
-        model.map = new google.maps.Map(document.getElementById("map"), {
-            center: model.defaultLoc,
-            zoom: model.defaultZoom,
-        });
+    init: function () {
+        this.mapDiv = document.getElementById("map");
     },
     renderMarker: function (map, marker, infoWindow) {
         var self = this;
@@ -91,5 +169,3 @@ var view = {
         }
     },
 };
-
-viewModel.init();

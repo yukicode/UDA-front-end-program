@@ -21,7 +21,7 @@ var viewModel = {
             markList: model.aptMarkerList,
             display: function (marker) {
                 self.currentMarker = marker;
-                view.updateInfoWindow();
+                self.updateInfoWindow();
             }
         });
     },
@@ -60,7 +60,6 @@ var viewModel = {
         this.infoWin = new google.maps.InfoWindow({ marker: null });
     },
     updateInfoWindow: function () {
-        console.log("currentmarker in updateinfowindow", this.currentMarker);
         this.updateBasicInfo();
         this.updateYelpInfo();
     },

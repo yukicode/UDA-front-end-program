@@ -96,12 +96,12 @@ var saveEntries = function () {
             assert.equal(err, null);
             docs.forEach(function (doc) {
                 if (doc.name && doc.loc) {
-                    tempArray.push({name: doc.name, loc: doc.loc, fullAddress: doc.fullAddress, priceRange: doc.priceRange, phone: doc.phone});
+                    tempArray.push({name: doc.name, loc: doc.loc, fullAddress: doc.fullAddress, priceRange: doc.priceRange, phone: doc.phone, placeId: doc.placeId});
                     console.log("added ", doc.name);
                 }
             });
             tempArray = JSON.stringify(tempArray);
-            fs.writeFile("./js/aptData.js", tempArray, function (err) {
+            fs.writeFile("./js/aptData-2.js", tempArray, function (err) {
                 if (err) {
                     return console.log(err);
                 }

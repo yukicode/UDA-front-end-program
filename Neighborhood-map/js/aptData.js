@@ -6,7 +6,8 @@ var apts = [{
     },
     "fullAddress": "2517 S 316th Ln, Federal Way, WA 98003",
     "priceRange": "$1250 - $1500",
-    "phone": "2536566655"
+    "phone": "2536566655",
+    "placeId": "ChIJuyI3on9XkFQRHUqskVlZyoM"
 }, {
     "name": "The Stanton",
     "loc": {
@@ -15,7 +16,8 @@ var apts = [{
     },
     "fullAddress": "1515 NW 52nd St, Seattle, WA 98107",
     "priceRange": "$1599 - $2099",
-    "phone": "2063199499"
+    "phone": "2063199499",
+    "placeId": "ChIJD3rhGcgVkFQRRtRsXTrek4E"
 }, {
     "name": "Millwood Estates",
     "loc": {
@@ -24,7 +26,8 @@ var apts = [{
     },
     "fullAddress": "16605 6th ave w, Lynnwood, WA 98037",
     "priceRange": "$805 - $1450",
-    "phone": "4253215762"
+    "phone": "4253215762",
+    "placeId": "ChIJq-IJx8YFkFQREZu5HD1TlGs"
 }, {
     "name": "Cedar Rim Apartments",
     "loc": {
@@ -33,7 +36,8 @@ var apts = [{
     },
     "fullAddress": "7920 110th Avenue SE, #1005, Newcastle, WA 98056",
     "priceRange": "$1756 - $2841",
-    "phone": "4252743595"
+    "phone": "4252743595",
+    "placeId": "ChIJ8TffjqlpkFQRJ7oMZe1tab0"
 }, {
     "name": "BellCentre",
     "loc": {
@@ -42,7 +46,8 @@ var apts = [{
     },
     "fullAddress": "308 108th Avenue NE, Bellevue, WA 98004",
     "priceRange": "$1464 - $2467",
-    "phone": "4256363292"
+    "phone": "4256363292",
+    "placeId": "ChIJZ1ZZomJskFQRcqt3FgBhhBg"
 }, {
     "name": "Taluswood",
     "loc": {
@@ -51,7 +56,8 @@ var apts = [{
     },
     "fullAddress": "4208 236th St SW, Mountlake Terrace, WA 98043",
     "priceRange": "$1200 - $3045",
-    "phone": "4253670574"
+    "phone": "4253670574",
+    "placeId": "ChIJTRds3x4QkFQRjwd-P2Lo9xE"
 }, {
     "name": "Ivorywood",
     "loc": {
@@ -60,7 +66,8 @@ var apts = [{
     },
     "fullAddress": "8700 Northeast Bothell Way, Bothell, WA 98011",
     "priceRange": null,
-    "phone": "4252743682"
+    "phone": "4252743682",
+    "placeId": "ChIJaVYY7BkOkFQRkObKT4tV6DE"
 }, {
     "name": "The Artiste",
     "loc": {
@@ -69,7 +76,8 @@ var apts = [{
     },
     "fullAddress": "20221 Aurora Ave N, Shoreline, WA 98133",
     "priceRange": null,
-    "phone": "2069623213"
+    "phone": "2069623213",
+    "placeId": "ChIJQY1Een0QkFQR0xW2MLWD_-0"
 }, {
     "name": "Olympic Square",
     "loc": {
@@ -78,7 +86,8 @@ var apts = [{
     },
     "fullAddress": "5287 Olympic Drive Suite A, Gig Harbor, WA 98335",
     "priceRange": "$1750 - $1975",
-    "phone": "2539483308"
+    "phone": "2539483308",
+    "placeId": "Ei01Mjg3IE9seW1waWMgRHIgTlcsIEdpZyBIYXJib3IsIFdBIDk4MzM1LCBVU0E"
 }, {
     "name": "Arbor Village Apartments",
     "loc": {
@@ -87,7 +96,8 @@ var apts = [{
     },
     "fullAddress": "23601 56th Avenue W, Mountlake Terrace, WA 98043",
     "priceRange": "$1275 - $2200",
-    "phone": "4256363464"
+    "phone": "4256363464",
+    "placeId": "ChIJsS_hvBEQkFQR0rLAIQGFo_M"
 }, {
     "name": "Sutter's Square",
     "loc": {
@@ -96,7 +106,8 @@ var apts = [{
     },
     "fullAddress": "12221 Airport Road, Everett, WA 98204",
     "priceRange": null,
-    "phone": "4253744403"
+    "phone": "4253744403",
+    "placeId": "ChIJadwSHKcGkFQRSIaB9-xOIp8"
 }, {
     "name": "Island Homestead",
     "loc": {
@@ -105,7 +116,8 @@ var apts = [{
     },
     "fullAddress": "541 Homestead Lane, Bainbridge Island, WA 98110",
     "priceRange": "$1510 - $1985",
-    "phone": "4253414070"
+    "phone": "4253414070",
+    "placeId": "ChIJuchv8Lo-kFQRlXyX3VQzO1M"
 }, {
     "name": "Catalina Community",
     "loc": {
@@ -114,7 +126,8 @@ var apts = [{
     },
     "fullAddress": "2210 Richards Road, Bellevue, WA 98005",
     "priceRange": "$1450 - $2850",
-    "phone": "4256544066"
+    "phone": "4256544066",
+    "placeId": "ChIJGWp5jhBskFQR_-n_cDCkE2A"
 }, {
     "name": "Woodland Commons",
     "loc": {
@@ -123,7 +136,8 @@ var apts = [{
     },
     "fullAddress": "13700 NE 10th Place, Bellevue, WA 98005",
     "priceRange": "$1351 - $2528",
-    "phone": "4256544697"
+    "phone": "4256544697",
+    "placeId": "ChIJGY-H91NskFQR2kbPo59A_b0"
 }, {
     "name": "Wilderness Village",
     "loc": {
@@ -132,7 +146,8 @@ var apts = [{
     },
     "fullAddress": "22435 SE 240th Street, Maple Valley, WA 98038",
     "priceRange": "$1300 - $1800",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJea637UJgkFQR1uU1XvsbvGs"
 }, {
     "name": "Stinson Park",
     "loc": {
@@ -141,7 +156,8 @@ var apts = [{
     },
     "fullAddress": "7314 Stinson Avenue, Gig Harbor, WA 98335",
     "priceRange": null,
-    "phone": "2533131527"
+    "phone": "2533131527",
+    "placeId": "ChIJy4rU3M9SkFQRiI_F0WB1eDs"
 }, {
     "name": "Veloce",
     "loc": {
@@ -150,7 +166,8 @@ var apts = [{
     },
     "fullAddress": "8102 161st Ave NE, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4256542922"
+    "phone": "4256542922",
+    "placeId": "ChIJRblbebJykFQRzeb3GTxO1Oo"
 }, {
     "name": "Elevation",
     "loc": {
@@ -159,7 +176,8 @@ var apts = [{
     },
     "fullAddress": "17325 NE 85th Pl, Redmond, WA 98052",
     "priceRange": "$1650 - $1956",
-    "phone": "4256542918"
+    "phone": "4256542918",
+    "placeId": "ChIJBbetj8lykFQRexD_5LEShhE"
 }, {
     "name": "Emerald Ridge",
     "loc": {
@@ -168,7 +186,8 @@ var apts = [{
     },
     "fullAddress": "3010 118th Ave SE, Bellevue, WA 98005",
     "priceRange": "$1588 - $2027",
-    "phone": "4253363191"
+    "phone": "4253363191",
+    "placeId": "ChIJ4-P1jvhrkFQRXLlq-hVT4g0"
 }, {
     "name": "Olympus",
     "loc": {
@@ -177,7 +196,8 @@ var apts = [{
     },
     "fullAddress": "2801 Western Avenue, Seattle, WA 98121",
     "priceRange": null,
-    "phone": "2065081390"
+    "phone": "2065081390",
+    "placeId": "ChIJUZvsK1AVkFQR-FKzAhDeiXI"
 }, {
     "name": "Mariners' Glen Apartment Homes",
     "loc": {
@@ -186,7 +206,8 @@ var apts = [{
     },
     "fullAddress": "3418 SE Navigation Lane, Port Orchard, WA 98366",
     "priceRange": "$1019 - $1639",
-    "phone": "3604476453"
+    "phone": "3604476453",
+    "placeId": "ChIJpQ3_JCRIkFQRPiv8--adFLk"
 }, {
     "name": "Marina Club",
     "loc": {
@@ -195,7 +216,8 @@ var apts = [{
     },
     "fullAddress": "2445 South 222nd Street, Des Moines, WA 98198",
     "priceRange": "$1025 - $1625",
-    "phone": "2062045323"
+    "phone": "2062045323",
+    "placeId": "ChIJWatN06BbkFQR0bkidwa45G0"
 }, {
     "name": "LionsGate North",
     "loc": {
@@ -204,7 +226,8 @@ var apts = [{
     },
     "fullAddress": "15900 Ne 83rd Street, Redmond, WA 98052",
     "priceRange": "$1735 - $4860",
-    "phone": "4256540882"
+    "phone": "4256540882",
+    "placeId": "ChIJUQAGR61ykFQRLdCCAidf8yM"
 }, {
     "name": "Mosaic Hills",
     "loc": {
@@ -213,7 +236,8 @@ var apts = [{
     },
     "fullAddress": "10811 SE 239th Place, Kent, WA 98031",
     "priceRange": "$1130 - $1655",
-    "phone": "2534999169"
+    "phone": "2534999169",
+    "placeId": "ChIJiYIIBqJekFQRk3QmoqOhj1Q"
 }, {
     "name": "The Park At Dashpoint",
     "loc": {
@@ -222,7 +246,8 @@ var apts = [{
     },
     "fullAddress": "31736 50th Lane SW, Federal Way, WA 98023",
     "priceRange": "$1035 - $1550",
-    "phone": "2532174054"
+    "phone": "2532174054",
+    "placeId": "ChIJwQY7McRWkFQR94zJYT9cEao"
 }, {
     "name": "Somerset Green",
     "loc": {
@@ -231,7 +256,8 @@ var apts = [{
     },
     "fullAddress": "4249 129th Place SE, Bellevue, WA 98006",
     "priceRange": null,
-    "phone": "4256542069"
+    "phone": "4256542069",
+    "placeId": "ChIJkzCQTVJpkFQRn2TUgvD17t4"
 }, {
     "name": "The Bernard",
     "loc": {
@@ -240,7 +266,8 @@ var apts = [{
     },
     "fullAddress": "115 Warren Avenue North, Seattle, WA 98109",
     "priceRange": "$1292 - $2580",
-    "phone": "2065080645"
+    "phone": "2065080645",
+    "placeId": "ChIJbanPakUVkFQRlROAL9Xhiyk"
 }, {
     "name": "Redmond Court",
     "loc": {
@@ -249,7 +276,8 @@ var apts = [{
     },
     "fullAddress": "14629 N.E. 37th Pl., Bellevue, WA 98007",
     "priceRange": null,
-    "phone": "4252786879"
+    "phone": "4252786879",
+    "placeId": "ChIJGzK3DBNtkFQR30ClmcC5Tcw"
 }, {
     "name": "Domaine",
     "loc": {
@@ -258,7 +286,8 @@ var apts = [{
     },
     "fullAddress": "2483 Birch Ave N, Seattle, WA 98109",
     "priceRange": "$1491 - $3139",
-    "phone": "2065081432"
+    "phone": "2065081432",
+    "placeId": "ChIJC6REsBoVkFQRyS0p_Nib-Sw"
 }, {
     "name": "Circa Green Lake",
     "loc": {
@@ -267,7 +296,8 @@ var apts = [{
     },
     "fullAddress": "6900 East Green Lake Way North, Seattle, WA 98115",
     "priceRange": "$1450 - $3395",
-    "phone": "2065081107"
+    "phone": "2065081107",
+    "placeId": "ChIJa_A2YmwUkFQRRwtELBk74NE"
 }, {
     "name": "Crossroads at Meridian",
     "loc": {
@@ -276,7 +306,8 @@ var apts = [{
     },
     "fullAddress": "1027 Meridian North, Puyallup, WA 98371",
     "priceRange": "$850 - $1030",
-    "phone": "2536551689"
+    "phone": "2536551689",
+    "placeId": "ChIJ7buEblL5kFQR87997DsuI4A"
 }, {
     "name": "Crestview West",
     "loc": {
@@ -285,7 +316,8 @@ var apts = [{
     },
     "fullAddress": "27912 Pacific Highway South, Federal Way, WA 98003",
     "priceRange": "$728 - $1083",
-    "phone": "2532350280"
+    "phone": "2532350280",
+    "placeId": "ChIJ8Z0AavFZkFQRhi3nbBJ_5c8"
 }, {
     "name": "Chandler's Bay",
     "loc": {
@@ -294,7 +326,8 @@ var apts = [{
     },
     "fullAddress": "1020 Central Ave N, Kent, WA 98032",
     "priceRange": null,
-    "phone": "2532369721"
+    "phone": "2532369721",
+    "placeId": "ChIJZ8h_ZhtckFQRkn-dFTkvJps"
 }, {
     "name": "Village Fair Apartments",
     "loc": {
@@ -303,7 +336,8 @@ var apts = [{
     },
     "fullAddress": "309 Ne Fairgrounds Road, Bremerton, WA 98311",
     "priceRange": "$950 - $1599",
-    "phone": "3604476423"
+    "phone": "3604476423",
+    "placeId": "Ei8zMDkgTkUgRmFpcmdyb3VuZHMgUmQsIEJyZW1lcnRvbiwgV0EgOTgzMTEsIFVTQQ"
 }, {
     "name": "Eastlake 2851",
     "loc": {
@@ -312,7 +346,8 @@ var apts = [{
     },
     "fullAddress": "2851 Eastlake Ave E, Seattle, WA 98102",
     "priceRange": "$1387 - $3074",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJaVDkhOQUkFQRD7crEdFGCdQ"
 }, {
     "name": "Chelsea Square",
     "loc": {
@@ -321,7 +356,8 @@ var apts = [{
     },
     "fullAddress": "16340 N.E. 83rd Street, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4256541644"
+    "phone": "4256541644",
+    "placeId": "ChIJXaMO_rJykFQReT2njJzx6Xs"
 }, {
     "name": "Cascade Terrace",
     "loc": {
@@ -330,7 +366,8 @@ var apts = [{
     },
     "fullAddress": "602 Galer Street, Seattle, WA 98109",
     "priceRange": null,
-    "phone": "2065081431"
+    "phone": "2065081431",
+    "placeId": "ChIJVxgviz0VkFQRM8losyApWsQ"
 }, {
     "name": "Pinnacle on Lake Washington",
     "loc": {
@@ -339,7 +376,8 @@ var apts = [{
     },
     "fullAddress": "1400 Lake Washington Boulevard North, Renton, WA 98056",
     "priceRange": "$1466 - $3135",
-    "phone": "4252743665"
+    "phone": "4252743665",
+    "placeId": "ChIJq0KFUD5okFQR-ap2RuxF8A0"
 }, {
     "name": "Dexter Lake Union",
     "loc": {
@@ -348,7 +386,8 @@ var apts = [{
     },
     "fullAddress": "1215 Dexter Ave N, Seattle, WA 98109",
     "priceRange": "$1251 - $4195",
-    "phone": "2065081236"
+    "phone": "2065081236",
+    "placeId": "ChIJBbGmeT4VkFQRy3yU42_dvV0"
 }, {
     "name": "The Row",
     "loc": {
@@ -357,7 +396,8 @@ var apts = [{
     },
     "fullAddress": "25426 98th Avenue, Kent, WA 98031",
     "priceRange": "$1110 - $1450",
-    "phone": "2534587190"
+    "phone": "2534587190",
+    "placeId": "ChIJXTyMVrRekFQRlqlxtsxiLgI"
 }, {
     "name": "Station 9",
     "loc": {
@@ -366,7 +406,8 @@ var apts = [{
     },
     "fullAddress": "16720 6th Avenue West, Lynnwood, WA 98037",
     "priceRange": null,
-    "phone": "4253411906"
+    "phone": "4253411906",
+    "placeId": "ChIJk_KvPscFkFQRou8ozg2U6T0"
 }, {
     "name": "Furnished Studio - Seattle - Redmond",
     "loc": {
@@ -375,7 +416,8 @@ var apts = [{
     },
     "fullAddress": "15805 NE 28th Street, Bellevue, WA 98008",
     "priceRange": null,
-    "phone": "4259548622"
+    "phone": "4259548622",
+    "placeId": "ChIJ_5TpyAptkFQR8eE0NibWlNM"
 }, {
     "name": "Arbor Chase",
     "loc": {
@@ -384,7 +426,8 @@ var apts = [{
     },
     "fullAddress": "1615 West Smith St, Kent, WA 98032",
     "priceRange": null,
-    "phone": "2534587626"
+    "phone": "2534587626",
+    "placeId": "ChIJQwZrWeRbkFQREH2mykL59gs"
 }, {
     "name": "Waterford at the Lakes",
     "loc": {
@@ -393,7 +436,8 @@ var apts = [{
     },
     "fullAddress": "23605 62nd Avenue South, Kent, WA 98032",
     "priceRange": "$1159 - $6850",
-    "phone": "2536560469"
+    "phone": "2536560469",
+    "placeId": "ChIJcUdNFe5bkFQR8i9MZSnZNYs"
 }, {
     "name": "Hunter's Run",
     "loc": {
@@ -402,7 +446,8 @@ var apts = [{
     },
     "fullAddress": "10211 Ne 134th Lane, Kirkland, WA 98034",
     "priceRange": "$1490 - $1755",
-    "phone": "4252234438"
+    "phone": "4252234438",
+    "placeId": "EioxMDIxMSBORSAxMzR0aCBMbiwgS2lya2xhbmQsIFdBIDk4MDM0LCBVU0E"
 }, {
     "name": "The Cairns",
     "loc": {
@@ -411,7 +456,8 @@ var apts = [{
     },
     "fullAddress": "422 Yale Ave N, Seattle, WA 98109",
     "priceRange": "$1426 - $2911",
-    "phone": "2065081090"
+    "phone": "2065081090",
+    "placeId": "ChIJjXstGTEVkFQRGM7herouf2g"
 }, {
     "name": "Annaliese",
     "loc": {
@@ -420,7 +466,8 @@ var apts = [{
     },
     "fullAddress": "118 6th Ave N, Seattle, WA 98109",
     "priceRange": "$2084 - $2638",
-    "phone": "2065081089"
+    "phone": "2065081089",
+    "placeId": "ChIJNR7L7kgVkFQRBhKBAQvN8PQ"
 }, {
     "name": "Timbers",
     "loc": {
@@ -429,7 +476,8 @@ var apts = [{
     },
     "fullAddress": "18930 68th Ave NE, Kenmore, WA 98028",
     "priceRange": null,
-    "phone": "4253183422"
+    "phone": "4253183422",
+    "placeId": "EikxODkzMCA2OHRoIEF2ZSBORSwgS2VubW9yZSwgV0EgOTgwMjgsIFVTQQ"
 }, {
     "name": "Furnished Studio - Seattle - Bellevue - Downtown",
     "loc": {
@@ -438,7 +486,8 @@ var apts = [{
     },
     "fullAddress": "11400 Main Street, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4253053357"
+    "phone": "4253053357",
+    "placeId": "ChIJSWBKjWNskFQR2P-ifG6ty3o"
 }, {
     "name": "Dwell at Kent Station",
     "loc": {
@@ -447,7 +496,8 @@ var apts = [{
     },
     "fullAddress": "443 Ramsay Way, Kent, WA 98032",
     "priceRange": "$1139 - $2520",
-    "phone": "2534587149"
+    "phone": "2534587149",
+    "placeId": "EiM0NDMgUmFtc2F5IFdheSwgS2VudCwgV0EgOTgwMzIsIFVTQQ"
 }, {
     "name": "Ascent Apartment Homes",
     "loc": {
@@ -456,7 +506,8 @@ var apts = [{
     },
     "fullAddress": "12062 Slater Ave NE, Kirkland, WA 98034",
     "priceRange": "$1430 - $2326",
-    "phone": "4252234745"
+    "phone": "4252234745",
+    "placeId": "ChIJSwzGn4INkFQRxQlK_O2-1dE"
 }, {
     "name": "Hilltop in the Highlands",
     "loc": {
@@ -465,7 +516,8 @@ var apts = [{
     },
     "fullAddress": "500 Monroe Avenue NE, Renton, WA 98056",
     "priceRange": "$1306 - $1895",
-    "phone": "4252743619"
+    "phone": "4252743619",
+    "placeId": "ChIJnUAxEXVokFQRgo5cYR8TdHU"
 }, {
     "name": "Furnished Studio - Seattle - Bellevue - Factoria",
     "loc": {
@@ -474,7 +526,8 @@ var apts = [{
     },
     "fullAddress": "3700 132nd Ave SE, Bellevue, WA 98006",
     "priceRange": null,
-    "phone": "4259548627"
+    "phone": "4259548627",
+    "placeId": "ChIJz3z8IqpukFQRb2538bylMhk"
 }, {
     "name": "Lothlorien Apartments",
     "loc": {
@@ -483,7 +536,8 @@ var apts = [{
     },
     "fullAddress": "4730 University Way NE, Seattle, WA 98105",
     "priceRange": "$1609 - $1779",
-    "phone": "2065081157"
+    "phone": "2065081157",
+    "placeId": "ChIJ540t2WEUkFQRKQRI2mZqLrI"
 }, {
     "name": "Edmonds Highlands",
     "loc": {
@@ -492,7 +546,8 @@ var apts = [{
     },
     "fullAddress": "23326 Edmonds Way, Edmonds, WA 98026",
     "priceRange": "$905 - $1380",
-    "phone": "4254128436"
+    "phone": "4254128436",
+    "placeId": "EikyMzMyNiBFZG1vbmRzIFdheSwgRWRtb25kcywgV0EgOTgwMjYsIFVTQQ"
 }, {
     "name": "Fountain Court",
     "loc": {
@@ -501,7 +556,8 @@ var apts = [{
     },
     "fullAddress": "2400 4th Ave, Seattle, WA 98121",
     "priceRange": "$1488 - $3308",
-    "phone": "2065080557"
+    "phone": "2065080557",
+    "placeId": "ChIJ-wm8yU4VkFQRwTpQxWBp9XY"
 }, {
     "name": "TEN20",
     "loc": {
@@ -510,7 +566,8 @@ var apts = [{
     },
     "fullAddress": "10710 NE 10th Street, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4256363465"
+    "phone": "4256363465",
+    "placeId": "ChIJs9SOno5skFQR9lQRsTJFLQ0"
 }, {
     "name": "UPTOWN 11",
     "loc": {
@@ -519,7 +576,8 @@ var apts = [{
     },
     "fullAddress": "11 West Mercer Street, Seattle, WA 98119",
     "priceRange": "$1655 - $3070",
-    "phone": ""
+    "phone": "",
+    "placeId": "EiYxMSBXIE1lcmNlciBTdCwgU2VhdHRsZSwgV0EgOTgxMTksIFVTQQ"
 }, {
     "name": "Landes",
     "loc": {
@@ -528,7 +586,8 @@ var apts = [{
     },
     "fullAddress": "901 8th Ave, Seattle, WA 98104",
     "priceRange": "$1515 - $2900",
-    "phone": "2062045322"
+    "phone": "2062045322",
+    "placeId": "ChIJ4556-bZqkFQRLIfLm3a4qWA"
 }, {
     "name": "Park Metro",
     "loc": {
@@ -537,7 +596,8 @@ var apts = [{
     },
     "fullAddress": "11101 NE 12th Street, Bellevue, WA 98004",
     "priceRange": "$1305 - $2959",
-    "phone": "4256544059"
+    "phone": "4256544059",
+    "placeId": "ChIJTx9li4xskFQRjqbm8ZqpPVk"
 }, {
     "name": "The Cedars",
     "loc": {
@@ -546,7 +606,8 @@ var apts = [{
     },
     "fullAddress": "2615 First Avenue, Seattle, WA 98121",
     "priceRange": "$1299 - $2199",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJVXvaO04VkFQRiMGcnH9NeWg"
 }, {
     "name": "Avaya Trails",
     "loc": {
@@ -555,7 +616,8 @@ var apts = [{
     },
     "fullAddress": "10930 SE 172nd Street, Renton, WA 98055",
     "priceRange": "$1350 - $2200",
-    "phone": "4257489208"
+    "phone": "4257489208",
+    "placeId": "ChIJCVTHm3JdkFQRYN_t6P8BYBg"
 }, {
     "name": "The Hudson",
     "loc": {
@@ -564,7 +626,8 @@ var apts = [{
     },
     "fullAddress": "2450 Aurora Avenue N, Seattle, WA 98109",
     "priceRange": "$1299 - $2099",
-    "phone": "2064527729"
+    "phone": "2064527729",
+    "placeId": "ChIJ2V8omBoVkFQR-GwoQmEAsPQ"
 }, {
     "name": "Jackson House Senior Housing",
     "loc": {
@@ -573,7 +636,8 @@ var apts = [{
     },
     "fullAddress": "1818 Pacific Avenue, Everett, WA 98201",
     "priceRange": "$800 - $1010",
-    "phone": "4253744742"
+    "phone": "4253744742",
+    "placeId": "ChIJoZHmT5qqmlQROFI3FSa8mtc"
 }, {
     "name": "Avalon ParcSquare",
     "loc": {
@@ -582,7 +646,8 @@ var apts = [{
     },
     "fullAddress": "16080 NE 85th Street, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4256363479"
+    "phone": "4256363479",
+    "placeId": "ChIJ-QQzMk0NkFQRQE4Ydu8qB3w"
 }, {
     "name": "Park 212",
     "loc": {
@@ -591,7 +656,8 @@ var apts = [{
     },
     "fullAddress": "7300 213th Place Southwest, Edmonds, WA 98026",
     "priceRange": "$989 - $2348",
-    "phone": "4253414015"
+    "phone": "4253414015",
+    "placeId": "ChIJXwhuKroakFQRpx_4mtOc5mU"
 }, {
     "name": "Artesia by the Lake",
     "loc": {
@@ -600,7 +666,8 @@ var apts = [{
     },
     "fullAddress": "11225 19th Ave Southeast, Everett, WA 98208",
     "priceRange": null,
-    "phone": "4253744438"
+    "phone": "4253744438",
+    "placeId": "ChIJjee4It4GkFQR0WVPARJVljw"
 }, {
     "name": "Bella Vista",
     "loc": {
@@ -609,7 +676,8 @@ var apts = [{
     },
     "fullAddress": "2100 Lake Washington Blvd North, Renton, WA 98056",
     "priceRange": "$1785 - $3560",
-    "phone": "4252743697"
+    "phone": "4252743697",
+    "placeId": "ChIJeblEAEhokFQRjXEAZfwAXXA"
 }, {
     "name": "Northshore Townhomes",
     "loc": {
@@ -618,7 +686,8 @@ var apts = [{
     },
     "fullAddress": "7000 NE 186th Place, Ste 102, Kenmore, WA 98028",
     "priceRange": "$2060 - $2665",
-    "phone": "4253183573"
+    "phone": "4253183573",
+    "placeId": "Ei03MDAwIE5FIDE4NnRoIFBsICMxMDIsIEtlbm1vcmUsIFdBIDk4MDI4LCBVU0E"
 }, {
     "name": "North Creek Heights",
     "loc": {
@@ -627,7 +696,8 @@ var apts = [{
     },
     "fullAddress": "19701 112th Ave NE, Bothell, WA 98011",
     "priceRange": "$1415 - $2532",
-    "phone": "4252743683"
+    "phone": "4252743683",
+    "placeId": "ChIJF4DtsV8OkFQRwPcRrmJth3s"
 }, {
     "name": "Lakeside",
     "loc": {
@@ -636,7 +706,8 @@ var apts = [{
     },
     "fullAddress": "6102 Saint Albion Way, Mountlake Terrace, WA 98043",
     "priceRange": null,
-    "phone": "4253216173"
+    "phone": "4253216173",
+    "placeId": "ChIJ2y3P8a4akFQR6wWJb7D6XMQ"
 }, {
     "name": "The Cove",
     "loc": {
@@ -645,7 +716,8 @@ var apts = [{
     },
     "fullAddress": "33131 1st Avenue SW, Federal Way, WA 98023",
     "priceRange": null,
-    "phone": "2532042648"
+    "phone": "2532042648",
+    "placeId": "ChIJuTCYvahXkFQRXI51BlJBPXI"
 }, {
     "name": "Renton Woods",
     "loc": {
@@ -654,7 +726,8 @@ var apts = [{
     },
     "fullAddress": "12000 Southeast Petrovitsky Road, Renton, WA 98058",
     "priceRange": null,
-    "phone": "4257489203"
+    "phone": "4257489203",
+    "placeId": "ChIJZZ7TSnddkFQReeDeERjpHdI"
 }, {
     "name": "Avalon Micro Studios",
     "loc": {
@@ -663,7 +736,8 @@ var apts = [{
     },
     "fullAddress": "3268 SW Avalon Way, Seattle, WA 98126",
     "priceRange": "$900 - $1100",
-    "phone": "4257287680"
+    "phone": "4257287680",
+    "placeId": "ChIJ7R4t51ZAkFQRwoRbT79vQP8"
 }, {
     "name": "Narrows Ridge",
     "loc": {
@@ -672,7 +746,8 @@ var apts = [{
     },
     "fullAddress": "2326 70Th Avenue West, University Place, WA 98466",
     "priceRange": "$815 - $895",
-    "phone": "2536666185"
+    "phone": "2536666185",
+    "placeId": "ChIJA5pzxt2qkVQRaW9OrEsHmQY"
 }, {
     "name": "Madison Sammamish",
     "loc": {
@@ -681,7 +756,8 @@ var apts = [{
     },
     "fullAddress": "3070 230th Lane SE, Sammamish, WA 98075",
     "priceRange": "$1470 - $2310",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ4T4WhClukFQRqyPyEQVqlCE"
 }, {
     "name": "Taylor 28",
     "loc": {
@@ -690,7 +766,8 @@ var apts = [{
     },
     "fullAddress": "100 Taylor Avenue North, Seattle, WA 98109",
     "priceRange": "$1656 - $3599",
-    "phone": "2065081024"
+    "phone": "2065081024",
+    "placeId": "ChIJZYxax0gVkFQRvY5kU-fI-aY"
 }, {
     "name": "Epicenter Apartments",
     "loc": {
@@ -699,7 +776,8 @@ var apts = [{
     },
     "fullAddress": "620 North 34th Street, Seattle, WA 98103",
     "priceRange": null,
-    "phone": "2068294923"
+    "phone": "2068294923",
+    "placeId": "ChIJNWaUPAcVkFQRAtApjKrJ0rc"
 }, {
     "name": "The Metropolitan",
     "loc": {
@@ -708,7 +786,8 @@ var apts = [{
     },
     "fullAddress": "245 St. Helens Avenue, Tacoma, WA 98402",
     "priceRange": "$1089 - $2199",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJWS4tMqZVkFQRgIuE8ltsHb8"
 }, {
     "name": "Fountain Lake",
     "loc": {
@@ -717,7 +796,8 @@ var apts = [{
     },
     "fullAddress": "4702 South 302nd Lane, Auburn, WA 98001",
     "priceRange": "$1500 - $1795",
-    "phone": "2532369722"
+    "phone": "2532369722",
+    "placeId": "ChIJ6ZsabcpZkFQRHptUtIbzK0A"
 }, {
     "name": "Avalon Meydenbauer",
     "loc": {
@@ -726,7 +806,8 @@ var apts = [{
     },
     "fullAddress": "10410 NE 2nd Street, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4256542916"
+    "phone": "4256542916",
+    "placeId": "EigxMDQxMCBORSAybmQgU3QsIEJlbGxldnVlLCBXQSA5ODAwNCwgVVNB"
 }, {
     "name": "Evergreen Heights Apartments",
     "loc": {
@@ -735,7 +816,8 @@ var apts = [{
     },
     "fullAddress": "12233 NE 131st Way, Kirkland, WA 98034",
     "priceRange": "$1544 - $2369",
-    "phone": "4256363296"
+    "phone": "4256363296",
+    "placeId": "ChIJyeo8CJANkFQRXmQCOONwFYY"
 }, {
     "name": "Stack House",
     "loc": {
@@ -744,7 +826,8 @@ var apts = [{
     },
     "fullAddress": "1280 Harrison Street, Seattle, WA 98109",
     "priceRange": "$1677 - $4186",
-    "phone": "2064527778"
+    "phone": "2064527778",
+    "placeId": "ChIJswVPITEVkFQRv0QLAXxBOP8"
 }, {
     "name": "Studio 7",
     "loc": {
@@ -753,7 +836,8 @@ var apts = [{
     },
     "fullAddress": "4209 7th Ave NE, Seattle, WA 98105",
     "priceRange": "$1140 - $1535",
-    "phone": ""
+    "phone": "",
+    "placeId": "Eic0MjA5IDd0aCBBdmUgTkUsIFNlYXR0bGUsIFdBIDk4MTA1LCBVU0E"
 }, {
     "name": "Spinnaker Landing Apartments",
     "loc": {
@@ -762,7 +846,8 @@ var apts = [{
     },
     "fullAddress": "21620 14th Ave S, Des Moines, WA 98198",
     "priceRange": null,
-    "phone": "2536424980"
+    "phone": "2536424980",
+    "placeId": "ChIJ1VOFaQ9bkFQRlnGXrC6D0ow"
 }, {
     "name": "2900 on First Apartments",
     "loc": {
@@ -771,7 +856,8 @@ var apts = [{
     },
     "fullAddress": "2900 1st Ave, Seattle, WA 98121",
     "priceRange": "$1614 - $4689",
-    "phone": "2065081387"
+    "phone": "2065081387",
+    "placeId": "ChIJPdsk6k8VkFQRD5OR_787MYk"
 }, {
     "name": "The Terrace Apartments",
     "loc": {
@@ -780,7 +866,8 @@ var apts = [{
     },
     "fullAddress": "13705 56th Avenue South, Tukwila, WA 98168",
     "priceRange": "$845 - $1295",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJu9jjbt5CkFQRxqdahP2cNRE"
 }, {
     "name": "Country Gables",
     "loc": {
@@ -789,7 +876,8 @@ var apts = [{
     },
     "fullAddress": "1112 9th St SE, Puyallup, WA 98372",
     "priceRange": null,
-    "phone": "2536551699"
+    "phone": "2536551699",
+    "placeId": "ChIJSUtdWg_8kFQRmiXBFlyXnz8"
 }, {
     "name": "The Raleigh",
     "loc": {
@@ -798,7 +886,8 @@ var apts = [{
     },
     "fullAddress": "12415 Ambaum Blvd Sw, Burien, WA 98146",
     "priceRange": "$1090 - $1605",
-    "phone": "2064299683"
+    "phone": "2064299683",
+    "placeId": "ChIJleIAWY5DkFQRivmauzeahiQ"
 }, {
     "name": "Belcarra",
     "loc": {
@@ -807,7 +896,8 @@ var apts = [{
     },
     "fullAddress": "10688 NE 10th Street, Bellevue, WA 98004",
     "priceRange": "$1396 - $2748",
-    "phone": "4256542910"
+    "phone": "4256542910",
+    "placeId": "ChIJEXpFvY5skFQR7XfUiXxTOT4"
 }, {
     "name": "Crestwood",
     "loc": {
@@ -816,7 +906,8 @@ var apts = [{
     },
     "fullAddress": "9896 Enterprise Lane Nw, Silverdale, WA 98383",
     "priceRange": "$1295 - $1399",
-    "phone": "3604476442"
+    "phone": "3604476442",
+    "placeId": "EjA5ODk2IEVudGVycHJpc2UgTG4gTlcsIFNpbHZlcmRhbGUsIFdBIDk4MzgzLCBVU0E"
 }, {
     "name": "Stonehedge Village",
     "loc": {
@@ -825,7 +916,8 @@ var apts = [{
     },
     "fullAddress": "14610 93rd Blvd NE, Bothell, WA 98011",
     "priceRange": null,
-    "phone": "4252743689"
+    "phone": "4252743689",
+    "placeId": "ChIJVViEz_8NkFQRtQ3TibUjIY8"
 }, {
     "name": "AMLI at Bellevue Park",
     "loc": {
@@ -834,7 +926,8 @@ var apts = [{
     },
     "fullAddress": "10001 Ne First St, Bellevue, WA 98004",
     "priceRange": "$1677 - $4320",
-    "phone": "4252743679"
+    "phone": "4252743679",
+    "placeId": "ChIJ9b8cv4BskFQRBFTgqaQurVU"
 }, {
     "name": "Core 83",
     "loc": {
@@ -843,7 +936,8 @@ var apts = [{
     },
     "fullAddress": "16590 NE 83rd Street, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4259548596"
+    "phone": "4259548596",
+    "placeId": "EigxNjU5MCBORSA4M3JkIFN0LCBSZWRtb25kLCBXQSA5ODA1MiwgVVNB"
 }, {
     "name": "Addison on Fourth",
     "loc": {
@@ -852,7 +946,8 @@ var apts = [{
     },
     "fullAddress": "308 4th Avenue South, Seattle, WA 98104",
     "priceRange": null,
-    "phone": "2068660669"
+    "phone": "2068660669",
+    "placeId": "ChIJCROyc7tqkFQRkyEzdF-lR2M"
 }, {
     "name": "Varsity I Apartments",
     "loc": {
@@ -861,7 +956,8 @@ var apts = [{
     },
     "fullAddress": "2300 NE 65th St, Seattle, WA 98115",
     "priceRange": "$1300 - $1895",
-    "phone": "4257287086"
+    "phone": "4257287086",
+    "placeId": "ChIJeb8VpXkUkFQRq7Wh-P4HBEI"
 }, {
     "name": "Coppins Well",
     "loc": {
@@ -870,7 +966,8 @@ var apts = [{
     },
     "fullAddress": "1000 Minor Avenue, Seattle, WA 98104",
     "priceRange": null,
-    "phone": "2065081623"
+    "phone": "2065081623",
+    "placeId": "ChIJEwSlk8lqkFQRHG4U-MLUZak"
 }, {
     "name": "Nine and Pine",
     "loc": {
@@ -879,7 +976,8 @@ var apts = [{
     },
     "fullAddress": "1601 9th Avenue, Seattle, WA 98101",
     "priceRange": "$1815 - $3389",
-    "phone": "2065081388"
+    "phone": "2065081388",
+    "placeId": "ChIJhVehTbVqkFQRxzH5qN5JH1U"
 }, {
     "name": "Miramar",
     "loc": {
@@ -888,7 +986,8 @@ var apts = [{
     },
     "fullAddress": "7320 6th Avenue, Tacoma, WA 98406",
     "priceRange": "$795 - $1650",
-    "phone": "2533435469"
+    "phone": "2533435469",
+    "placeId": "ChIJuSN0EDCrkVQRah3fah28B-k"
 }, {
     "name": "Venn at Main",
     "loc": {
@@ -897,7 +996,8 @@ var apts = [{
     },
     "fullAddress": "10333 NE 1st Street, Bellevue, WA 98004",
     "priceRange": "$1520 - $4050",
-    "phone": "4252019713"
+    "phone": "4252019713",
+    "placeId": "EigxMDMzMyBORSAxc3QgU3QsIEJlbGxldnVlLCBXQSA5ODAwNCwgVVNB"
 }, {
     "name": "Bay Ridge",
     "loc": {
@@ -906,7 +1006,8 @@ var apts = [{
     },
     "fullAddress": "812 North K Street, Tacoma, WA 98403",
     "priceRange": "$820 - $1100",
-    "phone": "2533131489"
+    "phone": "2533131489",
+    "placeId": "ChIJOxu_2QNVkFQRS3zfPS8mkBw"
 }, {
     "name": "Simon's Mill",
     "loc": {
@@ -915,7 +1016,8 @@ var apts = [{
     },
     "fullAddress": "2629 Meridian Avenue East, Edgewood, WA 98371",
     "priceRange": null,
-    "phone": "2534662652"
+    "phone": "2534662652",
+    "placeId": "EiwyNjI5IE1lcmlkaWFuIEF2ZSBFLCBFZGdld29vZCwgV0EgOTgzNzEsIFVTQQ"
 }, {
     "name": "LaBonne Maison Apartments",
     "loc": {
@@ -924,7 +1026,8 @@ var apts = [{
     },
     "fullAddress": "6601 210th Street Sw #Office, Lynnwood, WA 98036",
     "priceRange": "$970 - $1199",
-    "phone": "4259539865"
+    "phone": "4259539865",
+    "placeId": "ChIJDdZp_rMakFQR3wMfsPl-7tY"
 }, {
     "name": "Furnished Studio - Seattle - Tukwila",
     "loc": {
@@ -933,7 +1036,8 @@ var apts = [{
     },
     "fullAddress": "15451 53rd Avenue S, Tukwila, WA 98188",
     "priceRange": null,
-    "phone": "2064944869"
+    "phone": "2064944869",
+    "placeId": "ChIJ9__Fey5DkFQRPzjMLufjpe8"
 }, {
     "name": "Royal Firs",
     "loc": {
@@ -942,7 +1046,8 @@ var apts = [{
     },
     "fullAddress": "24028 110th Place S.E., Kent, WA 98031",
     "priceRange": null,
-    "phone": "2536560465"
+    "phone": "2536560465",
+    "placeId": "EiYyNDAyOCAxMTB0aCBQbCBTRSwgS2VudCwgV0EgOTgwMzEsIFVTQQ"
 }, {
     "name": "Montclair Heights",
     "loc": {
@@ -951,7 +1056,8 @@ var apts = [{
     },
     "fullAddress": "2223 Benson Rd S, Renton, WA 98055",
     "priceRange": "$1500 - $2645",
-    "phone": "4252743631"
+    "phone": "4252743631",
+    "placeId": "ChIJoenO20NdkFQRAriTA0Sjd4g"
 }, {
     "name": "Eleanor",
     "loc": {
@@ -960,7 +1066,8 @@ var apts = [{
     },
     "fullAddress": "6718 8th Ave NE, Seattle, WA 98115",
     "priceRange": null,
-    "phone": "2062012864"
+    "phone": "2062012864",
+    "placeId": "ChIJ6RWZC24UkFQRBekOqzOf95g"
 }, {
     "name": "Gates Of Redmond",
     "loc": {
@@ -969,7 +1076,8 @@ var apts = [{
     },
     "fullAddress": "15325 Redmond Way, Redmond, WA 98052",
     "priceRange": "$1430 - $2397",
-    "phone": "4258809845"
+    "phone": "4258809845",
+    "placeId": "ChIJV9p0H6tykFQRO0pB5aaUfRU"
 }, {
     "name": "Ballinger Commons",
     "loc": {
@@ -978,7 +1086,8 @@ var apts = [{
     },
     "fullAddress": "2405 North 202nd Place, Shoreline, WA 98133",
     "priceRange": "$1388 - $2313",
-    "phone": "2065696786"
+    "phone": "2065696786",
+    "placeId": "ChIJUeAnPGQQkFQRtNt4FVycE68"
 }, {
     "name": "Velo",
     "loc": {
@@ -987,7 +1096,8 @@ var apts = [{
     },
     "fullAddress": "3635 Woodland Park Ave N, Seattle, WA 98103",
     "priceRange": "$1646 - $2609",
-    "phone": "2064521808"
+    "phone": "2064521808",
+    "placeId": "ChIJL2YhTAAVkFQR7WRp6WvZGuU"
 }, {
     "name": "Montebello Apartments",
     "loc": {
@@ -996,7 +1106,8 @@ var apts = [{
     },
     "fullAddress": "12000 131st Ln NE, Kirkland, WA 98034",
     "priceRange": "$1569 - $2696",
-    "phone": "4252764934"
+    "phone": "4252764934",
+    "placeId": "ChIJl_k3L3gNkFQRNu4VfG_euPc"
 }, {
     "name": "Park at Fife",
     "loc": {
@@ -1005,7 +1116,8 @@ var apts = [{
     },
     "fullAddress": "2126 62nd Avenue East, Fife, WA 98424",
     "priceRange": "$795 - $995",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJd2hLeDX_kFQRhGfaNcYqrT0"
 }, {
     "name": "Delano",
     "loc": {
@@ -1014,7 +1126,8 @@ var apts = [{
     },
     "fullAddress": "7805 170th Pl NE, Redmond, WA 98052",
     "priceRange": "$1485 - $2416",
-    "phone": "4256363474"
+    "phone": "4256363474",
+    "placeId": "ChIJZdwyyrBykFQRDboNfsfLE1U"
 }, {
     "name": "Centennial Tower and Court",
     "loc": {
@@ -1023,7 +1136,8 @@ var apts = [{
     },
     "fullAddress": "2515 Fourth Ave, Seattle, WA 98121",
     "priceRange": null,
-    "phone": "2064558334"
+    "phone": "2064558334",
+    "placeId": "ChIJQzYo3U4VkFQR-L10u39fHKQ"
 }, {
     "name": "Heritage Hill",
     "loc": {
@@ -1032,7 +1146,8 @@ var apts = [{
     },
     "fullAddress": "1300 S Puget Dr, Renton, WA 98055",
     "priceRange": null,
-    "phone": "4252743591"
+    "phone": "4252743591",
+    "placeId": "ChIJM2dNokNdkFQR0DPjeoDdMag"
 }, {
     "name": "The Westwater",
     "loc": {
@@ -1041,7 +1156,8 @@ var apts = [{
     },
     "fullAddress": "221 1st Street, Kirkland, WA 98033",
     "priceRange": "$1843 - $3920",
-    "phone": "4256366251"
+    "phone": "4256366251",
+    "placeId": "ChIJgcWSGucSkFQRIDqt4MSRkDI"
 }, {
     "name": "Madison Park",
     "loc": {
@@ -1050,7 +1166,8 @@ var apts = [{
     },
     "fullAddress": "20520 Bothell-Everett Highway, Bothell, WA 98012",
     "priceRange": null,
-    "phone": "4259542652"
+    "phone": "4259542652",
+    "placeId": "ChIJb7vC0GsPkFQR1k2j0qkcjLM"
 }, {
     "name": "Fircrest Regents",
     "loc": {
@@ -1059,7 +1176,8 @@ var apts = [{
     },
     "fullAddress": "1345 Regents Boulevard, Fircrest, WA 98466",
     "priceRange": "$695 - $1350",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJC9QOCNuqkVQRIbiowITzoSo"
 }, {
     "name": "Westridge Apartments",
     "loc": {
@@ -1068,7 +1186,8 @@ var apts = [{
     },
     "fullAddress": "512 121st Place NE, Bellevue, WA 98005",
     "priceRange": "$1605 - $1825",
-    "phone": "4252743856"
+    "phone": "4252743856",
+    "placeId": "ChIJ7zt1hhppkFQRoCG4J_XnlKY"
 }, {
     "name": "The Maplewood Condominiums",
     "loc": {
@@ -1077,7 +1196,8 @@ var apts = [{
     },
     "fullAddress": "4519 SW 321st Street, Federal Way, WA 98023",
     "priceRange": "$900 - $1300",
-    "phone": ""
+    "phone": "",
+    "placeId": "Eiw0NTE5IFNXIDMyMXN0IFN0LCBGZWRlcmFsIFdheSwgV0EgOTgwMjMsIFVTQQ"
 }, {
     "name": "Inglenook Court Apartments",
     "loc": {
@@ -1086,7 +1206,8 @@ var apts = [{
     },
     "fullAddress": "14220 Juanita Dr NE, Kirkland, WA 98034",
     "priceRange": "$1363 - $1917",
-    "phone": "4252743669"
+    "phone": "4252743669",
+    "placeId": "ChIJcddNdfYRkFQR0rEy57OMrCE"
 }, {
     "name": "Windstone",
     "loc": {
@@ -1095,7 +1216,8 @@ var apts = [{
     },
     "fullAddress": "1011 128th St SW, Everett, WA 98204",
     "priceRange": "$778 - $1130",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJk6KI2aEGkFQR8ShysYBxraM"
 }, {
     "name": "Reserve at Bucklin Hill",
     "loc": {
@@ -1104,7 +1226,8 @@ var apts = [{
     },
     "fullAddress": "1255 NW Mirage Lane, Silverdale, WA 98383",
     "priceRange": "$1190 - $1640",
-    "phone": ""
+    "phone": "",
+    "placeId": "EiwxMjU1IE5XIE1pcmFnZSBMbiwgU2lsdmVyZGFsZSwgV0EgOTgzODMsIFVTQQ"
 }, {
     "name": "Brighton Ridge",
     "loc": {
@@ -1113,7 +1236,8 @@ var apts = [{
     },
     "fullAddress": "2307 NE 4th St, Renton, WA 98056",
     "priceRange": "$1268 - $1607",
-    "phone": "4259542725"
+    "phone": "4259542725",
+    "placeId": "ChIJK_3D7ghokFQRwj90Otrbue8"
 }, {
     "name": "Harbor Pointe",
     "loc": {
@@ -1122,7 +1246,8 @@ var apts = [{
     },
     "fullAddress": "2215 47th Street NW, Gig Harbor, WA 98335",
     "priceRange": "$1200 - $1395",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJmYIGpzVTkFQR7V0RglBie9k"
 }, {
     "name": "Crosspointe Apartments",
     "loc": {
@@ -1131,7 +1256,8 @@ var apts = [{
     },
     "fullAddress": "1001 South Mildred Street, Tacoma, WA 98465",
     "priceRange": "$925 - $1050",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJu3X4IymrkVQRV_cCcZWXwIQ"
 }, {
     "name": "Woodin Creek Village",
     "loc": {
@@ -1140,7 +1266,8 @@ var apts = [{
     },
     "fullAddress": "17300 135TH AVENUE NE, Woodinville, WA 98072",
     "priceRange": null,
-    "phone": "4253210198"
+    "phone": "4253210198",
+    "placeId": "ChIJf16QkCsMkFQR0W4jj9uoTpg"
 }, {
     "name": "2000 Lake Washington",
     "loc": {
@@ -1149,7 +1276,8 @@ var apts = [{
     },
     "fullAddress": "1300 North 20th Street, Renton, WA 98056",
     "priceRange": "$1565 - $3201",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJmWP-mzhokFQRjQXh0WoWZ94"
 }, {
     "name": "City Square Bellevue",
     "loc": {
@@ -1158,7 +1286,8 @@ var apts = [{
     },
     "fullAddress": "938 110th Ave NE, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4256542909"
+    "phone": "4256542909",
+    "placeId": "ChIJtTan84tskFQR2bfR7eUJreM"
 }, {
     "name": "Vue 25",
     "loc": {
@@ -1167,7 +1296,8 @@ var apts = [{
     },
     "fullAddress": "2368 Yakima Ave, Tacoma, WA 98405",
     "priceRange": "$1049 - $1953",
-    "phone": "2539483211"
+    "phone": "2539483211",
+    "placeId": "ChIJE_2HdWVVkFQRKqeLqRrEPA4"
 }, {
     "name": "The Commons",
     "loc": {
@@ -1176,7 +1306,8 @@ var apts = [{
     },
     "fullAddress": "190 S. 334th Street, Federal Way, WA 98003",
     "priceRange": "$1015 - $1690",
-    "phone": "2532750110"
+    "phone": "2532750110",
+    "placeId": "ChIJIUz0Ha9XkFQRD1e716NcmJo"
 }, {
     "name": "Sierra On Greenwood",
     "loc": {
@@ -1185,7 +1316,8 @@ var apts = [{
     },
     "fullAddress": "11222 Greenwood Avenue N, Seattle, WA 98133",
     "priceRange": "$1150 - $1550",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ6x831LYWkFQRyJ-uMcymYHY"
 }, {
     "name": "Honey Creek Apartments",
     "loc": {
@@ -1194,7 +1326,8 @@ var apts = [{
     },
     "fullAddress": "1332 Duvall Avenue NE, Renton, WA 98059",
     "priceRange": "$1182 - $1682",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJF7FnQ31okFQR3npWfg7BfBs"
 }, {
     "name": "Park in Bellevue",
     "loc": {
@@ -1203,7 +1336,8 @@ var apts = [{
     },
     "fullAddress": "1515 Bellevue Way NE, Bellevue, WA 98004",
     "priceRange": "$2042 - $2466",
-    "phone": "4256363463"
+    "phone": "4256363463",
+    "placeId": "ChIJ-y4QlJFskFQRK1xA0EtNSuA"
 }, {
     "name": "Park Hill At Issaquah",
     "loc": {
@@ -1212,7 +1346,8 @@ var apts = [{
     },
     "fullAddress": "22500 S E 56th St, Issaquah, WA 98029",
     "priceRange": "$1507 - $2837",
-    "phone": "4255492198"
+    "phone": "4255492198",
+    "placeId": "ChIJj7Eek71vkFQRu5XiOhSRGL0"
 }, {
     "name": "Avana on the Lake",
     "loc": {
@@ -1221,7 +1356,8 @@ var apts = [{
     },
     "fullAddress": "538 Lakeside Ave S, Seattle, WA 98144",
     "priceRange": "$1239 - $3891",
-    "phone": "2065081032"
+    "phone": "2065081032",
+    "placeId": "ChIJY5BZIuVqkFQRITooE-fODTs"
 }, {
     "name": "Broadstone Sky",
     "loc": {
@@ -1230,7 +1366,8 @@ var apts = [{
     },
     "fullAddress": "4745 40th Avenue SW, Seattle, WA 98116",
     "priceRange": "$1355 - $3005",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJGcM2NPlAkFQRVs74QnzfENA"
 }, {
     "name": "Copper Ridge",
     "loc": {
@@ -1239,7 +1376,8 @@ var apts = [{
     },
     "fullAddress": "4600 Davis Ave S, Renton, WA 98055",
     "priceRange": "$1020 - $1595",
-    "phone": "4259542064"
+    "phone": "4259542064",
+    "placeId": "ChIJZxvggQFdkFQRlb6Ug-OftDc"
 }, {
     "name": "Totem Lake Heights",
     "loc": {
@@ -1248,7 +1386,8 @@ var apts = [{
     },
     "fullAddress": "12414 NE 127th Court, Kirkland, WA 98034",
     "priceRange": "$1420 - $1897",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJD-h_tYQNkFQRQbgtUXtdQqw"
 }, {
     "name": "CITIZEN",
     "loc": {
@@ -1257,7 +1396,8 @@ var apts = [{
     },
     "fullAddress": "1222 East Madison Street, Seattle, WA 98122",
     "priceRange": "$1375 - $2300",
-    "phone": "2065080573"
+    "phone": "2065080573",
+    "placeId": "ChIJ_e3meM5qkFQRnevF0FtrFhI"
 }, {
     "name": "Olympic Pointe I & II Apartments",
     "loc": {
@@ -1266,7 +1406,8 @@ var apts = [{
     },
     "fullAddress": "3100 Se Orlando Street, Port Orchard, WA 98366",
     "priceRange": "$848 - $1204",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJlevxK-Y3kFQRWez3hk2T4g0"
 }, {
     "name": "47 + 7",
     "loc": {
@@ -1275,7 +1416,8 @@ var apts = [{
     },
     "fullAddress": "4558 7th Ave NE, Seattle, WA 98105",
     "priceRange": "$1770 - $1955",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJPxGYv18UkFQRaqHL73Htirg"
 }, {
     "name": "The Highlands at Wynhaven",
     "loc": {
@@ -1284,7 +1426,8 @@ var apts = [{
     },
     "fullAddress": "1460 NE Hawthorne St, Issaquah, WA 98029",
     "priceRange": "$1800 - $3290",
-    "phone": "4256544065"
+    "phone": "4256544065",
+    "placeId": "Ei0xNDYwIE5FIEhhd3Rob3JuZSBTdCwgSXNzYXF1YWgsIFdBIDk4MDI5LCBVU0E"
 }, {
     "name": "Carkeek Park Place",
     "loc": {
@@ -1293,7 +1436,8 @@ var apts = [{
     },
     "fullAddress": "431 Northwest 100th Place, Seattle, WA 98177",
     "priceRange": "$1375 - $2500",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJKc-eKKMWkFQRXzuq-AAssN0"
 }, {
     "name": "Furnished Studio - Seattle - Everett - North",
     "loc": {
@@ -1302,7 +1446,8 @@ var apts = [{
     },
     "fullAddress": "8410 Broadway, Everett, WA 98208",
     "priceRange": null,
-    "phone": "4253157161"
+    "phone": "4253157161",
+    "placeId": "Eik4NDEwIEJyb2Fkd2F5IEF2ZSwgRXZlcmV0dCwgV0EgOTgyMDMsIFVTQQ"
 }, {
     "name": "Olympic Village",
     "loc": {
@@ -1311,7 +1456,8 @@ var apts = [{
     },
     "fullAddress": "1381 NE Fairgrounds Road, Bremerton, WA 98311",
     "priceRange": "$1105 - $1535",
-    "phone": ""
+    "phone": "",
+    "placeId": "EjAxMzgxIE5FIEZhaXJncm91bmRzIFJkLCBCcmVtZXJ0b24sIFdBIDk4MzExLCBVU0E"
 }, {
     "name": "Legacy at Pratt Park",
     "loc": {
@@ -1320,7 +1466,8 @@ var apts = [{
     },
     "fullAddress": "1800 South Jackson Street, Seattle, WA 98144",
     "priceRange": null,
-    "phone": "2067010059"
+    "phone": "2067010059",
+    "placeId": "ChIJqxgM1cFqkFQRY_6DHcjSG74"
 }, {
     "name": "The Reserve at Renton Senior Living",
     "loc": {
@@ -1329,7 +1476,8 @@ var apts = [{
     },
     "fullAddress": "495 Renton Center Way SW, Renton, WA 98057",
     "priceRange": null,
-    "phone": "4253052991"
+    "phone": "4253052991",
+    "placeId": "Ei80OTUgUmVudG9uIENlbnRlciBXYXkgU1csIFJlbnRvbiwgV0EgOTgwNTcsIFVTQQ"
 }, {
     "name": "Alder Flats",
     "loc": {
@@ -1338,7 +1486,8 @@ var apts = [{
     },
     "fullAddress": "220 10th Avenue, Seattle, WA 98122",
     "priceRange": null,
-    "phone": "2066072741"
+    "phone": "2066072741",
+    "placeId": "ChIJF5Y2fsdqkFQRID6gZH-GQ-I"
 }, {
     "name": "Marine Terrace Apartments",
     "loc": {
@@ -1347,7 +1496,8 @@ var apts = [{
     },
     "fullAddress": "6329 N 26th Street, Tacoma, WA 98407",
     "priceRange": null,
-    "phone": "2539480923"
+    "phone": "2539480923",
+    "placeId": "ChIJmZOrd7dUkFQRAOfU6SiOUw4"
 }, {
     "name": "Bracera",
     "loc": {
@@ -1356,7 +1506,8 @@ var apts = [{
     },
     "fullAddress": "11400 Olympus Way, Gig Harbor, WA 98332",
     "priceRange": "$1129 - $1808",
-    "phone": ""
+    "phone": "",
+    "placeId": "EiwxMTQwMCBPbHltcHVzIFdheSwgR2lnIEhhcmJvciwgV0EgOTgzMzIsIFVTQQ"
 }, {
     "name": "Allez",
     "loc": {
@@ -1365,7 +1516,8 @@ var apts = [{
     },
     "fullAddress": "8397 158TH AVE NE, Redmond, WA 98052",
     "priceRange": "$1500 - $1740",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJy1AzvVINkFQRdgfVYXf0DGg"
 }, {
     "name": "Waterbury Park Apartments",
     "loc": {
@@ -1374,7 +1526,8 @@ var apts = [{
     },
     "fullAddress": "32905 19th Place South, Federal Way, WA 98003",
     "priceRange": "$1190 - $2365",
-    "phone": "2532168841"
+    "phone": "2532168841",
+    "placeId": "ChIJlTnseJxXkFQRJb7IuozoxHI"
 }, {
     "name": "Arbors at Edgewood, The",
     "loc": {
@@ -1383,7 +1536,8 @@ var apts = [{
     },
     "fullAddress": "2105 Meridian Avenue E, Edgewood, WA 98371",
     "priceRange": "$1295 - $1615",
-    "phone": "2539543373"
+    "phone": "2539543373",
+    "placeId": "ChIJlxbBQOP4kFQRHHdLzumj6X8"
 }, {
     "name": "Verse Seattle",
     "loc": {
@@ -1392,7 +1546,8 @@ var apts = [{
     },
     "fullAddress": "402 22nd Ave S., Seattle, WA 98144",
     "priceRange": null,
-    "phone": "2068660629"
+    "phone": "2068660629",
+    "placeId": "ChIJk_0OiOlqkFQR5A2LfuJijdY"
 }, {
     "name": "Proctor Station",
     "loc": {
@@ -1401,7 +1556,8 @@ var apts = [{
     },
     "fullAddress": "3910 N 28th Street, Tacoma, WA 98407",
     "priceRange": "$1090 - $2990",
-    "phone": "2539483999"
+    "phone": "2539483999",
+    "placeId": "ChIJ-ZQc7u5UkFQRgr2it3DgF4U"
 }, {
     "name": "Furnished Studio - Seattle - Everett  - Silverlake",
     "loc": {
@@ -1410,7 +1566,8 @@ var apts = [{
     },
     "fullAddress": "1431 112th Street SE, Everett, WA 98208",
     "priceRange": null,
-    "phone": "4259531429"
+    "phone": "4259531429",
+    "placeId": "ChIJT42PhNwGkFQRsbJO5rscItA"
 }, {
     "name": "The Mill at First Hill",
     "loc": {
@@ -1419,7 +1576,8 @@ var apts = [{
     },
     "fullAddress": "1000 8Th Ave, Seattle, WA 98104",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ6zDObrZqkFQR9PdSM2iMtPc"
 }, {
     "name": "The Outlook Apartments",
     "loc": {
@@ -1428,7 +1586,8 @@ var apts = [{
     },
     "fullAddress": "12188 Cloudy Peak Lane Nw, Silverdale, WA 98383",
     "priceRange": "$1115 - $1425",
-    "phone": "3609306718"
+    "phone": "3609306718",
+    "placeId": "EjIxMjE4OCBDbG91ZHkgUGVhayBMbiBOVywgU2lsdmVyZGFsZSwgV0EgOTgzODMsIFVTQQ"
 }, {
     "name": "Surprise Lake Village",
     "loc": {
@@ -1437,7 +1596,8 @@ var apts = [{
     },
     "fullAddress": "2800 Queens Way, Milton, WA 98354",
     "priceRange": null,
-    "phone": "2532317476"
+    "phone": "2532317476",
+    "placeId": "ChIJ5WZCS-74kFQRe_DtNpoWIe4"
 }, {
     "name": "Parkhurst Apartments",
     "loc": {
@@ -1446,7 +1606,8 @@ var apts = [{
     },
     "fullAddress": "5202 South 12th Street, Tacoma, WA 98465",
     "priceRange": "$995",
-    "phone": "2539483245"
+    "phone": "2539483245",
+    "placeId": "ChIJXfE-pitVkFQRnQm0ISrHzm0"
 }, {
     "name": "Elliott Pointe",
     "loc": {
@@ -1455,7 +1616,8 @@ var apts = [{
     },
     "fullAddress": "2226 Elliott Avenue, Seattle, WA 98121",
     "priceRange": "$1325 - $2245",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJi1M0gk0VkFQRMjTVKdE2wwE"
 }, {
     "name": "Crystal Pointe",
     "loc": {
@@ -1464,7 +1626,8 @@ var apts = [{
     },
     "fullAddress": "35434 25th Avenue SW, Federal Way, WA 98023",
     "priceRange": "$1245 - $1510",
-    "phone": "2536565310"
+    "phone": "2536565310",
+    "placeId": "ChIJX6TCvUJWkFQR8preGiXn0Jk"
 }, {
     "name": "Bridlewood",
     "loc": {
@@ -1473,7 +1636,8 @@ var apts = [{
     },
     "fullAddress": "13210 97th Avenue Northeast, Kirkland, WA 98034",
     "priceRange": "$1275 - $1550",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJfai56gwSkFQRb3WlZTxjnCg"
 }, {
     "name": "Atlas Apartment Homes",
     "loc": {
@@ -1482,7 +1646,8 @@ var apts = [{
     },
     "fullAddress": "1036 7th Ave, NW, Issaquah, WA 98027",
     "priceRange": "$1410 - $2855",
-    "phone": "4252925021"
+    "phone": "4252925021",
+    "placeId": "EigxMDM2IDd0aCBBdmUgTlcsIElzc2FxdWFoLCBXQSA5ODAyNywgVVNB"
 }, {
     "name": "Bayview",
     "loc": {
@@ -1491,7 +1656,8 @@ var apts = [{
     },
     "fullAddress": "30911 1st Avenue S, Federal Way, WA 98003",
     "priceRange": null,
-    "phone": "2532751277"
+    "phone": "2532751277",
+    "placeId": "ChIJi4erv2tXkFQRl_YLhPi1xq4"
 }, {
     "name": "Walden Pond",
     "loc": {
@@ -1500,7 +1666,8 @@ var apts = [{
     },
     "fullAddress": "9900 12th Avenue West, Everett, WA 98204",
     "priceRange": null,
-    "phone": "4253744046"
+    "phone": "4253744046",
+    "placeId": "ChIJYc4-9UkBkFQRUjrqtsoFRwY"
 }, {
     "name": "Cedar Heights",
     "loc": {
@@ -1509,7 +1676,8 @@ var apts = [{
     },
     "fullAddress": "13215 NE 123rd Street, Kirkland, WA 98034",
     "priceRange": "$1280 - $2015",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJw_pHt3cNkFQRTC3hDqTtcLY"
 }, {
     "name": "Arterra",
     "loc": {
@@ -1518,7 +1686,8 @@ var apts = [{
     },
     "fullAddress": "711 West Casino Road, Everett, WA 98204",
     "priceRange": "$1099 - $1325",
-    "phone": "4255952296"
+    "phone": "4255952296",
+    "placeId": "ChIJoyl0eSMBkFQRf19eUltEZqQ"
 }, {
     "name": "Furnished Studio - Tacoma - Fife",
     "loc": {
@@ -1527,7 +1696,8 @@ var apts = [{
     },
     "fullAddress": "2820 Pacific Hwy East, Fife, WA 98424",
     "priceRange": null,
-    "phone": "2533215385"
+    "phone": "2533215385",
+    "placeId": "ChIJCRmUjWD_kFQRpM7RlFyiZpw"
 }, {
     "name": "Meridian Pointe Apartments",
     "loc": {
@@ -1536,7 +1706,8 @@ var apts = [{
     },
     "fullAddress": "407 Valley Avenue NE, Puyallup, WA 98372",
     "priceRange": "$975 - $1455",
-    "phone": "2536933792"
+    "phone": "2536933792",
+    "placeId": "ChIJsZSoEU_5kFQRyzCQmMmAEq0"
 }, {
     "name": "Madison Court Apartments",
     "loc": {
@@ -1545,7 +1716,8 @@ var apts = [{
     },
     "fullAddress": "1922 42nd Ave E, Seattle, WA 98112",
     "priceRange": "$1750 - $2995",
-    "phone": "2065667964"
+    "phone": "2065667964",
+    "placeId": "ChIJK1pFnLYUkFQRLy36RBD45I8"
 }, {
     "name": "Excalibur",
     "loc": {
@@ -1554,7 +1726,8 @@ var apts = [{
     },
     "fullAddress": "123 112th Avenue Northeast, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4252743896"
+    "phone": "4252743896",
+    "placeId": "ChIJu8gH_mJskFQRDVIg-eu8D1c"
 }, {
     "name": "Main Street Flats",
     "loc": {
@@ -1563,7 +1736,8 @@ var apts = [{
     },
     "fullAddress": "10575 Main St. Bellevue, Bellevue, WA 98004",
     "priceRange": "$1386 - $2750",
-    "phone": "4255026720"
+    "phone": "4255026720",
+    "placeId": "EiYxMDU3NSBNYWluIFN0LCBCZWxsZXZ1ZSwgV0EgOTgwMDQsIFVTQQ"
 }, {
     "name": "Treetops",
     "loc": {
@@ -1572,7 +1746,8 @@ var apts = [{
     },
     "fullAddress": "1206 NW Tahoe Lane, Silverdale, WA 98383",
     "priceRange": "$1220 - $2015",
-    "phone": "3604476455"
+    "phone": "3604476455",
+    "placeId": "EisxMjA2IE5XIFRhaG9lIExuLCBTaWx2ZXJkYWxlLCBXQSA5ODM4MywgVVNB"
 }, {
     "name": "Woodcreek Apartments",
     "loc": {
@@ -1581,7 +1756,8 @@ var apts = [{
     },
     "fullAddress": "2188 NE Hostmark Street, Poulsbo, WA 98370",
     "priceRange": null,
-    "phone": "3609306860"
+    "phone": "3609306860",
+    "placeId": "EisyMTg4IE5FIEhvc3RtYXJrIFN0LCBQb3Vsc2JvLCBXQSA5ODM3MCwgVVNB"
 }, {
     "name": "The Sinclair",
     "loc": {
@@ -1590,7 +1766,8 @@ var apts = [{
     },
     "fullAddress": "414 SW Hayworth Drive, Port Orchard, WA 98367",
     "priceRange": "$1000 - $1750",
-    "phone": "3609306715"
+    "phone": "3609306715",
+    "placeId": "Ei80MTQgU1cgSGF5d29ydGggRHIsIFBvcnQgT3JjaGFyZCwgV0EgOTgzNjcsIFVTQQ"
 }, {
     "name": "Pine Ridge",
     "loc": {
@@ -1599,7 +1776,8 @@ var apts = [{
     },
     "fullAddress": "3232 Pine Rd NE, Bremerton, WA 98310",
     "priceRange": "$1429 - $1768",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJg4JTUeM5kFQRyJX1qBP53Yo"
 }, {
     "name": "Fairwood Pond",
     "loc": {
@@ -1608,7 +1786,8 @@ var apts = [{
     },
     "fullAddress": "14700 S E Petrovitsky Rd, Renton, WA 98058",
     "priceRange": "$1357 - $1885",
-    "phone": "4252743635"
+    "phone": "4252743635",
+    "placeId": "ChIJJyMvoXxnkFQRcD-J_cmoUTw"
 }, {
     "name": "Griffin Glen",
     "loc": {
@@ -1617,7 +1796,8 @@ var apts = [{
     },
     "fullAddress": "5163 NE Mariah Lane, Bremerton, WA 98311",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJcQbnDB86kFQRmb5r_lXOvVc"
 }, {
     "name": "12 Central Square",
     "loc": {
@@ -1626,7 +1806,8 @@ var apts = [{
     },
     "fullAddress": "10290 NE 12th Street, Bellevue, WA 98004",
     "priceRange": "$2300 - $2650",
-    "phone": "4256363293"
+    "phone": "4256363293",
+    "placeId": "ChIJLRME15FskFQRsKQGYEw1YDg"
 }, {
     "name": "The Oasis Apartments",
     "loc": {
@@ -1635,7 +1816,8 @@ var apts = [{
     },
     "fullAddress": "2825 South Delin Street, Tacoma, WA 98402",
     "priceRange": "$750 - $1000",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJpToVFGNVkFQREFB5u3vUxYo"
 }, {
     "name": "700 Broadway",
     "loc": {
@@ -1644,7 +1826,8 @@ var apts = [{
     },
     "fullAddress": "700 Broadway East, Seattle, WA 98102",
     "priceRange": "$1525 - $3295",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJyz8u4i4VkFQREhjCAyb65qc"
 }, {
     "name": "Whisperwood",
     "loc": {
@@ -1653,7 +1836,8 @@ var apts = [{
     },
     "fullAddress": "11844 26th Ave. S., Burien, WA 98168",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJyzfuI6tDkFQRnw1KfpU-jTU"
 }, {
     "name": "Bella On Broadway Apartments",
     "loc": {
@@ -1662,7 +1846,8 @@ var apts = [{
     },
     "fullAddress": "436 Broadway, Tacoma, WA 98402",
     "priceRange": "$975 - $1750",
-    "phone": "2539483235"
+    "phone": "2539483235",
+    "placeId": "ChIJy8npU6ZVkFQRiVRm9YCQU14"
 }, {
     "name": "Olin Fields",
     "loc": {
@@ -1671,7 +1856,8 @@ var apts = [{
     },
     "fullAddress": "10115 Holly Drive, Everett, WA 98204",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJkekmtUoBkFQRCs5Ypl_X7Z8"
 }, {
     "name": "Trillium Heights",
     "loc": {
@@ -1680,7 +1866,8 @@ var apts = [{
     },
     "fullAddress": "12240 Daphne Lane Northwest, Silverdale, WA 98383",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "Ei0xMjI0MCBEYXBobmUgTG4gTlcsIFNpbHZlcmRhbGUsIFdBIDk4MzgzLCBVU0E"
 }, {
     "name": "Carriages at Fairwood Downs",
     "loc": {
@@ -1689,7 +1876,8 @@ var apts = [{
     },
     "fullAddress": "15030 S.E. 179th St, Renton, WA 98058",
     "priceRange": null,
-    "phone": "4256512009"
+    "phone": "4256512009",
+    "placeId": "ChIJzSiR0npnkFQROvAEc53bRyk"
 }, {
     "name": "Constellation Apartment Homes",
     "loc": {
@@ -1698,7 +1886,8 @@ var apts = [{
     },
     "fullAddress": "1455 South Puget Drive, Renton, WA 98055",
     "priceRange": "$1125 - $1698",
-    "phone": "4256544239"
+    "phone": "4256544239",
+    "placeId": "ChIJlTVCa2hdkFQRkugbXg-3vgE"
 }, {
     "name": "The Martine",
     "loc": {
@@ -1707,7 +1896,8 @@ var apts = [{
     },
     "fullAddress": "13842 NE 8th Street, Bellevue, WA 98005",
     "priceRange": "$1611 - $2314",
-    "phone": "4257489093"
+    "phone": "4257489093",
+    "placeId": "EigxMzg0MiBORSA4dGggU3QsIEJlbGxldnVlLCBXQSA5ODAwNSwgVVNB"
 }, {
     "name": "Sea Brim East Apartments",
     "loc": {
@@ -1716,7 +1906,8 @@ var apts = [{
     },
     "fullAddress": "1604-1608 Naval Ave., Bremerton, WA 98312",
     "priceRange": "$975 - $1025",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJuZ5lMmY3kFQRQuzSVpGaH38"
 }, {
     "name": "Crown Pointe",
     "loc": {
@@ -1725,7 +1916,8 @@ var apts = [{
     },
     "fullAddress": "3788 NE 4th Street, Renton, WA 98056",
     "priceRange": null,
-    "phone": "4252743629"
+    "phone": "4252743629",
+    "placeId": "ChIJIQlFbt9nkFQR9m8hrWEwmUA"
 }, {
     "name": "TREK",
     "loc": {
@@ -1734,7 +1926,8 @@ var apts = [{
     },
     "fullAddress": "2 E Main St, Auburn, WA 98002",
     "priceRange": "$1149 - $1710",
-    "phone": ""
+    "phone": "",
+    "placeId": "EiIyIEUgTWFpbiBTdCwgQXVidXJuLCBXQSA5ODAwMiwgVVNB"
 }, {
     "name": "Townhomes at Mountain View",
     "loc": {
@@ -1743,7 +1936,8 @@ var apts = [{
     },
     "fullAddress": "2309 East Main Avenue, Puyallup, WA 98372",
     "priceRange": "$1550 - $1875",
-    "phone": "2536933757"
+    "phone": "2536933757",
+    "placeId": "ChIJGav1e-T7kFQRWUkRieDN_Co"
 }, {
     "name": "Redmond Park",
     "loc": {
@@ -1752,7 +1946,8 @@ var apts = [{
     },
     "fullAddress": "14700 Northeast 35th Street, Bellevue, WA 98007",
     "priceRange": "$1429 - $2199",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ0QU59hJtkFQRY7FocPEgjZ8"
 }, {
     "name": "Angeline",
     "loc": {
@@ -1761,7 +1956,8 @@ var apts = [{
     },
     "fullAddress": "4801 Rainier Ave S, Seattle, WA 98118",
     "priceRange": null,
-    "phone": "2069719212"
+    "phone": "2069719212",
+    "placeId": "ChIJYzp-UAxqkFQRBn1onbZ_TzQ"
 }, {
     "name": "Tarmigan at Wapato Creek",
     "loc": {
@@ -1770,7 +1966,8 @@ var apts = [{
     },
     "fullAddress": "3351 70th Avenue East, Fife, WA 98424",
     "priceRange": "$1000 - $1490",
-    "phone": "2532313287"
+    "phone": "2532313287",
+    "placeId": "ChIJc0TcYyz_kFQRVQNmM6EwCxQ"
 }, {
     "name": "Albers Mill Lofts",
     "loc": {
@@ -1779,7 +1976,8 @@ var apts = [{
     },
     "fullAddress": "1821 Dock Street, Tacoma, WA 98402",
     "priceRange": "$1160 - $2333",
-    "phone": "2536666173"
+    "phone": "2536666173",
+    "placeId": "ChIJjf-TpndVkFQR2b-U6F71VYs"
 }, {
     "name": "Cedar Park",
     "loc": {
@@ -1788,7 +1986,8 @@ var apts = [{
     },
     "fullAddress": "408 Monroe Avenue NE, Renton, WA 98056",
     "priceRange": "$800 - $1450",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJv0WwqQpokFQRcfZ1f9Nj-aM"
 }, {
     "name": "Furnished Studio - Seattle - Federal Way",
     "loc": {
@@ -1797,7 +1996,8 @@ var apts = [{
     },
     "fullAddress": "1400 South 320th Street, Federal Way, WA 98003",
     "priceRange": null,
-    "phone": "2536424948"
+    "phone": "2536424948",
+    "placeId": "ChIJYcbyD3dXkFQRMDJRs16UBJs"
 }, {
     "name": "The Meyden",
     "loc": {
@@ -1806,7 +2006,8 @@ var apts = [{
     },
     "fullAddress": "10333 Main Street, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4256512014"
+    "phone": "4256512014",
+    "placeId": "ChIJO0Vw5X1skFQR3fjYF1OBaF8"
 }, {
     "name": "Summit at Madison Park",
     "loc": {
@@ -1815,7 +2016,8 @@ var apts = [{
     },
     "fullAddress": "1819 23rd Avenue, Seattle, WA 98122",
     "priceRange": null,
-    "phone": "2068294854"
+    "phone": "2068294854",
+    "placeId": "ChIJDRxs0NVqkFQRxceqJ4nXSK0"
 }, {
     "name": "Forest Park Estates",
     "loc": {
@@ -1824,7 +2026,8 @@ var apts = [{
     },
     "fullAddress": "4632 Fowler Avenue, Everett, WA 98203",
     "priceRange": "$950 - $1050",
-    "phone": "4259539842"
+    "phone": "4259539842",
+    "placeId": "ChIJDZNn6YkAkFQRhRKRnCezppQ"
 }, {
     "name": "Millington At Merrill Creek",
     "loc": {
@@ -1833,7 +2036,8 @@ var apts = [{
     },
     "fullAddress": "1401 Merrill Creek Pkwy, Everett, WA 98203",
     "priceRange": null,
-    "phone": "4259481894"
+    "phone": "4259481894",
+    "placeId": "ChIJr16Dhv8AkFQRftbnN2R1Eo4"
 }, {
     "name": "Harbor Village",
     "loc": {
@@ -1842,7 +2046,8 @@ var apts = [{
     },
     "fullAddress": "6200 Soundview Drive, Gig Harbor, WA 98335",
     "priceRange": "$1200 - $1450",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJQaV1rSlTkFQR2suCONiMS1E"
 }, {
     "name": "Chelsea Heights",
     "loc": {
@@ -1851,7 +2056,8 @@ var apts = [{
     },
     "fullAddress": "603 S J St, Tacoma, WA 98405",
     "priceRange": "$1453 - $1881",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJpb7x4QhVkFQRwTB7zbWBF00"
 }, {
     "name": "The Park At Northgate",
     "loc": {
@@ -1860,7 +2066,8 @@ var apts = [{
     },
     "fullAddress": "10735 Roosevelt Way NE, Seattle, WA 98125",
     "priceRange": "$1867 - $2118",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJt8WB81cRkFQRW8t4bRjKeog"
 }, {
     "name": "Hearthstone at Merrill Creek",
     "loc": {
@@ -1869,7 +2076,8 @@ var apts = [{
     },
     "fullAddress": "1901 Merrill Creek Pkwy, Everett, WA 98203",
     "priceRange": null,
-    "phone": "4253744282"
+    "phone": "4253744282",
+    "placeId": "ChIJSXlN9wABkFQRstbn7TgZRFY"
 }, {
     "name": "Gig Harbor Villa",
     "loc": {
@@ -1878,7 +2086,8 @@ var apts = [{
     },
     "fullAddress": "5900 Soundview Dr, Gig Harbor, WA 98335",
     "priceRange": "$1000 - $1350",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJDTJvRSlTkFQRhv11L3zltos"
 }, {
     "name": "Veranda Green",
     "loc": {
@@ -1887,7 +2096,8 @@ var apts = [{
     },
     "fullAddress": "11301 26th Avenue South, Seattle, WA 98168",
     "priceRange": "$904 - $1157",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJX_Pp21JCkFQR-fFrODR5qZk"
 }, {
     "name": "Prince Of Wales",
     "loc": {
@@ -1896,7 +2106,8 @@ var apts = [{
     },
     "fullAddress": "1818 20th Avenue, Seattle, WA 98122",
     "priceRange": "$1250 - $1765",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJvbaPQNRqkFQRJrIp8fMxAyg"
 }, {
     "name": "Furnished Studio - Seattle - Bothell - Canyon Park",
     "loc": {
@@ -1905,7 +2116,8 @@ var apts = [{
     },
     "fullAddress": "22122 17th Ave. S.E., Bothell, WA 98021",
     "priceRange": null,
-    "phone": "4259989151"
+    "phone": "4259989151",
+    "placeId": "ChIJxwF7ywgPkFQRR0ku1a_1CXw"
 }, {
     "name": "Ballinger Trace",
     "loc": {
@@ -1914,7 +2126,8 @@ var apts = [{
     },
     "fullAddress": "7610-7636 230th Sw, Edmonds, WA 98026",
     "priceRange": "$1320",
-    "phone": "4253414008"
+    "phone": "4253414008",
+    "placeId": "ChIJtxrSdp4akFQRiSNxYC_6vTM"
 }, {
     "name": "Stonemeadow Farms",
     "loc": {
@@ -1923,7 +2136,8 @@ var apts = [{
     },
     "fullAddress": "23028 27th Avenue SE, Bothell, WA 98021",
     "priceRange": "$1410 - $2940",
-    "phone": "4256363478"
+    "phone": "4256363478",
+    "placeId": "ChIJN8SMh_0OkFQRqJGebXJtOgQ"
 }, {
     "name": "Watercrest",
     "loc": {
@@ -1932,7 +2146,8 @@ var apts = [{
     },
     "fullAddress": "14812 Bothell Way Northeast, Lake Forest Park, WA 98155",
     "priceRange": null,
-    "phone": "2069623227"
+    "phone": "2069623227",
+    "placeId": "ChIJzfG94KERkFQRA6MbN336NoY"
 }, {
     "name": "Vue Kirkland",
     "loc": {
@@ -1941,7 +2156,8 @@ var apts = [{
     },
     "fullAddress": "11733 Northeast 131st Place, Kirkland, WA 98034",
     "priceRange": "$1250 - $1685",
-    "phone": "4252764937"
+    "phone": "4252764937",
+    "placeId": "ChIJS_NCBY8NkFQR96T8Ya3snvQ"
 }, {
     "name": "Camelot Apartments",
     "loc": {
@@ -1950,7 +2166,8 @@ var apts = [{
     },
     "fullAddress": "11030 Evergreen Way, Everett, WA 98204",
     "priceRange": "$955 - $1470",
-    "phone": "4254056637"
+    "phone": "4254056637",
+    "placeId": "ChIJHT9SJLIGkFQROgoeYvjH2xU"
 }, {
     "name": "Ray Apartments",
     "loc": {
@@ -1959,7 +2176,8 @@ var apts = [{
     },
     "fullAddress": "3636 Stone Way N, Seattle, WA 98103",
     "priceRange": "$1453 - $3768",
-    "phone": "2069626920"
+    "phone": "2069626920",
+    "placeId": "ChIJ5VjczwEVkFQRvdAQ05mORzY"
 }, {
     "name": "Guinevere",
     "loc": {
@@ -1968,7 +2186,8 @@ var apts = [{
     },
     "fullAddress": "522 North 85th Street, Seattle, WA 98103",
     "priceRange": "$1100 - $2200",
-    "phone": "2065081488"
+    "phone": "2065081488",
+    "placeId": "ChIJ8yfyQx8UkFQRGsUfPIQPxLE"
 }, {
     "name": "Plum Tree Park",
     "loc": {
@@ -1977,7 +2196,8 @@ var apts = [{
     },
     "fullAddress": "200 SW 5th Pl, Renton, WA 98057",
     "priceRange": "$1184 - $1610",
-    "phone": "4252743662"
+    "phone": "4252743662",
+    "placeId": "ChIJ71Nsn7NCkFQRrST1rfD4uU8"
 }, {
     "name": "Campo Basso",
     "loc": {
@@ -1986,7 +2206,8 @@ var apts = [{
     },
     "fullAddress": "15923 Highway 99, Lynnwood, WA 98087",
     "priceRange": "$950 - $1550",
-    "phone": "4253215761"
+    "phone": "4253215761",
+    "placeId": "ChIJb9KTWlYEkFQRuwv6SPWqCJs"
 }, {
     "name": "Furnished Studio - Seattle - Renton",
     "loc": {
@@ -1995,7 +2216,8 @@ var apts = [{
     },
     "fullAddress": "1150 Oakesdale Ave SW, Renton, WA 98055",
     "priceRange": null,
-    "phone": "4253053388"
+    "phone": "4253053388",
+    "placeId": "ChIJAxitVzNdkFQRVzcXwbUQ9-A"
 }, {
     "name": "Orchard Ridge",
     "loc": {
@@ -2004,7 +2226,8 @@ var apts = [{
     },
     "fullAddress": "3805 164th Street SW, Lynnwood, WA 98087",
     "priceRange": null,
-    "phone": "4253215769"
+    "phone": "4253215769",
+    "placeId": "ChIJ21WF_1QEkFQR_FyY7wq0fwY"
 }, {
     "name": "Furnished Studio - Seattle - Northgate",
     "loc": {
@@ -2013,7 +2236,8 @@ var apts = [{
     },
     "fullAddress": "13300 Stone Avenue N, Seattle, WA 98133",
     "priceRange": null,
-    "phone": "2065047819"
+    "phone": "2065047819",
+    "placeId": "ChIJEUemXDcRkFQRpxT9bnC8YSQ"
 }, {
     "name": "Tivalli",
     "loc": {
@@ -2022,7 +2246,8 @@ var apts = [{
     },
     "fullAddress": "15707 Ash Way, Lynnwood, WA 98037",
     "priceRange": "$1366 - $2830",
-    "phone": "4253215752"
+    "phone": "4253215752",
+    "placeId": "ChIJ0ebR7coFkFQRgHgpVjCUdJI"
 }, {
     "name": "Avalon Apartments",
     "loc": {
@@ -2031,7 +2256,8 @@ var apts = [{
     },
     "fullAddress": "3469 South 152nd Street, Tukwila, WA 98188",
     "priceRange": "$625",
-    "phone": "2065081230"
+    "phone": "2065081230",
+    "placeId": "ChIJQd0AhDlDkFQRSyVQKy_izIQ"
 }, {
     "name": "Washington Park",
     "loc": {
@@ -2040,7 +2266,8 @@ var apts = [{
     },
     "fullAddress": "11020 SE Kangley Road, Kent, WA 98030",
     "priceRange": "$875 - $1300",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJBf2V08dekFQRZ3uv-ChXtsc"
 }, {
     "name": "Summerwalk At Klahanie",
     "loc": {
@@ -2049,7 +2276,8 @@ var apts = [{
     },
     "fullAddress": "3850 Klahanie Drive SE, Issaquah, WA 98029",
     "priceRange": null,
-    "phone": "4255492197"
+    "phone": "4255492197",
+    "placeId": "ChIJnQestyRwkFQRV2vl-nGQK9U"
 }, {
     "name": "Westside  Flats",
     "loc": {
@@ -2058,7 +2286,8 @@ var apts = [{
     },
     "fullAddress": "3233 SW Avalon Way, Seattle, WA 98126",
     "priceRange": "$1750 - $2385",
-    "phone": "2063882199"
+    "phone": "2063882199",
+    "placeId": "ChIJdV1auFZAkFQRjb0TQiA7Etk"
 }, {
     "name": "The Enclave",
     "loc": {
@@ -2067,7 +2296,8 @@ var apts = [{
     },
     "fullAddress": "525 NE Northgate Way, Seattle, WA 98125",
     "priceRange": null,
-    "phone": "2064527711"
+    "phone": "2064527711",
+    "placeId": "ChIJcw3NCFcRkFQRu1nsTM7JhY0"
 }, {
     "name": "Kelsey Ridge",
     "loc": {
@@ -2076,7 +2306,8 @@ var apts = [{
     },
     "fullAddress": "1680 134th Avenue SE, Bellevue, WA 98005",
     "priceRange": "$1560 - $2100",
-    "phone": "4252743659"
+    "phone": "4252743659",
+    "placeId": "ChIJiXgwihZskFQRhObmWf7mXsQ"
 }, {
     "name": "Sanctuary",
     "loc": {
@@ -2085,7 +2316,8 @@ var apts = [{
     },
     "fullAddress": "1205 North 10th Place, Renton, WA 98057",
     "priceRange": null,
-    "phone": "4252743664"
+    "phone": "4252743664",
+    "placeId": "ChIJP_fJBhdokFQRcbzhEhYxifo"
 }, {
     "name": "Seattle Urban Apartments",
     "loc": {
@@ -2094,7 +2326,8 @@ var apts = [{
     },
     "fullAddress": "1321 Queen Anne Avenue North, Seattle, WA 98109",
     "priceRange": "$1325 - $2686",
-    "phone": "2064558315"
+    "phone": "2064558315",
+    "placeId": "ChIJkTF6A2sVkFQR1cobjK-EHlo"
 }, {
     "name": "Woodcliffe Apartment Homes",
     "loc": {
@@ -2103,7 +2336,8 @@ var apts = [{
     },
     "fullAddress": "1205 Grant Avenue South, Renton, WA 98055",
     "priceRange": "$1159 - $1659",
-    "phone": "4252743695"
+    "phone": "4252743695",
+    "placeId": "ChIJ4xnBcFpdkFQRa3JSUJHAjKQ"
 }, {
     "name": "Discovery Heights",
     "loc": {
@@ -2112,7 +2346,8 @@ var apts = [{
     },
     "fullAddress": "942 Discovery Circle NE, Issaquah, WA 98029",
     "priceRange": "$1650 - $2900",
-    "phone": "4257489034"
+    "phone": "4257489034",
+    "placeId": "ChIJKZSacYpvkFQRn6c0wmQoy5Y"
 }, {
     "name": "Reflections by Windsor",
     "loc": {
@@ -2121,7 +2356,8 @@ var apts = [{
     },
     "fullAddress": "6332 East Lake Sammamish Pkwy North East, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4258809054"
+    "phone": "4258809054",
+    "placeId": "ChIJfeHby5VykFQR-X-ABDJOTuM"
 }, {
     "name": "Smith and Burns",
     "loc": {
@@ -2130,7 +2366,8 @@ var apts = [{
     },
     "fullAddress": "4455 Interlake Avenue N, Seattle, WA 98103",
     "priceRange": null,
-    "phone": "2068293894"
+    "phone": "2068293894",
+    "placeId": "ChIJ_Z3iNFEUkFQR4atUEEnmZZg"
 }, {
     "name": "The Reserve",
     "loc": {
@@ -2139,7 +2376,8 @@ var apts = [{
     },
     "fullAddress": "1202 North 10th Place, Renton, WA 98057",
     "priceRange": null,
-    "phone": "4252743608"
+    "phone": "4252743608",
+    "placeId": "ChIJOSyerhdokFQRnbopDox6fGg"
 }, {
     "name": "Timberline Court",
     "loc": {
@@ -2148,7 +2386,8 @@ var apts = [{
     },
     "fullAddress": "1020 112th Street SW, Everett, WA 98204",
     "priceRange": "$1065 - $1550",
-    "phone": "4259033240"
+    "phone": "4259033240",
+    "placeId": "ChIJyT_vrbEGkFQRTkPme5QQjuM"
 }, {
     "name": "Woodlake",
     "loc": {
@@ -2157,7 +2396,8 @@ var apts = [{
     },
     "fullAddress": "11400 NE 132nd St, Kirkland, WA 98034",
     "priceRange": "$1275 - $1910",
-    "phone": "4256366255"
+    "phone": "4256366255",
+    "placeId": "ChIJTVr7h4sNkFQRUY9Q5Ujffdc"
 }, {
     "name": "Discovery Landing",
     "loc": {
@@ -2166,7 +2406,8 @@ var apts = [{
     },
     "fullAddress": "15405 Des Moines mermorial Dr., Burien, WA 98148",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJs6CP3GBDkFQRFtpodKsaTdA"
 }, {
     "name": "Bothell Ridge",
     "loc": {
@@ -2175,7 +2416,8 @@ var apts = [{
     },
     "fullAddress": "19928 Bothell-Everett Hwy SE, Bothell, WA 98012",
     "priceRange": "$1281 - $1877",
-    "phone": "4254400172"
+    "phone": "4254400172",
+    "placeId": "ChIJ0bEu42cPkFQRWqhgnraES9s"
 }, {
     "name": "Vista Ridge Apartments",
     "loc": {
@@ -2184,7 +2426,8 @@ var apts = [{
     },
     "fullAddress": "201 Mt. Park Blvd., SW, Issaquah, WA 98027",
     "priceRange": "$1760 - $1950",
-    "phone": "4256542921"
+    "phone": "4256542921",
+    "placeId": "ChIJ2-3Mt4BlkFQRVS8dY0BZmRQ"
 }, {
     "name": "Avalon Towers Bellevue",
     "loc": {
@@ -2193,7 +2436,8 @@ var apts = [{
     },
     "fullAddress": "10349 NE 10th Street, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4256363494"
+    "phone": "4256363494",
+    "placeId": "ChIJ205AC49skFQRtsNrXZAlJF8"
 }, {
     "name": "Eastlake Flats",
     "loc": {
@@ -2202,7 +2446,8 @@ var apts = [{
     },
     "fullAddress": "2820 Eastlake Avenue E, Seattle, WA 98102",
     "priceRange": "$875 - $1400",
-    "phone": "2068293111"
+    "phone": "2068293111",
+    "placeId": "ChIJaaOLgOMUkFQR2gc2LUwrBh4"
 }, {
     "name": "Sun Vista Apartments",
     "loc": {
@@ -2211,7 +2456,8 @@ var apts = [{
     },
     "fullAddress": "1254-1259 Weiland Street, Kent, WA 98031",
     "priceRange": "$900 - $1500",
-    "phone": "2534999177"
+    "phone": "2534999177",
+    "placeId": "ChIJ_aAdGKxekFQRfnRQcpnbFLE"
 }, {
     "name": "Meridian Glen",
     "loc": {
@@ -2220,7 +2466,8 @@ var apts = [{
     },
     "fullAddress": "12115 Meridian Avenue South, Everett, WA 98208",
     "priceRange": "$1125 - $1650",
-    "phone": "4254056776"
+    "phone": "4254056776",
+    "placeId": "ChIJpakZ4b0GkFQRzCOPNtA3HRY"
 }, {
     "name": "The Overlook at Westridge",
     "loc": {
@@ -2229,7 +2476,8 @@ var apts = [{
     },
     "fullAddress": "600 SW Kenyon Street, Seattle, WA 98106",
     "priceRange": "$1200 - $2030",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJfeAqEXhBkFQRi_NMfyG3CNk"
 }, {
     "name": "Park View at Stevens",
     "loc": {
@@ -2238,7 +2486,8 @@ var apts = [{
     },
     "fullAddress": "1825 S. Stevens Street, Tacoma, WA 98405",
     "priceRange": "$845 - $1110",
-    "phone": "2533131195"
+    "phone": "2533131195",
+    "placeId": "ChIJFceHITJVkFQRZocO7GSvqVg"
 }, {
     "name": "Park 210",
     "loc": {
@@ -2247,7 +2496,8 @@ var apts = [{
     },
     "fullAddress": "7309 210th St. Southwest, Edmonds, WA 98026",
     "priceRange": "$1344 - $1680",
-    "phone": "4253670339"
+    "phone": "4253670339",
+    "placeId": "ChIJmxUMK7gakFQR8aInSURhLpY"
 }, {
     "name": "Riverwood Apartments",
     "loc": {
@@ -2256,7 +2506,8 @@ var apts = [{
     },
     "fullAddress": "24620 Russell Road, Kent, WA 98032",
     "priceRange": null,
-    "phone": "2534999180"
+    "phone": "2534999180",
+    "placeId": "ChIJTQ5t0OBbkFQRi1KrLFr1POc"
 }, {
     "name": "Milehouse",
     "loc": {
@@ -2265,7 +2516,8 @@ var apts = [{
     },
     "fullAddress": "8300 160th Avenue NE, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4257487463"
+    "phone": "4257487463",
+    "placeId": "Eik4MzAwIDE2MHRoIEF2ZSBORSwgUmVkbW9uZCwgV0EgOTgwNTIsIFVTQQ"
 }, {
     "name": "Green Leaf Skyline",
     "loc": {
@@ -2274,7 +2526,8 @@ var apts = [{
     },
     "fullAddress": "3322 So. 222nd Place, Kent, WA 98032",
     "priceRange": "$1435 - $1465",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ3WLRC6JbkFQRJm1va1mTANM"
 }, {
     "name": "Breckenridge",
     "loc": {
@@ -2283,7 +2536,8 @@ var apts = [{
     },
     "fullAddress": "11000 16 Ave. SE, Everett, WA 98208",
     "priceRange": null,
-    "phone": "4253210182"
+    "phone": "4253210182",
+    "placeId": "ChIJGVMCetwGkFQRgplMT03TScw"
 }, {
     "name": "Skye At Belltown",
     "loc": {
@@ -2292,7 +2546,8 @@ var apts = [{
     },
     "fullAddress": "500 Wall St, Seattle, WA 98121",
     "priceRange": null,
-    "phone": "2065080644"
+    "phone": "2065080644",
+    "placeId": "ChIJbdDnKUkVkFQRKrKekp7KAW4"
 }, {
     "name": "The Hanover",
     "loc": {
@@ -2301,7 +2556,8 @@ var apts = [{
     },
     "fullAddress": "3117 S. 192nd St, SeaTac, WA 98188",
     "priceRange": "$1265 - $1465",
-    "phone": "2062592430"
+    "phone": "2062592430",
+    "placeId": "ChIJFVktMV5bkFQR4LEhy_x9UXw"
 }, {
     "name": "Sofi at Somerset",
     "loc": {
@@ -2310,7 +2566,8 @@ var apts = [{
     },
     "fullAddress": "13180 Southeast Newport Way, Bellevue, WA 98006",
     "priceRange": "$1776 - $2771",
-    "phone": "4256363481"
+    "phone": "4256363481",
+    "placeId": "ChIJrTSBJVNpkFQRy_7ahbJKiuc"
 }, {
     "name": "Mark On 8th",
     "loc": {
@@ -2319,7 +2576,8 @@ var apts = [{
     },
     "fullAddress": "285 8th Avenue N, Seattle, WA 98109",
     "priceRange": "$1675 - $3655",
-    "phone": "2068294835"
+    "phone": "2068294835",
+    "placeId": "EiUyODUgOHRoIEF2ZSBOLCBTZWF0dGxlLCBXQSA5ODEwOSwgVVNB"
 }, {
     "name": "Ridgetop",
     "loc": {
@@ -2328,7 +2586,8 @@ var apts = [{
     },
     "fullAddress": "11153 Shipside Lane NW, Silverdale, WA 98383",
     "priceRange": "$1288 - $1780",
-    "phone": "3606333591"
+    "phone": "3606333591",
+    "placeId": "ChIJdWdLXd46kFQRIbPC8EtVT5Y"
 }, {
     "name": "Elements Apartments",
     "loc": {
@@ -2337,7 +2596,8 @@ var apts = [{
     },
     "fullAddress": "958 111th Ave NE, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4256541646"
+    "phone": "4256541646",
+    "placeId": "ChIJjdx6l4tskFQRe9bB8TzCJXY"
 }, {
     "name": "CityLine Apartments",
     "loc": {
@@ -2346,7 +2606,8 @@ var apts = [{
     },
     "fullAddress": "4740 32nd Ave S, Seattle, WA 98118",
     "priceRange": null,
-    "phone": "2064556715"
+    "phone": "2064556715",
+    "placeId": "ChIJ8SbnXwtqkFQRphMB9uAzwbQ"
 }, {
     "name": "Equinox",
     "loc": {
@@ -2355,7 +2616,8 @@ var apts = [{
     },
     "fullAddress": "1524 Eastlake Ave East 1520 Eastlake Ave East, Seattle, WA 98102",
     "priceRange": "$1674 - $3961",
-    "phone": "2065080989"
+    "phone": "2065080989",
+    "placeId": "ChIJrQtTSSEVkFQRlvE6IlblRQs"
 }, {
     "name": "AVA U District",
     "loc": {
@@ -2364,7 +2626,8 @@ var apts = [{
     },
     "fullAddress": "4535 12th Ave NE, Seattle, WA 98105",
     "priceRange": null,
-    "phone": "2064558759"
+    "phone": "2064558759",
+    "placeId": "ChIJ6yhbpIoUkFQRlCVe7X456mc"
 }, {
     "name": "Olde Redmond Place",
     "loc": {
@@ -2373,7 +2636,8 @@ var apts = [{
     },
     "fullAddress": "7001 Old Redmond Road, Redmond, WA 98052",
     "priceRange": "$1600 - $2070",
-    "phone": "4258809846"
+    "phone": "4258809846",
+    "placeId": "ChIJVUzt3KlykFQRgoAkJJPTtTc"
 }, {
     "name": "Volta",
     "loc": {
@@ -2382,7 +2646,8 @@ var apts = [{
     },
     "fullAddress": "2233 1st Avenue, Seattle, WA 98121",
     "priceRange": null,
-    "phone": "2065081352"
+    "phone": "2065081352",
+    "placeId": "ChIJLTU4vE0VkFQRk1CKMb6atO8"
 }, {
     "name": "Emerald Park",
     "loc": {
@@ -2391,7 +2656,8 @@ var apts = [{
     },
     "fullAddress": "5700 23rd Street E, Fife, WA 98424",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJS_4RGzb_kFQR9pAklpR02Q0"
 }, {
     "name": "Avalon Bellevue",
     "loc": {
@@ -2400,7 +2666,8 @@ var apts = [{
     },
     "fullAddress": "11000 NE 10th Street, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4256542908"
+    "phone": "4256542908",
+    "placeId": "ChIJpy-IeYxskFQRbrj5dM_PwIE"
 }, {
     "name": "The Fairways",
     "loc": {
@@ -2409,7 +2676,8 @@ var apts = [{
     },
     "fullAddress": "4901 Fairwood Blvd NE, Tacoma, WA 98422",
     "priceRange": null,
-    "phone": "2539483363"
+    "phone": "2539483363",
+    "placeId": "ChIJBZ7wH5JWkFQRo_KI0c7f-74"
 }, {
     "name": "Slater 116",
     "loc": {
@@ -2418,7 +2686,8 @@ var apts = [{
     },
     "fullAddress": "12340 NE 115TH PLACE, Kirkland, WA 98033",
     "priceRange": null,
-    "phone": "4253362026"
+    "phone": "4253362026",
+    "placeId": "ChIJfVFcR34NkFQRSD71o8ceh18"
 }, {
     "name": "Latitude",
     "loc": {
@@ -2427,7 +2696,8 @@ var apts = [{
     },
     "fullAddress": "12907 East Gibson Road, Everett, WA 98204",
     "priceRange": "$1179 - $1489",
-    "phone": "4254056663"
+    "phone": "4254056663",
+    "placeId": "ChIJlwNA8J8GkFQRRFXXtAPBe3c"
 }, {
     "name": "The Mark on 4th",
     "loc": {
@@ -2436,7 +2706,8 @@ var apts = [{
     },
     "fullAddress": "12102 4th Avenue West, Everett, WA 98204",
     "priceRange": null,
-    "phone": "4256157069"
+    "phone": "4256157069",
+    "placeId": "ChIJnXsGvrwGkFQRILGnRasY9Mo"
 }, {
     "name": "Casablanca",
     "loc": {
@@ -2445,7 +2716,8 @@ var apts = [{
     },
     "fullAddress": "10710 Evergreen Way, Everett, WA 98204",
     "priceRange": "$918 - $1219",
-    "phone": "4253744105"
+    "phone": "4253744105",
+    "placeId": "ChIJbTIbkLMGkFQRIg4wBwkI5Vk"
 }, {
     "name": "Array Apartments",
     "loc": {
@@ -2454,7 +2726,8 @@ var apts = [{
     },
     "fullAddress": "14027 Lake City Way NE, Seattle, WA 98125",
     "priceRange": null,
-    "phone": "2064530377"
+    "phone": "2064530377",
+    "placeId": "ChIJUQHswnURkFQRGFh8ncY9Kw8"
 }, {
     "name": "Citywalk",
     "loc": {
@@ -2463,7 +2736,8 @@ var apts = [{
     },
     "fullAddress": "1130 North 115th Street, Seattle, WA 98133",
     "priceRange": "$1573 - $1980",
-    "phone": "2065081343"
+    "phone": "2065081343",
+    "placeId": "ChIJtUBCyUwRkFQRzu4b_vyshIM"
 }, {
     "name": "Max Apartments",
     "loc": {
@@ -2472,7 +2746,8 @@ var apts = [{
     },
     "fullAddress": "8520 Evanston Ave N, Seattle, WA 98103",
     "priceRange": "$1325 - $1395",
-    "phone": "2062890732"
+    "phone": "2062890732",
+    "placeId": "ChIJ10sPOR8UkFQRUuhA59Nrads"
 }, {
     "name": "Tressa",
     "loc": {
@@ -2481,7 +2756,8 @@ var apts = [{
     },
     "fullAddress": "14200 Linden Ave North, Seattle, WA 98133",
     "priceRange": "$909 - $1154",
-    "phone": "2065081383"
+    "phone": "2065081383",
+    "placeId": "ChIJ__yUeiURkFQRZT-Aa-6aVuA"
 }, {
     "name": "Chelsea At Juanita Village",
     "loc": {
@@ -2490,7 +2766,8 @@ var apts = [{
     },
     "fullAddress": "11718 97th Lane NE, Kirkland, WA 98034",
     "priceRange": "$1533 - $2725",
-    "phone": "4252018439"
+    "phone": "4252018439",
+    "placeId": "EikxMTcxOCA5N3RoIExuIE5FLCBLaXJrbGFuZCwgV0EgOTgwMzQsIFVTQQ"
 }, {
     "name": "MOD Apartment Homes",
     "loc": {
@@ -2499,7 +2776,8 @@ var apts = [{
     },
     "fullAddress": "6559 35th Avenue NE, Seattle, WA 98115",
     "priceRange": "$1588 - $2199",
-    "phone": "2068003076"
+    "phone": "2068003076",
+    "placeId": "ChIJI5Eix4YTkFQRmdQZcgmRF_A"
 }, {
     "name": "Arterra Woods",
     "loc": {
@@ -2508,7 +2786,8 @@ var apts = [{
     },
     "fullAddress": "9627 NE 195th Circle, Bothell, WA 98011",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJGwaVU0QOkFQRoKLBtY_3-pw"
 }, {
     "name": "Metropolitan Park",
     "loc": {
@@ -2517,7 +2796,8 @@ var apts = [{
     },
     "fullAddress": "601 S Washington Street, Seattle, WA 98104",
     "priceRange": "$1299 - $2300",
-    "phone": "2065080633"
+    "phone": "2065080633",
+    "placeId": "ChIJK4QO6btqkFQR8JffY3PBcjQ"
 }, {
     "name": "Collins On Pine",
     "loc": {
@@ -2526,7 +2806,8 @@ var apts = [{
     },
     "fullAddress": "1601 13th Ave, Seattle, WA 98122",
     "priceRange": "$1760 - $2690",
-    "phone": "2064558772"
+    "phone": "2064558772",
+    "placeId": "ChIJmWzJkc1qkFQR2ffo5Qu7dRA"
 }, {
     "name": "Ashton Bellevue",
     "loc": {
@@ -2535,7 +2816,8 @@ var apts = [{
     },
     "fullAddress": "10710 NE 10th Street, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4256363492"
+    "phone": "4256363492",
+    "placeId": "ChIJs9SOno5skFQR9lQRsTJFLQ0"
 }, {
     "name": "Thornton Place",
     "loc": {
@@ -2544,7 +2826,8 @@ var apts = [{
     },
     "fullAddress": "337 NE 103rd St, Seattle, WA 98125",
     "priceRange": "$1146 - $2995",
-    "phone": "2067010021"
+    "phone": "2067010021",
+    "placeId": "EiczMzcgTkUgMTAzcmQgU3QsIFNlYXR0bGUsIFdBIDk4MTI1LCBVU0E"
 }, {
     "name": "Villaggio On Yarrow Bay",
     "loc": {
@@ -2553,7 +2836,8 @@ var apts = [{
     },
     "fullAddress": "4311 Lake Washington Boulevard NE, Kirkland, WA 98033",
     "priceRange": "$1887 - $3678",
-    "phone": "4252764938"
+    "phone": "4252764938",
+    "placeId": "ChIJnWnBANJskFQRnRV1mLF1ifQ"
 }, {
     "name": "Junction 47",
     "loc": {
@@ -2562,7 +2846,8 @@ var apts = [{
     },
     "fullAddress": "4715 42nd Ave SW, Seattle, WA 98116",
     "priceRange": null,
-    "phone": "2065080574"
+    "phone": "2065080574",
+    "placeId": "ChIJ62MWbvlAkFQRdLCSglIiPmI"
 }, {
     "name": "Beacon at Center",
     "loc": {
@@ -2571,7 +2856,8 @@ var apts = [{
     },
     "fullAddress": "605 Center Road, Everett, WA 98204",
     "priceRange": null,
-    "phone": "4253744107"
+    "phone": "4253744107",
+    "placeId": "ChIJyxWIcrsGkFQRFxofjgIj9LQ"
 }, {
     "name": "Fircrest Gardens",
     "loc": {
@@ -2580,7 +2866,8 @@ var apts = [{
     },
     "fullAddress": "4215 South 30th Street, Tacoma, WA 98409",
     "priceRange": null,
-    "phone": "2533131533"
+    "phone": "2533131533",
+    "placeId": "ChIJYTbhnbWqkVQRPypjZI9lphs"
 }, {
     "name": "The Kennedy Building",
     "loc": {
@@ -2589,7 +2876,8 @@ var apts = [{
     },
     "fullAddress": "907 NE 45th Street, Seattle, WA 98105",
     "priceRange": null,
-    "phone": "2065081182"
+    "phone": "2065081182",
+    "placeId": "ChIJobExbPUUkFQROc6ADm5XFUA"
 }, {
     "name": "The Sidney",
     "loc": {
@@ -2598,7 +2886,8 @@ var apts = [{
     },
     "fullAddress": "487 Mansfield CT SW, Port Orchard, WA 98367",
     "priceRange": "$1070 - $1800",
-    "phone": "3609306296"
+    "phone": "3609306296",
+    "placeId": "ChIJQwsiCO9JkFQRAJJUDqtF5Hg"
 }, {
     "name": "Broadstone Infinity",
     "loc": {
@@ -2607,7 +2896,8 @@ var apts = [{
     },
     "fullAddress": "1414 10th Avenue, Seattle, WA 98122",
     "priceRange": "$1750 - $4485",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJW3HPFsxqkFQR4GwViFMNP1k"
 }, {
     "name": "AVA Ballard",
     "loc": {
@@ -2616,7 +2906,8 @@ var apts = [{
     },
     "fullAddress": "5555 14th Ave NW, Seattle, WA 98107",
     "priceRange": null,
-    "phone": "2064527756"
+    "phone": "2064527756",
+    "placeId": "ChIJ__zLhskVkFQRPNRbvr9LTMw"
 }, {
     "name": "Boulevard at South Station",
     "loc": {
@@ -2625,7 +2916,8 @@ var apts = [{
     },
     "fullAddress": "4708 Southcenter Boulevard, Tukwila, WA 98188",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJC9Ihwi9DkFQRHR_z9l8Cy1k"
 }, {
     "name": "Ladera Heatherwood",
     "loc": {
@@ -2634,7 +2926,8 @@ var apts = [{
     },
     "fullAddress": "5851 South 152nd St, Tukwila, WA 98188",
     "priceRange": "$1000 - $1460",
-    "phone": "2067011583"
+    "phone": "2067011583",
+    "placeId": "Eic1ODUxIFMgMTUybmQgU3QsIFR1a3dpbGEsIFdBIDk4MTg4LCBVU0E"
 }, {
     "name": "Maple Crossing",
     "loc": {
@@ -2643,7 +2936,8 @@ var apts = [{
     },
     "fullAddress": "21900 Southeast Wax Road, Maple Valley, WA 98038",
     "priceRange": "$790 - $1500",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ78XZDl5gkFQR3YXh1n4cHZk"
 }, {
     "name": "Village at Beardslee Crossing",
     "loc": {
@@ -2652,7 +2946,8 @@ var apts = [{
     },
     "fullAddress": "19115 112th Avenue NE, Bothell, WA 98011",
     "priceRange": "$1375 - $2350",
-    "phone": "4252743614"
+    "phone": "4252743614",
+    "placeId": "ChIJ_wHnM2cOkFQR-QPwU8BHKK4"
 }, {
     "name": "West Mall Place",
     "loc": {
@@ -2661,7 +2956,8 @@ var apts = [{
     },
     "fullAddress": "9300 West Mall Drive, Everett, WA 98208",
     "priceRange": "$900 - $1250",
-    "phone": "4253741766"
+    "phone": "4253741766",
+    "placeId": "ChIJY2FYqioBkFQR0DgyoAeZTVE"
 }, {
     "name": "Arcadia Townhomes",
     "loc": {
@@ -2670,7 +2966,8 @@ var apts = [{
     },
     "fullAddress": "1300 Sw Campus Dr, Federal Way, WA 98023",
     "priceRange": "$1415 - $2165",
-    "phone": "2532042276"
+    "phone": "2532042276",
+    "placeId": "ChIJtYVtXlVWkFQRNJCJ7HLFIno"
 }, {
     "name": "Eagle's Landing",
     "loc": {
@@ -2679,7 +2976,8 @@ var apts = [{
     },
     "fullAddress": "12601 8th Ave West, Everett, WA 98204",
     "priceRange": "$905 - $1139",
-    "phone": "4259481970"
+    "phone": "4259481970",
+    "placeId": "ChIJs58RdqIGkFQRluujHsxN59I"
 }, {
     "name": "The Ridge And The Shores",
     "loc": {
@@ -2688,7 +2986,8 @@ var apts = [{
     },
     "fullAddress": "31912 3rd Place SW, Federal Way, WA 98023",
     "priceRange": null,
-    "phone": "2532042280"
+    "phone": "2532042280",
+    "placeId": "EiszMTkxMiAzcmQgUGwgU1csIEZlZGVyYWwgV2F5LCBXQSA5ODAyMywgVVNB"
 }, {
     "name": "Dimension Apartments",
     "loc": {
@@ -2697,7 +2996,8 @@ var apts = [{
     },
     "fullAddress": "225 Cedar Street, Seattle, WA 98121",
     "priceRange": null,
-    "phone": "2064623630"
+    "phone": "2064623630",
+    "placeId": "ChIJiyxz_k4VkFQR5YPnfW858cw"
 }, {
     "name": "Wharfside Pointe",
     "loc": {
@@ -2706,7 +3006,8 @@ var apts = [{
     },
     "fullAddress": "3812 14th Ave W, Seattle, WA 98119",
     "priceRange": null,
-    "phone": "2065081154"
+    "phone": "2065081154",
+    "placeId": "ChIJI1LtVqMVkFQRJn0cRQF-Gbg"
 }, {
     "name": "Griffis Belltown",
     "loc": {
@@ -2715,7 +3016,8 @@ var apts = [{
     },
     "fullAddress": "2400 Elliott Avenue NE, Seattle, WA 98121",
     "priceRange": null,
-    "phone": "2068294936"
+    "phone": "2068294936",
+    "placeId": "ChIJAy2-B1IVkFQRmwBRl5yfUYc"
 }, {
     "name": "Glen Park at West Campus",
     "loc": {
@@ -2724,7 +3026,8 @@ var apts = [{
     },
     "fullAddress": "952 Sw Campus Drive, Federal Way, WA 98023",
     "priceRange": null,
-    "phone": "2532042270"
+    "phone": "2532042270",
+    "placeId": "ChIJSXayDatXkFQRfFhu7TugQLI"
 }, {
     "name": "Barkley Ridge",
     "loc": {
@@ -2733,7 +3036,8 @@ var apts = [{
     },
     "fullAddress": "27830 Pacific Highway South, Federal Way, WA 98003",
     "priceRange": "$865 - $1218",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ_xBK1PNZkFQRxx7P9RMsk-g"
 }, {
     "name": "The Lodge At Peasley Canyon",
     "loc": {
@@ -2742,7 +3046,8 @@ var apts = [{
     },
     "fullAddress": "32200 Military Rd S, Federal Way, WA 98001",
     "priceRange": "$1123 - $1961",
-    "phone": "2534999185"
+    "phone": "2534999185",
+    "placeId": "ChIJy_GVBCZYkFQRr-YCJSfHT8k"
 }, {
     "name": "Rollin Street Flats",
     "loc": {
@@ -2751,7 +3056,8 @@ var apts = [{
     },
     "fullAddress": "120 Westlake Ave N, Seattle, WA 98109",
     "priceRange": "$1838 - $8145",
-    "phone": "2069626433"
+    "phone": "2069626433",
+    "placeId": "ChIJf6l-30kVkFQRrdWEs3wluUY"
 }, {
     "name": "The Bridges at North Creek",
     "loc": {
@@ -2760,7 +3066,8 @@ var apts = [{
     },
     "fullAddress": "20225 Bothell-Everett Highway, Bothell, WA 98012",
     "priceRange": "$1325 - $2000",
-    "phone": "4252743666"
+    "phone": "4252743666",
+    "placeId": "ChIJxxclQEIPkFQR4T0bJ1Ux6Dc"
 }, {
     "name": "Premiere on Pine",
     "loc": {
@@ -2769,7 +3076,8 @@ var apts = [{
     },
     "fullAddress": "1525 9th Avenue, Seattle, WA 98101",
     "priceRange": null,
-    "phone": "2065081699"
+    "phone": "2065081699",
+    "placeId": "ChIJ8z3zRbVqkFQR7aNk3gaKaqQ"
 }, {
     "name": "Fairwood Landing",
     "loc": {
@@ -2778,7 +3086,8 @@ var apts = [{
     },
     "fullAddress": "14121 Southeast 177th Street, Renton, WA 98058",
     "priceRange": "$1140 - $1495",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJP0bynH1nkFQRLsPZxUS3xq0"
 }, {
     "name": "Monterra in Mill Creek",
     "loc": {
@@ -2787,7 +3096,8 @@ var apts = [{
     },
     "fullAddress": "13401 Dumas Rd, Mill Creek, WA 98012",
     "priceRange": null,
-    "phone": "4253215763"
+    "phone": "4253215763",
+    "placeId": "ChIJ-7XLt40GkFQRVOsvrihzg5M"
 }, {
     "name": "NOVA",
     "loc": {
@@ -2796,7 +3106,8 @@ var apts = [{
     },
     "fullAddress": "4600 36th Ave SW, Seattle, WA 98126",
     "priceRange": "$1453 - $3491",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJz_1fDFZAkFQRQodPz-eJMso"
 }, {
     "name": "Charter Club",
     "loc": {
@@ -2805,7 +3116,8 @@ var apts = [{
     },
     "fullAddress": "1701 121st St SE, Everett, WA 98208",
     "priceRange": null,
-    "phone": "4259033248"
+    "phone": "4259033248",
+    "placeId": "ChIJ45MgJe8GkFQRNF2opVzXlMs"
 }, {
     "name": "Bella Terra",
     "loc": {
@@ -2814,7 +3126,8 @@ var apts = [{
     },
     "fullAddress": "12101 Greenhaven, Mukilteo, WA 98275",
     "priceRange": null,
-    "phone": "4253744255"
+    "phone": "4253744255",
+    "placeId": "ChIJwUWsogoEkFQR0JomnfthKKA"
 }, {
     "name": "Starboard Apartments",
     "loc": {
@@ -2823,7 +3136,8 @@ var apts = [{
     },
     "fullAddress": "9311 Ne 118th Lane, Kirkland, WA 98034",
     "priceRange": "$1799 - $2299",
-    "phone": "4256363299"
+    "phone": "4256363299",
+    "placeId": "ChIJJaGrXmgSkFQRp0hws-DFNvA"
 }, {
     "name": "Centrepointe Greens",
     "loc": {
@@ -2832,7 +3146,8 @@ var apts = [{
     },
     "fullAddress": "8600 18th Avenue West, Everett, WA 98204",
     "priceRange": "$1145 - $1790",
-    "phone": "4253744259"
+    "phone": "4253744259",
+    "placeId": "ChIJS3aNED8BkFQRvyEcn-oDVhw"
 }, {
     "name": "Lightbox",
     "loc": {
@@ -2841,7 +3156,8 @@ var apts = [{
     },
     "fullAddress": "4545 8th Ave. NE, Seattle, WA 98105",
     "priceRange": null,
-    "phone": "2068660649"
+    "phone": "2068660649",
+    "placeId": "ChIJpUohk18UkFQR0I0jnJaukQ4"
 }, {
     "name": "Northline",
     "loc": {
@@ -2850,7 +3166,8 @@ var apts = [{
     },
     "fullAddress": "14335 Linden Avenue N, Seattle, WA 98133",
     "priceRange": "$1187 - $1810",
-    "phone": "2063199486"
+    "phone": "2063199486",
+    "placeId": "EioxNDMzNSBMaW5kZW4gQXZlIE4sIFNlYXR0bGUsIFdBIDk4MTMzLCBVU0E"
 }, {
     "name": "Milano Apts. Homes",
     "loc": {
@@ -2859,7 +3176,8 @@ var apts = [{
     },
     "fullAddress": "12224 NE 8th Street, Bellevue, WA 98005",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJjyUVQl9skFQRfLNUrbsTe98"
 }, {
     "name": "Yarrowood Highlands",
     "loc": {
@@ -2868,7 +3186,8 @@ var apts = [{
     },
     "fullAddress": "11330 N.E. 36th Place, Bellevue, WA 98004",
     "priceRange": "$2080 - $2480",
-    "phone": "4256363459"
+    "phone": "4256363459",
+    "placeId": "ChIJJ1xMWNlskFQRim0cJesmVlc"
 }, {
     "name": "HighGrove Apartments",
     "loc": {
@@ -2877,7 +3196,8 @@ var apts = [{
     },
     "fullAddress": "12433 Admiralty Way, Everett, WA 98204",
     "priceRange": "$1250 - $2200",
-    "phone": "4253744518"
+    "phone": "4253744518",
+    "placeId": "ChIJH6i1E6EGkFQR-EmwkO7JvWY"
 }, {
     "name": "Parkway",
     "loc": {
@@ -2886,7 +3206,8 @@ var apts = [{
     },
     "fullAddress": "2206 SW 334th Place, Federal Way, WA 98023",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJyWg_E_lWkFQR89F-ULa17RA"
 }, {
     "name": "Walton Lofts",
     "loc": {
@@ -2895,7 +3216,8 @@ var apts = [{
     },
     "fullAddress": "75 Vine Street, Seattle, WA 98121",
     "priceRange": "$2050 - $5450",
-    "phone": "2067456424"
+    "phone": "2067456424",
+    "placeId": "ChIJZzfaAk4VkFQRxCJOLZysWLo"
 }, {
     "name": "Redmond Hill",
     "loc": {
@@ -2904,7 +3226,8 @@ var apts = [{
     },
     "fullAddress": "6110 186th Pl NE, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4256541330"
+    "phone": "4256541330",
+    "placeId": "ChIJ02WP-ZJykFQRlueHdXz1Kho"
 }, {
     "name": "Forestview Apartments",
     "loc": {
@@ -2913,7 +3236,8 @@ var apts = [{
     },
     "fullAddress": "650 Duvall Ave NE, Renton, WA 98059",
     "priceRange": "$1396 - $2575",
-    "phone": "4252743641"
+    "phone": "4252743641",
+    "placeId": "ChIJOQUH7XhokFQR7voKwv7m_xE"
 }, {
     "name": "Pinewood Village",
     "loc": {
@@ -2922,7 +3246,8 @@ var apts = [{
     },
     "fullAddress": "14911 Northeast 1st Place, Bellevue, WA 98007",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ2TPE4UpskFQRfmcGV4PbtZM"
 }, {
     "name": "Bay Court at Harbor Pointe",
     "loc": {
@@ -2931,7 +3256,8 @@ var apts = [{
     },
     "fullAddress": "11108 Chennault Beach Rd, Mukilteo, WA 98275",
     "priceRange": "$1429 - $2852",
-    "phone": "4253812142"
+    "phone": "4253812142",
+    "placeId": "ChIJe4EAVPIDkFQRb3YjvU2xv9o"
 }, {
     "name": "Karbon",
     "loc": {
@@ -2940,7 +3266,8 @@ var apts = [{
     },
     "fullAddress": "6802 Coal Creek Parkway SE, Newcastle, WA 98059",
     "priceRange": "$1299 - $1849",
-    "phone": "4253543992"
+    "phone": "4253543992",
+    "placeId": "Ejk2ODAyIFNFIE5ld2Nhc3RsZSBDb2FsIENyZWVrIFJkLCBOZXdjYXN0bGUsIFdBIDk4MDU5LCBVU0E"
 }, {
     "name": "Juxt Apartments",
     "loc": {
@@ -2949,7 +3276,8 @@ var apts = [{
     },
     "fullAddress": "810 Dexter Ave N, Seattle, WA 98109",
     "priceRange": null,
-    "phone": "2068295940"
+    "phone": "2068295940",
+    "placeId": "ChIJ0ZcJMDkVkFQRs8wDeY0_8Fo"
 }, {
     "name": "Beaumont",
     "loc": {
@@ -2958,7 +3286,8 @@ var apts = [{
     },
     "fullAddress": "14001 Northeast 183rd Street, Woodinville, WA 98072",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJFQAv95wOkFQR8F6lFrSE5zo"
 }, {
     "name": "Swiss Gables",
     "loc": {
@@ -2967,7 +3296,8 @@ var apts = [{
     },
     "fullAddress": "4620 S. 254th Place, Kent, WA 98032",
     "priceRange": null,
-    "phone": "2534587229"
+    "phone": "2534587229",
+    "placeId": "ChIJXfXDY9dbkFQRyc2cgf42po4"
 }, {
     "name": "Borgata Apartment Homes",
     "loc": {
@@ -2976,7 +3306,8 @@ var apts = [{
     },
     "fullAddress": "37 103rd Avenue NE, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4252743677"
+    "phone": "4252743677",
+    "placeId": "ChIJ9dRHWodskFQRnbmHZ9RfSOc"
 }, {
     "name": "The Mercer",
     "loc": {
@@ -2985,7 +3316,8 @@ var apts = [{
     },
     "fullAddress": "7650 Southeast 27th St, Mercer Island, WA 98040",
     "priceRange": "$1345 - $3900",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJVe44ArtrkFQRtbURqrEq-Bc"
 }, {
     "name": "Expo",
     "loc": {
@@ -2994,7 +3326,8 @@ var apts = [{
     },
     "fullAddress": "118 Republican Street, Seattle, WA 98109",
     "priceRange": "$1453 - $3481",
-    "phone": "2065081166"
+    "phone": "2065081166",
+    "placeId": "ChIJP-AKCkQVkFQRTZqfoovODL8"
 }, {
     "name": "Park Edmonds",
     "loc": {
@@ -3003,7 +3336,8 @@ var apts = [{
     },
     "fullAddress": "8123 236th Street SW, Edmonds, WA 98026",
     "priceRange": null,
-    "phone": "4253410698"
+    "phone": "4253410698",
+    "placeId": "Eig4MTIzIDIzNnRoIFN0IFNXLCBFZG1vbmRzLCBXQSA5ODAyNiwgVVNB"
 }, {
     "name": "Pavilion Apartment Homes",
     "loc": {
@@ -3012,7 +3346,8 @@ var apts = [{
     },
     "fullAddress": "1900 SW Campus Dr., Federal Way, WA 98023",
     "priceRange": "$1180 - $1915",
-    "phone": "2536421120"
+    "phone": "2536421120",
+    "placeId": "ChIJT-n-GP9WkFQRJo7Od-xogbc"
 }, {
     "name": "The Bowman",
     "loc": {
@@ -3021,7 +3356,8 @@ var apts = [{
     },
     "fullAddress": "3801 Stone Way N, Seattle, WA 98103",
     "priceRange": "$1623 - $5675",
-    "phone": "2068767478"
+    "phone": "2068767478",
+    "placeId": "EigzODAxIFN0b25lIFdheSBOLCBTZWF0dGxlLCBXQSA5ODEwMywgVVNB"
 }, {
     "name": "Elan Redmond Town Center",
     "loc": {
@@ -3030,7 +3366,8 @@ var apts = [{
     },
     "fullAddress": "16325 Cleveland St, Redmond, WA 98052",
     "priceRange": "$1445 - $3119",
-    "phone": "4255330338"
+    "phone": "4255330338",
+    "placeId": "ChIJISv-IK5ykFQRXeIB3QKpVDc"
 }, {
     "name": "Surrey Downs",
     "loc": {
@@ -3039,7 +3376,8 @@ var apts = [{
     },
     "fullAddress": "13035 S.E. 26th Street, Bellevue, WA 98005",
     "priceRange": "$1545 - $1991",
-    "phone": "4256542913"
+    "phone": "4256542913",
+    "placeId": "ChIJk10pKAVskFQRMwWRxzVqfzI"
 }, {
     "name": "Janus",
     "loc": {
@@ -3048,7 +3386,8 @@ var apts = [{
     },
     "fullAddress": "101 NW 85th St, Seattle, WA 98117",
     "priceRange": null,
-    "phone": "2064944889"
+    "phone": "2064944889",
+    "placeId": "ChIJP15uAyEUkFQREszj1B7dzgA"
 }, {
     "name": "Island Park",
     "loc": {
@@ -3057,7 +3396,8 @@ var apts = [{
     },
     "fullAddress": "23529 60th Avenue South, Kent, WA 98032",
     "priceRange": null,
-    "phone": "2534587665"
+    "phone": "2534587665",
+    "placeId": "ChIJyY26N-xbkFQRNrY4zBpzNe0"
 }, {
     "name": "Foothill Commons",
     "loc": {
@@ -3066,7 +3406,8 @@ var apts = [{
     },
     "fullAddress": "898 137th Ave NE, Bellevue, WA 98005",
     "priceRange": null,
-    "phone": "4256544471"
+    "phone": "4256544471",
+    "placeId": "Eik4OTggMTM3dGggQXZlIE5FLCBCZWxsZXZ1ZSwgV0EgOTgwMDUsIFVTQQ"
 }, {
     "name": "Ellington at Bellevue",
     "loc": {
@@ -3075,7 +3416,8 @@ var apts = [{
     },
     "fullAddress": "11200 Ne 11Th St, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4252743909"
+    "phone": "4252743909",
+    "placeId": "ChIJIw8QnYxskFQReElpUigO2vs"
 }, {
     "name": "Avalon Redmond Place",
     "loc": {
@@ -3084,7 +3426,8 @@ var apts = [{
     },
     "fullAddress": "8935 160th Avenue NE, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4256544062"
+    "phone": "4256544062",
+    "placeId": "ChIJk5vjrE0NkFQRjQs0RPxrvHo"
 }, {
     "name": "Springbrook",
     "loc": {
@@ -3093,7 +3436,8 @@ var apts = [{
     },
     "fullAddress": "5301 Talbot Rd S, Renton, WA 98055",
     "priceRange": "$1252 - $2658",
-    "phone": "4252743673"
+    "phone": "4252743673",
+    "placeId": "ChIJ8VZgBwBdkFQRPsRZZBit4M0"
 }, {
     "name": "Pebble Cove",
     "loc": {
@@ -3102,7 +3446,8 @@ var apts = [{
     },
     "fullAddress": "17600 134Th Avenue Southeast, Renton, WA 98058",
     "priceRange": "$1306 - $1980",
-    "phone": "4252743600"
+    "phone": "4252743600",
+    "placeId": "ChIJoZaV6oBdkFQRufP8E9oubso"
 }, {
     "name": "Westview Village Apartments",
     "loc": {
@@ -3111,7 +3456,8 @@ var apts = [{
     },
     "fullAddress": "17735 105th Place SE, Renton, WA 98055",
     "priceRange": "$1199 - $1859",
-    "phone": "4252743646"
+    "phone": "4252743646",
+    "placeId": "ChIJ4QrqJgxdkFQRHSoy4puRjYM"
 }, {
     "name": "Brisa Apartment Homes",
     "loc": {
@@ -3120,7 +3466,8 @@ var apts = [{
     },
     "fullAddress": "12402 Admiralty Way, Everett, WA 98204",
     "priceRange": "$1025 - $1955",
-    "phone": "4259481810"
+    "phone": "4259481810",
+    "placeId": "ChIJh15-16YGkFQRF8ppwuRn0KA"
 }, {
     "name": "4730 California",
     "loc": {
@@ -3129,7 +3476,8 @@ var apts = [{
     },
     "fullAddress": "4730 California Ave SW, Seattle, WA 98116",
     "priceRange": null,
-    "phone": "2068293084"
+    "phone": "2068293084",
+    "placeId": "ChIJ544O3_tAkFQRc644dy9fGes"
 }, {
     "name": "Joule Apartments",
     "loc": {
@@ -3138,7 +3486,8 @@ var apts = [{
     },
     "fullAddress": "523 Broadway E, Seattle, WA 98102",
     "priceRange": "$1651 - $3675",
-    "phone": "2065081168"
+    "phone": "2065081168",
+    "placeId": "ChIJlwYTby4VkFQR3cfLHDVGtWY"
 }, {
     "name": "The Seasons",
     "loc": {
@@ -3147,7 +3496,8 @@ var apts = [{
     },
     "fullAddress": "3711 164th Street Sw, Lynnwood, WA 98087",
     "priceRange": "$1292 - $1735",
-    "phone": "4253410790"
+    "phone": "4253410790",
+    "placeId": "ChIJFbmSYFQEkFQRUJsfRheMYL8"
 }, {
     "name": "Pike Motorworks",
     "loc": {
@@ -3156,7 +3506,8 @@ var apts = [{
     },
     "fullAddress": "715 E Pine Street, Seattle, WA 98122",
     "priceRange": "$1789 - $7464",
-    "phone": "2066292070"
+    "phone": "2066292070",
+    "placeId": "ChIJl362nMxqkFQRCADX-C_ckvA"
 }, {
     "name": "The Stinson",
     "loc": {
@@ -3165,7 +3516,8 @@ var apts = [{
     },
     "fullAddress": "133 124th Street SE, Everett, WA 98208",
     "priceRange": "$1185 - $1515",
-    "phone": "4254056640"
+    "phone": "4254056640",
+    "placeId": "ChIJ9SYZ5JUGkFQR1eDo_WGg69k"
 }, {
     "name": "1611 on Lake Union",
     "loc": {
@@ -3174,7 +3526,8 @@ var apts = [{
     },
     "fullAddress": "1611 8th Avenue North, Seattle, WA 98109",
     "priceRange": null,
-    "phone": "2063884078"
+    "phone": "2063884078",
+    "placeId": "ChIJOZLp0xcVkFQRZK1ACIT5dqY"
 }, {
     "name": "Collage",
     "loc": {
@@ -3183,7 +3536,8 @@ var apts = [{
     },
     "fullAddress": "3606 Woodland Park Ave North, Seattle, WA 98103",
     "priceRange": null,
-    "phone": "2065189082"
+    "phone": "2065189082",
+    "placeId": "ChIJb53ksAEVkFQRwCEW0hMWqN4"
 }, {
     "name": "Ridgedale",
     "loc": {
@@ -3192,7 +3546,8 @@ var apts = [{
     },
     "fullAddress": "2210 70th Ave. W., University Place, WA 98466",
     "priceRange": null,
-    "phone": "2533131198"
+    "phone": "2533131198",
+    "placeId": "ChIJK9noK9yqkVQRzieQyF8OYls"
 }, {
     "name": "Theas Landing",
     "loc": {
@@ -3201,7 +3556,8 @@ var apts = [{
     },
     "fullAddress": "1705 Dock St., Tacoma, WA 98402",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJsb8rFHZVkFQRvLZnrNL6MxY"
 }, {
     "name": "Parkside",
     "loc": {
@@ -3210,7 +3566,8 @@ var apts = [{
     },
     "fullAddress": "16910 Northeast 80th Street #A-205, Redmond, Redmond, WA 98052",
     "priceRange": "$1150 - $1450",
-    "phone": "4256540572"
+    "phone": "4256540572",
+    "placeId": "ChIJc4xTyrZykFQRE1lD_zph-rA"
 }, {
     "name": "Griffis Seattle South",
     "loc": {
@@ -3219,7 +3576,8 @@ var apts = [{
     },
     "fullAddress": "28700 34th Avenue South, Federal Way, WA 98003",
     "priceRange": "$1323 - $1776",
-    "phone": "2532168257"
+    "phone": "2532168257",
+    "placeId": "ChIJNwl_EZVZkFQRTZWneps-CbY"
 }, {
     "name": "The Ludlow",
     "loc": {
@@ -3228,7 +3586,8 @@ var apts = [{
     },
     "fullAddress": "709 E Pike St, Seattle, WA 98122",
     "priceRange": "$999 - $1399",
-    "phone": "2063199496"
+    "phone": "2063199496",
+    "placeId": "ChIJe_MXg8tqkFQRX4TpaQaDtUc"
 }, {
     "name": "M Street",
     "loc": {
@@ -3237,7 +3596,8 @@ var apts = [{
     },
     "fullAddress": "910 8th Avenue, Seattle, WA 98104",
     "priceRange": "$1645 - $3635",
-    "phone": "2067010281"
+    "phone": "2067010281",
+    "placeId": "ChIJi1-FWbZqkFQRxmy99ED_Prk"
 }, {
     "name": "Vesta",
     "loc": {
@@ -3246,7 +3606,8 @@ var apts = [{
     },
     "fullAddress": "18666 Redmond Way, Redmond, WA 98052",
     "priceRange": "$1452 - $2138",
-    "phone": "4252743870"
+    "phone": "4252743870",
+    "placeId": "ChIJfykgd5NykFQRo7Tv8m24cS0"
 }, {
     "name": "Courtyard Off Main",
     "loc": {
@@ -3255,7 +3616,8 @@ var apts = [{
     },
     "fullAddress": "136 102nd Ave SE, Bellevue, WA 98004",
     "priceRange": null,
-    "phone": "4255330268"
+    "phone": "4255330268",
+    "placeId": "ChIJj-MRDX5skFQRlOIdyp_zKVs"
 }, {
     "name": "Canyon Springs",
     "loc": {
@@ -3264,7 +3626,8 @@ var apts = [{
     },
     "fullAddress": "15914 44th Avenue West, Lynnwood, WA 98087",
     "priceRange": "$1289 - $1984",
-    "phone": "4253668047"
+    "phone": "4253668047",
+    "placeId": "ChIJN3Zf11cEkFQRVddlEmojCqg"
 }, {
     "name": "Furnished Studio - Seattle - Mukilteo",
     "loc": {
@@ -3273,7 +3636,8 @@ var apts = [{
     },
     "fullAddress": "3917 Harbour Pointe Blvd SW, Mukilteo, WA 98275",
     "priceRange": null,
-    "phone": "4259038650"
+    "phone": "4259038650",
+    "placeId": "ChIJP65psgkEkFQR-1IqRnXzeLo"
 }, {
     "name": "Furnished Studio - Seattle - Kent",
     "loc": {
@@ -3282,7 +3646,8 @@ var apts = [{
     },
     "fullAddress": "22520 83rd Avenue South, Kent, WA 98032",
     "priceRange": null,
-    "phone": "2536424983"
+    "phone": "2536424983",
+    "placeId": "ChIJW1md-hFckFQRPcYOjdcIsUc"
 }, {
     "name": "Echo Lake",
     "loc": {
@@ -3291,7 +3656,8 @@ var apts = [{
     },
     "fullAddress": "1150 North 192nd Street, Shoreline, WA 98133",
     "priceRange": "$1150 - $2065",
-    "phone": "2065080642"
+    "phone": "2065080642",
+    "placeId": "ChIJv5DtxosQkFQRTnZN83AaX0A"
 }, {
     "name": "WaterStone at Silver Lake",
     "loc": {
@@ -3300,7 +3666,8 @@ var apts = [{
     },
     "fullAddress": "12115 19th Avenue Se, Everett, WA 98208",
     "priceRange": null,
-    "phone": "4259033460"
+    "phone": "4259033460",
+    "placeId": "ChIJId_YeO8GkFQRsaGFSVop7gU"
 }, {
     "name": "Rock Creek Landing",
     "loc": {
@@ -3309,7 +3676,8 @@ var apts = [{
     },
     "fullAddress": "1024 Central Avenue North, Kent, WA 98032",
     "priceRange": "$1038 - $2332",
-    "phone": "2532183409"
+    "phone": "2532183409",
+    "placeId": "ChIJq8b_LBtckFQR97b4Oxb_wjc"
 }, {
     "name": "The Station at Othello Park",
     "loc": {
@@ -3318,7 +3686,8 @@ var apts = [{
     },
     "fullAddress": "4219 S. Othello Street, Seattle, WA 98118",
     "priceRange": null,
-    "phone": "2064558323"
+    "phone": "2064558323",
+    "placeId": "ChIJ76gJpgZCkFQROFW5urwlL_g"
 }, {
     "name": "601 Jackson",
     "loc": {
@@ -3327,7 +3696,8 @@ var apts = [{
     },
     "fullAddress": "601 North Jackson, Tacoma, WA 98406",
     "priceRange": null,
-    "phone": "2533131519"
+    "phone": "2533131519",
+    "placeId": "ChIJfx2FcTCrkVQRZC9rJWRBWRs"
 }, {
     "name": "Illumina Lake Union",
     "loc": {
@@ -3336,7 +3706,8 @@ var apts = [{
     },
     "fullAddress": "219 East Garfield Street, Seattle, WA 98102",
     "priceRange": "$1431 - $2578",
-    "phone": "2064624443"
+    "phone": "2064624443",
+    "placeId": "ChIJ724-OSEVkFQRq2kKVrHM3jU"
 }, {
     "name": "101 John",
     "loc": {
@@ -3345,7 +3716,8 @@ var apts = [{
     },
     "fullAddress": "101  John St, Seattle, WA 98109",
     "priceRange": null,
-    "phone": "2065042948"
+    "phone": "2065042948",
+    "placeId": "ChIJvxPlF0UVkFQRJ8whE87VU5Q"
 }, {
     "name": "Tenzen",
     "loc": {
@@ -3354,7 +3726,8 @@ var apts = [{
     },
     "fullAddress": "4117 124th Avenue SE, Bellevue, WA 98006",
     "priceRange": "$1525 - $2699",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJt-SnmFZpkFQRT-k6hIxuA8Q"
 }, {
     "name": "Daniels Apartments",
     "loc": {
@@ -3363,7 +3736,8 @@ var apts = [{
     },
     "fullAddress": "12250 Greenwood Ave N, Seattle, WA 98133",
     "priceRange": "$1195",
-    "phone": "2068294391"
+    "phone": "2068294391",
+    "placeId": "ChIJBdWRAssWkFQRywtG7Qr7mU8"
 }, {
     "name": "Autumn Chase",
     "loc": {
@@ -3372,7 +3746,8 @@ var apts = [{
     },
     "fullAddress": "20415 Bothell-Everett Highway, Bothell, WA 98012",
     "priceRange": "$1005 - $1465",
-    "phone": "4252743656"
+    "phone": "4252743656",
+    "placeId": "ChIJ7R_5hmkPkFQRUXoxfG1eaX0"
 }, {
     "name": "Arabella Apartment Homes",
     "loc": {
@@ -3381,7 +3756,8 @@ var apts = [{
     },
     "fullAddress": "17763 15th Avenue Northeast, Shoreline, WA 98155",
     "priceRange": "$1150 - $2400",
-    "phone": "2064299707"
+    "phone": "2064299707",
+    "placeId": "ChIJTdr7IVEQkFQR7OkUzDMJ8o0"
 }, {
     "name": "Park Ballinger Apartments",
     "loc": {
@@ -3390,7 +3766,8 @@ var apts = [{
     },
     "fullAddress": "22906 76th Avenue W # Office, Edmonds, WA 98026",
     "priceRange": "$925 - $1240",
-    "phone": "4256363295"
+    "phone": "4256363295",
+    "placeId": "EigyMjkwNiA3NnRoIEF2ZSBXLCBFZG1vbmRzLCBXQSA5ODAyNiwgVVNB"
 }, {
     "name": "Polaris Apartments",
     "loc": {
@@ -3399,7 +3776,8 @@ var apts = [{
     },
     "fullAddress": "17536 12th Ave NE, Shoreline, WA 98155",
     "priceRange": "$979 - $1339",
-    "phone": "2066072827"
+    "phone": "2066072827",
+    "placeId": "ChIJnbLdo1YQkFQRuWa5QEw0IEY"
 }, {
     "name": "Pacific Park",
     "loc": {
@@ -3408,7 +3786,8 @@ var apts = [{
     },
     "fullAddress": "23231 Highway 99, Edmonds, WA 98026",
     "priceRange": "$1005 - $2200",
-    "phone": "4253212085"
+    "phone": "4253212085",
+    "placeId": "ChIJ33pPcZ0akFQR8TdO2JxwfUk"
 }, {
     "name": "Junction160",
     "loc": {
@@ -3417,7 +3796,8 @@ var apts = [{
     },
     "fullAddress": "16100 Linden Avenue N, Shoreline, WA 98133",
     "priceRange": "$1495 - $1795",
-    "phone": "2066072838"
+    "phone": "2066072838",
+    "placeId": "ChIJacXuqeAQkFQRUcpYh8Hr0b0"
 }, {
     "name": "Lexicon",
     "loc": {
@@ -3426,7 +3806,8 @@ var apts = [{
     },
     "fullAddress": "120 Harvard Ave E, Seattle, WA 98102",
     "priceRange": null,
-    "phone": "2065081288"
+    "phone": "2065081288",
+    "placeId": "ChIJdab0jDIVkFQRDhk1hCuB1TA"
 }, {
     "name": "AVA Belltown",
     "loc": {
@@ -3435,7 +3816,8 @@ var apts = [{
     },
     "fullAddress": "2800 Western Avenue, Seattle, WA 98121",
     "priceRange": null,
-    "phone": "2065081095"
+    "phone": "2065081095",
+    "placeId": "ChIJDc820U8VkFQRR2MBhqk_0JA"
 }, {
     "name": "Majestic Bay",
     "loc": {
@@ -3444,7 +3826,8 @@ var apts = [{
     },
     "fullAddress": "2459 South 216th Street, Des Moines, WA 98198",
     "priceRange": null,
-    "phone": "2069719452"
+    "phone": "2069719452",
+    "placeId": "ChIJt0ud8ApbkFQRHG9VBfRZNBE"
 }, {
     "name": "Bend Of The River",
     "loc": {
@@ -3453,7 +3836,8 @@ var apts = [{
     },
     "fullAddress": "8721 S 259th Street, Kent, WA 98030",
     "priceRange": "$1080 - $1830",
-    "phone": "2535186228"
+    "phone": "2535186228",
+    "placeId": "ChIJX92kzU5ZkFQR_rSqpIpuFOw"
 }, {
     "name": "Woodcreek",
     "loc": {
@@ -3462,7 +3846,8 @@ var apts = [{
     },
     "fullAddress": "14611 Admiralty Way, Lynnwood, WA 98087",
     "priceRange": "$1325 - $1850",
-    "phone": "4253410944"
+    "phone": "4253410944",
+    "placeId": "ChIJuWuonEcEkFQRY1Ic-CgW38A"
 }, {
     "name": "Brackett",
     "loc": {
@@ -3471,7 +3856,8 @@ var apts = [{
     },
     "fullAddress": "9501 244th St SW, Edmonds, WA 98020",
     "priceRange": "$1390 - $2338",
-    "phone": "4256363486"
+    "phone": "4256363486",
+    "placeId": "ChIJDVc7fIEQkFQRvNcbg7oJ3Cs"
 }, {
     "name": "The Elliot at Mukilteo",
     "loc": {
@@ -3480,7 +3866,8 @@ var apts = [{
     },
     "fullAddress": "9507 49th Ave W, Mukilteo, WA 98275",
     "priceRange": "$1026 - $1674",
-    "phone": "4252742860"
+    "phone": "4252742860",
+    "placeId": "Eig5NTA3IDQ5dGggQXZlIFcsIE11a2lsdGVvLCBXQSA5ODI3NSwgVVNB"
 }, {
     "name": "bridges@11th",
     "loc": {
@@ -3489,7 +3876,8 @@ var apts = [{
     },
     "fullAddress": "4557 11th Ave. NE, Seattle, WA 98105",
     "priceRange": "$1525 - $3481",
-    "phone": "2069719281"
+    "phone": "2069719281",
+    "placeId": "ChIJRVXjTPUUkFQRtqhrVpKaOoM"
 }, {
     "name": "Martinique",
     "loc": {
@@ -3498,7 +3886,8 @@ var apts = [{
     },
     "fullAddress": "2142 8th Ave N #307, Seattle, WA 98109",
     "priceRange": "$1595 - $1945",
-    "phone": "2065080602"
+    "phone": "2065080602",
+    "placeId": "ChIJCyuD_8zjwogRP5Cpcj2jD0Q"
 }, {
     "name": "Compass",
     "loc": {
@@ -3507,7 +3896,8 @@ var apts = [{
     },
     "fullAddress": "23020 Edmonds Way, Edmonds, WA 98020",
     "priceRange": "$1111 - $1625",
-    "phone": "4256363487"
+    "phone": "4256363487",
+    "placeId": "ChIJdXJll4YakFQR-wtXwVkND2A"
 }, {
     "name": "Harborview East",
     "loc": {
@@ -3516,7 +3906,8 @@ var apts = [{
     },
     "fullAddress": "4100 Foster Street, Gig Harbor, WA 98335",
     "priceRange": "$1195 - $1295",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ-aFvD89SkFQRmroQtD6nAgM"
 }, {
     "name": "Reserve at SeaTac Senior Housing",
     "loc": {
@@ -3525,7 +3916,8 @@ var apts = [{
     },
     "fullAddress": "19707 Intl Blvd, SeaTac, WA 98188",
     "priceRange": "$892 - $1146",
-    "phone": "2536424958"
+    "phone": "2536424958",
+    "placeId": "ChIJ_f7qQlVDkFQRtzfcx8TZ05k"
 }, {
     "name": "Aldercrest",
     "loc": {
@@ -3534,7 +3926,8 @@ var apts = [{
     },
     "fullAddress": "303 10th Avenue, Seattle, WA 98122",
     "priceRange": "$1095 - $2100",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJWyyIeLhqkFQRDq8ijwJRuXY"
 }, {
     "name": "Tower 801",
     "loc": {
@@ -3543,7 +3936,8 @@ var apts = [{
     },
     "fullAddress": "801 Pine Street, Seattle, WA 98101",
     "priceRange": "$1664 - $5439",
-    "phone": "2065080560"
+    "phone": "2065080560",
+    "placeId": "ChIJvRt5OLVqkFQRMqraWAlZeM8"
 }, {
     "name": "Malloy Apartments",
     "loc": {
@@ -3552,7 +3946,8 @@ var apts = [{
     },
     "fullAddress": "4337 15th Avenue Ne, Seattle, WA 98105",
     "priceRange": "$1595 - $2295",
-    "phone": "2064558346"
+    "phone": "2064558346",
+    "placeId": "ChIJoTp3GYsUkFQRFXWrlsAxlaU"
 }, {
     "name": "Cambridge Apartments",
     "loc": {
@@ -3561,7 +3956,8 @@ var apts = [{
     },
     "fullAddress": "4727 200th St. S. W., Lynnwood, WA 98036",
     "priceRange": "$1155 - $1795",
-    "phone": "4259481956"
+    "phone": "4259481956",
+    "placeId": "ChIJuRyMrUYFkFQRAK_gPGMu7o0"
 }, {
     "name": "Wickshire West Apartments - 55+",
     "loc": {
@@ -3570,7 +3966,8 @@ var apts = [{
     },
     "fullAddress": "1035 S Whitman Street, Tacoma, WA 98465",
     "priceRange": null,
-    "phone": "2539543566"
+    "phone": "2539543566",
+    "placeId": "EigxMDM1IFMgV2hpdG1hbiBTdCwgVGFjb21hLCBXQSA5ODQ2NSwgVVNB"
 }, {
     "name": "Excelsior",
     "loc": {
@@ -3579,7 +3976,8 @@ var apts = [{
     },
     "fullAddress": "1535 Bellevue Avenue, Seattle, WA 98122",
     "priceRange": "$1633 - $5590",
-    "phone": "2065047813"
+    "phone": "2065047813",
+    "placeId": "ChIJ97JFLstqkFQRAyWHnS7Jfp0"
 }, {
     "name": "Grammercy Apartments",
     "loc": {
@@ -3588,7 +3986,8 @@ var apts = [{
     },
     "fullAddress": "17425 120th lane se, Renton, WA 98058",
     "priceRange": "$1295 - $2465",
-    "phone": "4259542637"
+    "phone": "4259542637",
+    "placeId": "ChIJA8v38XZdkFQRzPV6nsFLz2Q"
 }, {
     "name": "Elan 41",
     "loc": {
@@ -3597,7 +3996,8 @@ var apts = [{
     },
     "fullAddress": "4100 Southwest Edmunds Street, Seattle, WA 98116",
     "priceRange": "$1695 - $2600",
-    "phone": "2069623172"
+    "phone": "2069623172",
+    "placeId": "ChIJL71CV_lAkFQRaQuYXl62jZY"
 }, {
     "name": "Campbell Run",
     "loc": {
@@ -3606,7 +4006,8 @@ var apts = [{
     },
     "fullAddress": "13305 Ne 171st Street, Woodinville, WA 98072",
     "priceRange": "$1318 - $1980",
-    "phone": "4256363298"
+    "phone": "4256363298",
+    "placeId": "ChIJRYRBUCsMkFQRHMFPK6oV0A8"
 }, {
     "name": "Waterscape Juanita Village",
     "loc": {
@@ -3615,7 +4016,8 @@ var apts = [{
     },
     "fullAddress": "11801 97th Lane NE, Kirkland, WA 98034",
     "priceRange": null,
-    "phone": "4256363470"
+    "phone": "4256363470",
+    "placeId": "ChIJ3fKrHGYSkFQR6LpTk-0gRrc"
 }, {
     "name": "Corbella at Juanita Bay",
     "loc": {
@@ -3624,7 +4026,8 @@ var apts = [{
     },
     "fullAddress": "9536 NE 120th St, Kirkland, WA 98034",
     "priceRange": null,
-    "phone": "4252743597"
+    "phone": "4252743597",
+    "placeId": "ChIJs_hyLW8SkFQRAirR6yeqRn0"
 }, {
     "name": "Carolina Court",
     "loc": {
@@ -3633,7 +4036,8 @@ var apts = [{
     },
     "fullAddress": "527 Eastlake Avenue East, Seattle, WA 98109",
     "priceRange": "$1250 - $2200",
-    "phone": "2068769736"
+    "phone": "2068769736",
+    "placeId": "ChIJ_7tMWTAVkFQRa2N9owUYQAs"
 }, {
     "name": "Stockbridge",
     "loc": {
@@ -3642,7 +4046,8 @@ var apts = [{
     },
     "fullAddress": "1330 Boren Avenue, Seattle, WA 98101",
     "priceRange": "$1471 - $1875",
-    "phone": "2065081211"
+    "phone": "2065081211",
+    "placeId": "ChIJZ_gVYcpqkFQRna4hIeSSZN8"
 }, {
     "name": "Vantage Park",
     "loc": {
@@ -3651,7 +4056,8 @@ var apts = [{
     },
     "fullAddress": "1011 East Terrace Street, Seattle, WA 98122",
     "priceRange": "$1570 - $2365",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ_83pnMdqkFQR1ZJMrHuIXoY"
 }, {
     "name": "Motif",
     "loc": {
@@ -3660,7 +4066,8 @@ var apts = [{
     },
     "fullAddress": "3331 204th Street SW, Lynnwood, WA 98036",
     "priceRange": "$1450 - $1970",
-    "phone": "4253294752"
+    "phone": "4253294752",
+    "placeId": "ChIJtYlbcWcFkFQR60GOebUdSEE"
 }, {
     "name": "Vox Apartments",
     "loc": {
@@ -3669,7 +4076,8 @@ var apts = [{
     },
     "fullAddress": "1527 15Th Ave, Seattle, WA 98122",
     "priceRange": null,
-    "phone": "2067010008"
+    "phone": "2067010008",
+    "placeId": "ChIJbTt_D9JqkFQRgJC7gVF4R-Y"
 }, {
     "name": "The Pearl",
     "loc": {
@@ -3678,7 +4086,8 @@ var apts = [{
     },
     "fullAddress": "1530 15th Ave, Seattle, WA 98122",
     "priceRange": null,
-    "phone": "2068294851"
+    "phone": "2068294851",
+    "placeId": "ChIJ-UJqG9JqkFQRgYDkGnv6y60"
 }, {
     "name": "The Signature & Townhomes",
     "loc": {
@@ -3687,7 +4096,8 @@ var apts = [{
     },
     "fullAddress": "2033 Northwest Bobwhite Lane, Silverdale, WA 98383",
     "priceRange": "$1095 - $1900",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJT4eNatY6kFQRkmCUCNxmW0M"
 }, {
     "name": "Luna Sol",
     "loc": {
@@ -3696,7 +4106,8 @@ var apts = [{
     },
     "fullAddress": "11415 Slater Avenue NE, Kirkland, WA 98033",
     "priceRange": "$1425 - $1950",
-    "phone": "4252764366"
+    "phone": "4252764366",
+    "placeId": "ChIJw00BJH4NkFQRWx5_zvhd8OU"
 }, {
     "name": "Edgewood Park Apartments",
     "loc": {
@@ -3705,7 +4116,8 @@ var apts = [{
     },
     "fullAddress": "1501 145th Place SE, Bellevue, WA 98007",
     "priceRange": "$1199 - $2050",
-    "phone": "4252764939"
+    "phone": "4252764939",
+    "placeId": "ChIJXxt-bjxskFQRcwM-K-U8edw"
 }, {
     "name": "Keelers Corner",
     "loc": {
@@ -3714,7 +4126,8 @@ var apts = [{
     },
     "fullAddress": "4525 164th Street SW, Lynnwood, WA 98087",
     "priceRange": null,
-    "phone": "4253410937"
+    "phone": "4253410937",
+    "placeId": "ChIJpaEO2PgEkFQRjOQ2RDRRbRk"
 }, {
     "name": "Aspira",
     "loc": {
@@ -3723,7 +4136,8 @@ var apts = [{
     },
     "fullAddress": "1823 Terry Ave, Seattle, WA 98101",
     "priceRange": "$1615 - $4672",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJq_ULezUVkFQRGpwe0IsOH9U"
 }, {
     "name": "True North",
     "loc": {
@@ -3732,7 +4146,8 @@ var apts = [{
     },
     "fullAddress": "801 Dexter Ave N, Seattle, WA 98109",
     "priceRange": null,
-    "phone": "2065081630"
+    "phone": "2065081630",
+    "placeId": "ChIJ-6pkJzkVkFQRTaiL0e-ifq4"
 }, {
     "name": "Avana 522",
     "loc": {
@@ -3741,7 +4156,8 @@ var apts = [{
     },
     "fullAddress": "18101 126th Avenue North East, Bothell, WA 98011",
     "priceRange": "$1310 - $2376",
-    "phone": "4252743625"
+    "phone": "4252743625",
+    "placeId": "ChIJK0olnocOkFQR9dw6_8-ksL0"
 }, {
     "name": "KOI",
     "loc": {
@@ -3750,7 +4166,8 @@ var apts = [{
     },
     "fullAddress": "1139 NW Market St, Seattle, WA 98107",
     "priceRange": null,
-    "phone": "2065080569"
+    "phone": "2065080569",
+    "placeId": "ChIJ82SlH8oVkFQRGooxd6vIktw"
 }, {
     "name": "Kendall Ridge",
     "loc": {
@@ -3759,7 +4176,8 @@ var apts = [{
     },
     "fullAddress": "15301 NE 20th Street, Bellevue, WA 98007",
     "priceRange": null,
-    "phone": "4256363472"
+    "phone": "4256363472",
+    "placeId": "EikxNTMwMSBORSAyMHRoIFN0LCBCZWxsZXZ1ZSwgV0EgOTgwMDcsIFVTQQ"
 }, {
     "name": "Park 3025 Apartments",
     "loc": {
@@ -3768,7 +4186,8 @@ var apts = [{
     },
     "fullAddress": "3025 NE 137th Street, Seattle, WA 98125",
     "priceRange": "$1310 - $1920",
-    "phone": "2068010881"
+    "phone": "2068010881",
+    "placeId": "ChIJ8diKLHERkFQRBkmfwpDVrUA"
 }, {
     "name": "Canyon Pointe",
     "loc": {
@@ -3777,7 +4196,8 @@ var apts = [{
     },
     "fullAddress": "1630 228th St SE, Bothell, WA 98021",
     "priceRange": "$1255 - $2285",
-    "phone": "4252743609"
+    "phone": "4252743609",
+    "placeId": "ChIJLaPJTgcPkFQRY6_tzF_kXFo"
 }, {
     "name": "Waterstone at Silver Creek",
     "loc": {
@@ -3786,7 +4206,8 @@ var apts = [{
     },
     "fullAddress": "1805 186th Place SE, Bothell, WA 98012",
     "priceRange": "$1279 - $1829",
-    "phone": "4252743655"
+    "phone": "4252743655",
+    "placeId": "ChIJPzen0PcFkFQRa6nrX7y2IGc"
 }, {
     "name": "Pure",
     "loc": {
@@ -3795,7 +4216,8 @@ var apts = [{
     },
     "fullAddress": "17634 NE Union Hill Road, Redmond, WA 98052",
     "priceRange": "$1495 - $2900",
-    "phone": "4259678946"
+    "phone": "4259678946",
+    "placeId": "Ei4xNzYzNCBORSBVbmlvbiBIaWxsIFJkLCBSZWRtb25kLCBXQSA5ODA1MiwgVVNB"
 }, {
     "name": "Greenwood Place Apartments",
     "loc": {
@@ -3804,7 +4226,8 @@ var apts = [{
     },
     "fullAddress": "14307 Greenwood Ave. N., Seattle, WA 98133",
     "priceRange": "$1280 - $2195",
-    "phone": "2069626429"
+    "phone": "2069626429",
+    "placeId": "ChIJ42EKyy4RkFQRTq8zuCH26o4"
 }, {
     "name": "Heritage Square",
     "loc": {
@@ -3813,7 +4236,8 @@ var apts = [{
     },
     "fullAddress": "1022 10th Avenue Southeast, Puyallup, WA 98372",
     "priceRange": "$1170 - $1220",
-    "phone": "2536933817"
+    "phone": "2536933817",
+    "placeId": "ChIJ64GrkQj8kFQRKQCKtZlUeeE"
 }, {
     "name": "4425",
     "loc": {
@@ -3822,7 +4246,8 @@ var apts = [{
     },
     "fullAddress": "4425 Harbor Country Drive, Gig Harbor, WA 98335",
     "priceRange": null,
-    "phone": "2533131186"
+    "phone": "2533131186",
+    "placeId": "ChIJudVjzcqskVQRgAvvUUth4AE"
 }, {
     "name": "The Cornelius",
     "loc": {
@@ -3831,7 +4256,8 @@ var apts = [{
     },
     "fullAddress": "306 Blanchard Street, Seattle, WA 98121",
     "priceRange": null,
-    "phone": "2068295956"
+    "phone": "2068295956",
+    "placeId": "ChIJ_ef5akwVkFQRmEQLY5ui-xw"
 }, {
     "name": "Oregon 42",
     "loc": {
@@ -3840,7 +4266,8 @@ var apts = [{
     },
     "fullAddress": "4502 42nd Avenue SW, Seattle, WA 98116",
     "priceRange": "$1445 - $2695",
-    "phone": "2065080636"
+    "phone": "2065080636",
+    "placeId": "ChIJva69tPlAkFQR3kSqmh0NUX8"
 }, {
     "name": "Jasper Apartments",
     "loc": {
@@ -3849,7 +4276,8 @@ var apts = [{
     },
     "fullAddress": "8606 35th Ave NE, Seattle, WA 98115",
     "priceRange": "$1350 - $2945",
-    "phone": "2063199574"
+    "phone": "2063199574",
+    "placeId": "ChIJM3GYFpMTkFQR5eOKTbH7j1k"
 }, {
     "name": "Panorama Apartments",
     "loc": {
@@ -3858,7 +4286,8 @@ var apts = [{
     },
     "fullAddress": "1100 University Street, Seattle, WA 98101",
     "priceRange": "$1914 - $9850",
-    "phone": "2064556768"
+    "phone": "2064556768",
+    "placeId": "ChIJhVHaXMpqkFQR_bST1WIeGHQ"
 }, {
     "name": "Park South",
     "loc": {
@@ -3867,7 +4296,8 @@ var apts = [{
     },
     "fullAddress": "10102 8th Avenue South, Seattle, WA 98168",
     "priceRange": "$1399 - $1899",
-    "phone": "2065081394"
+    "phone": "2065081394",
+    "placeId": "ChIJLRfRgMtDkFQR-vVRQ0Hm5m8"
 }, {
     "name": "Metropolitan Tower",
     "loc": {
@@ -3876,7 +4306,8 @@ var apts = [{
     },
     "fullAddress": "1942 Westlake Avenue, Seattle, WA 98101",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJZXP1AksVkFQRnxNWMpoP1vo"
 }, {
     "name": "Charbern",
     "loc": {
@@ -3885,7 +4316,8 @@ var apts = [{
     },
     "fullAddress": "1705 Belmont Avenue, Seattle, WA 98122",
     "priceRange": null,
-    "phone": "2068769747"
+    "phone": "2068769747",
+    "placeId": "ChIJseoQVDMVkFQRRtCvm1e_VfQ"
 }, {
     "name": "The Post",
     "loc": {
@@ -3894,7 +4326,8 @@ var apts = [{
     },
     "fullAddress": "888 Western Avenue, Seattle, WA 98104",
     "priceRange": "$1528 - $4995",
-    "phone": "2065694532"
+    "phone": "2065694532",
+    "placeId": "ChIJEW1EIrBqkFQRPGazjAb04uM"
 }, {
     "name": "Kentwood",
     "loc": {
@@ -3903,7 +4336,8 @@ var apts = [{
     },
     "fullAddress": "22415 Benson Rd, Kent, WA 98031",
     "priceRange": "$1174 - $1210",
-    "phone": "2534999197"
+    "phone": "2534999197",
+    "placeId": "EicyMjQxNSBCZW5zb24gUmQgU0UsIEtlbnQsIFdBIDk4MDMxLCBVU0E"
 }, {
     "name": "Pinnacle Sonata",
     "loc": {
@@ -3912,7 +4346,8 @@ var apts = [{
     },
     "fullAddress": "23940 40th Drive SE, Bothell, WA 98021",
     "priceRange": "$1529 - $2805",
-    "phone": "4252743654"
+    "phone": "4252743654",
+    "placeId": "ChIJ59wOc-8OkFQRSMk6ixe0g1E"
 }, {
     "name": "Alturas @ Burien",
     "loc": {
@@ -3921,7 +4356,8 @@ var apts = [{
     },
     "fullAddress": "1101 SW 139th Street, Burien, WA 98166",
     "priceRange": "$1090 - $1900",
-    "phone": "2068294942"
+    "phone": "2068294942",
+    "placeId": "ChIJR1XBB4BDkFQRItG5LOk-5M0"
 }, {
     "name": "Riverpark",
     "loc": {
@@ -3930,7 +4366,8 @@ var apts = [{
     },
     "fullAddress": "15803 Bear Creek Pkwy, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4256544072"
+    "phone": "4256544072",
+    "placeId": "ChIJWbYgGqxykFQRLp1c9VMEG3U"
 }, {
     "name": "AVA Capitol Hill",
     "loc": {
@@ -3939,7 +4376,8 @@ var apts = [{
     },
     "fullAddress": "1530 Belmont Ave, Seattle, WA 98122",
     "priceRange": null,
-    "phone": "2069623259"
+    "phone": "2069623259",
+    "placeId": "ChIJMe3QbctqkFQR7eLAc3xZ86Q"
 }, {
     "name": "Ridgedale Apartments",
     "loc": {
@@ -3948,7 +4386,8 @@ var apts = [{
     },
     "fullAddress": "14111 SE 6th St, Bellevue, WA 98007",
     "priceRange": "$1668 - $2500",
-    "phone": "4252786706"
+    "phone": "4252786706",
+    "placeId": "ChIJqR1RcDhskFQRds7qE4ntEF4"
 }, {
     "name": "Springline",
     "loc": {
@@ -3957,7 +4396,8 @@ var apts = [{
     },
     "fullAddress": "3220 California Ave SW, Seattle, WA 98116",
     "priceRange": "$1622 - $3005",
-    "phone": "2068294421"
+    "phone": "2068294421",
+    "placeId": "ChIJS9glAF5AkFQRfbzm-Iot3_A"
 }, {
     "name": "Furnished Studio - Seattle - Bothell - West",
     "loc": {
@@ -3966,7 +4406,8 @@ var apts = [{
     },
     "fullAddress": "923 228th Street SE, Bothell, WA 98021",
     "priceRange": null,
-    "phone": "4253053418"
+    "phone": "4253053418",
+    "placeId": "ChIJDWUu2KcPkFQRb6YhTmLkPqk"
 }, {
     "name": "Southwood Apartments",
     "loc": {
@@ -3975,7 +4416,8 @@ var apts = [{
     },
     "fullAddress": "121 South 174th Street, Seattle, WA 98148",
     "priceRange": "$850 - $1350",
-    "phone": "2065081108"
+    "phone": "2065081108",
+    "placeId": "ChIJWbMOAbFEkFQRCjZ8vCQti7c"
 }, {
     "name": "Link Apartments",
     "loc": {
@@ -3984,7 +4426,8 @@ var apts = [{
     },
     "fullAddress": "4550 38th Ave SW, Seattle, WA 98126",
     "priceRange": "$1404 - $2742",
-    "phone": "2064527373"
+    "phone": "2064527373",
+    "placeId": "ChIJBffUuvhAkFQROkszek63jcU"
 }, {
     "name": "Ravenna Court",
     "loc": {
@@ -3993,7 +4436,8 @@ var apts = [{
     },
     "fullAddress": "900 NE Ravenna Blvd, Seattle, WA 98115",
     "priceRange": "$1075 - $1275",
-    "phone": "2068669962"
+    "phone": "2068669962",
+    "placeId": "ChIJK4Fg82UUkFQROHd6YLHIXXM"
 }, {
     "name": "Kently Pointe",
     "loc": {
@@ -4002,7 +4446,8 @@ var apts = [{
     },
     "fullAddress": "4724 S 272nd St, Kent, WA 98032",
     "priceRange": "$1110 - $1602",
-    "phone": "2534587166"
+    "phone": "2534587166",
+    "placeId": "ChIJ15xvRJ1ZkFQR_1CtVpwHkMM"
 }, {
     "name": "Borgata Apartments and Townhomes",
     "loc": {
@@ -4011,7 +4456,8 @@ var apts = [{
     },
     "fullAddress": "400 South 50th Street, Renton, WA 98055",
     "priceRange": null,
-    "phone": "4252743674"
+    "phone": "4252743674",
+    "placeId": "ChIJ4eyBvwBdkFQRGSQcBouetks"
 }, {
     "name": "The Audrey at Belltown",
     "loc": {
@@ -4020,7 +4466,8 @@ var apts = [{
     },
     "fullAddress": "2922 Western Avenue, Seattle, WA 98121",
     "priceRange": "$1589 - $3107",
-    "phone": "2064558787"
+    "phone": "2064558787",
+    "placeId": "ChIJNUP-4E8VkFQR4AcVimOeTlY"
 }, {
     "name": "Erlands Point",
     "loc": {
@@ -4029,7 +4476,8 @@ var apts = [{
     },
     "fullAddress": "3000 Austin Drive, Bremerton, WA 98312",
     "priceRange": null,
-    "phone": "3609306720"
+    "phone": "3609306720",
+    "placeId": "EigzMDAwIEF1c3RpbiBEciwgQnJlbWVydG9uLCBXQSA5ODMxMiwgVVNB"
 }, {
     "name": "Slate Apartments & Lofts",
     "loc": {
@@ -4038,7 +4486,8 @@ var apts = [{
     },
     "fullAddress": "3040 17th Ave W, Seattle, WA 98119",
     "priceRange": "$1630 - $2781",
-    "phone": "2064558813"
+    "phone": "2064558813",
+    "placeId": "ChIJ-YHKIp8VkFQRDxxQvFMUAs4"
 }, {
     "name": "Evergreen on 47th",
     "loc": {
@@ -4047,7 +4496,8 @@ var apts = [{
     },
     "fullAddress": "1111 47th Street SE, Everett, WA 98203",
     "priceRange": "$969 - $1375",
-    "phone": "4253212083"
+    "phone": "4253212083",
+    "placeId": "ChIJs9PxhogAkFQRznS6K79j4x0"
 }, {
     "name": "The Summit",
     "loc": {
@@ -4056,7 +4506,8 @@ var apts = [{
     },
     "fullAddress": "14820 Redmond Way, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4256363291"
+    "phone": "4256363291",
+    "placeId": "ChIJRTu4dFUNkFQRzzOxrBoKsVg"
 }, {
     "name": "Ridgegate",
     "loc": {
@@ -4065,7 +4516,8 @@ var apts = [{
     },
     "fullAddress": "24808 100th Place SE, Kent, WA 98030",
     "priceRange": "$1066 - $2088",
-    "phone": "2536420049"
+    "phone": "2536420049",
+    "placeId": "ChIJwWFTQLBekFQRSM0Fui2UrNo"
 }, {
     "name": "Alderwood Heights",
     "loc": {
@@ -4074,7 +4526,8 @@ var apts = [{
     },
     "fullAddress": "18124 36th Avenue West, Lynnwood, WA 98037",
     "priceRange": "$1199 - $1556",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJT66C9Q4FkFQRVgrUx3tTs50"
 }, {
     "name": "Station at Mill Creek",
     "loc": {
@@ -4083,7 +4536,8 @@ var apts = [{
     },
     "fullAddress": "1300 156th Street SE, Mill Creek, WA 98012",
     "priceRange": null,
-    "phone": "4253414032"
+    "phone": "4253414032",
+    "placeId": "ChIJU_G-_3YGkFQR0Z2xuCP8A70"
 }, {
     "name": "Heritage Ridge",
     "loc": {
@@ -4092,7 +4546,8 @@ var apts = [{
     },
     "fullAddress": "16619 Larch Way, Lynnwood, WA 98037",
     "priceRange": null,
-    "phone": "4253410939"
+    "phone": "4253410939",
+    "placeId": "ChIJz0oEkscFkFQRf_t1grvSqMI"
 }, {
     "name": "Lake Fenwick Estates",
     "loc": {
@@ -4101,7 +4556,8 @@ var apts = [{
     },
     "fullAddress": "24849 46th Avenue South, Kent, WA 98032",
     "priceRange": "$1175 - $1750",
-    "phone": "2535186236"
+    "phone": "2535186236",
+    "placeId": "ChIJd3zwetpbkFQRV4En7V0yyqY"
 }, {
     "name": "Piedmont",
     "loc": {
@@ -4110,7 +4566,8 @@ var apts = [{
     },
     "fullAddress": "15309 NE 13th Pl, Bellevue, WA 98007",
     "priceRange": null,
-    "phone": "4256541647"
+    "phone": "4256541647",
+    "placeId": "ChIJXfDw0a9tkFQR2QvPbFylrQo"
 }, {
     "name": "Leilani On Greenwood",
     "loc": {
@@ -4119,7 +4576,8 @@ var apts = [{
     },
     "fullAddress": "10215 Greenwood Avenue North, Seattle, WA 98133",
     "priceRange": null,
-    "phone": "2068294901"
+    "phone": "2068294901",
+    "placeId": "ChIJbydQ5KQWkFQRCDo6JIP00qA"
 }, {
     "name": "Base Ballard",
     "loc": {
@@ -4128,7 +4586,8 @@ var apts = [{
     },
     "fullAddress": "2651 NW 56th Street, Seattle, WA 98107",
     "priceRange": "$900 - $1150",
-    "phone": "2068669988"
+    "phone": "2068669988",
+    "placeId": "EicyNjUxIE5XIDU2dGggU3QsIFNlYXR0bGUsIFdBIDk4MTA3LCBVU0E"
 }, {
     "name": "Soren",
     "loc": {
@@ -4137,7 +4596,8 @@ var apts = [{
     },
     "fullAddress": "5711 24th Avenue NW, Seattle, WA 98107",
     "priceRange": "$1650 - $1815",
-    "phone": "2066867746"
+    "phone": "2066867746",
+    "placeId": "ChIJY5CICMUVkFQRbdI82_ewK_g"
 }, {
     "name": "Sammamish View Apartments",
     "loc": {
@@ -4146,7 +4606,8 @@ var apts = [{
     },
     "fullAddress": "16160 Se Eastgate Way, Bellevue, WA 98008",
     "priceRange": "$1740 - $2268",
-    "phone": "4256363297"
+    "phone": "4256363297",
+    "placeId": "ChIJIeHB2pZukFQRKQD7m_Gm1us"
 }, {
     "name": "Strata On California",
     "loc": {
@@ -4155,7 +4616,8 @@ var apts = [{
     },
     "fullAddress": "6312 Callifornia Avenue SW, Seattle, WA 98136",
     "priceRange": "$1550 - $2200",
-    "phone": "2065080597"
+    "phone": "2065080597",
+    "placeId": "ChIJb5MS5htBkFQRa9EB4M6E4a4"
 }, {
     "name": "LaVie at Queen Anne",
     "loc": {
@@ -4164,7 +4626,8 @@ var apts = [{
     },
     "fullAddress": "229 Queen Anne Avenue North, Seattle, WA 98109",
     "priceRange": "$1350 - $2750",
-    "phone": "2068010420"
+    "phone": "2068010420",
+    "placeId": "ChIJ3UeWw0QVkFQRkEtleGyMGPA"
 }, {
     "name": "Sterling Ridge",
     "loc": {
@@ -4173,7 +4636,8 @@ var apts = [{
     },
     "fullAddress": "11328 Se Kent Kangley Rd, Kent, WA 98030",
     "priceRange": "$900 - $1300",
-    "phone": "2534999184"
+    "phone": "2534999184",
+    "placeId": "ChIJ45P_4sVekFQRqiOK6kfmvPc"
 }, {
     "name": "Hadley",
     "loc": {
@@ -4182,7 +4646,8 @@ var apts = [{
     },
     "fullAddress": "2615 76th Ave SE, Mercer Island, WA 98040",
     "priceRange": null,
-    "phone": "2069264805"
+    "phone": "2069264805",
+    "placeId": "ChIJ6ZwTlbprkFQRj1huKEcFcRo"
 }, {
     "name": "Allegro",
     "loc": {
@@ -4191,7 +4656,8 @@ var apts = [{
     },
     "fullAddress": "17126 SE 269th Place, Covington, WA 98042",
     "priceRange": null,
-    "phone": "2535182199"
+    "phone": "2535182199",
+    "placeId": "ChIJ72jC8KNfkFQR55Xg9CLYbdE"
 }, {
     "name": "Palisades",
     "loc": {
@@ -4200,7 +4666,8 @@ var apts = [{
     },
     "fullAddress": "13808 NE 12th St, Bellevue, WA 98005",
     "priceRange": null,
-    "phone": "4256544070"
+    "phone": "4256544070",
+    "placeId": "ChIJ7-zmZlRskFQR2v4tQkfre3s"
 }, {
     "name": "Parkwood at Mill Creek",
     "loc": {
@@ -4209,7 +4676,8 @@ var apts = [{
     },
     "fullAddress": "15520 Mill Creek Boulevard, Mill Creek, WA 98012",
     "priceRange": "$1395 - $2227",
-    "phone": "4253215537"
+    "phone": "4253215537",
+    "placeId": "ChIJp3mxj94FkFQR84aDokj94PQ"
 }, {
     "name": "Alderwood Park",
     "loc": {
@@ -4218,7 +4686,8 @@ var apts = [{
     },
     "fullAddress": "18031 36th Avenue West, Lynnwood, WA 98037",
     "priceRange": "$1289 - $1780",
-    "phone": "4253543996"
+    "phone": "4253543996",
+    "placeId": "ChIJpcVDqQ4FkFQRxbTiqfLpDSM"
 }, {
     "name": "Discovery West",
     "loc": {
@@ -4227,7 +4696,8 @@ var apts = [{
     },
     "fullAddress": "580 8th Ave NE, Issaquah, WA 98029",
     "priceRange": null,
-    "phone": "4257489043"
+    "phone": "4257489043",
+    "placeId": "Eic1ODAgOHRoIEF2ZSBORSwgSXNzYXF1YWgsIFdBIDk4MDI5LCBVU0E"
 }, {
     "name": "Avalon Alderwood",
     "loc": {
@@ -4236,7 +4706,8 @@ var apts = [{
     },
     "fullAddress": "2510 164th Street SW, Lynnwood, WA 98087",
     "priceRange": null,
-    "phone": "8779078179"
+    "phone": "8779078179",
+    "placeId": "EikyNTEwIDE2NHRoIFN0IFNXLCBMeW5ud29vZCwgV0EgOTgwODcsIFVTQQ"
 }, {
     "name": "red160",
     "loc": {
@@ -4245,7 +4716,8 @@ var apts = [{
     },
     "fullAddress": "16015 Cleveland Street, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4252743855"
+    "phone": "4252743855",
+    "placeId": "ChIJ70qV3rFykFQRB_GTRvpgcpc"
 }, {
     "name": "Avalon Newcastle Commons",
     "loc": {
@@ -4254,7 +4726,8 @@ var apts = [{
     },
     "fullAddress": "6620 Coal Creek Pkwy SE, Newcastle, WA 98059",
     "priceRange": null,
-    "phone": "4252969480"
+    "phone": "4252969480",
+    "placeId": "ChIJAe6iTCJpkFQR_9DcEo2-gIY"
 }, {
     "name": "Charbonneau",
     "loc": {
@@ -4263,7 +4736,8 @@ var apts = [{
     },
     "fullAddress": "1201 Boylston Avenue, Seattle, WA 98101",
     "priceRange": "$1500 - $2500",
-    "phone": "2065081286"
+    "phone": "2065081286",
+    "placeId": "ChIJJ8JGyMtqkFQRPr_RqgOfzJQ"
 }, {
     "name": "The Galleria",
     "loc": {
@@ -4272,7 +4746,8 @@ var apts = [{
     },
     "fullAddress": "10500 Meridian Avenue North, Seattle, WA 98133",
     "priceRange": "$1015 - $1630",
-    "phone": "2065694534"
+    "phone": "2065694534",
+    "placeId": "ChIJAz5EyFQRkFQRQ99cn7qtet4"
 }, {
     "name": "Estates at Cougar Mountain",
     "loc": {
@@ -4281,7 +4756,8 @@ var apts = [{
     },
     "fullAddress": "2128 Nw Shy Bear Way, Issaquah, WA 98027",
     "priceRange": null,
-    "phone": "4253812250"
+    "phone": "4253812250",
+    "placeId": "ChIJhbBBtGdvkFQRfUHh1kk1GVY"
 }, {
     "name": "The Knolls At Inglewood Hill",
     "loc": {
@@ -4290,7 +4766,8 @@ var apts = [{
     },
     "fullAddress": "22626 NE Inglewood Hill Road, Sammamish, WA 98074",
     "priceRange": "$1449 - $2350",
-    "phone": "4255492199"
+    "phone": "4255492199",
+    "placeId": "ChIJeYd4n_VxkFQRtikVFvjgZl8"
 }, {
     "name": "The Miro at Dashpoint",
     "loc": {
@@ -4299,7 +4776,8 @@ var apts = [{
     },
     "fullAddress": "31004 19th Place SW, Federal Way, WA 98023",
     "priceRange": "$900 - $1675",
-    "phone": "2533363626"
+    "phone": "2533363626",
+    "placeId": "ChIJXduB8DxXkFQRgG3LfkOcngs"
 }, {
     "name": "Union SLU",
     "loc": {
@@ -4308,7 +4786,8 @@ var apts = [{
     },
     "fullAddress": "905 Dexter Avenue North, Seattle, WA 98109",
     "priceRange": "$1536 - $5748",
-    "phone": "2065080987"
+    "phone": "2065080987",
+    "placeId": "ChIJNzbrxT4VkFQRI9QW_YWHKFI"
 }, {
     "name": "Creekside Apartments",
     "loc": {
@@ -4317,7 +4796,8 @@ var apts = [{
     },
     "fullAddress": "220 Newport Way Sw, Issaquah, WA 98027",
     "priceRange": null,
-    "phone": "4255492196"
+    "phone": "4255492196",
+    "placeId": "ChIJEbKtU4BlkFQRGXCJmcpk_4w"
 }, {
     "name": "The Trails of Redmond",
     "loc": {
@@ -4326,7 +4806,8 @@ var apts = [{
     },
     "fullAddress": "16539 Northeast 35th Court, Redmond, WA 98052",
     "priceRange": "$1454 - $2322",
-    "phone": "4256363496"
+    "phone": "4256363496",
+    "placeId": "ChIJATF9IXptkFQRaSvuTFt0fZw"
 }, {
     "name": "Bellevue Terrace",
     "loc": {
@@ -4335,7 +4816,8 @@ var apts = [{
     },
     "fullAddress": "1623 Bellevue Ave, Seattle, WA 98122",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJoeaQyTQVkFQRbhaw4IZ3e68"
 }, {
     "name": "Laurels At Mill Creek",
     "loc": {
@@ -4344,7 +4826,8 @@ var apts = [{
     },
     "fullAddress": "1110 164th St SE, Mill Creek, WA 98012",
     "priceRange": "$1418 - $1786",
-    "phone": "4253812262"
+    "phone": "4253812262",
+    "placeId": "ChIJXdFXguAFkFQR6UaXkCmP43I"
 }, {
     "name": "Atrium on James",
     "loc": {
@@ -4353,7 +4836,8 @@ var apts = [{
     },
     "fullAddress": "6248 S. 242nd Place, Kent, WA 98032",
     "priceRange": "$1077 - $2532",
-    "phone": "2534999179"
+    "phone": "2534999179",
+    "placeId": "ChIJA79izuVbkFQReA7wlzZ9q-4"
 }, {
     "name": "Furnished Studio - Seattle - Southcenter",
     "loc": {
@@ -4362,7 +4846,8 @@ var apts = [{
     },
     "fullAddress": "15635 West Valley Hwy, Tukwila, WA 98188",
     "priceRange": null,
-    "phone": "2068294383"
+    "phone": "2068294383",
+    "placeId": "ChIJG1KLtytdkFQRfwfzRrvsvw8"
 }, {
     "name": "Saffron",
     "loc": {
@@ -4371,7 +4856,8 @@ var apts = [{
     },
     "fullAddress": "22850 NE 8th Street, Sammamish, WA 98074",
     "priceRange": null,
-    "phone": "4259490448"
+    "phone": "4259490448",
+    "placeId": "ChIJOXHX2fRxkFQRv3wkrdQNOtg"
 }, {
     "name": "Castle Creek Apartments",
     "loc": {
@@ -4380,7 +4866,8 @@ var apts = [{
     },
     "fullAddress": "7000 132nd Pl SE, Newcastle, WA 98059",
     "priceRange": "$1566 - $2525",
-    "phone": "4256363483"
+    "phone": "4256363483",
+    "placeId": "ChIJ73LcYB9pkFQRr_MbxINC6QU"
 }, {
     "name": "Viva",
     "loc": {
@@ -4389,7 +4876,8 @@ var apts = [{
     },
     "fullAddress": "1111 E. Union Street, Seattle, WA 98122",
     "priceRange": "$1475 - $4170",
-    "phone": "2069719136"
+    "phone": "2069719136",
+    "placeId": "ChIJEWPEns5qkFQRprqAnGcd7MA"
 }, {
     "name": "Wandering Creek Apartments",
     "loc": {
@@ -4398,7 +4886,8 @@ var apts = [{
     },
     "fullAddress": "12910 SE 240th St, Kent, WA 98031",
     "priceRange": "$1278 - $2090",
-    "phone": "2534999199"
+    "phone": "2534999199",
+    "placeId": "ChIJoxOQtY5ekFQRRJxnXLFXDyg"
 }, {
     "name": "Serra Vista",
     "loc": {
@@ -4407,7 +4896,8 @@ var apts = [{
     },
     "fullAddress": "15517 40th Avenue West, Lynnwood, WA 98087",
     "priceRange": null,
-    "phone": "4253203266"
+    "phone": "4253203266",
+    "placeId": "ChIJ5W_j9FAEkFQRumUUocN466M"
 }, {
     "name": "Polaris at Covington",
     "loc": {
@@ -4416,7 +4906,8 @@ var apts = [{
     },
     "fullAddress": "17110 SE 276th Street, Covington, WA 98042",
     "priceRange": "$960 - $1319",
-    "phone": "2535186216"
+    "phone": "2535186216",
+    "placeId": "ChIJDdS3i59fkFQR5Unfw23tDP4"
 }, {
     "name": "Bristol At Southport",
     "loc": {
@@ -4425,7 +4916,8 @@ var apts = [{
     },
     "fullAddress": "1133 Lake Washington Blvd N, Renton, WA 98056",
     "priceRange": "$1334 - $3050",
-    "phone": "4252743648"
+    "phone": "4252743648",
+    "placeId": "ChIJab5Jkj1okFQRZhhOVazcyVQ"
 }, {
     "name": "Promenade At The Park",
     "loc": {
@@ -4434,7 +4926,8 @@ var apts = [{
     },
     "fullAddress": "3215 NE 143rd Street, Seattle, WA 98125",
     "priceRange": "$1100 - $1700",
-    "phone": "2065080570"
+    "phone": "2065080570",
+    "placeId": "ChIJee-36nURkFQRyI__J2LODzE"
 }, {
     "name": "The Madison Bellevue",
     "loc": {
@@ -4443,7 +4936,8 @@ var apts = [{
     },
     "fullAddress": "885 154th Place NE, Bellevue, WA 98007",
     "priceRange": "$1830 - $3648",
-    "phone": "4256363482"
+    "phone": "4256363482",
+    "placeId": "Eig4ODUgMTU0dGggUGwgTkUsIEJlbGxldnVlLCBXQSA5ODAwNywgVVNB"
 }, {
     "name": "Trillium",
     "loc": {
@@ -4452,7 +4946,8 @@ var apts = [{
     },
     "fullAddress": "4902 148th Street SW, Edmonds, WA 98026",
     "priceRange": "$1450 - $1685",
-    "phone": "4259539863"
+    "phone": "4259539863",
+    "placeId": "Eig0OTAyIDE0OHRoIFN0IFNXLCBFZG1vbmRzLCBXQSA5ODAyNiwgVVNB"
 }, {
     "name": "Cottage Bay",
     "loc": {
@@ -4461,7 +4956,8 @@ var apts = [{
     },
     "fullAddress": "2500 Ne Mcwilliams Road, Bremerton, WA 98311",
     "priceRange": "$806 - $1101",
-    "phone": "3604476437"
+    "phone": "3604476437",
+    "placeId": "ChIJi98xDDI6kFQR3LkTZfn9vso"
 }, {
     "name": "AMLI Wallingford",
     "loc": {
@@ -4470,7 +4966,8 @@ var apts = [{
     },
     "fullAddress": "1850 N 34th St, Seattle, WA 98103",
     "priceRange": "$1690 - $3925",
-    "phone": "2068295905"
+    "phone": "2068295905",
+    "placeId": "ChIJORpzev0UkFQRUPrh3EdVA6s"
 }, {
     "name": "The Henry Apartments",
     "loc": {
@@ -4479,7 +4976,8 @@ var apts = [{
     },
     "fullAddress": "1933 Dock Street, Tacoma, WA 98402",
     "priceRange": null,
-    "phone": "2534449469"
+    "phone": "2534449469",
+    "placeId": "ChIJazd_pHdVkFQRlUE_DJx7Dt0"
 }, {
     "name": "Willows Court",
     "loc": {
@@ -4488,7 +4986,8 @@ var apts = [{
     },
     "fullAddress": "12316 28th Avenue Northeast, Seattle, WA 98125",
     "priceRange": "$1350 - $1800",
-    "phone": "2065080640"
+    "phone": "2065080640",
+    "placeId": "ChIJmVAagWQRkFQRRvuqV2xNPLs"
 }, {
     "name": "The Hawthorne Apartments",
     "loc": {
@@ -4497,7 +4996,8 @@ var apts = [{
     },
     "fullAddress": "14701 Main Street, Mill Creek, WA 98012",
     "priceRange": null,
-    "phone": "4253215793"
+    "phone": "4253215793",
+    "placeId": "ChIJrabEFHwGkFQRI2tRtd3I3Vk"
 }, {
     "name": "Brookstone",
     "loc": {
@@ -4506,7 +5006,8 @@ var apts = [{
     },
     "fullAddress": "3231 South 204th Street, SeaTac, WA 98198",
     "priceRange": "$1249 - $1749",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJXbTppnpbkFQRi4e8t7TUX2Q"
 }, {
     "name": "Benson Village",
     "loc": {
@@ -4515,7 +5016,8 @@ var apts = [{
     },
     "fullAddress": "10820 Southeast 211th Place, Kent, WA 98031",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ-eyA5jRckFQRKJzrfRvQjgc"
 }, {
     "name": "Windsor Apartments",
     "loc": {
@@ -4524,7 +5026,8 @@ var apts = [{
     },
     "fullAddress": "4415 Ne 5th Street, Renton, WA 98059",
     "priceRange": "$1165 - $2245",
-    "phone": "4253053372"
+    "phone": "4253053372",
+    "placeId": "ChIJRRKhTthnkFQRT1ulxXZeKCU"
 }, {
     "name": "Port Landing at Fife",
     "loc": {
@@ -4533,7 +5036,8 @@ var apts = [{
     },
     "fullAddress": "2715 62nd Ave E, Fife, WA 98424",
     "priceRange": null,
-    "phone": "2534587717"
+    "phone": "2534587717",
+    "placeId": "ChIJ6UN2VzH_kFQRFbap4eCyg2c"
 }, {
     "name": "Villaggio",
     "loc": {
@@ -4542,7 +5046,8 @@ var apts = [{
     },
     "fullAddress": "1328 Market Street, Tacoma, WA 98402",
     "priceRange": "$950 - $2200",
-    "phone": "2539483223"
+    "phone": "2539483223",
+    "placeId": "ChIJ64dI5XRVkFQRUNTrbLg9U40"
 }, {
     "name": "Park 120 Apartments",
     "loc": {
@@ -4551,7 +5056,8 @@ var apts = [{
     },
     "fullAddress": "120 West Casino Road, Everett, WA 98204",
     "priceRange": "$1035 - $1485",
-    "phone": "4253744099"
+    "phone": "4253744099",
+    "placeId": "ChIJU6r95CUBkFQRt4IBU-ttb5o"
 }, {
     "name": "Portsmith",
     "loc": {
@@ -4560,7 +5066,8 @@ var apts = [{
     },
     "fullAddress": "12121 Admiralty Way, Everett, WA 98204",
     "priceRange": null,
-    "phone": "4253670547"
+    "phone": "4253670547",
+    "placeId": "ChIJI7OzPKQGkFQR9u6swVvwg9w"
 }, {
     "name": "Solara",
     "loc": {
@@ -4569,7 +5076,8 @@ var apts = [{
     },
     "fullAddress": "12736 Lake City Way NE, Seattle, WA 98125",
     "priceRange": null,
-    "phone": "2062045282"
+    "phone": "2062045282",
+    "placeId": "ChIJVxgCqnsRkFQRRD2DBNuT0po"
 }, {
     "name": "Sky Harbour Terrace",
     "loc": {
@@ -4578,7 +5086,8 @@ var apts = [{
     },
     "fullAddress": "3200 S 176th Attn: Managers Office, Seattle, Seattle, WA 98188",
     "priceRange": "$900 - $11250",
-    "phone": "2064558763"
+    "phone": "2064558763",
+    "placeId": "ChIJu9HtgrZckFQRSwyiaCFke5g"
 }, {
     "name": "La Mirage",
     "loc": {
@@ -4587,7 +5096,8 @@ var apts = [{
     },
     "fullAddress": "11239 SE 260th, Kent, WA 98030",
     "priceRange": "$840 - $1330",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJ_2cBF8ZekFQRjN9aLNWyhOU"
 }, {
     "name": "The BLVD",
     "loc": {
@@ -4596,7 +5106,8 @@ var apts = [{
     },
     "fullAddress": "2136 South 272nd Street, Kent, WA 98032",
     "priceRange": "$950 - $1250",
-    "phone": "2534587017"
+    "phone": "2534587017",
+    "placeId": "ChIJr4d494pZkFQRGpFXu3QuVCM"
 }, {
     "name": "Tanglewood Estates",
     "loc": {
@@ -4605,7 +5116,8 @@ var apts = [{
     },
     "fullAddress": "5720 198th Street SW, Lynnwood, WA 98036",
     "priceRange": null,
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJuSjK0zcFkFQRir5kST3vRtc"
 }, {
     "name": "The Mill Apartment Homes",
     "loc": {
@@ -4614,7 +5126,8 @@ var apts = [{
     },
     "fullAddress": "1324 Mill Creek Boulevard, Mill Creek, WA 98012",
     "priceRange": "$1318 - $3686",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJe3SCa3YGkFQRSDSNrtjt2XA"
 }, {
     "name": "Pembrooke",
     "loc": {
@@ -4623,7 +5136,8 @@ var apts = [{
     },
     "fullAddress": "25907 27th Place S, Kent, WA 98032",
     "priceRange": null,
-    "phone": "2534587213"
+    "phone": "2534587213",
+    "placeId": "ChIJ6zISwS5akFQRVK69QSvPJGs"
 }, {
     "name": "Newberry Square",
     "loc": {
@@ -4632,7 +5146,8 @@ var apts = [{
     },
     "fullAddress": "16116 Ash Way, Lynnwood, WA 98087",
     "priceRange": null,
-    "phone": "4253414030"
+    "phone": "4253414030",
+    "placeId": "ChIJ7zBUQ7QFkFQRg1w_gwdn98Y"
 }, {
     "name": "Riverstone",
     "loc": {
@@ -4641,7 +5156,8 @@ var apts = [{
     },
     "fullAddress": "27314 24th Place South, Federal Way, WA 98003",
     "priceRange": "$1055 - $1600",
-    "phone": "2534999164"
+    "phone": "2534999164",
+    "placeId": "EisyNzMxNCAyNHRoIFBsIFMsIEZlZGVyYWwgV2F5LCBXQSA5ODAwMywgVVNB"
 }, {
     "name": "AVA Queen Anne",
     "loc": {
@@ -4650,7 +5166,8 @@ var apts = [{
     },
     "fullAddress": "330 3rd Ave West, Seattle, WA 98119",
     "priceRange": null,
-    "phone": "2065080619"
+    "phone": "2065080619",
+    "placeId": "ChIJreQ6qlwVkFQRm1LDNeV_7nQ"
 }, {
     "name": "Avalon at Bear Creek",
     "loc": {
@@ -4659,7 +5176,8 @@ var apts = [{
     },
     "fullAddress": "11305 183rd Place, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4256541442"
+    "phone": "4256541442",
+    "placeId": "ChIJ7ZKRrdkMkFQRP6F571YFhNc"
 }, {
     "name": "Somerset",
     "loc": {
@@ -4668,7 +5186,8 @@ var apts = [{
     },
     "fullAddress": "25220 109th Place SE, Kent, WA 98030",
     "priceRange": "$958 - $1920",
-    "phone": "2532369717"
+    "phone": "2532369717",
+    "placeId": "ChIJuXdDF7hekFQRrFzTm3pniIg"
 }, {
     "name": "Hill Crest Apartments",
     "loc": {
@@ -4677,7 +5196,8 @@ var apts = [{
     },
     "fullAddress": "7524 35th Avenue SW, Seattle, WA 98126",
     "priceRange": "$1350 - $1700",
-    "phone": "2067017069"
+    "phone": "2067017069",
+    "placeId": "ChIJMQiWzRRBkFQREgbS567exrw"
 }, {
     "name": "Urbana Apartments",
     "loc": {
@@ -4686,7 +5206,8 @@ var apts = [{
     },
     "fullAddress": "1501 NW 56th Street, Seattle, WA 98107",
     "priceRange": null,
-    "phone": "2069659485"
+    "phone": "2069659485",
+    "placeId": "ChIJ609_G8kVkFQRSOsjz3IoV6w"
 }, {
     "name": "Archstone Redmond Lakeview",
     "loc": {
@@ -4695,7 +5216,8 @@ var apts = [{
     },
     "fullAddress": "4250 W Lake Sammamish Pkwy. NE, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4252786756"
+    "phone": "4252786756",
+    "placeId": "ChIJUzEMhoJykFQRysT63CNrJTk"
 }, {
     "name": "The Panorama",
     "loc": {
@@ -4704,7 +5226,8 @@ var apts = [{
     },
     "fullAddress": "1617 W. Admiralty Heights Lane, Bremerton, WA 98312",
     "priceRange": "$1005 - $1410",
-    "phone": "3606333238"
+    "phone": "3606333238",
+    "placeId": "ChIJ4_LKelY2kFQRd1k8-TyLqF4"
 }, {
     "name": "Reunion at Redmond Ridge",
     "loc": {
@@ -4713,7 +5236,8 @@ var apts = [{
     },
     "fullAddress": "11315  Trilogy Parkway NE, Redmond, WA 98053",
     "priceRange": null,
-    "phone": "4252743693"
+    "phone": "4252743693",
+    "placeId": "ChIJd6LcFlhzkFQRKPvrMk-QNxY"
 }, {
     "name": "Harrison Square",
     "loc": {
@@ -4722,7 +5246,8 @@ var apts = [{
     },
     "fullAddress": "312 Second Ave. West, Seattle, WA 98119",
     "priceRange": null,
-    "phone": "2068767471"
+    "phone": "2068767471",
+    "placeId": "ChIJQdX0qEQVkFQRbtL4y3gcU_I"
 }, {
     "name": "Arbour Court",
     "loc": {
@@ -4731,7 +5256,8 @@ var apts = [{
     },
     "fullAddress": "2225 South 112th Street, Seattle, WA 98168",
     "priceRange": "$1175 - $1775",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJR5gLVq1DkFQROx1y6d9Ughg"
 }, {
     "name": "Summit at Lake Union",
     "loc": {
@@ -4740,7 +5266,8 @@ var apts = [{
     },
     "fullAddress": "1735 Dexter Ave N, Seattle, WA 98109",
     "priceRange": null,
-    "phone": "2065080596"
+    "phone": "2065080596",
+    "placeId": "ChIJrd5frxcVkFQRByBb--b6Ilo"
 }, {
     "name": "Green Lake Village",
     "loc": {
@@ -4749,7 +5276,8 @@ var apts = [{
     },
     "fullAddress": "427 NE 72nd Street, Seattle, WA 98115",
     "priceRange": "$1580 - $3840",
-    "phone": "2063199608"
+    "phone": "2063199608",
+    "placeId": "ChIJhVN5bG0UkFQRZuYBw6Sf91Y"
 }, {
     "name": "Regency Woods",
     "loc": {
@@ -4758,7 +5286,8 @@ var apts = [{
     },
     "fullAddress": "1650 Eagle Ridge Drive, Renton, WA 98055",
     "priceRange": null,
-    "phone": "4259548559"
+    "phone": "4259548559",
+    "placeId": "ChIJ7yrV5ERdkFQRbJ6o60TkjjQ"
 }, {
     "name": "Avalon RockMeadow",
     "loc": {
@@ -4767,7 +5296,8 @@ var apts = [{
     },
     "fullAddress": "19905 Bothell-Everett Highway, Bothell, WA 98012",
     "priceRange": "$1435 - $2190",
-    "phone": "4252743630"
+    "phone": "4252743630",
+    "placeId": "ChIJdQcRLGgPkFQRQXXCpTtn-HE"
 }, {
     "name": "The Blake Apartments",
     "loc": {
@@ -4776,7 +5306,8 @@ var apts = [{
     },
     "fullAddress": "5020 California Ave SW, Seattle, WA 98136",
     "priceRange": "$1216 - $2675",
-    "phone": "2062045318"
+    "phone": "2062045318",
+    "placeId": "ChIJSXDIXvxAkFQRePwsH-QzcQc"
 }, {
     "name": "Odin",
     "loc": {
@@ -4785,7 +5316,8 @@ var apts = [{
     },
     "fullAddress": "5398 Russell Ave NW, Seattle, WA 98107",
     "priceRange": null,
-    "phone": "2065080656"
+    "phone": "2065080656",
+    "placeId": "ChIJoQGLJsYVkFQR4XyN4YJckf8"
 }, {
     "name": "The Reserve at Town Center",
     "loc": {
@@ -4794,7 +5326,8 @@ var apts = [{
     },
     "fullAddress": "14420 North Creek Drive, Mill Creek, WA 98012",
     "priceRange": null,
-    "phone": "4253215934"
+    "phone": "4253215934",
+    "placeId": "ChIJtypkBH0GkFQRsyV7yHLXLb4"
 }, {
     "name": "AMLI Mark 24",
     "loc": {
@@ -4803,7 +5336,8 @@ var apts = [{
     },
     "fullAddress": "2428 NW Market St, Seattle, WA 98107",
     "priceRange": "$1680 - $3043",
-    "phone": "8556109671"
+    "phone": "8556109671",
+    "placeId": "ChIJJQZjRsQVkFQRTTikCCS8w5A"
 }, {
     "name": "Axis",
     "loc": {
@@ -4812,7 +5346,8 @@ var apts = [{
     },
     "fullAddress": "123 2nd Ave North, Seattle, WA 98109",
     "priceRange": "$1464 - $5035",
-    "phone": "2065081304"
+    "phone": "2065081304",
+    "placeId": "ChIJHem1HfoUkFQRw_45x_40LvQ"
 }, {
     "name": "The Spruce",
     "loc": {
@@ -4821,7 +5356,8 @@ var apts = [{
     },
     "fullAddress": "4555 39th Ave SW, Seattle, WA 98116",
     "priceRange": null,
-    "phone": "2068556924"
+    "phone": "2068556924",
+    "placeId": "Eig0NTU1IDM5dGggQXZlIFNXLCBTZWF0dGxlLCBXQSA5ODExNiwgVVNB"
 }, {
     "name": "WildReed Apartments",
     "loc": {
@@ -4830,7 +5366,8 @@ var apts = [{
     },
     "fullAddress": "10101 7th Avenue Southeast, Everett, WA 98208",
     "priceRange": "$1275 - $1850",
-    "phone": "4253744711"
+    "phone": "4253744711",
+    "placeId": "ChIJTy4nD2K8lVQRWlxfSEAw8Po"
 }, {
     "name": "Island Square",
     "loc": {
@@ -4839,7 +5376,8 @@ var apts = [{
     },
     "fullAddress": "2758 78th Ave SE, Mercer Island, WA 98040",
     "priceRange": null,
-    "phone": "2069719341"
+    "phone": "2069719341",
+    "placeId": "ChIJrxS8x7trkFQRO-uS0iRFSEs"
 }, {
     "name": "Avalon Kirkland at Carillon Point",
     "loc": {
@@ -4848,7 +5386,8 @@ var apts = [{
     },
     "fullAddress": "5604 Lakeview Dr., Kirkland, WA 98033",
     "priceRange": null,
-    "phone": "4253363240"
+    "phone": "4253363240",
+    "placeId": "ChIJwR5lvCsTkFQR9dtrrNc8NAM"
 }, {
     "name": "Aviara",
     "loc": {
@@ -4857,7 +5396,8 @@ var apts = [{
     },
     "fullAddress": "2441 76th Avenue SE, Mercer Island, WA 98040",
     "priceRange": "$1461 - $3659",
-    "phone": "2067010009"
+    "phone": "2067010009",
+    "placeId": "ChIJ3Q9uKrtrkFQRQFrw6WhLqSQ"
 }, {
     "name": "77 Central",
     "loc": {
@@ -4866,7 +5406,8 @@ var apts = [{
     },
     "fullAddress": "2630 77th Ave SE Ste 100, Mercer Island, WA 98040",
     "priceRange": null,
-    "phone": "2064944851"
+    "phone": "2064944851",
+    "placeId": "EjMyNjMwIDc3dGggQXZlIFNFICMxMDAsIE1lcmNlciBJc2xhbmQsIFdBIDk4MDQwLCBVU0E"
 }, {
     "name": "Avalon Brandemoor",
     "loc": {
@@ -4875,7 +5416,8 @@ var apts = [{
     },
     "fullAddress": "3333 164th St SW, Lynnwood, WA 98087",
     "priceRange": null,
-    "phone": "4253410551"
+    "phone": "4253410551",
+    "placeId": "ChIJlWfFdVMEkFQRgMWD6cAxGq0"
 }, {
     "name": "Bentley House",
     "loc": {
@@ -4884,7 +5426,8 @@ var apts = [{
     },
     "fullAddress": "2700 NW Pine Cone Drive, Issaquah, WA 98027",
     "priceRange": null,
-    "phone": "4256542923"
+    "phone": "4256542923",
+    "placeId": "ChIJi5gpew9vkFQRuaRcTVhA3Zc"
 }, {
     "name": "eaves Redmond Campus",
     "loc": {
@@ -4893,7 +5436,8 @@ var apts = [{
     },
     "fullAddress": "15606 NE 40th St.  Bldg. Z, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4256366256"
+    "phone": "4256366256",
+    "placeId": "ChIJwWpWbm9tkFQRM3YRXnJ_zy0"
 }, {
     "name": "Bailey Farm Apartments",
     "loc": {
@@ -4902,7 +5446,8 @@ var apts = [{
     },
     "fullAddress": "1225 183rd Street SE, Bothell, WA 98012",
     "priceRange": "$1385 - $3179",
-    "phone": "4253183405"
+    "phone": "4253183405",
+    "placeId": "ChIJ1wLY3fAFkFQRz_2M-fuxxzg"
 }, {
     "name": "Hidden River Townhomes",
     "loc": {
@@ -4911,7 +5456,8 @@ var apts = [{
     },
     "fullAddress": "10013 Ne 130th Lane, Kirkland, WA 98034",
     "priceRange": "$2096 - $3140",
-    "phone": "4253181314"
+    "phone": "4253181314",
+    "placeId": "ChIJA3ROnXQSkFQRY_llJI8NR9g"
 }, {
     "name": "Signature Pointe",
     "loc": {
@@ -4920,7 +5466,8 @@ var apts = [{
     },
     "fullAddress": "25102 62nd Avenue South, Kent, WA 98032",
     "priceRange": "$1229 - $1809",
-    "phone": "2532360443"
+    "phone": "2532360443",
+    "placeId": "ChIJNwF_A-FbkFQRxRmrvVnflD8"
 }, {
     "name": "Harrington Square",
     "loc": {
@@ -4929,7 +5476,8 @@ var apts = [{
     },
     "fullAddress": "950 Harrington Ave NE, Renton, WA 98056",
     "priceRange": "$1127 - $2280",
-    "phone": "4252743590"
+    "phone": "4252743590",
+    "placeId": "ChIJFc_1b21okFQRrps7pTRF7N4"
 }, {
     "name": "Harbor Steps",
     "loc": {
@@ -4938,7 +5486,8 @@ var apts = [{
     },
     "fullAddress": "1221 First Avenue, Seattle, WA 98101",
     "priceRange": null,
-    "phone": "2065080593"
+    "phone": "2065080593",
+    "placeId": "ChIJcV0iirFqkFQRSH5KUJUhBI0"
 }, {
     "name": "Heronfield",
     "loc": {
@@ -4947,7 +5496,8 @@ var apts = [{
     },
     "fullAddress": "11105 NE 123rd Ln, Kirkland, WA 98034",
     "priceRange": "$1575 - $2380",
-    "phone": "4253363192"
+    "phone": "4253363192",
+    "placeId": "ChIJq8ptxXkSkFQR_hPpbxN40Ms"
 }, {
     "name": "Avalon Esterra Park",
     "loc": {
@@ -4956,7 +5506,8 @@ var apts = [{
     },
     "fullAddress": "2690 152nd Ave NE, Redmond, WA 98052",
     "priceRange": null,
-    "phone": "4252786867"
+    "phone": "4252786867",
+    "placeId": "ChIJL3tdxwttkFQRtSIeaE9h2bo"
 }, {
     "name": "West Ridge Park",
     "loc": {
@@ -4965,7 +5516,8 @@ var apts = [{
     },
     "fullAddress": "7901 Delridge Way SW, Seattle, WA 98106",
     "priceRange": "$1448 - $2250",
-    "phone": "2063199484"
+    "phone": "2063199484",
+    "placeId": "ChIJ2WqPUG5BkFQR45M3zyPcLjY"
 }, {
     "name": "Whispering Pines",
     "loc": {
@@ -4974,7 +5526,8 @@ var apts = [{
     },
     "fullAddress": "18201 52nd Avenue West, Lynnwood, WA 98037",
     "priceRange": "$931 - $1419",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJr_7ESRgFkFQRbJUCu-qbhj8"
 }, {
     "name": "Shadowbrook",
     "loc": {
@@ -4983,7 +5536,8 @@ var apts = [{
     },
     "fullAddress": "8500 148th Avenue Northeast, Redmond, WA 98052",
     "priceRange": "$1349 - $2297",
-    "phone": "4252743639"
+    "phone": "4252743639",
+    "placeId": "ChIJyVSpZVYNkFQRWpDWlak0p38"
 }, {
     "name": "The Union",
     "loc": {
@@ -4992,7 +5546,8 @@ var apts = [{
     },
     "fullAddress": "2111 SW 352nd Street, Federal Way, WA 98023",
     "priceRange": "$915 - $1210",
-    "phone": "2532042887"
+    "phone": "2532042887",
+    "placeId": "ChIJn2_lPkNWkFQRUqV4W5977Jg"
 }, {
     "name": "8th & Republican",
     "loc": {
@@ -5001,7 +5556,8 @@ var apts = [{
     },
     "fullAddress": "430 8th Ave N, Seattle, WA 98109",
     "priceRange": null,
-    "phone": "2068767492"
+    "phone": "2068767492",
+    "placeId": "ChIJ4xuiGTgVkFQR6hw3ofO4sDQ"
 }, {
     "name": "Sandpiper Apartments",
     "loc": {
@@ -5010,7 +5566,8 @@ var apts = [{
     },
     "fullAddress": "3100 South 208th Street, SeaTac, WA 98198",
     "priceRange": "$1095 - $1695",
-    "phone": ""
+    "phone": "",
+    "placeId": "ChIJyzgJXHBbkFQRmMjIC4m6S5E"
 }, {
     "name": "Hubbard's Crossing Townhome Apartments",
     "loc": {
@@ -5019,5 +5576,6 @@ var apts = [{
     },
     "fullAddress": "12520 101st Way NE #6, Kirkland, WA 98034",
     "priceRange": "$2173 - $2895",
-    "phone": "4257489850"
-}]
+    "phone": "4257489850",
+    "placeId": "EjIxMjUyMCAxMDFzdCBXYXkgTm9ydGhlYXN0LCBLaXJrbGFuZCwgV0EgOTgwMzQsIFVTQQ"
+}];

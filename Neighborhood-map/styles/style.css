@@ -39,3 +39,16 @@ ul {
 li {
     width: 100%;
 }
+
+.flex {
+    display: inline-flex;
+}
+
+#image {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+#image>img {
+    width: 140px;
+    height: auto;
+}

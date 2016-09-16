@@ -151,6 +151,7 @@ var view = {
                 basic: '',
                 yelp: '<p>' + 'Yelp Review: Loading...' + '</p>',
                 google: '<p>' + 'Google Review: Loading...' + '</p>',
+                img: '',
             };
             viewModel.currentMarker = marker;
             viewModel.updateInfoWindow();
@@ -165,7 +166,10 @@ var view = {
                 this.formattedInfoContent.yelp +
                 this.formattedInfoContent.google +
                 this.formattedInfoContent.end;
-
+        if (this.formattedInfoContent.img) {
+            content = this.formattedInfoContent.img + content;
+        }
+        content = '<div class="flex">' + content + '</div>';
         if (infoWindow) {
             infoWindow.setContent(content);
             infoWindow.marker = marker;
@@ -198,6 +202,9 @@ var view = {
         ratingCount = data.review_count || 0;
         yelpLink = data.url || "";
         yelpImage = data.image_url || "";
+        if (yelpImage) {
+            this.formatImage(yelpImage);
+        }
         yelpSnippet = data.snippet_text || "";
         formattedString = '<a href="' + yelpLink + '" target="_blank">' + '<p>' + "Yelp Review: " + rating + ratingImg + '(' + ratingCount + ')' + '</p>' + '</a>';
         this.formattedInfoContent.yelp = formattedString;
@@ -263,5 +270,8 @@ var view = {
         } else if (phone.length === 10) {
             return ' (' + phone.substring(0, 3) + ') ' + phone.substring(3, 6) + '-' + phone.substring(6);
         }
+    },
+    formatImage: function (img) {
+        this.formattedInfoContent.img = '<div id="image">' + '<img src="' + img + '">' + '</div>';
     }
 };

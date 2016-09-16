@@ -49,9 +49,7 @@ app.get('/api/yelp/', function (req, res) {
                 });
                 res.send({ message: "Apartment not found", data: data.businesses[0], });
             }
-            else {
-                res.send({ message: "No result found" });
-            }
+            res.send({ message: "No result found" });
         })
         .catch(function (err) {
             console.error(err);
@@ -72,8 +70,19 @@ app.get('/api/google/', function (req, res) {
         query: req.query.name,
     };
     place.textSearch(request, function (error, response) {
-        if (error) throw error;
-        res.send(response);
+        if (error) res.send({ message: "Error getting text search response" });
+        if (!response.results || !response.results.length) {
+            res.send({ message: "Location not found" });
+        }
+        var id = response.results[0].place_id;
+        place.placeDetailsRequest({ placeid: id }, function (error, place) {
+            if (error) res.send({ message: "Error getting detail response" });
+            if (!place.result) {
+                res.send({ message: "Location not found", place: place.result, length: place.result.length });
+            }
+            res.send(place.result);
+
+        });
     });
 });
 

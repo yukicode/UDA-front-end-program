@@ -61,8 +61,7 @@ var viewModel = {
     },
     updateInfoWindow: function () {
         this.updateBasicInfo();
-        //this.updateYelpInfo();
-        //this.updateGoogleInfo();
+        this.updateYelpInfo();
         this.updateGoogleInfo();
     },
     updateBasicInfo: function () {
@@ -104,30 +103,27 @@ var viewModel = {
         var marker = this.currentMarker;
         if (!marker) { return; }
         var i = marker.aptIndex,
-            id = model.aptList[i].placeId,
-            location = model.aptList[i].loc;
-
-        // var request = {
-        //     location: location,
-        //     radius: '500',
-        //     types: ['apartment'],
-        // };
-        // this.map.setCenter(location);
-        // service = new google.maps.places.PlacesService(map);
-        // service.nearbySearch(request, callback);
-        // function callback(results, status) {
-        //     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        //         for (var i = 0; i < results.length; i++) {
-        //             var place = results[i];
-        //             console.log(results[i]);
-        //         }
-        //     }
-        // }
-        // this.service.getDetails({placeId: id}, function(place, status){
-        //     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        //         console.log("success!", place);
-        //     }
-        // });
+            name = model.aptList[i].name,
+            lat = model.aptList[i].loc.lat || 0,
+            lng = model.aptList[i].loc.lng || 0;
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:3000/api/google/",
+            data: {
+                lat: lat,
+                lng: lng,
+                name: name,
+            }
+        }).done(function (data) {
+            if (data.message) { //if the data comes with a message, then there is an error getting data from yelp
+                console.log("error needs to be handled", data.message);
+                view.renderGoogleInfo({ error: "Not Found" });
+            } else {
+                view.renderGoogleInfo(data);
+            }
+        }).fail(function (err) {
+            view.renderGoogleInfo({ error: "Unable to Connect" });
+        });
     },
 };
 
@@ -137,9 +133,10 @@ var view = {
         this.formattedInfoContent = {
             start: '<div id="content">',
             end: '</div>',
+            title: '',
             basic: '',
             yelp: '<p>' + 'Yelp Review: Loading...' + '</p>',
-            google: '',
+            google: '<p>' + 'Google Review: Loading...' + '</p>',
         };
     },
     renderMarker: function (marker) {
@@ -150,9 +147,10 @@ var view = {
             self.formattedInfoContent = {
                 start: '<div id="content">',
                 end: '</div>',
+                title: '',
                 basic: '',
                 yelp: '<p>' + 'Yelp Review: Loading...' + '</p>',
-                google: '',
+                google: '<p>' + 'Google Review: Loading...' + '</p>',
             };
             viewModel.currentMarker = marker;
             viewModel.updateInfoWindow();
@@ -162,6 +160,7 @@ var view = {
         var infoWindow = viewModel.infoWin,
             marker = viewModel.currentMarker,
             content = this.formattedInfoContent.start +
+                this.formattedInfoContent.title +
                 this.formattedInfoContent.basic +
                 this.formattedInfoContent.yelp +
                 this.formattedInfoContent.google +
@@ -180,8 +179,8 @@ var view = {
         if (!viewModel.currentMarker) {
             return;
         }
-        this.formattedInfoContent.basic = '<h4>' + name + '</h4>' +
-            '<p>' + "Tel: " + phone + '</p>' +
+        this.formattedInfoContent.title = '<h4>' + name + '</h4>';
+        this.formattedInfoContent.basic = '<p>' + "Tel: " + this.formatPhone(phone) + '</p>' +
             '<p>' + "Price Range: " + priceRange + '</p>';
         this.renderInfoWindow();
     },
@@ -194,43 +193,75 @@ var view = {
         var formattedString = '',
             rating, ratingImg, ratingCount, yelpLink, yelpImage, yelpSnippet;
 
-        rating = data.rating || "";
-        if (rating) {
-            ratingImg = this.getRatingImg(rating);
-        }
+        rating = data.rating || 0;
+        ratingImg = this.getRatingImg(rating);
         ratingCount = data.review_count || 0;
         yelpLink = data.url || "";
         yelpImage = data.image_url || "";
         yelpSnippet = data.snippet_text || "";
-        formattedString = '<a href="' + yelpLink + '" target="_blank">' + '<p>' + "Yelp Review: " + ratingImg + '(' + ratingCount + ')' + '</p>' + '</a>';
+        formattedString = '<a href="' + yelpLink + '" target="_blank">' + '<p>' + "Yelp Review: " + rating + ratingImg + '(' + ratingCount + ')' + '</p>' + '</a>';
         this.formattedInfoContent.yelp = formattedString;
+        this.renderInfoWindow();
+    },
+    renderGoogleInfo: function (data) {
+        if (data.error) {
+            this.formattedInfoContent.google = '<p>' + 'Google Review: ' + data.error + '</p>';
+            this.renderInfoWindow();
+            return;
+        }
+        var formattedString = '',
+            rating, ratingImg, ratingCount, googleLink, webAddress;
+
+        rating = data.rating || 0;
+        ratingImg = this.getRatingImg(rating);
+        ratingCount = data.reviews.length || 0;
+        googleLink = data.url || "";
+        webAddress = data.website || "";
+        if (data.reviews.length >= 5) {
+            ratingCount = ">5";
+        } else {
+            ratingCount = data.reviews.length;
+        }
+        formattedString = '<a href="' + googleLink + '" target="_blank">' + '<p>' + "Google Review: " + rating + ratingImg + '(' + ratingCount + ')' + '</p>' + '</a>';
+        this.formattedInfoContent.google = formattedString;
+        if (webAddress) {
+            this.formattedInfoContent.title = '<a href="' + webAddress + '" target="_blank">' + this.formattedInfoContent.title + '</a>';
+        }
         this.renderInfoWindow();
     },
     getRatingImg: function (rating) {
         var fullStar = "&#9733;",
             halfStar = "&#10030;",
             emptyStar = "&#9734;";
-        switch (rating) {
-            case 1:
-                return fullStar + emptyStar + emptyStar + emptyStar + emptyStar;
-            case 1.5:
-                return fullStar + halfStar + emptyStar + emptyStar + emptyStar;
-            case 2:
-                return fullStar + fullStar + emptyStar + emptyStar + emptyStar;
-            case 2.5:
-                return fullStar + fullStar + halfStar + emptyStar + emptyStar;
-            case 3:
-                return fullStar + fullStar + fullStar + emptyStar + emptyStar;
-            case 3.5:
-                return fullStar + fullStar + fullStar + halfStar + emptyStar;
-            case 4:
-                return fullStar + fullStar + fullStar + fullStar + emptyStar;
-            case 4.5:
-                return fullStar + fullStar + fullStar + fullStar + halfStar;
-            case 5:
-                return fullStar + fullStar + fullStar + fullStar + fullStar;
-            default:
-                return emptyStar + emptyStar + emptyStar + emptyStar + emptyStar;
+        if (rating === 0) {
+            return emptyStar + emptyStar + emptyStar + emptyStar + emptyStar;
+        } else if (rating <= 1) {
+            return halfStar + emptyStar + emptyStar + emptyStar + emptyStar;
+        } else if (rating === 1) {
+            return fullStar + emptyStar + emptyStar + emptyStar + emptyStar;
+        } else if (rating < 2) {
+            return fullStar + halfStar + emptyStar + emptyStar + emptyStar;
+        } else if (rating === 2) {
+            return fullStar + fullStar + emptyStar + emptyStar + emptyStar;
+        } else if (rating < 3) {
+            return fullStar + fullStar + halfStar + emptyStar + emptyStar;
+        } else if (rating === 3) {
+            return fullStar + fullStar + fullStar + emptyStar + emptyStar;
+        } else if (rating < 4) {
+            return fullStar + fullStar + fullStar + halfStar + emptyStar;
+        } else if (rating === 4) {
+            return fullStar + fullStar + fullStar + fullStar + emptyStar;
+        } else if (rating < 5) {
+            return fullStar + fullStar + fullStar + fullStar + halfStar;
+        } else {
+            return fullStar + fullStar + fullStar + fullStar + fullStar;
         }
     },
+    formatPhone: function (phone) {
+        if (phone.length === 11 && phone[0] === 1) {
+            return ' (' + phone.substring(1, 4) + ') ' + phone.substring(4, 7) + '-' + phone.substring(7);
+        } else if (phone.length === 10) {
+            return ' (' + phone.substring(0, 3) + ') ' + phone.substring(3, 6) + '-' + phone.substring(6);
+        }
+    }
 };

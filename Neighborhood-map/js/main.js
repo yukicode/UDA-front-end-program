@@ -61,7 +61,9 @@ var viewModel = {
     },
     updateInfoWindow: function () {
         this.updateBasicInfo();
-        this.updateYelpInfo();
+        //this.updateYelpInfo();
+        //this.updateGoogleInfo();
+        this.updateGoogleInfo();
     },
     updateBasicInfo: function () {
         var i = this.currentMarker.aptIndex,
@@ -76,8 +78,8 @@ var viewModel = {
         if (!marker) { return; }
         var i = marker.aptIndex,
             term = model.aptList[i].name || "",
-            lat = model.aptList[i].loc.lat || 0;
-        lng = model.aptList[i].loc.lng || 0;
+            lat = model.aptList[i].loc.lat || 0,
+            lng = model.aptList[i].loc.lng || 0;
         $.ajax({
             method: "GET",
             url: "http://localhost:3000/api/yelp/",
@@ -89,13 +91,43 @@ var viewModel = {
         }).done(function (data) {
             if (data.message) { //if the data comes with a message, then there is an error getting data from yelp
                 console.log("error needs to be handled", data.message);
-                view.renderYelpInfo({error: "Not Found"});
+                view.renderYelpInfo({ error: "Not Found" });
             } else {
                 view.renderYelpInfo(data);
             }
         }).fail(function (err) {
-            console.log(err);
+            view.renderYelpInfo({ error: "Unable to Connect" });
         });
+    },
+    updateGoogleInfo: function () {
+        var self = this;
+        var marker = this.currentMarker;
+        if (!marker) { return; }
+        var i = marker.aptIndex,
+            id = model.aptList[i].placeId,
+            location = model.aptList[i].loc;
+
+        // var request = {
+        //     location: location,
+        //     radius: '500',
+        //     types: ['apartment'],
+        // };
+        // this.map.setCenter(location);
+        // service = new google.maps.places.PlacesService(map);
+        // service.nearbySearch(request, callback);
+        // function callback(results, status) {
+        //     if (status == google.maps.places.PlacesServiceStatus.OK) {
+        //         for (var i = 0; i < results.length; i++) {
+        //             var place = results[i];
+        //             console.log(results[i]);
+        //         }
+        //     }
+        // }
+        // this.service.getDetails({placeId: id}, function(place, status){
+        //     if (status == google.maps.places.PlacesServiceStatus.OK) {
+        //         console.log("success!", place);
+        //     }
+        // });
     },
 };
 
@@ -154,8 +186,8 @@ var view = {
         this.renderInfoWindow();
     },
     renderYelpInfo: function (data) {
-        if(data.error){
-            this.formattedInfoContent.yelp = '<p>' + 'Yelp Review: Not Found' + '</p>';
+        if (data.error) {
+            this.formattedInfoContent.yelp = '<p>' + 'Yelp Review: ' + data.error + '</p>';
             this.renderInfoWindow();
             return;
         }

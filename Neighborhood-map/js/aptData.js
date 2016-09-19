@@ -409,16 +409,6 @@ var apts = [{
     "phone": "4253411906",
     "placeId": "ChIJk_KvPscFkFQRou8ozg2U6T0"
 }, {
-    "name": "Furnished Studio - Seattle - Redmond",
-    "loc": {
-        "lat": 47.634525,
-        "lng": -122.1307554
-    },
-    "fullAddress": "15805 NE 28th Street, Bellevue, WA 98008",
-    "priceRange": null,
-    "phone": "4259548622",
-    "placeId": "ChIJ_5TpyAptkFQR8eE0NibWlNM"
-}, {
     "name": "Arbor Chase",
     "loc": {
         "lat": 47.383831,
@@ -479,16 +469,6 @@ var apts = [{
     "phone": "4253183422",
     "placeId": "EikxODkzMCA2OHRoIEF2ZSBORSwgS2VubW9yZSwgV0EgOTgwMjgsIFVTQQ"
 }, {
-    "name": "Furnished Studio - Seattle - Bellevue - Downtown",
-    "loc": {
-        "lat": 47.610698,
-        "lng": -122.1876213
-    },
-    "fullAddress": "11400 Main Street, Bellevue, WA 98004",
-    "priceRange": null,
-    "phone": "4253053357",
-    "placeId": "ChIJSWBKjWNskFQR2P-ifG6ty3o"
-}, {
     "name": "Dwell at Kent Station",
     "loc": {
         "lat": 47.3851704,
@@ -518,16 +498,6 @@ var apts = [{
     "priceRange": "$1306 - $1895",
     "phone": "4252743619",
     "placeId": "ChIJnUAxEXVokFQRgo5cYR8TdHU"
-}, {
-    "name": "Furnished Studio - Seattle - Bellevue - Factoria",
-    "loc": {
-        "lat": 47.5778652,
-        "lng": -122.1636755
-    },
-    "fullAddress": "3700 132nd Ave SE, Bellevue, WA 98006",
-    "priceRange": null,
-    "phone": "4259548627",
-    "placeId": "ChIJz3z8IqpukFQRb2538bylMhk"
 }, {
     "name": "Lothlorien Apartments",
     "loc": {
@@ -1029,16 +999,6 @@ var apts = [{
     "phone": "4259539865",
     "placeId": "ChIJDdZp_rMakFQR3wMfsPl-7tY"
 }, {
-    "name": "Furnished Studio - Seattle - Tukwila",
-    "loc": {
-        "lat": 47.4642823,
-        "lng": -122.2701213
-    },
-    "fullAddress": "15451 53rd Avenue S, Tukwila, WA 98188",
-    "priceRange": null,
-    "phone": "2064944869",
-    "placeId": "ChIJ9__Fey5DkFQRPzjMLufjpe8"
-}, {
     "name": "Royal Firs",
     "loc": {
         "lat": 47.4208603,
@@ -1439,16 +1399,6 @@ var apts = [{
     "phone": "",
     "placeId": "ChIJKc-eKKMWkFQRXzuq-AAssN0"
 }, {
-    "name": "Furnished Studio - Seattle - Everett - North",
-    "loc": {
-        "lat": 47.9233278,
-        "lng": -122.2064436
-    },
-    "fullAddress": "8410 Broadway, Everett, WA 98208",
-    "priceRange": null,
-    "phone": "4253157161",
-    "placeId": "Eik4NDEwIEJyb2Fkd2F5IEF2ZSwgRXZlcmV0dCwgV0EgOTgyMDMsIFVTQQ"
-}, {
     "name": "Olympic Village",
     "loc": {
         "lat": 47.6322227,
@@ -1558,16 +1508,6 @@ var apts = [{
     "priceRange": "$1090 - $2990",
     "phone": "2539483999",
     "placeId": "ChIJ-ZQc7u5UkFQRgr2it3DgF4U"
-}, {
-    "name": "Furnished Studio - Seattle - Everett  - Silverlake",
-    "loc": {
-        "lat": 47.89826189999999,
-        "lng": -122.2127843
-    },
-    "fullAddress": "1431 112th Street SE, Everett, WA 98208",
-    "priceRange": null,
-    "phone": "4259531429",
-    "placeId": "ChIJT42PhNwGkFQRsbJO5rscItA"
 }, {
     "name": "The Mill at First Hill",
     "loc": {
@@ -1688,16 +1628,6 @@ var apts = [{
     "priceRange": "$1099 - $1325",
     "phone": "4255952296",
     "placeId": "ChIJoyl0eSMBkFQRf19eUltEZqQ"
-}, {
-    "name": "Furnished Studio - Tacoma - Fife",
-    "loc": {
-        "lat": 47.2426395,
-        "lng": -122.3905499
-    },
-    "fullAddress": "2820 Pacific Hwy East, Fife, WA 98424",
-    "priceRange": null,
-    "phone": "2533215385",
-    "placeId": "ChIJCRmUjWD_kFQRpM7RlFyiZpw"
 }, {
     "name": "Meridian Pointe Apartments",
     "loc": {
@@ -1989,16 +1919,6 @@ var apts = [{
     "phone": "",
     "placeId": "ChIJv0WwqQpokFQRcfZ1f9Nj-aM"
 }, {
-    "name": "Furnished Studio - Seattle - Federal Way",
-    "loc": {
-        "lat": 47.3163276,
-        "lng": -122.3162318
-    },
-    "fullAddress": "1400 South 320th Street, Federal Way, WA 98003",
-    "priceRange": null,
-    "phone": "2536424948",
-    "placeId": "ChIJYcbyD3dXkFQRMDJRs16UBJs"
-}, {
     "name": "The Meyden",
     "loc": {
         "lat": 47.6101246,
@@ -2109,16 +2029,6 @@ var apts = [{
     "phone": "",
     "placeId": "ChIJvbaPQNRqkFQRJrIp8fMxAyg"
 }, {
-    "name": "Furnished Studio - Seattle - Bothell - Canyon Park",
-    "loc": {
-        "lat": 47.7962505,
-        "lng": -122.2116723
-    },
-    "fullAddress": "22122 17th Ave. S.E., Bothell, WA 98021",
-    "priceRange": null,
-    "phone": "4259989151",
-    "placeId": "ChIJxwF7ywgPkFQRR0ku1a_1CXw"
-}, {
     "name": "Ballinger Trace",
     "loc": {
         "lat": 47.790175,
@@ -2209,16 +2119,6 @@ var apts = [{
     "phone": "4253215761",
     "placeId": "ChIJb9KTWlYEkFQRuwv6SPWqCJs"
 }, {
-    "name": "Furnished Studio - Seattle - Renton",
-    "loc": {
-        "lat": 47.46937579999999,
-        "lng": -122.2335387
-    },
-    "fullAddress": "1150 Oakesdale Ave SW, Renton, WA 98055",
-    "priceRange": null,
-    "phone": "4253053388",
-    "placeId": "ChIJAxitVzNdkFQRVzcXwbUQ9-A"
-}, {
     "name": "Orchard Ridge",
     "loc": {
         "lat": 47.8508984,
@@ -2228,16 +2128,6 @@ var apts = [{
     "priceRange": null,
     "phone": "4253215769",
     "placeId": "ChIJ21WF_1QEkFQR_FyY7wq0fwY"
-}, {
-    "name": "Furnished Studio - Seattle - Northgate",
-    "loc": {
-        "lat": 47.7252833,
-        "lng": -122.3411078
-    },
-    "fullAddress": "13300 Stone Avenue N, Seattle, WA 98133",
-    "priceRange": null,
-    "phone": "2065047819",
-    "placeId": "ChIJEUemXDcRkFQRpxT9bnC8YSQ"
 }, {
     "name": "Tivalli",
     "loc": {
@@ -3629,26 +3519,6 @@ var apts = [{
     "phone": "4253668047",
     "placeId": "ChIJN3Zf11cEkFQRVddlEmojCqg"
 }, {
-    "name": "Furnished Studio - Seattle - Mukilteo",
-    "loc": {
-        "lat": 47.8899221,
-        "lng": -122.2874112
-    },
-    "fullAddress": "3917 Harbour Pointe Blvd SW, Mukilteo, WA 98275",
-    "priceRange": null,
-    "phone": "4259038650",
-    "placeId": "ChIJP65psgkEkFQR-1IqRnXzeLo"
-}, {
-    "name": "Furnished Studio - Seattle - Kent",
-    "loc": {
-        "lat": 47.3998429,
-        "lng": -122.2290327
-    },
-    "fullAddress": "22520 83rd Avenue South, Kent, WA 98032",
-    "priceRange": null,
-    "phone": "2536424983",
-    "placeId": "ChIJW1md-hFckFQRPcYOjdcIsUc"
-}, {
     "name": "Echo Lake",
     "loc": {
         "lat": 47.7682175,
@@ -4399,16 +4269,6 @@ var apts = [{
     "phone": "2068294421",
     "placeId": "ChIJS9glAF5AkFQRfbzm-Iot3_A"
 }, {
-    "name": "Furnished Studio - Seattle - Bothell - West",
-    "loc": {
-        "lat": 47.7921806,
-        "lng": -122.2191735
-    },
-    "fullAddress": "923 228th Street SE, Bothell, WA 98021",
-    "priceRange": null,
-    "phone": "4253053418",
-    "placeId": "ChIJDWUu2KcPkFQRb6YhTmLkPqk"
-}, {
     "name": "Southwood Apartments",
     "loc": {
         "lat": 47.446762,
@@ -4838,16 +4698,6 @@ var apts = [{
     "priceRange": "$1077 - $2532",
     "phone": "2534999179",
     "placeId": "ChIJA79izuVbkFQReA7wlzZ9q-4"
-}, {
-    "name": "Furnished Studio - Seattle - Southcenter",
-    "loc": {
-        "lat": 47.4618984,
-        "lng": -122.2462697
-    },
-    "fullAddress": "15635 West Valley Hwy, Tukwila, WA 98188",
-    "priceRange": null,
-    "phone": "2068294383",
-    "placeId": "ChIJG1KLtytdkFQRfwfzRrvsvw8"
 }, {
     "name": "Saffron",
     "loc": {

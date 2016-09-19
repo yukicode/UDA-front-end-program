@@ -4,6 +4,7 @@
 var model = {
     aptList: apts,
     aptMarkerList: [],
+    sidebarList: ko.observableArray([]),
     defaultLoc: { lat: 47.610377, lng: -122.200679 },
     defaultZoom: 12,
 };
@@ -17,13 +18,22 @@ var viewModel = {
         this.setWorkMarker();
         this.setAptMarkers(50);
         this.currentMarker = null;
-        ko.applyBindings({
-            markList: model.aptMarkerList,
-            display: function (marker) {
-                self.currentMarker = marker;
+        this.applyBinding();
+    },
+    applyBinding: function () {
+        var self = this;
+        this.bindData = {
+            sidebarList: model.sidebarList,
+            display: function (apt) {
+                self.currentMarker = model.aptMarkerList[apt.index];
                 self.updateInfoWindow();
-            }
-        });
+            },
+            searchTerm: ko.observable(""),
+            filter: function () {
+                self.filterName();
+            },
+        };
+        ko.applyBindings(self.bindData);
     },
     setMap: function () {
         this.map = new google.maps.Map(view.mapDiv, {
@@ -50,9 +60,12 @@ var viewModel = {
                 position: model.aptList[i].loc,
                 map: this.map,
                 title: model.aptList[i].name,
+                compactTitle: model.aptList[i].name.split(" ").join("").split("'").join("").toLowerCase(),
                 aptIndex: i,
+                show: true,
             });
             model.aptMarkerList.push(marker);
+            model.sidebarList.push({ title: model.aptList[i].name, index: i });
             view.renderMarker(marker);
         }
     },
@@ -125,6 +138,27 @@ var viewModel = {
             view.renderGoogleInfo({ error: "Unable to Connect" });
         });
     },
+    filterName: function () {
+        var searchTerm = this.bindData.searchTerm().trim();
+        model.sidebarList.removeAll();
+        if (!searchTerm) {
+            model.aptMarkerList.forEach(function (marker) {
+                marker.show = true;
+                model.sidebarList.push({ title: marker.title, index: marker.aptIndex });
+                 view.toggleMarker(marker);
+            });
+            return;
+        }
+        model.aptMarkerList.forEach(function (marker) {
+            if (marker.compactTitle.indexOf(searchTerm) !== -1) {
+                marker.show = true;
+                model.sidebarList.push({ title: marker.title, index: marker.aptIndex });
+            } else {
+                marker.show = false;
+            }
+            view.toggleMarker(marker);
+        });
+    }
 };
 
 var view = {
@@ -137,6 +171,7 @@ var view = {
             basic: '',
             yelp: '<p>' + 'Yelp Review: Loading...' + '</p>',
             google: '<p>' + 'Google Review: Loading...' + '</p>',
+            img: '',
         };
     },
     renderMarker: function (marker) {
@@ -156,6 +191,13 @@ var view = {
             viewModel.currentMarker = marker;
             viewModel.updateInfoWindow();
         });
+    },
+    toggleMarker: function (marker) {
+        if (marker.show === false) {
+            marker.setMap(null);
+        } else {
+            marker.setMap(viewModel.map);
+        }
     },
     renderInfoWindow: function () {
         var infoWindow = viewModel.infoWin,
@@ -221,13 +263,11 @@ var view = {
 
         rating = data.rating || 0;
         ratingImg = this.getRatingImg(rating);
-        ratingCount = data.reviews.length || 0;
+        ratingCount = data.reviews? data.reviews.length : 0;
         googleLink = data.url || "";
         webAddress = data.website || "";
-        if (data.reviews.length >= 5) {
+        if (ratingCount >= 5) {
             ratingCount = ">5";
-        } else {
-            ratingCount = data.reviews.length;
         }
         formattedString = '<a href="' + googleLink + '" target="_blank">' + '<p>' + "Google Review: " + rating + ratingImg + '(' + ratingCount + ')' + '</p>' + '</a>';
         this.formattedInfoContent.google = formattedString;

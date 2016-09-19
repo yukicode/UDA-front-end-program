@@ -19,14 +19,14 @@
     <div class="container" id="main">
         <div class="row">
             <div id="list-view" class="col-sm-3">
-                <form class="form-inline">
+                <form class="form-inline"  data-bind="submit: filter">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Filter">
+                        <input type="text" class="form-control" placeholder="Filter" data-bind="value: searchTerm">
                     </div>
                     <button type="submit" class="btn btn-primary">Filter</button>
                 </form>
-                <ul data-bind="foreach: markList">
-                    <li data-bind="text: title, click: $parent.display"></li>
+                <ul data-bind="foreach: sidebarList">
+                    <li><p data-bind="text: title, click: $parent.display"></p></li>
                 </ul>
             </div>
             <div id="map"></div>

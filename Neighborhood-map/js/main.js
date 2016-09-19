@@ -14,6 +14,7 @@ var viewModel = {
         var self = this;
         view.init();
         this.setMap();
+        this.setMapBounds();
         this.setInfoWindow();
         this.setWorkMarker();
         this.setAptMarkers(50);
@@ -40,6 +41,9 @@ var viewModel = {
             center: model.defaultLoc,
             zoom: model.defaultZoom,
         });
+    },
+    setMapBounds: function () {
+        this.bounds = new google.maps.LatLngBounds();
     },
     setWorkMarker: function () {
         if (!this.map) { return; }
@@ -141,11 +145,13 @@ var viewModel = {
     filterName: function () {
         var searchTerm = this.bindData.searchTerm().trim();
         model.sidebarList.removeAll();
+        this.setMapBounds();
+        view.renderBounds(this.workMarker);
         if (!searchTerm) {
             model.aptMarkerList.forEach(function (marker) {
                 marker.show = true;
                 model.sidebarList.push({ title: marker.title, index: marker.aptIndex });
-                 view.toggleMarker(marker);
+                view.toggleMarker(marker);
             });
             return;
         }
@@ -178,6 +184,7 @@ var view = {
         var self = this;
         if (!viewModel.map || !marker) { return; }
         marker.setMap(viewModel.map);
+        this.renderBounds(marker);
         marker.addListener('click', function () {
             self.formattedInfoContent = {
                 start: '<div id="content">',
@@ -196,8 +203,13 @@ var view = {
         if (marker.show === false) {
             marker.setMap(null);
         } else {
+            this.renderBounds(marker);
             marker.setMap(viewModel.map);
         }
+    },
+    renderBounds: function (marker) {
+        viewModel.bounds.extend(marker.position);
+        viewModel.map.fitBounds(viewModel.bounds);
     },
     renderInfoWindow: function () {
         var infoWindow = viewModel.infoWin,
@@ -263,7 +275,7 @@ var view = {
 
         rating = data.rating || 0;
         ratingImg = this.getRatingImg(rating);
-        ratingCount = data.reviews? data.reviews.length : 0;
+        ratingCount = data.reviews ? data.reviews.length : 0;
         googleLink = data.url || "";
         webAddress = data.website || "";
         if (ratingCount >= 5) {

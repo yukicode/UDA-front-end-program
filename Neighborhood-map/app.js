@@ -73,16 +73,16 @@ app.get('/api/google/', function (req, res) {
         if (error) res.send({ message: "Error getting text search response" });
         if (!response.results || !response.results.length) {
             res.send({ message: "Location not found" });
+        } else {
+            var id = response.results[0].place_id;
+            place.placeDetailsRequest({ placeid: id }, function (error, place) {
+                if (error) res.send({ message: "Error getting detail response" });
+                if (!place.result) {
+                    res.send({ message: "Location not found", place: place.result, length: place.result.length });
+                }
+                res.send(place.result);
+            });
         }
-        var id = response.results[0].place_id;
-        place.placeDetailsRequest({ placeid: id }, function (error, place) {
-            if (error) res.send({ message: "Error getting detail response" });
-            if (!place.result) {
-                res.send({ message: "Location not found", place: place.result, length: place.result.length });
-            }
-            res.send(place.result);
-
-        });
     });
 });
 

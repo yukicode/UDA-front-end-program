@@ -19,11 +19,17 @@
     <div class="container" id="main">
         <div class="row">
             <div id="list-view" class="col-sm-3">
-                <form class="form-inline"  data-bind="submit: filter">
+                <form data-bind="submit: filter">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Filter" data-bind="value: searchTerm">
+                        <label>Apartment Name</label>
+                        <input type="text" class="form-control" placeholder="e.g. BellCenter" data-bind="value: searchTerm">
+                    </div>
+                    <div class="form-group">
+                        <label>Near By</label>
+                        <input type="text" class="form-control" placeholder="Enter a location" id="work-loc">
                     </div>
                     <button type="submit" class="btn btn-primary">Filter</button>
+                    <button class="btn btn-default" id="clear">Clear</button>
                 </form>
                 <ul data-bind="foreach: sidebarList">
                     <li><p data-bind="text: title, click: $parent.display"></p></li>

@@ -16,8 +16,7 @@ var viewModel = {
         this.setMap();
         this.setMapBounds();
         this.setInfoWindow();
-        this.setWorkMarker();
-        this.setAptMarkers(50);
+        this.setAptMarkers(100);
         this.currentMarker = null;
         this.applyBinding();
     },
@@ -45,10 +44,10 @@ var viewModel = {
     setMapBounds: function () {
         this.bounds = new google.maps.LatLngBounds();
     },
-    setWorkMarker: function () {
+    setWorkMarker: function (loc) {
         if (!this.map) { return; }
         this.workMarker = new google.maps.Marker({
-            position: model.defaultLoc,
+            position: loc,
             map: this.map,
             icon: { url: "./images/purple_MarkerW.png" },
             title: "Work Location",
@@ -143,33 +142,39 @@ var viewModel = {
         });
     },
     filterName: function () {
+        var self = this;
         var searchTerm = this.bindData.searchTerm().trim();
         model.sidebarList.removeAll();
         this.setMapBounds();
-        view.renderBounds(this.workMarker);
-        if (!searchTerm) {
-            model.aptMarkerList.forEach(function (marker) {
-                marker.show = true;
-                model.sidebarList.push({ title: marker.title, index: marker.aptIndex });
-                view.toggleMarker(marker);
-            });
-            return;
+        if (this.workMarker) {
+            view.renderBounds(this.workMarker);
         }
         model.aptMarkerList.forEach(function (marker) {
-            if (marker.compactTitle.indexOf(searchTerm) !== -1) {
-                marker.show = true;
-                model.sidebarList.push({ title: marker.title, index: marker.aptIndex });
-            } else {
+            marker.show = true;
+            if (self.workMarker && (self.distance(self.workMarker.position, marker.position) > 0.003)) {
                 marker.show = false;
+            }
+            if (searchTerm && marker.compactTitle.indexOf(searchTerm) === -1) {
+                marker.show = false;
+            }
+            if (marker.show === true) {
+                model.sidebarList.push({ title: marker.title, index: marker.aptIndex });
             }
             view.toggleMarker(marker);
         });
-    }
+    },
+    distance: function (loc1, loc2) {
+        var x = loc1.lat() - loc2.lat();
+        var y = loc1.lng() - loc2.lng();
+        return x * x + y * y;
+    },
 };
 
 var view = {
     init: function () {
         this.mapDiv = document.getElementById("map");
+        this.workForm = document.getElementById("work-loc");
+        this.setAutoComplete();
         this.formattedInfoContent = {
             start: '<div id="content">',
             end: '</div>',
@@ -325,5 +330,22 @@ var view = {
     },
     formatImage: function (img) {
         this.formattedInfoContent.img = '<div id="image">' + '<img src="' + img + '">' + '</div>';
-    }
+    },
+    setAutoComplete: function () {
+        var self = this;
+        this.autocomplete = new google.maps.places.Autocomplete(self.workForm, {
+            options: ['address'],
+            componentRestrictions: { country: 'us' }
+        });
+        this.autocomplete.addListener('place_changed', function () {
+            var place = self.autocomplete.getPlace();
+            if (place.geometry) {
+                viewModel.setWorkMarker(place.geometry.location);
+                viewModel.map.panTo(place.geometry.location);
+            } else {
+                viewModel.workMarker = null;
+                self.workForm.placeholder = 'Enter a location';
+            }
+        });
+    },
 };

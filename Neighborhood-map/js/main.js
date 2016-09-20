@@ -32,6 +32,9 @@ var viewModel = {
             filter: function () {
                 self.filterName();
             },
+            clearForm: function () {
+                self.clearForm();
+            }
         };
         ko.applyBindings(self.bindData);
     },
@@ -168,6 +171,22 @@ var viewModel = {
         var y = loc1.lng() - loc2.lng();
         return x * x + y * y;
     },
+    clearForm: function () {
+        if (this.currentMarker) {
+            this.currentMarker.setMap(null);
+            this.currentMarker = null;
+        }
+        if (this.workMarker) {
+            this.workMarker.setMap(null);
+            this.workMarker = null;
+        }
+        this.bindData.searchTerm("");
+        view.workForm.value = "";
+        this.filterName();
+        this.infoWin.marker = null;
+        this.infoWin.close();
+        this.map.panTo(model.defaultLoc);
+    }
 };
 
 var view = {
@@ -299,7 +318,7 @@ var view = {
             emptyStar = "&#9734;";
         if (rating === 0) {
             return emptyStar + emptyStar + emptyStar + emptyStar + emptyStar;
-        } else if (rating <= 1) {
+        } else if (rating < 1) {
             return halfStar + emptyStar + emptyStar + emptyStar + emptyStar;
         } else if (rating === 1) {
             return fullStar + emptyStar + emptyStar + emptyStar + emptyStar;

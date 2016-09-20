@@ -209,6 +209,7 @@ var view = {
         if (!viewModel.map || !marker) { return; }
         marker.setMap(viewModel.map);
         this.renderBounds(marker);
+        if (marker === viewModel.workMarker) { return; }
         marker.addListener('click', function () {
             self.formattedInfoContent = {
                 start: '<div id="content">',

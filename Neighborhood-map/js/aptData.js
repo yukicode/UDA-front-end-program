@@ -3749,16 +3749,6 @@ var apts = [{
     "phone": "2069719281",
     "placeId": "ChIJRVXjTPUUkFQRtqhrVpKaOoM"
 }, {
-    "name": "Martinique",
-    "loc": {
-        "lat": 27.779895,
-        "lng": -82.662004
-    },
-    "fullAddress": "2142 8th Ave N #307, Seattle, WA 98109",
-    "priceRange": "$1595 - $1945",
-    "phone": "2065080602",
-    "placeId": "ChIJCyuD_8zjwogRP5Cpcj2jD0Q"
-}, {
     "name": "Compass",
     "loc": {
         "lat": 47.7892063,

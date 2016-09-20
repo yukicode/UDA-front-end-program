@@ -8,13 +8,12 @@
     <meta name="author" content="Xueru McMullan">
     <title>Neightborhood Map</title>
     <link rel="stylesheet" href="./styles/bootstrap.min.css">
-    <link rel="stylesheet" href="./styles/bootstrap-theme.min.css">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
     <div class="container" id="title">
-        <h1 class="row">Neighborhood Map</h1>
+        <h1 class="row">Neighborhood Map -- Apartments Near Seattle</h1>
     </div>
     <div class="container" id="main">
         <div class="row">
@@ -28,11 +27,17 @@
                         <label>Near By</label>
                         <input type="text" class="form-control" placeholder="Enter a location" id="work-loc">
                     </div>
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                    <button class="btn btn-default" id="clear" data-bind="click: clearForm">Clear</button>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Filter</button>
+                        <button class="btn btn-default" id="clear" data-bind="click: clearForm">Clear</button>
+                        <select class="form-control" id="sortbyform" data-bind="options: sortOptions, value: selectedSorting, event: {change: sort}">
+                        </select>
+                    </div>
                 </form>
-                <ul data-bind="foreach: sidebarList">
-                    <li><p data-bind="text: title, click: $parent.display"></p></li>
+                <ul data-bind="foreach: sidebarList" id="sidelist">
+                    <li>
+                        <p data-bind="text: title, click: $parent.display"></p>
+                    </li>
                 </ul>
             </div>
             <div id="map"></div>
@@ -41,6 +46,7 @@
 
     <script src="./js/knockout-3.4.0.js"></script>
     <script src="./js/jquery-3.1.0.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
     <script src="./js/aptData.js"></script>
     <script src="./js/main.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-GSn-FrlOEQIwVeIhp6A2224jr6kTFoY&v=3&libraries=places&callback=viewModel.init"

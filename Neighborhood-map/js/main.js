@@ -6,7 +6,7 @@ var model = {
     aptMarkerList: [],
     sidebarList: ko.observableArray([]),
     defaultLoc: { lat: 47.610377, lng: -122.200679 },
-    defaultZoom: 12,
+    defaultZoom: 13,
 };
 
 var viewModel = {
@@ -16,7 +16,7 @@ var viewModel = {
         this.setMap();
         this.setMapBounds();
         this.setInfoWindow();
-        this.setAptMarkers(100);
+        this.setAptMarkers(300);
         this.currentMarker = null;
         this.applyBinding();
     },
@@ -24,16 +24,26 @@ var viewModel = {
         var self = this;
         this.bindData = {
             sidebarList: model.sidebarList,
+            searchTerm: ko.observable(""),
+            sortOptions: ko.observableArray([
+                "Sort By",
+                "Name",
+                "Price Low to High",
+                "Price High to Low",
+            ]),
+            selectedSorting: ko.observable(""),
             display: function (apt) {
                 self.currentMarker = model.aptMarkerList[apt.index];
                 self.updateInfoWindow();
             },
-            searchTerm: ko.observable(""),
             filter: function () {
                 self.filterName();
             },
             clearForm: function () {
                 self.clearForm();
+            },
+            sort: function () {
+                self.sort(self.bindData.selectedSorting());
             }
         };
         ko.applyBindings(self.bindData);
@@ -71,7 +81,7 @@ var viewModel = {
                 show: true,
             });
             model.aptMarkerList.push(marker);
-            model.sidebarList.push({ title: model.aptList[i].name, index: i });
+            model.sidebarList.push({ title: model.aptList[i].name, index: i, priceRange: model.aptList[i].priceRange });
             view.renderMarker(marker);
         }
     },
@@ -161,10 +171,11 @@ var viewModel = {
                 marker.show = false;
             }
             if (marker.show === true) {
-                model.sidebarList.push({ title: marker.title, index: marker.aptIndex });
+                model.sidebarList.push({ title: marker.title, index: marker.aptIndex, priceRange: model.aptList[marker.aptIndex].priceRange });
             }
             view.toggleMarker(marker);
         });
+        this.bindData.selectedSorting("Sort By");
     },
     distance: function (loc1, loc2) {
         var x = loc1.lat() - loc2.lat();
@@ -186,6 +197,42 @@ var viewModel = {
         this.infoWin.marker = null;
         this.infoWin.close();
         this.map.panTo(model.defaultLoc);
+        this.bindData.selectedSorting("Sort By");
+    },
+    sort: function (method) {
+        if (method === "Sort By") {
+            return;
+        } else if (method === "Name") {
+            this.bindData.sidebarList.sort(function (left, right) {
+                return left.title == right.title ? 0 : (left.title < right.title ? -1 : 1);
+            });
+        } else if (method === "Price Low to High") {
+            this.bindData.sidebarList.sort(function (left, right) {
+                var leftPrices, rightPrices;
+                leftPrices = left.priceRange ? left.priceRange.split(" - ").join("").split("$") : ["", "10000", "0"];
+                rightPrices = right.priceRange ? right.priceRange.split(" - ").join("").split("$") : ["", "10000", "0"];
+                if (parseInt(leftPrices[1], 10) > parseInt(rightPrices[1], 10)) {
+                    return 1;
+                } else if (parseInt(leftPrices[1], 10) === parseInt(rightPrices[1], 10)) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            });
+        } else if (method === "Price High to Low") {
+            this.bindData.sidebarList.sort(function (left, right) {
+                var leftPrices, rightPrices;
+                leftPrices = left.priceRange ? left.priceRange.split(" - ").join("").split("$") : ["", "10000", "0"];
+                rightPrices = right.priceRange ? right.priceRange.split(" - ").join("").split("$") : ["", "10000", "0"];
+                if (parseInt(leftPrices[2], 10) < parseInt(rightPrices[2], 10)) {
+                    return 1;
+                } else if (parseInt(leftPrices[2], 10) === parseInt(rightPrices[2], 10)) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            });
+        }
     }
 };
 
@@ -265,6 +312,7 @@ var view = {
         this.formattedInfoContent.title = '<h4>' + name + '</h4>';
         this.formattedInfoContent.basic = '<p>' + "Tel: " + this.formatPhone(phone) + '</p>' +
             '<p>' + "Price Range: " + priceRange + '</p>';
+        this.formattedInfoContent.img = '';
         this.renderInfoWindow();
     },
     renderYelpInfo: function (data) {

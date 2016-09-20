@@ -30,13 +30,13 @@ html, body {
     height: 100%;
 }
 
-ul {
+#sidelist {
     height: 80%;
     margin-top: 10px;
     overflow: scroll;
 }
 
-li {
+#sidelist>li {
     width: 100%;
 }
 
@@ -48,7 +48,13 @@ li {
     margin-top: 10px;
     margin-right: 20px;
 }
+
 #image>img {
     width: 135px;
     height: auto;
+}
+
+#sortbyform {
+    width: 40%;
+    float: right;
 }

@@ -13,31 +13,32 @@
 
 <body>
     <div id="list-view">
-        <div>
-        </div>
-        <div>
-            <form data-bind="submit: filter">
-                <div class="form-group">
-                    <label>Apartment Name</label>
-                    <input type="text" class="form-control" placeholder="e.g. BellCenter" data-bind="value: searchTerm">
-                </div>
-                <div class="form-group">
-                    <label>Near By</label>
-                    <input type="text" class="form-control" placeholder="Enter a location" id="work-loc">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                    <button class="btn btn-default" id="clear" data-bind="click: clearForm">Clear</button>
-                    <select class="form-control" id="sortbyform" data-bind="options: sortOptions, value: selectedSorting, event: {change: sort}">
+        <form data-bind="submit: filter">
+            <div class="form-group">
+                <label>Apartment Name</label>
+                <input type="text" class="form-control" placeholder="e.g. BellCenter" data-bind="value: searchTerm">
+            </div>
+            <div class="form-group">
+                <label>Near By</label>
+                <input type="text" class="form-control" placeholder="Enter a location" id="work-loc">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Filter</button>
+                <button class="btn btn-default" id="clear" data-bind="click: clearForm">Clear</button>
+                <select class="form-control" id="sortbyform" data-bind="options: sortOptions, value: selectedSorting, event: {change: sort}">
                         </select>
-                </div>
-            </form>
-            <ul data-bind="foreach: sidebarList" id="sidelist">
-                <li>
-                    <p data-bind="text: title, click: $parent.display"></p>
-                </li>
-            </ul>
-        </div>
+            </div>
+        </form>
+        <ul data-bind="foreach: sidebarList" id="sidelist">
+            <li>
+                <p data-bind="text: title, click: $parent.display"></p>
+            </li>
+        </ul>
+    </div>
+    <div class="container" id="nav-bar">
+        <ul class="nav navbar nav-stacked">
+            <li id="show-hide"><a href="#list-search"><span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
+        </ul>
     </div>
     <div class="container" id="main">
         <h1 id="title">Neighborhood Map - Apartments Near Seattle</h1>
@@ -51,6 +52,17 @@
     <script src="./js/main.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-GSn-FrlOEQIwVeIhp6A2224jr6kTFoY&v=3&libraries=places&callback=viewModel.init"
         async defer></script>
+    <script>
+        $(document).ready(function(){
+            var showHide = $("#show-hide"),
+            myList = $("#list-view"),
+            navbar =$("#nav-bar");  
+            showHide.on("click", function(){
+                myList.toggleClass("show");
+                navbar.toggleClass("moveleft");
+            });
+        });
+    </script>
 </body>
 
 </html>

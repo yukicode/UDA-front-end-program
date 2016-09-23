@@ -78,9 +78,9 @@ var viewModel = {
         });
         view.renderMarker(this.workMarker);
     },
-    setAptMarkers: function (count) {
+    setAptMarkers: function () {
         if (!model.aptList || !this.map) { return; }
-        var length = count || aptList.length;
+        var length = model.aptList.length;
         for (var i = 0; i < length; i++) {
             if (!model.aptList[i]) { break; }
             var marker = new google.maps.Marker({
@@ -130,7 +130,6 @@ var viewModel = {
             },
         }).done(function (data) {
             if (data.message) { //if the data comes with a message, then there is an error getting data from yelp
-                console.log("error needs to be handled", data.message);
                 view.renderYelpInfo({ error: "Not Found" });
             } else {
                 view.renderYelpInfo(data);
@@ -157,7 +156,6 @@ var viewModel = {
             }
         }).done(function (data) {
             if (data.message) { //if the data comes with a message, then there is an error getting data from yelp
-                console.log("error needs to be handled", data.message);
                 view.renderGoogleInfo({ error: "Not Found" });
             } else {
                 view.renderGoogleInfo(data);
@@ -289,14 +287,20 @@ var view = {
                 google: '<p>' + 'Google Review: Loading...' + '</p>',
                 img: '',
             };
+            if(viewModel.currentMarker){
+                viewModel.currentMarker.setIcon(self.normalIcon);
+            }
             viewModel.currentMarker = marker;
+            viewModel.currentMarker.setIcon(self.selectedIcon);
             viewModel.updateInfoWindow();
         });
         marker.addListener('mouseover', function () {
             marker.setIcon(self.selectedIcon);
         });
         marker.addListener('mouseout', function () {
-            marker.setIcon(self.normalIcon);
+            if(viewModel.currentMarker !== marker){
+                marker.setIcon(self.normalIcon);
+            }
         });
     },
     toggleMarker: function (marker) {

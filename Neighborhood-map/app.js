@@ -60,9 +60,11 @@ app.get('/api/yelp/', function (req, res) {
 app.get('/api/google/', function (req, res) {
     if (!req.query.lat || !req.query.lng) {
         res.send({ message: "Invalid query, missing parameters lat/lng" });
+        return;
     }
     if (!req.query.name) {
         res.send({ message: "Invalid query, missing parameter term" });
+        return;
     }
     var request = {
         location: req.query.lat + "," + req.query.lng,

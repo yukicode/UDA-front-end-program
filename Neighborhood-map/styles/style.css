@@ -116,9 +116,11 @@ html, body {
     -webkit-transform: translateX(0); /* Safari */
     transform: translateX(0);
 }
+
 #nav-bar.moveleft {
     left: 230px;
 }
+
 .high-light {
     border: 2px solid #585A5B;
 }

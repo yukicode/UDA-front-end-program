@@ -5199,16 +5199,6 @@ var apts = [{
     "phone": "2068556924",
     "placeId": "Eig0NTU1IDM5dGggQXZlIFNXLCBTZWF0dGxlLCBXQSA5ODExNiwgVVNB"
 }, {
-    "name": "WildReed Apartments",
-    "loc": {
-        "lat": 45.604218,
-        "lng": -122.4071637
-    },
-    "fullAddress": "10101 7th Avenue Southeast, Everett, WA 98208",
-    "priceRange": "$1275 - $1850",
-    "phone": "4253744711",
-    "placeId": "ChIJTy4nD2K8lVQRWlxfSEAw8Po"
-}, {
     "name": "Island Square",
     "loc": {
         "lat": 47.5861136,

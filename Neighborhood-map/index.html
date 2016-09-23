@@ -12,36 +12,36 @@
 </head>
 
 <body>
-    <div class="container" id="title">
-        <h1 class="row">Neighborhood Map -- Apartments Near Seattle</h1>
+    <div id="list-view">
+        <div>
+        </div>
+        <div>
+            <form data-bind="submit: filter">
+                <div class="form-group">
+                    <label>Apartment Name</label>
+                    <input type="text" class="form-control" placeholder="e.g. BellCenter" data-bind="value: searchTerm">
+                </div>
+                <div class="form-group">
+                    <label>Near By</label>
+                    <input type="text" class="form-control" placeholder="Enter a location" id="work-loc">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <button class="btn btn-default" id="clear" data-bind="click: clearForm">Clear</button>
+                    <select class="form-control" id="sortbyform" data-bind="options: sortOptions, value: selectedSorting, event: {change: sort}">
+                        </select>
+                </div>
+            </form>
+            <ul data-bind="foreach: sidebarList" id="sidelist">
+                <li>
+                    <p data-bind="text: title, click: $parent.display"></p>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="container" id="main">
-        <div class="row">
-            <div id="list-view" class="col-sm-3">
-                <form data-bind="submit: filter">
-                    <div class="form-group">
-                        <label>Apartment Name</label>
-                        <input type="text" class="form-control" placeholder="e.g. BellCenter" data-bind="value: searchTerm">
-                    </div>
-                    <div class="form-group">
-                        <label>Near By</label>
-                        <input type="text" class="form-control" placeholder="Enter a location" id="work-loc">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Filter</button>
-                        <button class="btn btn-default" id="clear" data-bind="click: clearForm">Clear</button>
-                        <select class="form-control" id="sortbyform" data-bind="options: sortOptions, value: selectedSorting, event: {change: sort}">
-                        </select>
-                    </div>
-                </form>
-                <ul data-bind="foreach: sidebarList" id="sidelist">
-                    <li>
-                        <p data-bind="text: title, click: $parent.display"></p>
-                    </li>
-                </ul>
-            </div>
-            <div id="map"></div>
-        </div>
+        <h1 id="title">Neighborhood Map - Apartments Near Seattle</h1>
+        <div id="map"></div>
     </div>
 
     <script src="./js/knockout-3.4.0.js"></script>

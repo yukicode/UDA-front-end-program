@@ -33,7 +33,11 @@ var viewModel = {
             ]),
             selectedSorting: ko.observable(""),
             display: function (apt) {
+                if(self.currentMarker){
+                    self.currentMarker.setIcon(view.normalIcon);
+                }
                 self.currentMarker = model.aptMarkerList[apt.index];
+                self.currentMarker.setIcon(view.selectedIcon);
                 self.updateInfoWindow();
             },
             filter: function () {
@@ -50,7 +54,9 @@ var viewModel = {
                 event.currentTarget.classList.add("high-light");
             },
             normal: function (data, event) {
-                model.aptMarkerList[data.index].setIcon(view.normalIcon);
+                if(model.aptMarkerList[data.index] !== self.currentMarker){
+                    model.aptMarkerList[data.index].setIcon(view.normalIcon);
+                }
                 event.currentTarget.classList.remove("high-light");
             }
         };

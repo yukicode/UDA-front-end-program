@@ -58,10 +58,22 @@ html, body {
     height: 80%;
     margin-top: 10px;
     overflow: scroll;
+    padding-left: 0;
 }
 
 #sidelist>li {
     width: 100%;
+    list-style-type: none;
+    height: 25px;
+}
+
+#sidelist>li:nth-child(2n+1) {
+    background-color: rgba(210, 216, 219, 0.85);
+}
+
+#sidelist>li>p {
+    margin:0;
+    padding:2px 0 0 5px;
 }
 
 .flex {

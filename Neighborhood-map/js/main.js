@@ -44,6 +44,9 @@ var viewModel = {
             },
             sort: function () {
                 self.sort(self.bindData.selectedSorting());
+            },
+            highlight: function(){
+                view.highlightList();
             }
         };
         ko.applyBindings(self.bindData);

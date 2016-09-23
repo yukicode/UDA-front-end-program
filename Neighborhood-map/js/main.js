@@ -45,8 +45,13 @@ var viewModel = {
             sort: function () {
                 self.sort(self.bindData.selectedSorting());
             },
-            highlight: function(){
-                view.highlightList();
+            highLight: function (data, event) {
+                model.aptMarkerList[data.index].setIcon(view.selectedIcon);
+                event.currentTarget.classList.add("high-light");
+            },
+            normal: function (data, event) {
+                model.aptMarkerList[data.index].setIcon(view.normalIcon);
+                event.currentTarget.classList.remove("high-light");
             }
         };
         ko.applyBindings(self.bindData);
@@ -65,7 +70,10 @@ var viewModel = {
         this.workMarker = new google.maps.Marker({
             position: loc,
             map: this.map,
-            icon: { url: "./images/purple_MarkerW.png" },
+            icon: {
+                url: "./images/purple_MarkerW.png",
+                scaledSize: new google.maps.Size(21, 34),
+            },
             title: "Work Location",
         });
         view.renderMarker(this.workMarker);
@@ -78,6 +86,11 @@ var viewModel = {
             var marker = new google.maps.Marker({
                 position: model.aptList[i].loc,
                 map: this.map,
+                icon: {
+                    url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + 'FF4B43' +
+                    '|40|_|%E2%80%A2',
+                    scaledSize: new google.maps.Size(21, 34),
+                },
                 title: model.aptList[i].name,
                 compactTitle: model.aptList[i].name.split(" ").join("").split("'").join("").toLowerCase(),
                 aptIndex: i,
@@ -253,6 +266,16 @@ var view = {
             google: '<p>' + 'Google Review: Loading...' + '</p>',
             img: '',
         };
+        this.selectedIcon = {
+            url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + 'FF9B3F' +
+            '|40|_|%E2%80%A2',
+            scaledSize: new google.maps.Size(21, 34),
+        };
+        this.normalIcon = {
+            url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + 'FF4B43' +
+            '|40|_|%E2%80%A2',
+            scaledSize: new google.maps.Size(21, 34),
+        };
     },
     renderMarker: function (marker) {
         var self = this;
@@ -272,6 +295,12 @@ var view = {
             };
             viewModel.currentMarker = marker;
             viewModel.updateInfoWindow();
+        });
+        marker.addListener('mouseover', function () {
+            marker.setIcon(self.selectedIcon);
+        });
+        marker.addListener('mouseout', function () {
+            marker.setIcon(self.normalIcon);
         });
     },
     toggleMarker: function (marker) {

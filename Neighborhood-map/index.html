@@ -30,7 +30,7 @@
             </div>
         </form>
         <ul data-bind="foreach: sidebarList" id="sidelist">
-            <li>
+            <li data-bind="event: {mouseover: $parent.highLight, mouseout: $parent.normal}">
                 <p data-bind="text: title, click: $parent.display"></p>
             </li>
         </ul>

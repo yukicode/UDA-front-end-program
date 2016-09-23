@@ -45,7 +45,7 @@ html, body {
     position: fixed;
     width: 270px;
     z-index: 100;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 1);
     padding: 15px;
     -ms-transform: translateX(-100%); /* IE 9 */
     -webkit-transform: translateX(-100%); /* Safari */
@@ -65,10 +65,11 @@ html, body {
     width: 100%;
     list-style-type: none;
     height: 25px;
+    cursor:pointer;
 }
 
 #sidelist>li:nth-child(2n+1) {
-    background-color: rgba(210, 216, 219, 0.85);
+    background-color: rgba(210, 216, 219, 1);
 }
 
 #sidelist>li>p {
@@ -108,7 +109,7 @@ html, body {
 
 #nav-bar>ul>li>a {
     padding-left: 30px;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 1);
 }
 
 #list-view.show {
@@ -118,6 +119,9 @@ html, body {
 }
 #nav-bar.moveleft {
     left: 230px;
+}
+.high-light {
+    border: 2px solid #585A5B;
 }
 
 @media (min-width: 1200px){

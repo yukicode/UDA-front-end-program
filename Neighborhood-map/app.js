@@ -78,7 +78,7 @@ app.get('/api/google/', function (req, res) {
             place.placeDetailsRequest({ placeid: id }, function (error, place) {
                 if (error) res.send({ message: "Error getting detail response" });
                 if (!place.result) {
-                    res.send({ message: "Location not found", place: place.result, length: place.result.length });
+                    res.send({ message: "Location not found", place: place.result});
                 }
                 res.send(place.result);
             });

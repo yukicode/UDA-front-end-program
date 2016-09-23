@@ -86,11 +86,7 @@ var viewModel = {
             var marker = new google.maps.Marker({
                 position: model.aptList[i].loc,
                 map: this.map,
-                icon: {
-                    url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + 'FF4B43' +
-                    '|40|_|%E2%80%A2',
-                    scaledSize: new google.maps.Size(21, 34),
-                },
+                icon: view.normalIcon,
                 title: model.aptList[i].name,
                 compactTitle: model.aptList[i].name.split(" ").join("").split("'").join("").toLowerCase(),
                 aptIndex: i,

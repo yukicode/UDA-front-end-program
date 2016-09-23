@@ -64,7 +64,6 @@ html, body {
 #sidelist>li {
     width: 100%;
     list-style-type: none;
-    height: 25px;
     cursor:pointer;
 }
 

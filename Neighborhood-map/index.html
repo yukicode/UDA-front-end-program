@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div id="list-view">
+    <div id="list-view" data-bind="css: {show: isShow()}">
         <form data-bind="submit: filter">
             <div class="form-group">
                 <label>Apartment Name</label>
@@ -35,9 +35,9 @@
             </li>
         </ul>
     </div>
-    <div class="container" id="nav-bar">
+    <div class="container" id="nav-bar" data-bind="css: {moveleft: isShow()}">
         <ul class="nav navbar nav-stacked">
-            <li id="show-hide"><a href="#list-search"><span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
+            <li id="show-hide" data-bind="click: toggleShowHide"><a href="#list-search"><span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
         </ul>
     </div>
     <div class="container" id="main">
@@ -51,18 +51,7 @@
     <script src="./js/aptData.js"></script>
     <script src="./js/main.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-GSn-FrlOEQIwVeIhp6A2224jr6kTFoY&v=3&libraries=places&callback=viewModel.init"
-        async defer></script>
-    <script>
-        $(document).ready(function(){
-            var showHide = $("#show-hide"),
-            myList = $("#list-view"),
-            navbar =$("#nav-bar");  
-            showHide.on("click", function(){
-                myList.toggleClass("show");
-                navbar.toggleClass("moveleft");
-            });
-        });
-    </script>
+        async defer onerror="viewModel.mapError()"></script>
 </body>
 
 </html>

@@ -1,10 +1,7 @@
-//TODO handle networkerror for yelp
-
 //property and map data
 var model = {
-    aptList: apts,
-    aptMarkerList: [],
-    sidebarList: ko.observableArray([]),
+    aptList: apts, //all the apartment data
+    aptMarkerList: [], //all the markers of apartments
     defaultLoc: { lat: 47.610377, lng: -122.200679 },
     defaultZoom: 13,
 };
@@ -14,16 +11,16 @@ var viewModel = {
         var self = this;
         view.init();
         this.setMap();
+        this.applyBinding();
         this.setMapBounds();
         this.setInfoWindow();
-        this.setAptMarkers(300);
+        this.setAptMarkers();
         this.currentMarker = null;
-        this.applyBinding();
     },
     applyBinding: function () {
         var self = this;
         this.bindData = {
-            sidebarList: model.sidebarList,
+            sidebarList: ko.observableArray([]),
             searchTerm: ko.observable(""),
             sortOptions: ko.observableArray([
                 "Sort By",
@@ -32,6 +29,7 @@ var viewModel = {
                 "Price High to Low",
             ]),
             selectedSorting: ko.observable(""),
+            isShow: ko.observable(false),
             display: function (apt) {
                 if(self.currentMarker){
                     self.currentMarker.setIcon(view.normalIcon);
@@ -58,6 +56,9 @@ var viewModel = {
                     model.aptMarkerList[data.index].setIcon(view.normalIcon);
                 }
                 event.currentTarget.classList.remove("high-light");
+            },
+            toggleShowHide: function(){
+                self.bindData.isShow(!self.bindData.isShow());
             }
         };
         ko.applyBindings(self.bindData);
@@ -99,7 +100,7 @@ var viewModel = {
                 show: true,
             });
             model.aptMarkerList.push(marker);
-            model.sidebarList.push({ title: model.aptList[i].name, index: i, priceRange: model.aptList[i].priceRange });
+            this.bindData.sidebarList.push({ title: model.aptList[i].name, index: i, priceRange: model.aptList[i].priceRange });
             view.renderMarker(marker);
         }
     },
@@ -173,7 +174,7 @@ var viewModel = {
     filterName: function () {
         var self = this;
         var searchTerm = this.bindData.searchTerm().trim();
-        model.sidebarList.removeAll();
+        this.bindData.sidebarList.removeAll();
         this.setMapBounds();
         if (this.workMarker) {
             view.renderBounds(this.workMarker);
@@ -187,7 +188,7 @@ var viewModel = {
                 marker.show = false;
             }
             if (marker.show === true) {
-                model.sidebarList.push({ title: marker.title, index: marker.aptIndex, priceRange: model.aptList[marker.aptIndex].priceRange });
+                self.bindData.sidebarList.push({ title: marker.title, index: marker.aptIndex, priceRange: model.aptList[marker.aptIndex].priceRange });
             }
             view.toggleMarker(marker);
         });
@@ -249,6 +250,9 @@ var viewModel = {
                 }
             });
         }
+    },
+    mapError: function(){
+        alert("Error getting google map");
     }
 };
 

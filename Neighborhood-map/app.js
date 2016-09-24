@@ -21,7 +21,7 @@ var yelp = new Yelp({
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(root));
+app.use(express.static(root + "/public"));
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(root + "/index.html"));

@@ -163,7 +163,13 @@ html, body {
     }
 
     #image {
-    margin-top: 15px;
-    margin-right: 5px;
+        margin-top: 15px;
+        margin-right: 5px;
+    }
 }
+
+@media (max-width: 350px){
+     #image {
+        display: none;
+    }
 }

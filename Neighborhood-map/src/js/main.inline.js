@@ -10,28 +10,30 @@ var viewModel = {
     init: function () {
         var self = this;
         view.init();
-        this.setMap();
+        this.setMap(); //init map
         this.setAutoComplete();
-        this.setMapBounds();
-        this.selectedIcon = {
+        this.setMapBounds(); //init the bounds of map
+        this.selectedIcon = { //image and size of selected apartment marker
             url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + 'FF9B3F' +
             '|40|_|%E2%80%A2',
             scaledSize: new google.maps.Size(21, 34),
         };
-        this.normalIcon = {
+        this.normalIcon = { //image and size of normal (unselected) apartment marker
             url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + 'FF4B43' +
             '|40|_|%E2%80%A2',
             scaledSize: new google.maps.Size(21, 34),
         };
-        this.setInfoWindow();
-        this.setAptMarkers();
+        this.setInfoWindow(); //init infomation window
+        this.setAptMarkers(); //set markers for all of the apartments
         this.currentMarker = null;
     },
+    //set knockout observables and bind data
     applyBinding: function () {
         var self = this;
         this.bindData = {//data to bind to knockout
             sidebarList: ko.observableArray([]), //apartment shown in the side bar list
             searchTerm: ko.observable(""),
+            searchLocation: ko.observable(""),
             sortOptions: ko.observableArray([
                 "Sort By",
                 "Name",
@@ -41,7 +43,7 @@ var viewModel = {
             selectedSorting: ko.observable(""), //selected sorting method
             isShow: ko.observable(false), //if the sidebar is shown or not
             display: function (apt) { //display the selected apartment inforwindow
-                if (!self.map) {
+                if (!self.map) { //if map is not ready, alert user that the map is not ready
                     self.waitForLoading();
                     return;
                 }
@@ -52,22 +54,22 @@ var viewModel = {
                 self.currentMarker.setIcon(self.selectedIcon);
                 self.updateInfoWindow();
             },
-            filter: function () {
-                if (!self.map) {
+            filter: function () { //filter list and markers based on search term and location
+                if (!self.map) { //if map is not ready, alert user that the map is not ready
                     self.waitForLoading();
                     return;
                 }
                 self.filterName();
             },
-            clearForm: function () {
-                if (!self.map) {
+            clearForm: function () { //reset filter
+                if (!self.map) { //if map is not ready, alert user that the map is not ready
                     self.waitForLoading();
                     return;
                 }
                 self.clearForm();
             },
-            sort: function () {
-                if (!self.map) {
+            sort: function () { //sort based on the selected method
+                if (!self.map) { //if map is not ready, alert user that the map is not ready
                     self.waitForLoading();
                     return;
                 }
@@ -156,7 +158,7 @@ var viewModel = {
             view.addListenerMarker(marker);
         }
     },
-    toggleMarker: function (marker) {
+    toggleMarker: function (marker) { //toggle display or hide marker
         if (marker.show === false) {
             marker.setMap(null);
         } else {
@@ -201,7 +203,7 @@ var viewModel = {
             } else {
                 view.renderYelpInfo(data);
             }
-        }).fail(function (err) {
+        }).fail(function (err) { //if the request failed, then there's error with connection
             view.renderYelpInfo({ error: "Unable to Connect" });
         });
     },
@@ -222,38 +224,44 @@ var viewModel = {
                 name: name,
             }
         }).done(function (data) {
-            if (data.message) { //if the data comes with a message, then there is an error getting data from yelp
+            if (data.message) { //if the data comes with a message, then there is an error getting data from google
                 view.renderGoogleInfo({ error: "Not Found" });
             } else {
                 view.renderGoogleInfo(data);
             }
-        }).fail(function (err) {
+        }).fail(function (err) { //if the request failed, then there's error with connection
             view.renderGoogleInfo({ error: "Unable to Connect" });
         });
     },
     filterName: function () {
         var self = this;
-        var searchTerm = this.bindData.searchTerm().trim();
-        this.bindData.sidebarList.removeAll();
+        var searchTerm = this.bindData.searchTerm().trim().toLowerCase();
+        this.bindData.sidebarList.removeAll(); //clear apartment list for the side bar
         this.setMapBounds();
         if (this.workMarker) {
             this.renderBounds(this.workMarker);
         }
         model.aptMarkerList.forEach(function (marker) {
             marker.show = true;
+            //if a location is selected but the marker is not near the location, then marker should be hidden
             if (self.workMarker && (self.distance(self.workMarker.position, marker.position) > 0.0025)) {
                 marker.show = false;
             }
+            //if search by name and the name is not found, then marker should be hidden
             if (searchTerm && marker.compactTitle.indexOf(searchTerm) === -1) {
                 marker.show = false;
             }
             if (marker.show === true) {
+                //add apartments that match the search in the side bar list
                 self.bindData.sidebarList.push({ title: marker.title, index: marker.aptIndex, priceRange: model.aptList[marker.aptIndex].priceRange });
             }
             self.toggleMarker(marker);
         });
+        //reset sorting
         this.bindData.selectedSorting("Sort By");
     },
+    //estimate distance between two locations 
+    //Note: this is only estimation
     distance: function (loc1, loc2) {
         var x = loc1.lat() - loc2.lat();
         var y = loc1.lng() - loc2.lng();
@@ -269,7 +277,7 @@ var viewModel = {
             this.workMarker = null;
         }
         this.bindData.searchTerm("");
-        view.workForm.value = "";
+        this.bindData.searchLocation("");
         this.filterName();
         this.infoWin.marker = null;
         this.infoWin.close();
@@ -333,6 +341,7 @@ var view = {
             img: '',
         };
     },
+    //add listeners to the marker
     addListenerMarker: function (marker) {
         var self = this;
         marker.addListener('click', function () {
@@ -345,6 +354,8 @@ var view = {
                 google: '<p>' + 'Google Review: Loading...' + '</p>',
                 img: '',
             };
+            //when a marker is selected, reset the old selected marker to normal,
+            //then highlight the currently selected marker
             if (viewModel.currentMarker) {
                 viewModel.currentMarker.setIcon(viewModel.normalIcon);
             }
@@ -425,7 +436,13 @@ var view = {
             rating, ratingImg, ratingCount, googleLink, webAddress;
 
         rating = data.rating || 0;
-        ratingImg = this.getRatingImg(rating);
+        if(!data.rating){
+            rating = "";
+            ratingImg = "No Rating";
+        }else{
+            rating = data.rating;
+            ratingImg = this.getRatingImg(rating);
+        }
         ratingCount = data.reviews ? data.reviews.length : 0;
         googleLink = data.url || "";
         webAddress = data.website || "";

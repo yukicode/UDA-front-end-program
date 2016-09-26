@@ -1,6 +1,9 @@
 # Neighborhood-map
+
 An application that helps you find apartments near Seattle, WA.
+
 This app uses Google Map API and Yelp API.
+
 The source files are in src folder, the minified files are in the dist folder.
 
 ### Install
@@ -18,8 +21,8 @@ The source files are in src folder, the minified files are in the dist folder.
 * Sort apartments by name or price.
 
 ### Todo
-[] Link with database.
-[] Add favorite button.
-[] Add favorite menu that displays all the favorite apartments's details.
-[] Add local storage of favorites.
+- [ ] Link with database.
+- [ ] Add favorite button.
+- [ ] Add favorite menu that displays all the favorite apartments's details.
+- [ ] Add local storage of favorites.
 

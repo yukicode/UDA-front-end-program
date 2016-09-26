@@ -11,8 +11,18 @@ var viewModel = {
         var self = this;
         view.init();
         this.setMap();
-        this.applyBinding();
+        this.setAutoComplete();
         this.setMapBounds();
+        this.selectedIcon = {
+            url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + 'FF9B3F' +
+            '|40|_|%E2%80%A2',
+            scaledSize: new google.maps.Size(21, 34),
+        };
+        this.normalIcon = {
+            url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + 'FF4B43' +
+            '|40|_|%E2%80%A2',
+            scaledSize: new google.maps.Size(21, 34),
+        };
         this.setInfoWindow();
         this.setAptMarkers();
         this.currentMarker = null;
@@ -31,35 +41,53 @@ var viewModel = {
             selectedSorting: ko.observable(""), //selected sorting method
             isShow: ko.observable(false), //if the sidebar is shown or not
             display: function (apt) { //display the selected apartment inforwindow
-                if(self.currentMarker){
-                    self.currentMarker.setIcon(view.normalIcon);
+                if (!self.map) {
+                    self.waitForLoading();
+                    return;
+                }
+                if (self.currentMarker) {
+                    self.currentMarker.setIcon(self.normalIcon);
                 }
                 self.currentMarker = model.aptMarkerList[apt.index];
-                self.currentMarker.setIcon(view.selectedIcon);
+                self.currentMarker.setIcon(self.selectedIcon);
                 self.updateInfoWindow();
             },
             filter: function () {
+                if (!self.map) {
+                    self.waitForLoading();
+                    return;
+                }
                 self.filterName();
             },
             clearForm: function () {
+                if (!self.map) {
+                    self.waitForLoading();
+                    return;
+                }
                 self.clearForm();
             },
             sort: function () {
+                if (!self.map) {
+                    self.waitForLoading();
+                    return;
+                }
                 self.sort(self.bindData.selectedSorting());
             },
             highLight: function (data, event) { //highlight selected marker and list
-                model.aptMarkerList[data.index].setIcon(view.selectedIcon);
+                if (model.aptMarkerList.length) {
+                    model.aptMarkerList[data.index].setIcon(self.selectedIcon);
+                }
                 event.currentTarget.classList.add("high-light");
             },
             normal: function (data, event) { //set marker and list back to normal
-                if(model.aptMarkerList[data.index] !== self.currentMarker){
-                    model.aptMarkerList[data.index].setIcon(view.normalIcon);
+                if (model.aptMarkerList.length && model.aptMarkerList[data.index] !== self.currentMarker) {
+                    model.aptMarkerList[data.index].setIcon(self.normalIcon);
                 }
                 event.currentTarget.classList.remove("high-light");
             },
-            toggleShowHide: function(){ //toggle show or hide side bar
+            toggleShowHide: function () { //toggle show or hide side bar
                 self.bindData.isShow(!self.bindData.isShow());
-            }
+            },
         };
         ko.applyBindings(self.bindData);
     },
@@ -72,6 +100,27 @@ var viewModel = {
     setMapBounds: function () {
         this.bounds = new google.maps.LatLngBounds();
     },
+    renderBounds: function (marker) {
+        this.bounds.extend(marker.position);
+        this.map.fitBounds(this.bounds);
+    },
+    setAutoComplete: function () {
+        var self = this;
+        this.autocomplete = new google.maps.places.Autocomplete(view.workForm, {
+            options: ['address'],
+            componentRestrictions: { country: 'us' }
+        });
+        this.autocomplete.addListener('place_changed', function () {
+            var place = self.autocomplete.getPlace();
+            if (place.geometry) {
+                self.setWorkMarker(place.geometry.location);
+                self.map.panTo(place.geometry.location);
+            } else {
+                self.workMarker = null;
+                view.workForm.placeholder = 'Enter a location';
+            }
+        });
+    },
     setWorkMarker: function (loc) {
         if (!this.map) { return; }
         this.workMarker = new google.maps.Marker({
@@ -83,7 +132,8 @@ var viewModel = {
             },
             title: "Work Location",
         });
-        view.renderMarker(this.workMarker);
+        this.workMarker.setMap(this.map);
+        this.renderBounds(this.workMarker);
     },
     setAptMarkers: function () {
         if (!model.aptList || !this.map) { return; }
@@ -93,7 +143,7 @@ var viewModel = {
             var marker = new google.maps.Marker({
                 position: model.aptList[i].loc,
                 map: this.map,
-                icon: view.normalIcon,
+                icon: this.normalIcon,
                 title: model.aptList[i].name,
                 compactTitle: model.aptList[i].name.split(" ").join("").split("'").join("").toLowerCase(),
                 aptIndex: i,
@@ -101,7 +151,17 @@ var viewModel = {
             });
             model.aptMarkerList.push(marker);
             this.bindData.sidebarList.push({ title: model.aptList[i].name, index: i, priceRange: model.aptList[i].priceRange });
-            view.renderMarker(marker);
+            marker.setMap(this.map);
+            this.renderBounds(marker);
+            view.addListenerMarker(marker);
+        }
+    },
+    toggleMarker: function (marker) {
+        if (marker.show === false) {
+            marker.setMap(null);
+        } else {
+            this.renderBounds(marker);
+            marker.setMap(this.map);
         }
     },
     setInfoWindow: function () {
@@ -177,7 +237,7 @@ var viewModel = {
         this.bindData.sidebarList.removeAll();
         this.setMapBounds();
         if (this.workMarker) {
-            view.renderBounds(this.workMarker);
+            this.renderBounds(this.workMarker);
         }
         model.aptMarkerList.forEach(function (marker) {
             marker.show = true;
@@ -190,7 +250,7 @@ var viewModel = {
             if (marker.show === true) {
                 self.bindData.sidebarList.push({ title: marker.title, index: marker.aptIndex, priceRange: model.aptList[marker.aptIndex].priceRange });
             }
-            view.toggleMarker(marker);
+            self.toggleMarker(marker);
         });
         this.bindData.selectedSorting("Sort By");
     },
@@ -251,8 +311,11 @@ var viewModel = {
             });
         }
     },
-    mapError: function(){
+    mapError: function () {
         alert("Error getting google map");
+    },
+    waitForLoading: function () {
+        alert("Wait for map to load...");
     },
 };
 
@@ -260,7 +323,6 @@ var view = {
     init: function () {
         this.mapDiv = document.getElementById("map");
         this.workForm = document.getElementById("work-loc");
-        this.setAutoComplete();
         this.formattedInfoContent = {
             start: '<div id="content">',
             end: '</div>',
@@ -270,23 +332,9 @@ var view = {
             google: '<p>' + 'Google Review: Loading...' + '</p>',
             img: '',
         };
-        this.selectedIcon = {
-            url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + 'FF9B3F' +
-            '|40|_|%E2%80%A2',
-            scaledSize: new google.maps.Size(21, 34),
-        };
-        this.normalIcon = {
-            url: 'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + 'FF4B43' +
-            '|40|_|%E2%80%A2',
-            scaledSize: new google.maps.Size(21, 34),
-        };
     },
-    renderMarker: function (marker) {
+    addListenerMarker: function (marker) {
         var self = this;
-        if (!viewModel.map || !marker) { return; }
-        marker.setMap(viewModel.map);
-        this.renderBounds(marker);
-        if (marker === viewModel.workMarker) { return; }
         marker.addListener('click', function () {
             self.formattedInfoContent = {
                 start: '<div id="content">',
@@ -297,33 +345,21 @@ var view = {
                 google: '<p>' + 'Google Review: Loading...' + '</p>',
                 img: '',
             };
-            if(viewModel.currentMarker){
-                viewModel.currentMarker.setIcon(self.normalIcon);
+            if (viewModel.currentMarker) {
+                viewModel.currentMarker.setIcon(viewModel.normalIcon);
             }
             viewModel.currentMarker = marker;
-            viewModel.currentMarker.setIcon(self.selectedIcon);
+            viewModel.currentMarker.setIcon(viewModel.selectedIcon);
             viewModel.updateInfoWindow();
         });
         marker.addListener('mouseover', function () {
-            marker.setIcon(self.selectedIcon);
+            marker.setIcon(viewModel.selectedIcon);
         });
         marker.addListener('mouseout', function () {
-            if(viewModel.currentMarker !== marker){
-                marker.setIcon(self.normalIcon);
+            if (viewModel.currentMarker !== marker) {
+                marker.setIcon(viewModel.normalIcon);
             }
         });
-    },
-    toggleMarker: function (marker) {
-        if (marker.show === false) {
-            marker.setMap(null);
-        } else {
-            this.renderBounds(marker);
-            marker.setMap(viewModel.map);
-        }
-    },
-    renderBounds: function (marker) {
-        viewModel.bounds.extend(marker.position);
-        viewModel.map.fitBounds(viewModel.bounds);
     },
     renderInfoWindow: function () {
         var infoWindow = viewModel.infoWin,
@@ -441,21 +477,6 @@ var view = {
     formatImage: function (img) {
         this.formattedInfoContent.img = '<div id="image">' + '<img src="' + img + '">' + '</div>';
     },
-    setAutoComplete: function () {
-        var self = this;
-        this.autocomplete = new google.maps.places.Autocomplete(self.workForm, {
-            options: ['address'],
-            componentRestrictions: { country: 'us' }
-        });
-        this.autocomplete.addListener('place_changed', function () {
-            var place = self.autocomplete.getPlace();
-            if (place.geometry) {
-                viewModel.setWorkMarker(place.geometry.location);
-                viewModel.map.panTo(place.geometry.location);
-            } else {
-                viewModel.workMarker = null;
-                self.workForm.placeholder = 'Enter a location';
-            }
-        });
-    },
 };
+
+viewModel.applyBinding();

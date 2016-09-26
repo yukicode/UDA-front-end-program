@@ -7,7 +7,7 @@ This app uses Google Map API and Yelp API.
 The source files are in src folder, the minified files are in the dist folder.
 
 ### Install
-1. Make sure that you have node.js in the system. You can download the newest version here [Node](https://nodejs.org/en/).
+1. Make sure that you have node.js in the system. You can download the newest version [here](https://nodejs.org/en/).
 2. Download and unzip this repo.
 3. In command line, go to the directory of the downloaded file and type `npm install`. This will install all the dependencies needed to successfully run the app.
 4. Type `node app` to run the local server. It will server the minified webpage at port 3000.

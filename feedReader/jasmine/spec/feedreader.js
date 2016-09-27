@@ -170,6 +170,7 @@ $(function () {
             var feedContainer = document.getElementsByClassName("feed");
             oldEntries = feedContainer[0].getElementsByClassName("entry");
             oldEntriesLength = oldEntries.length;
+            //push entry titles to an array
             for(var i=0; i<oldEntriesLength; i++){
                 oldEntryContents.push(oldEntries[i].getElementsByTagName("h2")[0].textContent);
                 expect(oldEntryContents[i]).toBeTruthy();
@@ -181,12 +182,13 @@ $(function () {
             var feedContainer = document.getElementsByClassName("feed");
             newEntries = feedContainer[0].getElementsByClassName("entry");
             newEntriesLength = newEntries.length;
+            //push entry titles to a new array
             for(var i=0; i<oldEntriesLength; i++){
                 newEntryContents.push(newEntries[i].getElementsByTagName("h2")[0].textContent);
                 expect(newEntryContents[i]).toBeTruthy();
             }
 
-            //compare contents
+            //compare titles
             var length = oldEntriesLength > newEntriesLength ? oldEntriesLength : newEntriesLength;
             for(var j=0; j<length; j++){
                 if(!newEntryContents[j] || !oldEntryContents[j]){ break; }

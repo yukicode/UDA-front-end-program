@@ -2,7 +2,9 @@
 
 This repo contains the course notes, course exercise and projects for the front end web developer program.
 
-### Project 1 & 2 Portfolio / Interactive Resume
+---
+
+## Project 1 & 2 Portfolio / Interactive Resume
 
 _HTML, CSS, Responsive Web Design, Javascript, jQuery_
 
@@ -12,7 +14,9 @@ _HTML, CSS, Responsive Web Design, Javascript, jQuery_
 
 ![Portfolio Thumbnail](https://raw.githubusercontent.com/yukicode/UDA-front-end-program/e19fb42221b494559aaa45f050f0d7a97c7c16f0/images/p12.jpg)
 
-### Project 3 Arcade Game Frogger
+---
+
+## Project 3 Arcade Game Frogger
 
 _Object-Oriented Javascript_
 
@@ -24,8 +28,9 @@ _Object-Oriented Javascript_
 ![Level 2](https://raw.githubusercontent.com/yukicode/UDA-front-end-program/e19fb42221b494559aaa45f050f0d7a97c7c16f0/images/p3-2.jpg)
 ![Level 4](https://raw.githubusercontent.com/yukicode/UDA-front-end-program/e19fb42221b494559aaa45f050f0d7a97c7c16f0/images/p3-3.jpg)
 
+---
 
-### Project 4 Website Optimization
+## Project 4 Website Optimization
 
 _Critical Rendering Path, Browser Rendering Optimization, Google Dev Tool, Gulp_
 
@@ -36,7 +41,9 @@ _Critical Rendering Path, Browser Rendering Optimization, Google Dev Tool, Gulp_
 * Scored 98 in PageSpeed for both desktop and mobile devices.
 * Website runs at 60 frames per second.
 
-### Project 5 Neighborhood Map
+---
+
+## Project 5 Neighborhood Map
 
 _API, AJAX, MVVM, Node, Express, Knockout, Bootstrap, Gulp_
 
@@ -51,7 +58,9 @@ _API, AJAX, MVVM, Node, Express, Knockout, Bootstrap, Gulp_
 
 ![Map Image Shoot] (https://raw.githubusercontent.com/yukicode/UDA-front-end-program/e19fb42221b494559aaa45f050f0d7a97c7c16f0/images/p5-1.jpg)
 
-### Project 6 Feed Reader testing
+---
+
+## Project 6 Feed Reader testing
 
 _Jasmine, Unit Test_
 

@@ -1,11 +1,15 @@
-#frontend-nanodegree-arcade-game
+#Arcade Game Frogger
 ===================================
 
-This is a frogger game written in HTML, CSS and Javascript.
+UDA-front-end-developer prgoram Project 3.
+
+This is a classic arcade game frogger written in HTML, CSS and Javascript. Object-oriented design pattern is used.
+
+Original game assets is from this [repo](https://github.com/udacity/frontend-nanodegree-arcade-game).
 
 ## How to Open The Game
 
-Open the game by going to website https://yukicode.github.io/u-frontend/, or download the project and open u-frontend/frogger-game/index.html in the browser.
+Open the game by going to website https://yukicode.github.io/UDA-front-end-program/, or download the project and open u-frontend/frogger-game/index.html in the browser.
 
 ## Compatibility
 

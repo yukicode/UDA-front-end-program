@@ -10,6 +10,8 @@ _HTML, CSS, Responsive Web Design, Javascript, jQuery_
 * Developed a responsive website that has cross device compatibility.
 * Used JavaScript to read resume content from JSON and dynamically displays in the webpage.
 
+![Portfolio Thumbnail](https://raw.githubusercontent.com/yukicode/UDA-front-end-program/e19fb42221b494559aaa45f050f0d7a97c7c16f0/images/p12.jpg)
+
 ### Project 3 Arcade Game Frogger
 
 _Object-Oriented Javascript_
@@ -17,6 +19,11 @@ _Object-Oriented Javascript_
 * Used provided visual assets and image loader to recreate the classic arcade Game.
 * Rewrote game engine to support different game stages and mutiple levels.
 * Designed and implemented additional game mechanism.
+
+![Select Charactor](https://raw.githubusercontent.com/yukicode/UDA-front-end-program/e19fb42221b494559aaa45f050f0d7a97c7c16f0/images/p3-1.jpg)
+![Level 2](https://raw.githubusercontent.com/yukicode/UDA-front-end-program/e19fb42221b494559aaa45f050f0d7a97c7c16f0/images/p3-2.jpg)
+![Level 4](https://raw.githubusercontent.com/yukicode/UDA-front-end-program/e19fb42221b494559aaa45f050f0d7a97c7c16f0/images/p3-3.jpg)
+
 
 ### Project 4 Website Optimization
 
@@ -41,6 +48,8 @@ _API, AJAX, MVVM, Node, Express, Knockout, Bootstrap, Gulp_
 * Integrated Yelp and Google Map APIs.
 * Automated the building process using Gulp.
 * Website is responsive and useable across devices.
+
+![Map Image Shoot] (https://raw.githubusercontent.com/yukicode/UDA-front-end-program/e19fb42221b494559aaa45f050f0d7a97c7c16f0/images/p5-1.jpg)
 
 ### Project 6 Feed Reader testing
 

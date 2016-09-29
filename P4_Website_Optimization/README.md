@@ -1,4 +1,11 @@
 #Website Optimization
+
+UDA-front-end-developer prgoram Project 4.
+
+This is a website optimization project. After optimization, the PageSpeed Score has been improved from about 30 to above 90 for both desktop and mobile devices.
+
+The original website is [here](https://github.com/cameronwp/udportfolio).
+
 --------------------------------------------------------
 * App folder is for development css and js are not inlined nor minified.
 * Public folder contains the inlined and minified build.
